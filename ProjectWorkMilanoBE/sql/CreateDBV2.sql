@@ -12,26 +12,26 @@ USE `gestionalefinale`;
 
 CREATE TABLE IF NOT EXISTS `candidate` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` int DEFAULT NULL,
-  `surname` int DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `surname` varchar(50) DEFAULT NULL,
   `birthday` int DEFAULT NULL,
-  `birth_place` int DEFAULT NULL,
-  `address` int DEFAULT NULL,
-  `city` int DEFAULT NULL,
-  `email` int DEFAULT NULL,
-  `phone` int DEFAULT NULL,
+  `birth_place` varchar(50) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `phone` bigint DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `candidate_commercial_data` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_candidate` int DEFAULT NULL,
-  `current_ral` int DEFAULT NULL,
-  `proposed_ral` int DEFAULT NULL,
+  `current_ral` bigint DEFAULT NULL,
+  `proposed_ral` bigint DEFAULT NULL,
   `month_refund` int DEFAULT NULL,
-  `business_cost` int DEFAULT NULL,
-  `subsidy_flag` int DEFAULT NULL,
-  `notes` text,
+  `business_cost` bigint DEFAULT NULL,
+  `subsidy_flag` tinyint DEFAULT NULL,
+  `notes` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_candidate` (`id_candidate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -47,47 +47,47 @@ CREATE TABLE IF NOT EXISTS `candidate_skill` (
 
 CREATE TABLE IF NOT EXISTS `company_client` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` text,
-  `address` text,
-  `city` text,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `city` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `contract_type` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` text,
-  `description` text,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `description` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `education` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_education_degree_type` int DEFAULT NULL,
-  `school_name` text,
-  `place` text,
+  `school_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `place` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `final_grade` text,
+  `final_grade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_education_degree_type` (`id_education_degree_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `education_degree_type` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `description` text,
+  `description` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `employee_type` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `description` text,
+  `description` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `id_employee` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_employee` int DEFAULT NULL,
-  `username` int DEFAULT NULL,
-  `password` int DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_employee` (`id_employee`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `job_interview` (
   `date` date DEFAULT NULL,
   `id_state_job_interview` int DEFAULT NULL,
   `outcome` int DEFAULT NULL,
-  `notes` text,
+  `notes` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `id_employee` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_candidate` (`id_candidate`),
@@ -107,13 +107,13 @@ CREATE TABLE IF NOT EXISTS `job_interview` (
 
 CREATE TABLE IF NOT EXISTS `job_offer` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` text,
-  `description` text,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `description` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
   `id_company_client` int DEFAULT NULL,
-  `min_ral` int DEFAULT NULL,
-  `max_ral` int DEFAULT NULL,
+  `min_ral` bigint DEFAULT NULL,
+  `max_ral` bigint DEFAULT NULL,
   `id_contract_type` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_company_client` (`id_company_client`),
@@ -131,27 +131,27 @@ CREATE TABLE IF NOT EXISTS `job_offer_skill` (
 
 CREATE TABLE IF NOT EXISTS `skill` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` text,
-  `description` text,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `description` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `state_job_interview` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` text,
-  `description` text,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `description` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS `work_experience` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_candidate` int DEFAULT NULL,
-  `title` text,
-  `description` text,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `description` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
-  `company` text,
-  `city` text,
+  `company` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `city` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_candidate` (`id_candidate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
