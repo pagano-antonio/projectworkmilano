@@ -14,7 +14,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "state_job_interview")
 @NamedQuery(name = "StateJobInterview.findAll", query = "SELECT s FROM StateJobInterview s")
-public class StateJobInterview implements Serializable {
+public class StateJobInterview implements Serializable {  
+	
+	//La classe StateJobInterview implementa l'interfaccia Serializable, 
+	//che indica che gli oggetti di questa classe possono essere serializzati. Questo è spesso richiesto nelle applicazioni Java 
+	//per consentire la trasmissione di oggetti attraverso la rete o il salvataggio su file.
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
