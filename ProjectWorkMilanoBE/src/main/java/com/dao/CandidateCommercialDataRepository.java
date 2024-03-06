@@ -8,7 +8,4 @@ import com.model.CandidateCommercialData;
 public interface CandidateCommercialDataRepository extends JpaRepository <CandidateCommercialData, Integer> {
 
 
-	
-	
-	
 }
