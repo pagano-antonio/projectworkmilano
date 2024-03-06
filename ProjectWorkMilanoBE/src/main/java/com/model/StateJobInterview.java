@@ -1,10 +1,12 @@
 package com.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -14,31 +16,29 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "state_job_interview")
 @NamedQuery(name = "StateJobInterview.findAll", query = "SELECT s FROM StateJobInterview s")
-public class StateJobInterview implements Serializable {  
-	
-	//La classe StateJobInterview implementa l'interfaccia Serializable, 
-	//che indica che gli oggetti di questa classe possono essere serializzati. Questo è spesso richiesto nelle applicazioni Java 
-	//per consentire la trasmissione di oggetti attraverso la rete o il salvataggio su file.
-	
-	
+public class StateJobInterview implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private int idStateJobInterview;
 
 	private String description;
 
 	private String title;
 
+	// bi-directional many-to-one association to JobInterview
+	@OneToMany(mappedBy = "stateJobInterview")
+	private List<JobInterview> jobInterviews;
+
 	public StateJobInterview() {
 	}
 
-	public int getId() {
-		return this.id;
+	public int getIdStateJobInterview() {
+		return this.idStateJobInterview;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdStateJobInterview(int idStateJobInterview) {
+		this.idStateJobInterview = idStateJobInterview;
 	}
 
 	public String getDescription() {
@@ -55,6 +55,28 @@ public class StateJobInterview implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public List<JobInterview> getJobInterviews() {
+		return this.jobInterviews;
+	}
+
+	public void setJobInterviews(List<JobInterview> jobInterviews) {
+		this.jobInterviews = jobInterviews;
+	}
+
+	public JobInterview addJobInterview(JobInterview jobInterview) {
+		getJobInterviews().add(jobInterview);
+		jobInterview.setStateJobInterview(this);
+
+		return jobInterview;
+	}
+
+	public JobInterview removeJobInterview(JobInterview jobInterview) {
+		getJobInterviews().remove(jobInterview);
+		jobInterview.setStateJobInterview(null);
+
+		return jobInterview;
 	}
 
 }
