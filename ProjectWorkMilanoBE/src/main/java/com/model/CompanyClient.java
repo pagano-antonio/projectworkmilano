@@ -89,4 +89,10 @@ public class CompanyClient implements Serializable {
 		return jobOffer;
 	}
 
+	@Override
+	public String toString() {
+		return "CompanyClient " + idCompanyClient + " | name: " + name + " | address: " + address + " | city: " + city
+				+ ".";
+	}
+	//i removed JOBOFFER from toString() because I thought it was optional, not mandatory
 }
