@@ -12,5 +12,7 @@ import com.model.StateJobInterview;
 public interface StateJobInterviewRepository extends JpaRepository<StateJobInterview, Integer>{
 	
 	//QUI VANNO INSERITI TUTTI I METODI DA IMPLEMENTARE NEI CTR
+	
+	
 
 }
