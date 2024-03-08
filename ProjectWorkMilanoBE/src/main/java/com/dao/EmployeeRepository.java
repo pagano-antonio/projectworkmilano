@@ -8,5 +8,7 @@ import com.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+
+	Employee findByUsername(String username); //mi serve per la pagina di login (lau)
     
 }
