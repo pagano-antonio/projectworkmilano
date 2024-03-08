@@ -1,4 +1,4 @@
-package com.Ctr;
+package com.ctr;
 
 import org.springframework.stereotype.Controller;
 

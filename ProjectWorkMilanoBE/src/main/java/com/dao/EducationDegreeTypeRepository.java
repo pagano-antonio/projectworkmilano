@@ -8,4 +8,6 @@ import com.model.EducationDegreeType;
 @Repository
 public interface EducationDegreeTypeRepository extends JpaRepository<EducationDegreeType, Integer>{
 
+	EducationDegreeType findByIdEducationDegreeType(int idEducationDegreeType);
+
 }
