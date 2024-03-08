@@ -21,12 +21,6 @@ public class CandidateSkillCtr {
 	@Autowired
 	private CandidateSkillRepository candidateSkillRep;
 	
-//HOME
-	
-	@GetMapping("/home")
-	public String goHome(Model model,HttpServletRequest request) {
-		return "home";
-	}
 	
 //METODO AGGIUNGI
 	

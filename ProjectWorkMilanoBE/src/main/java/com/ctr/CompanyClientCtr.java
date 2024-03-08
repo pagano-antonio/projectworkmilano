@@ -21,10 +21,7 @@ public class CompanyClientCtr {
 	@Autowired
 	private CompanyClientRepository companyClientRep;
 	
-	//HOME
-	public String goHome(Model model) {
-		return "home";
-	}
+	
 	
 	//GO TO create Company Client
 	@GetMapping("/addCompanyClientForm")

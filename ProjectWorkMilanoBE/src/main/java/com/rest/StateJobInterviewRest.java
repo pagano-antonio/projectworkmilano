@@ -3,7 +3,6 @@ package com.rest;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,22 +34,19 @@ public class StateJobInterviewRest {
 /////////////////////////////////////////////////////    METODO DELETE  /////////////////////////////////////////////////////////////////		 
 
 	@DeleteMapping
-	public ResponseEntity<String> delete(@PathVariable("idStateJobInterview") int idStateJobInterview) {
+	public String delete(@PathVariable("idStateJobInterview") int idStateJobInterview) {
 
-		Optional<StateJobInterview> res = stateJobInterviewRepository.findById(idStateJobInterview);
+		StateJobInterview res = stateJobInterviewRepository.findById(idStateJobInterview).get();
 
 		if (res != null) {
 
-			stateJobInterviewRepository.delete(res);
-
-			return ResponseEntity.ok("User deleted successfully");
+			stateJobInterviewRepository.delete(res);			
 
 		} else {
 
-			// Se l'utente non viene trovato, restituisci un codice di stato 404 (Not Found)
-
-			return ResponseEntity.notFound().build();
+			// Se l'utente non viene trovato, restituisci un codice di stato 404 (Not Found)			
 		}
+		return null;
 	}
 
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	

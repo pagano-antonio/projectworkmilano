@@ -19,14 +19,7 @@ public class JobOfferCtr {
 	@Autowired
 	private JobOfferRepository jobOfferRep;
 	
-//HOME
-	
-	@GetMapping("/home")
-	public String goHome(Model model,HttpServletRequest request) {
-		
-		return "home";
-		
-	}
+
 	
 //METODO AGGIUNGI
 	

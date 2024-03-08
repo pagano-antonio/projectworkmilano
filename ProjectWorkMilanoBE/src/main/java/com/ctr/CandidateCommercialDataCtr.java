@@ -24,9 +24,9 @@ public class CandidateCommercialDataCtr {
 	
 //HOME
 	
-	@GetMapping("/home")
-	public String goHome(Model model,HttpServletRequest request) {
-		return "home";
+	@GetMapping("/Home")
+	public String goHome() {
+		return "Home";
 	}
 	
 //METODO AGGIUNGI

@@ -23,14 +23,7 @@ public class SkillCtr {
 	
 	///////// INSERIMENTO /////////
 	
-	@GetMapping("/home")
-
-	public String vaiAllaHome(Model model) {
-
-		return "home";
-
-
-	}
+	
 	@GetMapping("/preInserimento")
 	public String preInserimento(Model model) {
 
@@ -38,7 +31,7 @@ public class SkillCtr {
 		return "OK";
 
 	}
-	@PostMapping("inserimentoSkill")
+	@PostMapping("/inserimentoSkill")
 	public String inserimento(Model model,HttpServletRequest request,Skill skill) {
 
 		skillRep.save(skill);
@@ -48,7 +41,7 @@ public class SkillCtr {
 
 	//////// LEGGI/RICERCA ////////
 	
-	@GetMapping("/preInserimentoId")
+	@GetMapping("/preInserimentoSkill")
 	public String preInserimentoId(Model model) {
 
 
@@ -57,7 +50,7 @@ public class SkillCtr {
 	}
 
 
-	@PostMapping("ricercaPerIdSkill")
+	@PostMapping("/ricercaPerIdSkill")
 
 	public String ricercaPerIdSkill (Model model, int idSkill) {
 
@@ -74,7 +67,7 @@ public class SkillCtr {
 	
 	///////// AGGIORNAMENTO /////////
 	
-	@PostMapping("aggiornaSkill")
+	@PostMapping("/aggiornaSkill")
 	public String aggiorna(Model model,Skill skill) {
 
 		skillRep.save(skill);
@@ -84,7 +77,7 @@ public class SkillCtr {
 	
 	///////// ELIMINA ////////
 	
-	@PostMapping("eliminaSkill")
+	@PostMapping("/eliminaSkill")
 
 	public String eliminaSkill( @RequestParam("idSkill") int idSkill) {
 

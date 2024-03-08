@@ -20,10 +20,6 @@ public class EducationCtr {
 	@Autowired
 	private EducationRepository educationRep;
 	
-	//HOME
-	public String goHome(Model model) {
-		return "home";
-	}
 	
 	//GO TO create Education
 	@GetMapping("/addEducationForm")

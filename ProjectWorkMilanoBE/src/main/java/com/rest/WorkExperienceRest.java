@@ -33,24 +33,19 @@ public class WorkExperienceRest {
 /////////////////////////////////////////////////////    METODO DELETE  /////////////////////////////////////////////////////////////////		 
 
 	@DeleteMapping
-	public ResponseEntity<String> delete(@PathVariable("idWorkExperience") int idWorkExperience) {
+	public String delete(@PathVariable("idWorkExperience") int idWorkExperience) {
 
-		Optional<WorkExperience> res = workExperienceRepository.findById(idWorkExperience);
+		WorkExperience res = workExperienceRepository.findById(idWorkExperience).get();;
 
 		if (res != null) {
 
-			workExperienceRepository.delete(res);
-
-			return ResponseEntity.ok("User deleted successfully");
+			workExperienceRepository.delete(res);			
 
 		} else {
-
-// Se l'utente non viene trovato, restituisci un codice di stato 404 (Not Found)
-
-			return ResponseEntity.notFound().build();
+				
 		}
+		return null;
 	}
-
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	
 
 	@GetMapping("findById/{idWorkExperience}")

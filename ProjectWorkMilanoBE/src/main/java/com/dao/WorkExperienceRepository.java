@@ -12,8 +12,7 @@ import com.model.WorkExperience;
 
 @Repository
 public interface WorkExperienceRepository extends JpaRepository<WorkExperience, Integer> {
-
-	void delete(Optional<WorkExperience> res);
+	
 
 	//QUI VANNO INSERITI TUTTI I METODI DA IMPLEMENTARE NEI CTR
 	

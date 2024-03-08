@@ -13,7 +13,6 @@ import com.model.StateJobInterview;
 @Repository
 public interface StateJobInterviewRepository extends JpaRepository<StateJobInterview, Integer>{
 
-	void delete(Optional<StateJobInterview> res);
 	
 	//QUI VANNO INSERITI TUTTI I METODI DA IMPLEMENTARE NEI CTR
 	
