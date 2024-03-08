@@ -13,26 +13,22 @@ import com.model.EmployeeType;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("EducationDegreeTypeCtr")
+@RequestMapping("EmployeeTypeCtr")
 
 public class EmployeeTypeCtr {
 	
 	@Autowired
     private EmployeeTypeRepository employeeTypeRep;
 	
-	@GetMapping("/home")
-    public String home(Model model) {
-        return "home";
-	}
 	
 	@GetMapping("/preInserimento")
-    public String preInserimento(Model model) {
+    public String preInserimento() {
 
         return "OK";
     } 
 	
 	@PostMapping("/inserimentoEmployeeType")
-    public String inserisci(Model model, HttpServletRequest request, EmployeeType employeeType) {
+    public String inserisci(Model model, EmployeeType employeeType) {
 
 		employeeTypeRep.save(employeeType);
 		return "OK";

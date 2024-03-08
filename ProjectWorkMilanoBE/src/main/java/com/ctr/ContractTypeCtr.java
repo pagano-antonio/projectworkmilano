@@ -19,10 +19,6 @@ public class ContractTypeCtr {
 	@Autowired
 	private ContractTypeRepository contractTypeRep;
 	
-	//HOME
-	public String goHome(Model model) {
-		return "home";
-	}
 	
 	//GO TO create Contract Type
 	@GetMapping("/addContractTypeForm")

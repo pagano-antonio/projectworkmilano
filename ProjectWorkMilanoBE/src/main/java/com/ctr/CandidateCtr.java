@@ -19,14 +19,7 @@ public class CandidateCtr {
 	@Autowired
 	private CandidateRepository candidateRep;
 	
-//HOME
-	
-	@GetMapping("/home")
-	public String goHome(Model model,HttpServletRequest request) {
-		
-		return "home";
-		
-	}
+
 	
 //METODO AGGIUNGI
 	

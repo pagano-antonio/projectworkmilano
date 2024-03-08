@@ -23,23 +23,16 @@ public class JobOfferSkillCtr {
 	
 ///////// INSERIMENTO /////////
 	
-@GetMapping("/home")
 
-public String vaiAllaHome(Model model) {
-
-	return "home";
-
-
-}
-@GetMapping("/preInserimento")
-public String preInserimento(Model model) {
+@GetMapping("/preInserimentoOffer")
+public String preInserimentoOffer() {
 
 
 	return "OK";
 
 }
-@PostMapping("inserimentoJobOfferSkill")
-public String inserimento(Model model,HttpServletRequest request,JobOfferSkill jobOfferSkill) {
+@PostMapping("/inserimentoJobOfferSkill")
+public String inserimentoJobOfferSkill(Model model,HttpServletRequest request,JobOfferSkill jobOfferSkill) {
 
 	jobOfferSkillRep.save(jobOfferSkill);
 
@@ -49,7 +42,7 @@ public String inserimento(Model model,HttpServletRequest request,JobOfferSkill j
 //////// LEGGI/RICERCA ////////
 
 @GetMapping("/preInserimentoId")
-public String preInserimentoId(Model model) {
+public String preInserimentoId() {
 
 
 	return "Ok";
@@ -57,9 +50,9 @@ public String preInserimentoId(Model model) {
 }
 
 
-@PostMapping("ricercaPerIdJobOfferSkill")
+@PostMapping("/ricercaPerIdJobOfferSkill")
 
-public String ricercaPerIdSkill (Model model, int idJobOfferSkill) {
+public String ricercaPerIdJobOfferSkill (Model model, int idJobOfferSkill) {
 
 
 	JobOfferSkill jobOfferskill = jobOfferSkillRep.findById(idJobOfferSkill).get();
@@ -74,8 +67,8 @@ public String ricercaPerIdSkill (Model model, int idJobOfferSkill) {
 
 ///////// AGGIORNAMENTO /////////
 
-@PostMapping("aggiornaJobOfferSkill")
-public String aggiorna(Model model,JobOfferSkill jobOfferSkill) {
+@PostMapping("/aggiornaJobOfferSkill")
+public String aggiornaJobOfferSkill(Model model,JobOfferSkill jobOfferSkill) {
 
 	jobOfferSkillRep.save(jobOfferSkill);
 
@@ -84,7 +77,7 @@ public String aggiorna(Model model,JobOfferSkill jobOfferSkill) {
 
 ///////// ELIMINA ////////
 
-@PostMapping("eliminaJobOfferSkill")
+@PostMapping("/eliminaJobOfferSkill")
 
 public String eliminaJobOfferSkill( @RequestParam("idJobOfferSkill") int idJobOfferSkill) {
 

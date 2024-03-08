@@ -20,10 +20,6 @@ public class EducationDegreeTypeCtr {
 	@Autowired
     private EducationDegreeTypeRepository educationDegreeTypeRep;
 	
-	@GetMapping("/home")
-    public String home(Model model) {
-        return "home";
-	}
 	
 	@GetMapping("/preInserimento")
     public String preInserimento(Model model) {

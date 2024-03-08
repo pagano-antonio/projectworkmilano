@@ -22,14 +22,14 @@ public class WorkExperienceCtr {
 	
 /////////////////////////////////////////////////////    METODO ADD  /////////////////////////////////////////////////////////////////		 
 
-@GetMapping("/preAdd")
-public String preAdd() {
+@GetMapping("/preAddWork")
+public String preAddWork() {
 
 return "preAdd";
 }
 
-@PostMapping("/add")
-public String add(Model model, WorkExperience we) {
+@PostMapping("/addWork")
+public String addWork(Model model, WorkExperience we) {
 
 	WorkExperienceRepository.save(we);
 
@@ -38,9 +38,9 @@ return "AddOK";
 
 /////////////////////////////////////////////////////// METODO DELETE /////////////////////////////////////////////////////////////////		 	
 
-@GetMapping("/delete")
+@GetMapping("/deleteWork")
 
-public String delete(int idWorkExperience) {
+public String deleteWork(int idWorkExperience) {
 
 	WorkExperienceRepository.deleteById(idWorkExperience);
 
@@ -48,14 +48,14 @@ return "DeleteOK";
 }
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	
 
-@GetMapping("/preFindById")
-public String preFindById() {
+@GetMapping("/preFindByIdWork")
+public String preFindByIdWork() {
 
 return "preFindByidWorkExperience";
 }
 
-@PostMapping("/findById")
-public String findById(Model model, int idWorkExperience) {
+@PostMapping("/findByIdWork")
+public String findByIdWork(Model model, int idWorkExperience) {
 
 Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperience);
 
@@ -70,7 +70,7 @@ return "errore";
 }   
 /////////////////////////////////////////////////////// METODO UPDATE /////////////////////////////////////////////////////////////////		 
 
-@GetMapping("/preUpdate")
+@GetMapping("/preUpdateWork")
 public String preUpdate(Model model,int idWorkExperience ) {
 
 Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperience);
@@ -84,8 +84,8 @@ return "preUpdateForm";
 return "errore"; 
 }
 }
-@PostMapping("/update")
-public String update( @ModelAttribute("WorkExperience") WorkExperience sji) {
+@PostMapping("/updateWork")
+public String updateWork( @ModelAttribute("WorkExperience") WorkExperience sji) {
 
 	WorkExperienceRepository.save(sji);		
 

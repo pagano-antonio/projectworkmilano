@@ -13,17 +13,14 @@ import com.model.Employee;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("EducationDegreeTypeCtr")
+@RequestMapping("EmployeeCtr")
 
 public class EmployeeCtr {
 	
 	@Autowired
     private EmployeeRepository employeeRep;
 	
-	@GetMapping("/home")
-    public String home(Model model) {
-        return "home";
-	}
+	
 	
 	@GetMapping("/preInserimento")
     public String preInserimento(Model model) {
