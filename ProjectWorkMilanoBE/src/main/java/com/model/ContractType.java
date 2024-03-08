@@ -79,11 +79,4 @@ public class ContractType implements Serializable {
 		return jobOffer;
 	}
 
-	@Override
-	public String toString() {
-		return "ContractType " + idContractType + " | description: " + description + " | title: " + title
-				+ ".";
-	}
-
-	
 }
