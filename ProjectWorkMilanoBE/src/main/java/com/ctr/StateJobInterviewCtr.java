@@ -6,67 +6,88 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.dao.*;
-import com.model.StateJobInterview;
-
+import com.model.*;
 
 @Controller
 public class StateJobInterviewCtr {
-	
-	@Autowired
-	private StateJobInterviewRepository StateJobInterviewRepository; 
-	
 
+	@Autowired
+	private StateJobInterviewRepository stateJobInterviewRepository;
 
 /////////////////////////////////////////////////////    METODO ADD  /////////////////////////////////////////////////////////////////		 
 
-@GetMapping("/preAdd")
-public String preAdd() {
+	@GetMapping("/preAdd")
+	public String preAdd() {
 
-return "OK";
-}
+		return "preAdd";
+	}
 
-@PostMapping("/add")
-public String add(Model model, StateJobInterview sji) {
+	@PostMapping("/add")
+	public String add(Model model, StateJobInterview sji) {
 
-System.out.println(sji); // PER VEDERE SE IL METODO FUNZIONA
+		stateJobInterviewRepository.save(sji);
 
-StateJobInterviewRepository.save(sji);
-
-return "OK";
-}
+		return "AddOK";
+	}
 
 /////////////////////////////////////////////////////// METODO DELETE /////////////////////////////////////////////////////////////////		 	
 
-@GetMapping("/delete")
+	@GetMapping("/delete")
 
-public String delete(int idStateJobInterview) {
+	public String delete(int idStateJobInterview) {
 
-	StateJobInterviewRepository.deleteById(idStateJobInterview);
+		stateJobInterviewRepository.deleteById(idStateJobInterview);
 
-return "ok";
-}
+		return "DeleteOK";
+	}
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	
 
-@GetMapping("/preFindById")
-public String preFindById() {
+	@GetMapping("/preFindById")
+	public String preFindById() {
 
-	return "PREfindStateJobInterview";
-}
+		return "preFindByIdStateJobInterview";
+	}
 
-@PostMapping("/findById")
-public String findById(Model model, int idStateJobInterview) {
+	@PostMapping("/findById")
+	public String findById(Model model, int idStateJobInterview) {
 
-Optional<StateJobInterview> sjiOptional = StateJobInterviewRepository.findById(idStateJobInterview);
-    
-    if (sjiOptional.isPresent()) {
-        StateJobInterview sji = sjiOptional.get();
-        model.addAttribute("stateJobInterview", sji);
-       
-        return "OK";
-    } else {      
-        return "errore"; 
-    }
-}
+		Optional<StateJobInterview> sjiOptional = stateJobInterviewRepository.findById(idStateJobInterview);
+
+		if (sjiOptional.isPresent()) {
+			StateJobInterview sji = sjiOptional.get();
+			model.addAttribute("stateJobInterview", sji);
+
+			return "FindByIdStateJobInterview";
+		} else {
+			return "errore";
+		}
+	}
+/////////////////////////////////////////////////////// METODO UPDATE /////////////////////////////////////////////////////////////////		 
+
+	@GetMapping("/preUpdate")
+	public String preUpdate(Model model, int idStateJobInterview) {
+
+		Optional<StateJobInterview> sjiOptional = stateJobInterviewRepository.findById(idStateJobInterview);
+
+		if (sjiOptional.isPresent()) {
+			StateJobInterview sji = sjiOptional.get();
+			model.addAttribute("stateJobInterview", sji);
+
+			return "preUpdateForm";
+		} else {
+			return "errore";
+		}
+	}
+
+	@PostMapping("/update")
+	public String update(@ModelAttribute("StateJobInterview") StateJobInterview sji) {
+
+		stateJobInterviewRepository.save(sji);
+
+		return "updateOK";
+
+	}
 }

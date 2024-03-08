@@ -1,4 +1,6 @@
 package com.dao;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.model.StateJobInterview;
@@ -10,6 +12,8 @@ import com.model.StateJobInterview;
 
 @Repository
 public interface StateJobInterviewRepository extends JpaRepository<StateJobInterview, Integer>{
+
+	void delete(Optional<StateJobInterview> res);
 	
 	//QUI VANNO INSERITI TUTTI I METODI DA IMPLEMENTARE NEI CTR
 	
