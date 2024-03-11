@@ -24,4 +24,5 @@ automaticamente la creazione delle query necessarie per l'operazione che stai ce
 	
 	public List<Candidate> findByPhone (BigInteger phone);
 
+
 }

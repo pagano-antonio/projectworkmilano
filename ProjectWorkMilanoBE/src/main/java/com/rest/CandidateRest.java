@@ -85,4 +85,8 @@ public class CandidateRest {
 		
 		//localhost:8080/Candidate/findCandidateByPhone/3405678
 	}
+	
+//READ BY ID EDUCATION DEGREE TYPE
+	
+	
 }
