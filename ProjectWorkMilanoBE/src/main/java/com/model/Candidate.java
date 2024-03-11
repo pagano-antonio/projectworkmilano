@@ -246,4 +246,13 @@ public class Candidate implements Serializable {
 		return workExperience;
 	}
 
+	@Override
+	public String toString() {
+		return "Candidate n. " + idCandidate + " | name: " + name + " | surname: " + surname + " | birthday: " + birthday + 
+				"| birth place: " + birthPlace + " | address: " + address + " | city: " + city + " | email: " + email + " | phone: "
+				+ phone;
+	}
+	
+	
+
 }

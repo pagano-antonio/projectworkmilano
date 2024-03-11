@@ -23,16 +23,16 @@ public class EducationCtr {
 	
 	//GO TO create Education
 	@GetMapping("/addEducationForm")
-	public String addEducationForm (Model model) {
+	public String addEducationForm () {
 			return "addEducation";
 	}
 		
 	//CREATE Education
 	@PostMapping("/addEducation")
-	public String addEducation (Model model, HttpServletRequest request, Education ed) {
+	public String addEducation (Education ed) {
 			
-		//Here goes something that checks if the Contract Type with these data already exists and returns
-		//an "existing Contract Type" page or an error page
+		//There is no controller here, because even if it is very unlikely two candidates can have the same
+		//Education data...
 			
 		educationRep.save(ed);
 		System.out.println("Education successfully added to DB.");
@@ -41,7 +41,7 @@ public class EducationCtr {
 		
 		//GO TO read by ID
 		@GetMapping("/findByIdEducationForm")
-		public String findByIdEducationForm (Model model) {
+		public String findByIdEducationForm () {
 			return "findByIdEducation";
 		}
 		
@@ -54,19 +54,19 @@ public class EducationCtr {
 				model.addAttribute("idEducation", ed);
 				return "findByIdEducationResults"; 
 				} else {
-				return "404error"; //we could add an error message, i don't know how to do that
+				return "Error";
 			}
 		}
 		
 		//GO TO update Education
 		@GetMapping("/updateEducationForm")
-		public String updateEducationForm (Model model) {
+		public String updateEducationForm () {
 			return "updateEducation";
 		}
 		
 		//UPDATE Education
 		@PostMapping("/updateEducation")
-		public String updateEducation (Model model, Education ed) {
+		public String updateEducation (Education ed) {
 			educationRep.save(ed);
 			
 			System.out.println("DB Update successful");
@@ -75,7 +75,7 @@ public class EducationCtr {
 		
 		//GO TO delete Education
 		@GetMapping("/deleteEducationForm")
-		public String deleteEducationForm (Model model) {
+		public String deleteEducationForm () {
 			return "deleteEducation";
 		}
 		
@@ -89,7 +89,7 @@ public class EducationCtr {
 					System.out.println("Education successfully deleted from DB.");
 					return "deleteEducationSuccessful";
 				} else {
-					return "404error"; //we could add an error message, i don't know how to do that
+					return "Error";
 				}
 		}
 

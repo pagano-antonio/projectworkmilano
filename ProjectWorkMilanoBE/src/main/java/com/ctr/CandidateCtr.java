@@ -1,6 +1,11 @@
 package com.ctr;
 
+
 import java.util.ArrayList;
+
+import java.math.BigInteger;
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +21,7 @@ import com.model.Candidate;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping ("candidate")
+@RequestMapping ("/candidate")
 public class CandidateCtr {
 	
 	@Autowired
@@ -82,6 +87,7 @@ public class CandidateCtr {
     	return "findByIdCandidate"; 
     	
     }
+
     //////////// RICERCA CANDIDATE PER CITTA' //////////////////
     
     @GetMapping("/preRicercaCitta")
@@ -92,7 +98,7 @@ public class CandidateCtr {
     @GetMapping("/ricercaCandidatePerCitta")
 	public String ricercaCandidatePerCitta(Model model, @RequestParam String city) {
     	System.out.println("ciao");
-		ArrayList<Candidate> candidateLista =(ArrayList<Candidate>) candidateRep.findByCity(city);
+		List<Candidate> candidateLista =candidateRep.findByCity(city);
 		
 		model.addAttribute("candidateLista", candidateLista);
 		return "risultatiRicercaCandidatePerCitta";
@@ -103,11 +109,51 @@ public class CandidateCtr {
 
 	public String risultatiRicercaCandidatePerCitta(Model model, String city) {
 
-		ArrayList candidateLista =(ArrayList) candidateRep.findByCity(city);
+		List<Candidate> candidateLista = candidateRep.findByCity(city);
 
 		candidateRep.saveAll(candidateLista);
 
 		return "candidateMessaggioAndatoABuonFine";
 	}
 
+//GO TO Read by SURNAME
+    @GetMapping("/findCandidateBySurnameForm")
+    public String findCandidateBySurnameForm() {
+    	
+    	return "findCandidateBySurname";
+    }
+    
+//READ Candidate by Surname
+    @GetMapping("/findCandidateBySurname")
+    public String findCandidateBySurname (Model model, String surname) {
+    	List<Candidate> candidateList = candidateRep.findBySurname(surname);
+    	
+    	if(candidateList != null && candidateList.size() > 0) {
+    		model.addAttribute("candidateSurnamesResults", candidateList);
+    		return "findByCandidateSurnameResults";
+    	} else {
+    		return "Error";
+    	}
+    }
+    
+//GO TO Read by PHONE
+    @GetMapping("/findCandidateByPhoneForm")
+    public String findCandidateByPhoneForm () {
+    	
+    	return "findCandidateByPhone";
+    }
+
+
+//READ Candidate by Phone
+    @GetMapping("/findCandidateByPhone")
+    public String findCandidateByPhone (Model model, BigInteger phone) {
+    	List<Candidate> candidatesList = candidateRep.findByPhone(phone);
+    	
+    	if(candidatesList != null && candidatesList.size() > 0) {
+    		model.addAttribute("candidatesPhonesResults", candidatesList);
+    		return "findByCandidatePhonesResults";
+    	} else {
+    		return "Error";
+    	}
+    }
 }

@@ -2,7 +2,12 @@ package com.ctr;
 
 import java.util.List;
 
+
+
+
 import java.util.Optional;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +27,18 @@ public class CandidateCommercialDataCtr {
 	
 	@Autowired
 	private CandidateCommercialDataRepository candidateCommercialDataRep;
+	@Autowired
 	private CandidateRepository candidateRep;
+	
+
+
+
+//HOME
+	
+	@GetMapping("/Home")
+	public String Home() {
+		return "Home";
+	}
 	
 
 //METODO AGGIUNGI
@@ -79,23 +95,31 @@ public class CandidateCommercialDataCtr {
     	
     }
   //RICERCA PER ID CANDIDATE
-    @GetMapping("/preFindByIdCandidate")
-    public String findByIdCandidate() {
+    @GetMapping("/preFindCCDataByIdCandidate")
+    public String preFindCCDataByIdCandidate() {
     	
-    	return "preFindByIdCandidate";
+    	System.out.println("prefindccdata ok");
+    	
+    	return "preFindCCDataByIdCandidate";
     	
     }
     
-    @PostMapping("/findByIdCandidate")
-    public String findByIdCandidate(Model model, Candidate Candidate) {
+    @PostMapping("/findCCDataByIdCandidate")
+    public String findCCDataByIdCandidate(Model model, Candidate Candidate) {
     	
-    	Optional<CandidateCommercialData> idC = candidateCommercialDataRep.findByCandidate(Candidate);
-    
-		if (idC.isPresent()) {
-			CandidateCommercialData idCa = idC.get();
-			model.addAttribute("CandidateCommercialData", idCa);
+    	System.out.println("findccdata ok"+Candidate.getIdCandidate());
+    	
+    	CandidateCommercialData idC = candidateCommercialDataRep.findByCandidate(Candidate).orElse(null);
+    	
+    	System.out.println(idC.getIdCandidateCommercial());
+    	
+		if (idC!=null) {
+			
+			System.out.println("findccdata ok"+Candidate.getIdCandidate());					
+			
+			model.addAttribute("LISTA", idC);
 
-			return "findByIdCandidate";
+			return "findCCDataByIdCandidate";
 		} else {
 			return "Error";
 		}	
