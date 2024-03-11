@@ -1,7 +1,13 @@
 package com.dao;
 
+
+
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+
 import com.model.Candidate;
 
 @Repository
@@ -17,5 +23,5 @@ fornendo metodi già pronti per eseguire operazioni comuni sul database per
 l'entità Candidate. Quando utilizzi questa interfaccia, Spring Data JPA gestirà 
 automaticamente la creazione delle query necessarie per l'operazione che stai cercando di eseguire.*/
 	
-
+	List <Candidate> findByCity(String city);
 }

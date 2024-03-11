@@ -1,5 +1,7 @@
 package com.ctr;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,5 +81,30 @@ public class CandidateCtr {
     	return "findByIdCandidate"; 
     	
     }
+    //////////// RICERCA CANDIDATE PER CITTA' //////////////////
+    
+    @GetMapping("/preRicercaCitta")
+    public String preRicercaCitta (Model model) {
+    	return "ricercaCandidatePerCitta";
+    }
+    
+    @PostMapping("/ricercaCandidatePerCitta")
+	public String ricercaCandidatePerCitta(Model model, String city) {
+		ArrayList candidateLista =(ArrayList) candidateRep.findByCity(city);
+		model.addAttribute("candidateLista", candidateLista);
+		return "risultatiRicercaCandidatePerCitta";
+	}
+    
+   
+    @GetMapping("/risultatiRicercaCandidatePerCitta")
+
+	public String risultatiRicercaCandidatePerCitta(Model model, String city) {
+
+		ArrayList candidateLista =(ArrayList) candidateRep.findByCity(city);
+
+		candidateRep.saveAll(candidateLista);
+
+		return "Modifica Avvenuta Con Successo.";
+	}
 
 }

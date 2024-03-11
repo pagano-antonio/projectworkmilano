@@ -1,6 +1,7 @@
 package com.ctr;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,7 @@ public class CandidateCommercialDataCtr {
 	private CandidateCommercialDataRepository candidateCommercialDataRep;
 	private CandidateRepository candidateRep;
 	
-//HOME
-	
-	@GetMapping("/Home")
-	public String goHome() {
-		return "Home";
-	}
-	
+
 //METODO AGGIUNGI
 	
 	@GetMapping("/addCandidateCommercialDataForm")
