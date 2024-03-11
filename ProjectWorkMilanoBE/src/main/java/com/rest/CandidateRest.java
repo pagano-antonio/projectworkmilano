@@ -113,5 +113,10 @@ public class CandidateRest {
 	
 //READ BY ID EDUCATION DEGREE TYPE
 	
-	
+	@GetMapping("findCandidateByIdEducationDegreeType/{idEducationDegreeType}")
+	public List<Candidate> findByEducations_EducationDegreeType_IdEducationDegreeType (Integer idEducationDegreeType){
+		
+		return candidateRep.findByEducations_EducationDegreeType_IdEducationDegreeType(idEducationDegreeType);
+		//non funziona come dovrebbe...
+	}
 }
