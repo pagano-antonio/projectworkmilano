@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dao.CandidateRepository;
 import com.model.Candidate;
@@ -89,8 +90,8 @@ public class CandidateCtr {
     }
     
     @PostMapping("/ricercaCandidatePerCitta")
-	public String ricercaCandidatePerCitta(Model model, String city) {
-		ArrayList candidateLista =(ArrayList) candidateRep.findByCity(city);
+	public String ricercaCandidatePerCitta(Model model, @RequestParam String city) {
+		ArrayList<Candidate> candidateLista =(ArrayList<Candidate>) candidateRep.findByCity(city);
 		model.addAttribute("candidateLista", candidateLista);
 		return "risultatiRicercaCandidatePerCitta";
 	}
@@ -104,7 +105,7 @@ public class CandidateCtr {
 
 		candidateRep.saveAll(candidateLista);
 
-		return "Modifica Avvenuta Con Successo.";
+		return "candidateMessaggioAndatoABuonFine";
 	}
 
 }

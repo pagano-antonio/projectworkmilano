@@ -40,13 +40,13 @@
 					<td>${candidateLista.phone}</td>
 					 <td>
 
-<form action="${pageContext.request.contextPath}/CandidateCtr/findByIdCandidate" method="POST">
+<form action="${pageContext.request.contextPath}/findByIdCandidate" method="POST">
 	<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
 	<button type="submit">Aggiorna</button>
  </form>
                         
                         
- <form action="${pageContext.request.contextPath}/CandidateCtr/delete" method="POST">
+ <form action="${pageContext.request.contextPath}/delete" method="POST">
 	<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
 	<button type="submit">Elimina</button>
 </form>

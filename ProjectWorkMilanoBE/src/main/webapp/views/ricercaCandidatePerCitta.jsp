@@ -8,10 +8,9 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/CandidateCtr/ricercaCandidatePerCitta" method="post">
-        <h2>Inserisci Citta' :</h2>
-        <input type="text" id="citta" name="citta" placeholder="Inserisci Citta'">
-    
-        <input type="submit" value="Cerca">
-    </form>
+    <h2>Inserisci Citta' :</h2>
+    <input type="text" id="city" name="city" placeholder="Inserisci Citta'">
+    <input type="submit" value="Cerca">
+</form>
 </body>
 </html>
