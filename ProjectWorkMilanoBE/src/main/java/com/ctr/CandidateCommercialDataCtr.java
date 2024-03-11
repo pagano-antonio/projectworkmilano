@@ -21,6 +21,7 @@ public class CandidateCommercialDataCtr {
 	
 	@Autowired
 	private CandidateCommercialDataRepository candidateCommercialDataRep;
+	@Autowired
 	private CandidateRepository candidateRep;
 	
 //HOME
