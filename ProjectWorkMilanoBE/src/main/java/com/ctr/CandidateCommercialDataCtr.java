@@ -1,6 +1,8 @@
 package com.ctr;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,6 @@ import com.dao.CandidateCommercialDataRepository;
 import com.dao.CandidateRepository;
 import com.model.Candidate;
 import com.model.CandidateCommercialData;
-
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -81,6 +82,28 @@ public class CandidateCommercialDataCtr {
     	candidateCommercialDataRep.findById(idCandidateCommercialData);
     	return "findByIdCandidateCommercialData"; 
     	
+    }
+  //RICERCA PER ID CANDIDATE
+    @GetMapping("/preFindByIdCandidate")
+    public String findByIdCandidate() {
+    	
+    	return "preFindByIdCandidate";
+    	
+    }
+    
+    @PostMapping("/findByIdCandidate")
+    public String findByIdCandidate(Model model, Candidate Candidate) {
+    	
+    	Optional<CandidateCommercialData> idC = candidateCommercialDataRep.findByCandidate(Candidate);
+    
+		if (idC.isPresent()) {
+			CandidateCommercialData idCa = idC.get();
+			model.addAttribute("CandidateCommercialData", idCa);
+
+			return "findByIdCandidate";
+		} else {
+			return "Error";
+		}	
     }
 
 }
