@@ -62,7 +62,7 @@ public class StateJobInterviewCtr {
 
 			return "FindByIdStateJobInterview";
 		} else {
-			return "errore";
+			return "Error";
 		}
 	}
 /////////////////////////////////////////////////////// METODO UPDATE /////////////////////////////////////////////////////////////////		 
