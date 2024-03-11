@@ -1,7 +1,11 @@
 package com.ctr;
 
+
+import java.util.ArrayList;
+
 import java.math.BigInteger;
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dao.CandidateRepository;
 import com.model.Candidate;
@@ -16,7 +21,7 @@ import com.model.Candidate;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping
+@RequestMapping ("/candidate")
 public class CandidateCtr {
 	
 	@Autowired
@@ -82,7 +87,35 @@ public class CandidateCtr {
     	return "findByIdCandidate"; 
     	
     }
+
+    //////////// RICERCA CANDIDATE PER CITTA' //////////////////
     
+    @GetMapping("/preRicercaCitta")
+    public String preRicercaCitta (Model model) {
+    	return "ricercaCandidatePerCitta";
+    }
+    
+    @GetMapping("/ricercaCandidatePerCitta")
+	public String ricercaCandidatePerCitta(Model model, @RequestParam String city) {
+    	System.out.println("ciao");
+		List<Candidate> candidateLista =candidateRep.findByCity(city);
+		
+		model.addAttribute("candidateLista", candidateLista);
+		return "risultatiRicercaCandidatePerCitta";
+	}
+    
+   
+    @GetMapping("/risultatiRicercaCandidatePerCitta")
+
+	public String risultatiRicercaCandidatePerCitta(Model model, String city) {
+
+		List<Candidate> candidateLista = candidateRep.findByCity(city);
+
+		candidateRep.saveAll(candidateLista);
+
+		return "candidateMessaggioAndatoABuonFine";
+	}
+
 //GO TO Read by SURNAME
     @GetMapping("/findCandidateBySurnameForm")
     public String findCandidateBySurnameForm() {
@@ -109,6 +142,7 @@ public class CandidateCtr {
     	
     	return "findCandidateByPhone";
     }
+
 
 //READ Candidate by Phone
     @GetMapping("/findCandidateByPhone")

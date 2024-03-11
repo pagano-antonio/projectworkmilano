@@ -1,7 +1,17 @@
 package com.rest;
 
+
+
+import java.util.List;
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dao.CandidateRepository;
+
 import com.model.Candidate;
 
 @RestController
@@ -62,6 +73,19 @@ public class CandidateRest {
 		Candidate candidate = candidateRep.findById(idCandidate).get();		
 		return candidate;
 		
+
+	}	
+	
+	 //////////// RICERCA CANDIDATE PER CITTA' //////////////////
+	
+	@GetMapping("ricercaByCity/{city}")
+	public List<Candidate> ricercaByCity(@PathVariable("city") String city) {
+					
+
+	List<Candidate> candidate = (List<Candidate>)candidateRep.findByCity(city);
+
+	return candidate;
+
 	}
 	
 //READ BY SURNAME
@@ -84,6 +108,7 @@ public class CandidateRest {
 		return candidate.toString();
 		
 		//localhost:8080/Candidate/findCandidateByPhone/3405678
+
 	}
 	
 //READ BY ID EDUCATION DEGREE TYPE
