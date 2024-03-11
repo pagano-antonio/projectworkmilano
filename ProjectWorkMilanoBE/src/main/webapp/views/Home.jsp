@@ -7,6 +7,6 @@
 <title>GESTIONALE COLLOQUIO</title>
 </head>
 <body>
-
+Check funzionamento
 </body>
 </html>

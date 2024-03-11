@@ -40,6 +40,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+		<dependency>
+    <groupId>javax.servlet.jsp</groupId>
+    <artifactId>javax.servlet.jsp-api</artifactId>
+    <version>2.3.3</version> <!-- per risolvere l'errore del Tag Validator -->
+    <scope>provided</scope>
+</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

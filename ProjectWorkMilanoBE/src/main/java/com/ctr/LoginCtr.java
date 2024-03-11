@@ -21,7 +21,7 @@ public class LoginCtr {
 
 	    @GetMapping("/login")
 	    public String showLoginPage() {
-	        return "/login";}  
+	        return "login";}  
 	    
 	        
 	    @PostMapping("/login")
@@ -39,7 +39,7 @@ public class LoginCtr {
 	                } else {
 	                    // Login fallito
 	                    model.addAttribute("error", "Credenziali non valide");
-	                    return "/login";
+	                    return "login";
 	                }
 	            }
 	    @GetMapping("/logout")
