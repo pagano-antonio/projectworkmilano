@@ -1,5 +1,6 @@
 package com.ctr;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,5 +102,24 @@ public class CandidateCtr {
     		return "Error";
     	}
     }
+    
+//GO TO Read by PHONE
+    @GetMapping("/findCandidateByPhoneForm")
+    public String findCandidateByPhoneForm () {
+    	
+    	return "findCandidateByPhone";
+    }
 
+//READ Candidate by Phone
+    @GetMapping("/findCandidateByPhone")
+    public String findCandidateByPhone (Model model, BigInteger phone) {
+    	List<Candidate> candidatesList = candidateRep.findByPhone(phone);
+    	
+    	if(candidatesList != null && candidatesList.size() > 0) {
+    		model.addAttribute("candidatesPhonesResults", candidatesList);
+    		return "findByCandidatePhonesResults";
+    	} else {
+    		return "Error";
+    	}
+    }
 }

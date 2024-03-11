@@ -1,5 +1,6 @@
 package com.rest;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,5 +72,17 @@ public class CandidateRest {
 		return candidateRep.findBySurname(surname);
 		
 		//localhost:8080/Candidate/findCandidateBySurname/Rubino
+	}
+	
+//READ BY PHONE
+	
+	@GetMapping("findCandidateByPhone/{phone}")
+	public String findCandidateByPhone (@PathVariable(value="phone") BigInteger phone){
+		
+		List<Candidate> candidate = candidateRep.findByPhone(phone);
+		
+		return candidate.toString();
+		
+		//localhost:8080/Candidate/findCandidateByPhone/3405678
 	}
 }

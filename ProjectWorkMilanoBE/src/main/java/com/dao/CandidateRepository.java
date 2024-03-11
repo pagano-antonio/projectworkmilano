@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -20,5 +21,7 @@ l'entit√† Candidate. Quando utilizzi questa interfaccia, Spring Data JPA gestir√
 automaticamente la creazione delle query necessarie per l'operazione che stai cercando di eseguire.*/
 	
 	public List<Candidate> findBySurname (String surname);
+	
+	public List<Candidate> findByPhone (BigInteger phone);
 
 }
