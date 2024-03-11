@@ -1,5 +1,7 @@
 package com.ctr;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,6 +80,26 @@ public class CandidateCtr {
     	candidateRep.findById(idCandidate);
     	return "findByIdCandidate"; 
     	
+    }
+    
+//GO TO Read by SURNAME
+    @GetMapping("/findCandidateBySurnameForm")
+    public String findCandidateBySurnameForm() {
+    	
+    	return "findCandidateBySurname";
+    }
+    
+//READ Candidate by Surname
+    @GetMapping("/findCandidateBySurname")
+    public String findCandidateBySurname (Model model, String surname) {
+    	List<Candidate> candidateList = candidateRep.findBySurname(surname);
+    	
+    	if(candidateList != null && candidateList.size() > 0) {
+    		model.addAttribute("candidateSurnamesResults", candidateList);
+    		return "findByCandidateSurnameResults";
+    	} else {
+    		return "Error";
+    	}
     }
 
 }

@@ -1,5 +1,8 @@
 package com.ctr;
 
+import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dao.ContractTypeRepository;
 import com.model.ContractType;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/ContractTypeCtr")
@@ -22,25 +23,28 @@ public class ContractTypeCtr {
 	
 	//GO TO create Contract Type
 	@GetMapping("/addContractTypeForm")
-	public String addContractTypeForm (Model model) {
+	public String addContractTypeForm () {
 		return "addContractType";
 	}
 	
 	//CREATE Contract Type
 	@PostMapping("/addContractType")
-	public String addContractType (Model model, HttpServletRequest request, ContractType contract) {
+	public String addContractType (ContractType contract) {
+		List<ContractType> existingContracts = contractTypeRep.findByTitle(contract.getTitle());
 		
-		//Here goes something that checks if the Contract Type with these data already exists and returns
-		//an "existing Contract Type" page or an error page
-		
+		if(!existingContracts.isEmpty()) {
+			System.out.println("Contract Type already exists in the DB.");
+	        return "Error";
+		} else {
 		contractTypeRep.save(contract);
 		System.out.println("Contract Type successfully added to DB.");
 		return "addContractTypeSuccess";
+		}
 	}
 	
 	//GO TO read by ID
 	@GetMapping("/findByIdContractTypeForm")
-	public String findByIdContractTypeForm (Model model) {
+	public String findByIdContractTypeForm () {
 		return "findByIdContractType";
 	}
 	
@@ -53,13 +57,13 @@ public class ContractTypeCtr {
 			model.addAttribute("idContractType", contract);
 			return "findByIdContractTypeResults"; 
 			} else {
-			return "404error"; //we could add an error message, i don't know how to do that
+			return "Error";
 		}
 	}
 	
 	//GO TO update Contract Type
 	@GetMapping("/updateContractTypeForm")
-	public String updateContractTypeForm (Model model) {
+	public String updateContractTypeForm () {
 		return "updateContractType";
 	}
 	
@@ -74,7 +78,7 @@ public class ContractTypeCtr {
 	
 	//GO TO delete Contract Type
 	@GetMapping("/deleteContractTypeForm")
-	public String deleteContractTypeForm (Model model) {
+	public String deleteContractTypeForm () {
 		return "deleteContractType";
 	}
 	
@@ -88,7 +92,7 @@ public class ContractTypeCtr {
 				System.out.println("Contract Type successfully deleted from DB.");
 				return "deleteContractTypeSuccessful";
 			} else {
-				return "404error"; //we could add an error message, i don't know how to do that
+				return "Error";
 			}
 	}
 }

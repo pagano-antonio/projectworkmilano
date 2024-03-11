@@ -32,12 +32,22 @@ public class LoginCtr {
 	                    // Login riuscito
 	    				session.setAttribute("utente", employee);
 	                    model.addAttribute("username", username);
+	                    
+	                    System.out.println("Faccio il log in sessione: " + session.getAttribute("utente")); 
+	                    
 	                    return "redirect:/home";
 	                } else {
 	                    // Login fallito
 	                    model.addAttribute("error", "Credenziali non valide");
-	                    return "/login";
+	                    return "login";
 	                }
 	            }
-	     
+	    @GetMapping("/logout")
+	    public String performLogout(HttpSession session) {
+	    	
+	    	System.out.println("Faccio logout dalla sessione: " + session.getAttribute("utente"));
+	    	
+	        session.invalidate(); // Invalida la sessione e rimuove l'utente loggato
+	        return "redirect:/login";
+	    }
 }//classe
