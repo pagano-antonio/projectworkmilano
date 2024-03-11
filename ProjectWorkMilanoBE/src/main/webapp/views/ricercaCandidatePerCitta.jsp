@@ -7,7 +7,7 @@
 <title>Ricerca Candidate Per Citta'</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/CandidateCtr/ricercaCandidatePerCitta" method="post">
+<form action="${pageContext.request.contextPath}/candidate/ricercaCandidatePerCitta" method="get">
     <h2>Inserisci Citta' :</h2>
     <input type="text" id="city" name="city" placeholder="Inserisci Citta'">
     <input type="submit" value="Cerca">

@@ -7,7 +7,7 @@
 </head>
 <body>
     <ul>
-        <li><a href="${pageContext.request.contextPath}/preRicercaCitta">INSERISCI CITTA :</a></li>
+        <li><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">INSERISCI CITTA :</a></li>
     </ul>
 </body>
 </html>

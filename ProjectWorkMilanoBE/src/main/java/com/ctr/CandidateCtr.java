@@ -16,7 +16,7 @@ import com.model.Candidate;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping
+@RequestMapping ("candidate")
 public class CandidateCtr {
 	
 	@Autowired
@@ -89,9 +89,11 @@ public class CandidateCtr {
     	return "ricercaCandidatePerCitta";
     }
     
-    @PostMapping("/ricercaCandidatePerCitta")
+    @GetMapping("/ricercaCandidatePerCitta")
 	public String ricercaCandidatePerCitta(Model model, @RequestParam String city) {
+    	System.out.println("ciao");
 		ArrayList<Candidate> candidateLista =(ArrayList<Candidate>) candidateRep.findByCity(city);
+		
 		model.addAttribute("candidateLista", candidateLista);
 		return "risultatiRicercaCandidatePerCitta";
 	}

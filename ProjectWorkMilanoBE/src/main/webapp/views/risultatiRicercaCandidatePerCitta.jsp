@@ -34,19 +34,19 @@
 					<td>${candidateLista.surname}</td>
 					<td>${candidateLista.birthday}</td>
 					<td>${candidateLista.birthPlace}</td>
-					<td>${candidateLista.andress}</td>
+					<td>${candidateLista.address}</td>
 					<td>${candidateLista.city}</td>
 					<td>${candidateLista.email}</td>
 					<td>${candidateLista.phone}</td>
 					 <td>
 
-<form action="${pageContext.request.contextPath}/findByIdCandidate" method="POST">
+<form action="${pageContext.request.contextPath}/candidate/findByIdCandidate" method="POST">
 	<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
 	<button type="submit">Aggiorna</button>
  </form>
                         
                         
- <form action="${pageContext.request.contextPath}/delete" method="POST">
+ <form action="${pageContext.request.contextPath}/candidate/delete" method="POST">
 	<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
 	<button type="submit">Elimina</button>
 </form>
