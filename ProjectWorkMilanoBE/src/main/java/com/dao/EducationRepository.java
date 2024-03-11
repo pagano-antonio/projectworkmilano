@@ -12,5 +12,4 @@ public interface EducationRepository extends JpaRepository <Education, Integer> 
 	
 	public Education findByIdEducation (int idEducation);
 
-
 }

@@ -1,5 +1,8 @@
 package com.rest;
 
+import java.math.BigInteger;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +17,7 @@ import com.dao.CandidateRepository;
 import com.model.Candidate;
 
 @RestController
-@RequestMapping("/Candidate")
+@RequestMapping("Candidate")
 public class CandidateRest {
 
 	@Autowired
@@ -59,5 +62,27 @@ public class CandidateRest {
 		Candidate candidate = candidateRep.findById(idCandidate).get();		
 		return candidate;
 		
-	}	
+	}
+	
+//READ BY SURNAME
+	
+	@GetMapping("findCandidateBySurname/{surname}")
+	public List<Candidate> findBySurname (@PathVariable(value="surname") String surname) {
+		
+		return candidateRep.findBySurname(surname);
+		
+		//localhost:8080/Candidate/findCandidateBySurname/Rubino
+	}
+	
+//READ BY PHONE
+	
+	@GetMapping("findCandidateByPhone/{phone}")
+	public String findCandidateByPhone (@PathVariable(value="phone") BigInteger phone){
+		
+		List<Candidate> candidate = candidateRep.findByPhone(phone);
+		
+		return candidate.toString();
+		
+		//localhost:8080/Candidate/findCandidateByPhone/3405678
+	}
 }

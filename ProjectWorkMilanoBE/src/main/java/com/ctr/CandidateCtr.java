@@ -1,5 +1,8 @@
 package com.ctr;
 
+import java.math.BigInteger;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,5 +82,44 @@ public class CandidateCtr {
     	return "findByIdCandidate"; 
     	
     }
+    
+//GO TO Read by SURNAME
+    @GetMapping("/findCandidateBySurnameForm")
+    public String findCandidateBySurnameForm() {
+    	
+    	return "findCandidateBySurname";
+    }
+    
+//READ Candidate by Surname
+    @GetMapping("/findCandidateBySurname")
+    public String findCandidateBySurname (Model model, String surname) {
+    	List<Candidate> candidateList = candidateRep.findBySurname(surname);
+    	
+    	if(candidateList != null && candidateList.size() > 0) {
+    		model.addAttribute("candidateSurnamesResults", candidateList);
+    		return "findByCandidateSurnameResults";
+    	} else {
+    		return "Error";
+    	}
+    }
+    
+//GO TO Read by PHONE
+    @GetMapping("/findCandidateByPhoneForm")
+    public String findCandidateByPhoneForm () {
+    	
+    	return "findCandidateByPhone";
+    }
 
+//READ Candidate by Phone
+    @GetMapping("/findCandidateByPhone")
+    public String findCandidateByPhone (Model model, BigInteger phone) {
+    	List<Candidate> candidatesList = candidateRep.findByPhone(phone);
+    	
+    	if(candidatesList != null && candidatesList.size() > 0) {
+    		model.addAttribute("candidatesPhonesResults", candidatesList);
+    		return "findByCandidatePhonesResults";
+    	} else {
+    		return "Error";
+    	}
+    }
 }

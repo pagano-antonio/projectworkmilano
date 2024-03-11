@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dao.CompanyClientRepository;
 import com.model.CompanyClient;
 
-import jakarta.servlet.http.HttpServletRequest;
-
 @Controller
 @RequestMapping("/CompanyClientCtr")
 public class CompanyClientCtr {
@@ -25,25 +23,28 @@ public class CompanyClientCtr {
 	
 	//GO TO create Company Client
 	@GetMapping("/addCompanyClientForm")
-	public String addCompanyClientForm (Model model) {
+	public String addCompanyClientForm () {
 		return "addCompanyClient";
 	}
 	
 	//CREATE Company Client
 	@PostMapping("/addCompanyClient")
-	public String addCompanyClient (Model model, HttpServletRequest request, CompanyClient client) {
+	public String addCompanyClient (CompanyClient client) {
+		List<CompanyClient> existingClients = companyClientRep.findByAddressAndCityAndName(client.getAddress(), client.getCity(), client.getName());
 		
-		//Here goes something that checks if the Company Client with these data already exists and returns
-		//an "existing Company Client" page or an error page
-		
+		if(!existingClients.isEmpty()) {
+			System.out.println("Company Client already exists in the DB.");
+	        return "Error";
+		} else {
 		companyClientRep.save(client);
 		System.out.println("Company Client successfully added to DB.");
 		return "addCompanyClientSuccess";
+		}
 	}
 	
 	//GO TO read by ID
 	@GetMapping("/findByIdCompanyClientForm")
-	public String findByIdCompanyClientForm (Model model) {
+	public String findByIdCompanyClientForm () {
 		return "findByIdCompanyClient";
 	}
 	
@@ -57,13 +58,13 @@ public class CompanyClientCtr {
 			model.addAttribute("idCompanyClient", client);
 			return "findByIdCompanyClientResults"; 
 			} else {
-			return "404error"; //we could add an error message, i don't know how to do that
+			return "Error";
 		}
 	}
 	
 	//GO TO read by NAME
 	@GetMapping("/findCompanyClientByNameForm")
-	public String findCompanyClientByNameForm (Model model) {
+	public String findCompanyClientByNameForm () {
 		return "findCompanyClientByName";
 	}
 	
@@ -76,13 +77,13 @@ public class CompanyClientCtr {
 			model.addAttribute("companyClientNamesResults", clientList);
 			return "findCompanyClientByNameResults";
 		} else {
-			return "404error"; //we could add an error message, i don't know how to do that
+			return "Error";
 		}
 	}
 	
 	//GO TO read by CITY
 	@GetMapping("/findCompanyClientByCityForm")
-	public String findCompanyClientByCityForm (Model model) {
+	public String findCompanyClientByCityForm () {
 		return "findCompanyClientByCity";
 	}
 	
@@ -94,19 +95,19 @@ public class CompanyClientCtr {
 			model.addAttribute("companyClientCitiesResults", clientList);
 			return "findCompanyClientByCityResults";
 		} else {
-			return "404error"; //we could add an error message, i don't know how to do that
+			return "Error";
 		}
 	}
 	
 	//GO TO update Company Client
 	@GetMapping("/updateCompanyClientForm")
-	public String updateCompanyClientForm (Model model) {
+	public String updateCompanyClientForm () {
 		return "updateCompanyClient";
 	}
 	
 	//UPDATE Company Client
 	@PostMapping("/updateCompanyClient")
-	public String updateCompanyClient (Model model, CompanyClient client) {
+	public String updateCompanyClient (CompanyClient client) {
 		companyClientRep.save(client);
 		
 		System.out.println("DB Update successful");
@@ -115,13 +116,13 @@ public class CompanyClientCtr {
 	
 	//GO TO delete Company Client
 	@GetMapping("/deleteCompanyClientForm")
-	public String deleteCompanyClientForm (Model model) {
+	public String deleteCompanyClientForm () {
 		return "deleteCompanyClient";
 	}
 	
 	//DELETE Company Client
 	@GetMapping("/deleteCompanyClient")
-	public String deleteCompanyClient (Model model, int idCompanyClient) {
+	public String deleteCompanyClient (int idCompanyClient) {
 		CompanyClient client = companyClientRep.findById(idCompanyClient).orElse(null);
 
 		if (client != null) {
@@ -129,7 +130,7 @@ public class CompanyClientCtr {
 			System.out.println("Company Client successfully deleted from DB.");
 			return "deleteCompanyClientSuccessful";
 		} else {
-			return "404error"; //we could add an error message, i don't know how to do that
+			return "Error";
 		}
 	}
 }
