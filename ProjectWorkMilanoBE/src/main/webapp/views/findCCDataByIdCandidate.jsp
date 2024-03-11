@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>FIND CANDIDATE COMMERCIAL DATA BY ID CANDIDATE</title>
+<link rel="stylesheet" type="text/css" href="header.css">
 </head>
 <body>
 <table>
