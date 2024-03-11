@@ -9,11 +9,9 @@
 </head>
 <body>
 
-<body>
-
     <h2>Login</h2>
 
-    <form action="/login" method="post">
+    <form action="${pageContext.request.contextPath}/gestionale/login" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
 
@@ -26,11 +24,6 @@
     <c:if test="${not empty error}">
         <p style="color: red;">${error}</p>
     </c:if>
-
-</body>
-</html>
-
-
 
 </body>
 </html>

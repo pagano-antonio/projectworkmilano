@@ -8,5 +8,11 @@
 </head>
 <body>
 Check funzionamento
+
+<form action="${pageContext.request.contextPath}/gestionale/logout" method="get">
+    <button type="submit">Logout</button>
+</form>
+
+
 </body>
 </html>
