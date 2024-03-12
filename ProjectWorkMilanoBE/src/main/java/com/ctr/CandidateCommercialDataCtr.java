@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.dao.CandidateCommercialDataRepository;
 import com.dao.CandidateRepository;
 import com.model.Candidate;
@@ -95,17 +97,27 @@ public class CandidateCommercialDataCtr {
         
  //RICERCA PER ID 
     @GetMapping("/findByIdCandidateCommercialDataForm")
-    public String findByIdCandidateCommercialDataForm(Model model, HttpServletRequest request) {
-    	
-    	return "findByIdCandidateCommercialDataForm";
-    	
+    public String findByIdCandidateCommercialDataForm(Model model) {
+        return "findByIdCandidateCommercialDataForm";
     }
-    
+
     @PostMapping("/findByIdCandidateCommercialData")
-    public String findByIdCandidateCommercialData(Model model, HttpServletRequest request, Integer idCandidateCommercialData) {
-    	candidateCommercialDataRep.findById(idCandidateCommercialData);
-    	return "findByIdCandidateCommercialData"; 
-    	
+    public String findByIdCandidateCommercialData(Model model, @RequestParam Integer idCandidateCommercial) {
+        // Effettua la ricerca dell'oggetto CandidateCommercialData per ID
+        CandidateCommercialData candidateCommercialData = candidateCommercialDataRep.findById(idCandidateCommercial).get();
+        
+        // Verifica se l'oggetto è stato trovato
+        if (candidateCommercialData != null) {
+            // Aggiungi l'oggetto trovato al model per renderlo disponibile nel template
+            model.addAttribute("candidateCommercialData", candidateCommercialData);
+            // Ritorna il nome del template per visualizzare i dettagli dell'oggetto CandidateCommercialData
+            return "findCCDataByIdCandidate";
+        } else {
+            // Se l'oggetto non è stato trovato, ritorna un messaggio di errore
+            model.addAttribute("errorMessage", "Candidate Commercial Data with ID " + idCandidateCommercial + " not found");
+            // Ritorna il nome del template per visualizzare il messaggio di errore
+            return "errorPage"; // Supponiamo di avere una pagina di errore chiamata errorPage
+        }
     }
   //RICERCA PER ID CANDIDATE
     @GetMapping("/preFindCCDataByIdCandidate")

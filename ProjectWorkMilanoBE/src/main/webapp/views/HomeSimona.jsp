@@ -12,7 +12,9 @@
 
 <ul>
 <li><a href="${pageContext.request.contextPath}/views/preFindCCDataByIdCandidate.jsp">CERCA CANDIDATE COMMERCIAL DATA BY CANDIDATE</a>
+<li><a href="${pageContext.request.contextPath}/CandidateCommercialDataCtr/findByIdCandidateCommercialDataForm">CERCA CANDIDATE COMMERCIAL DATA BY ID</a>
 <li><a href="${pageContext.request.contextPath}/CandidateCommercialDataCtr/addCandidateCommercialDataForm">AGGIUNGI CANDIDATE COMMERCIAL DATA BY CANDIDATE</a>
+
 </ul>
 
 
