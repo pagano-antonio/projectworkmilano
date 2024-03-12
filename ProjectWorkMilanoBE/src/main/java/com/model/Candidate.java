@@ -250,7 +250,7 @@ public class Candidate implements Serializable {
 	public String toString() {
 		return "Candidate n. " + idCandidate + " | name: " + name + " | surname: " + surname + " | birthday: " + birthday + 
 				"| birth place: " + birthPlace + " | address: " + address + " | city: " + city + " | email: " + email + " | phone: "
-				+ phone;
+				+ phone + " with this type of Education: " + educations.get(idCandidate).getEducationDegreeType().getDescription();
 	}
 	
 	
