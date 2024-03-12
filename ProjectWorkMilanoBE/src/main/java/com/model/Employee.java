@@ -122,4 +122,14 @@ public class Employee implements Serializable {
 		return jobInterview;
 	}
 
+	@Override
+	public String toString() {
+		return "Employee [idEmployee=" + idEmployee + ", email=" + email + ", name=" + name + ", password=" + password
+				+ ", surname=" + surname + ", username=" + username + "]";
+	}
+
+	
+	
+	
+	
 }
