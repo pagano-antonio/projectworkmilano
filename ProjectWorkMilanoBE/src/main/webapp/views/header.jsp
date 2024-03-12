@@ -98,9 +98,9 @@
         <p>Username: ${utente.username}</p>
          <p>Livello: ${utente.employeeType.description}</p>
 
-        <a href="${pageContext.request.contextPath}/modificaDati" id="modifica-dati" class="nav-link">
+        <a href="${pageContext.request.contextPath}/EmployeeCtr/aggiornaEmployeePerId?idEmployee=${utente.idEmployee}" id="modifica-dati" class="nav-link">
            <i class="gg-pen"></i>
-            <span>Modifica Dati</span>
+            <span>Visualizza/Modifica Dati</span>
         </a>
     </div>
 </div>
