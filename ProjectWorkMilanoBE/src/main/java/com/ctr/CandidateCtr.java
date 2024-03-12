@@ -3,6 +3,7 @@ package com.ctr;
 
 import java.util.ArrayList;
 
+
 import java.math.BigInteger;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dao.CandidateRepository;
+
 import com.model.Candidate;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,26 +44,38 @@ public class CandidateCtr {
     public String addCandidate(Model model, HttpServletRequest request, Candidate candidate) {
             
     	candidateRep.save(candidate);
+    	
         return "saveSuccess";
         
 	}
     
- //METODO AGGIORNA
-     
+ 
+    
     @GetMapping("/updateCandidateForm")
-    public String updateCandidateForm(Model model,HttpServletRequest request) {
-    	           
-    	return "updateCandidateForm";
-    	
-	}            
+
+    public String updateCandidateForm (Model model, int idCandidate) {
+    	  System.out.println("ciao");
+
+    Candidate candidateLista =candidateRep.findById(idCandidate).get();
+
+    model.addAttribute("candidateLista",candidateLista);
+
+    
+    return "updateCandidate";
+
+
+    }
    
     @PostMapping("/updateCandidate")
     public String updateCandidate(Model model, HttpServletRequest request, Candidate candidate) {
     	
-    	 candidateRep.save(candidate);
-         return "updateSuccess";
-         
+    	  System.out.println("ciao");
+        candidateRep.save(candidate);
+        System.out.println(candidate);
+        return "updateSuccess";
     }
+    
+    
     
  //ELIMINA 
     @PostMapping("/delete")
@@ -115,6 +129,9 @@ public class CandidateCtr {
 
 		return "candidateMessaggioAndatoABuonFine";
 	}
+    
+    
+    
 
 //GO TO Read by SURNAME
     @GetMapping("/findCandidateBySurnameForm")
