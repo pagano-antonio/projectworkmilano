@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeCtr {
 
-    @GetMapping("/Home")
+    @GetMapping("/home")
     public String goHome() {
         return "Home"; 
     }

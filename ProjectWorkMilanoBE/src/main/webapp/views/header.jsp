@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>Header</title>
     <style>
         /* Stile per l'header fisso */
@@ -46,7 +45,7 @@
     <header>
         <div id="user-info">
             <!-- Icona utente -->
-            <img src="${pageContext.request.contextPath}/image/user.png" alt="User Icon">
+            <img src="${pageContext.request.contextPath}/images/user.png" alt="User Icon">
 
             <!-- Nome utente e link per la modifica dei dati -->
             <span id="user-name">${username}</span>
