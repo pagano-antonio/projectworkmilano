@@ -102,11 +102,11 @@ public class CandidateRest {
 //READ BY PHONE
 	
 	@GetMapping("findCandidateByPhone/{phone}")
-	public String findCandidateByPhone (@PathVariable(value="phone") BigInteger phone){
+	public List<Candidate> findCandidateByPhone (@PathVariable(value="phone") BigInteger phone){
 		
 		List<Candidate> candidate = candidateRep.findByPhone(phone);
 		
-		return candidate.toString();
+		return candidate;
 		
 		//localhost:8080/Candidate/findCandidateByPhone/3405678
 
