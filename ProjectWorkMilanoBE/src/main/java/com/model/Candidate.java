@@ -1,8 +1,9 @@
 package com.model;
 
 import java.io.Serializable;
+
 import java.math.BigInteger;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -250,7 +251,7 @@ public class Candidate implements Serializable {
 	public String toString() {
 		return "Candidate n. " + idCandidate + " | name: " + name + " | surname: " + surname + " | birthday: " + birthday + 
 				"| birth place: " + birthPlace + " | address: " + address + " | city: " + city + " | email: " + email + " | phone: "
-				+ phone + " with this type of Education: " + educations.get(idCandidate).getEducationDegreeType().getDescription();
+				+ phone + " with this type of Education: "  ;
 	}
 	
 	
