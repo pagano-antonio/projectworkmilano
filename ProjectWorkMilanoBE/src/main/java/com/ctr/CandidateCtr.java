@@ -40,6 +40,7 @@ public class CandidateCtr {
 
 	    @PostMapping("/addCandidate")
 	    public String addCandidate(Model model, HttpServletRequest request, Candidate candidate) {
+	    	System.out.println("Sono Stufa");
 	        candidateRep.save(candidate);
 	        return "saveSuccess";
 	    }
@@ -65,10 +66,9 @@ public class CandidateCtr {
    
     @PostMapping("/updateCandidate")
     public String updateCandidate(Model model, HttpServletRequest request, Candidate candidate) {
-    	
-    	  System.out.println("ciao");
+   
         candidateRep.save(candidate);
-        System.out.println(candidate);
+  
         return "updateSuccess";
     }
     
