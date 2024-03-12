@@ -36,6 +36,12 @@ public class CandidateCommercialDataCtr {
     @PostMapping("/addCandidateCommercialData")
     public String addCandidateCommercialData(Model model, HttpServletRequest request, CandidateCommercialData candidateCommercialData) {
     	candidateCommercialDataRep.save(candidateCommercialData);
+    	
+    	// Carica la lista aggiornata di tutti i CandidateCommercialData
+        List<CandidateCommercialData> ccdList = candidateCommercialDataRep.findAll();
+
+        // Aggiungi la lista aggiornata come attributo del modello
+        model.addAttribute("LISTA", ccdList);
         return "findCCDataByIdCandidate";
         
 	}
