@@ -65,7 +65,7 @@ public class CandidateCtr {
     
  //ELIMINA 
     @PostMapping("/delete")
-    public String delete(Model model, HttpServletRequest request, Integer idCandidate) {
+    public String delete(Model model, HttpServletRequest request, int idCandidate) {
     	
     	candidateRep.deleteById(idCandidate);
         return "deleteSuccess";
@@ -81,7 +81,7 @@ public class CandidateCtr {
     }
     
     @PostMapping("/findByIdCandidate")
-    public String findByIdCandidate(Model model, HttpServletRequest request, Integer idCandidate) {
+    public String findByIdCandidate(Model model, HttpServletRequest request, int idCandidate) {
     	
     	candidateRep.findById(idCandidate);
     	return "findByIdCandidate"; 

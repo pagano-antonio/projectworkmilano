@@ -40,7 +40,7 @@
 					<td>${candidateLista.phone}</td>
 					 <td>
 
-<form action="${pageContext.request.contextPath}/candidate/findByIdCandidate" method="POST">
+<form action="${pageContext.request.contextPath}/candidate/updateCandidate" method="POST">
 	<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
 	<button type="submit">Aggiorna</button>
  </form>
