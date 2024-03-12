@@ -33,38 +33,35 @@ public class CandidateCtr {
 	
 //METODO AGGIUNGI
 	
-	@GetMapping("/addCandidateForm")
-    public String addCandidateForm(Model model,HttpServletRequest request){
-           
-		return "addCandidateForm";
-		
-	}            
-        
-    @PostMapping("/addCandidate")
-    public String addCandidate(Model model, HttpServletRequest request, Candidate candidate) {
-            
-    	candidateRep.save(candidate);
-    	
-        return "saveSuccess";
-        
-	}
-    
+	 @GetMapping("/preAddCandidateForm")
+	    public String addCandidateForm(Model model, HttpServletRequest request){
+	        return "addCandidate";
+	    }            
+
+	    @PostMapping("/addCandidate")
+	    public String addCandidate(Model model, HttpServletRequest request, Candidate candidate) {
+	        candidateRep.save(candidate);
+	        return "saveSuccess";
+	    }
  
+    //////////////////// UPDATE CANDIDATE ///////////////////
+
     
     @GetMapping("/updateCandidateForm")
+    public String updateCandidateForm(Model model, @RequestParam int idCandidate) {
+        Candidate candidate = candidateRep.findById(idCandidate).orElse(null);
+        
+        if (candidate == null) {
+            return "Error";
+        }
+       
+        model.addAttribute("candidate", candidate);
+        
+        return "updateCandidate";
+    }
 
-    public String updateCandidateForm (Model model, int idCandidate) {
-    	  System.out.println("ciao");
-
-    Candidate candidateLista =candidateRep.findById(idCandidate).get();
-
-    model.addAttribute("candidateLista",candidateLista);
 
     
-    return "updateCandidate";
-
-
-    }
    
     @PostMapping("/updateCandidate")
     public String updateCandidate(Model model, HttpServletRequest request, Candidate candidate) {

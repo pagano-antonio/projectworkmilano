@@ -49,7 +49,7 @@
                     </td>
                 </tr>
             </c:forEach>
-        </tbody>
-    </table>
+         </thead>
+        <tbody>
 </body>
 </html>

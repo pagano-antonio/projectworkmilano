@@ -11,5 +11,6 @@
 <!-- http://localhost:8080/views/HomeWanda.jsp  -->
 
 <a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">INSERISCI CITTA :</a>
+<a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">ADD A NEW CANDIDATE:</a>
 </body>
 </html>
