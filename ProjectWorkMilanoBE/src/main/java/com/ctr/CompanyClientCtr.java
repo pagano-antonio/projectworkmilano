@@ -22,9 +22,9 @@ public class CompanyClientCtr {
 	
 	
 	//GO TO create Company Client
-	@GetMapping("/addCompanyClientForm")
+	@GetMapping("/preAddCompanyClientForm")
 	public String addCompanyClientForm () {
-		return "addCompanyClient";
+		return "addCompanyClientForm";
 	}
 	
 	//CREATE Company Client
@@ -63,9 +63,9 @@ public class CompanyClientCtr {
 	}
 	
 	//GO TO read by NAME
-	@GetMapping("/findCompanyClientByNameForm")
+	@GetMapping("/preFindCompanyClientByNameForm")
 	public String findCompanyClientByNameForm () {
-		return "findCompanyClientByName";
+		return "findCompanyClientByNameForm";
 	}
 	
 	//READ Company Client by NAME
@@ -82,12 +82,13 @@ public class CompanyClientCtr {
 	}
 	
 	//GO TO read by CITY
-	@GetMapping("/findCompanyClientByCityForm")
+	@GetMapping("/preFindCompanyClientByCityForm")
 	public String findCompanyClientByCityForm () {
-		return "findCompanyClientByCity";
+		return "findCompanyClientByCityForm";
 	}
 	
 	//READ Company Client by CITY
+	@GetMapping("/findCompanyClientByCity")
 	public String findCompanyClientByCity (Model model, String city) {
 		List<CompanyClient> clientList = companyClientRep.findByCity(city);
 	
@@ -100,9 +101,12 @@ public class CompanyClientCtr {
 	}
 	
 	//GO TO update Company Client
-	@GetMapping("/updateCompanyClientForm")
-	public String updateCompanyClientForm () {
-		return "updateCompanyClient";
+	@GetMapping("/preUpdateCompanyClientForm")
+	public String updateCompanyClientForm (Model model, int idCompanyClient) {
+		CompanyClient client = companyClientRep.findByIdCompanyClient(idCompanyClient);
+		
+		model.addAttribute("idCompanyClient", client);
+		return "updateCompanyClientForm";
 	}
 	
 	//UPDATE Company Client
@@ -111,14 +115,10 @@ public class CompanyClientCtr {
 		companyClientRep.save(client);
 		
 		System.out.println("DB Update successful");
-		return "updateCompanyClientSuccessful";
+		return "updateSuccess";
 	}
 	
-	//GO TO delete Company Client
-	@GetMapping("/deleteCompanyClientForm")
-	public String deleteCompanyClientForm () {
-		return "deleteCompanyClient";
-	}
+	//GO TO delete Company Client is useless
 	
 	//DELETE Company Client
 	@GetMapping("/deleteCompanyClient")
@@ -128,7 +128,7 @@ public class CompanyClientCtr {
 		if (client != null) {
 			companyClientRep.delete(client);
 			System.out.println("Company Client successfully deleted from DB.");
-			return "deleteCompanyClientSuccessful";
+			return "deleteSuccess";
 		} else {
 			return "Error";
 		}
