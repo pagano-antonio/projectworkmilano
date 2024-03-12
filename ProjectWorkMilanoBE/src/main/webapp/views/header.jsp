@@ -56,7 +56,7 @@
         // JavaScript per gestire il mouseover
         document.getElementById("user-info").addEventListener("mouseover", function () {
             // Aggiungi la logica per mostrare le informazioni sull'utente
-            alert("Informazioni sull'utente");
+            //alert("Informazioni sull'utente");
         });
     </script>
 </body>
