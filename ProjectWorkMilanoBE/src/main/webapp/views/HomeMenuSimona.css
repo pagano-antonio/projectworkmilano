@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+/* Importa il font Roboto da Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,300');
+
+/* Reset dei margini e dei padding per ul e li */
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style-type: none;
+}
+
+/* Nasconde i radio button */
+input[type='radio'] {
+    display: none;
+}
+
+/* Applica stili al corpo del documento */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    background: pink;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Stili per il contenitore principale */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Stili per gli elementi h1 e p */
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+/* Stili specifici per la classe .swanky */
+.swanky {
+    perspective: 600px;
+    width: 700px;
+    margin: auto;
+    height: 360px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Stili per il titolo */
+.swanky_title {
+    float: right;
+    text-align: left;
+    width: 400px;
+    color: white;
+    position: relative;
+    top: 70px;
+}
+
+/* Stili per il wrapper intro */
+.intro {
+    float: right;
+    color: white;
+    width: 370px;
+    top: 50px;
+    position: relative;
+}
+
+/* Stili per il wrapper */
+.swanky_wrapper {
+    width: 225px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #2a394f;
+}
+
+/* Stili per le etichette */
+.swanky_wrapper label {
+    padding: 25px;
+    float: left;
+    height: 72px;
+    border-bottom: 1px solid #293649;
+    position: relative;
+    width: 100%;
+    color: #eff4fa;
+    transition: text-indent .15s, height .3s;
+    box-sizing: border-box;
+}
+

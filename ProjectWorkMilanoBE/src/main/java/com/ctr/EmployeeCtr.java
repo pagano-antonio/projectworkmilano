@@ -1,5 +1,6 @@
 package com.ctr;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dao.EmployeeRepository;
+import com.dao.EmployeeTypeRepository;
 import com.model.Employee;
+import com.model.EmployeeType;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -19,6 +22,8 @@ public class EmployeeCtr {
 	
 	@Autowired
     private EmployeeRepository employeeRep;
+	@Autowired
+	private EmployeeTypeRepository employeeTypeRep;
 	
 	
 	
@@ -50,11 +55,21 @@ public class EmployeeCtr {
 			return "OK";
 	}
 	
+	@GetMapping("/aggiornaEmployeePerId")
+	public String preAggiornaEmployeePerId(Model model, int idEmployee) {
+		Employee employee = employeeRep.findById(idEmployee).get();
+		model.addAttribute("employee",employee);
+		List<EmployeeType> lista = employeeTypeRep.findAll();
+		model.addAttribute("lista",lista);
+		return "employeeUpdate";
+	}
+	
+	
 	@PostMapping("/aggiornaEmployeePerId")
 	public String aggiornaEmployeePerId(Model model, Employee employee) {
 		System.out.println("aggiorno"+employee);
 		employeeRep.save(employee);
-		return "OK";
+		return "employeeUpdate";
 	}
 		
 	@PostMapping("/eliminaEmployeePerId")

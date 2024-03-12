@@ -3,6 +3,7 @@ package com.ctr;
 
 import java.util.ArrayList;
 
+
 import java.math.BigInteger;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dao.CandidateRepository;
+
 import com.model.Candidate;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,37 +33,46 @@ public class CandidateCtr {
 	
 //METODO AGGIUNGI
 	
-	@GetMapping("/addCandidateForm")
-    public String addCandidateForm(Model model,HttpServletRequest request){
-           
-		return "addCandidateForm";
-		
-	}            
-        
-    @PostMapping("/addCandidate")
-    public String addCandidate(Model model, HttpServletRequest request, Candidate candidate) {
-            
-    	candidateRep.save(candidate);
-        return "saveSuccess";
-        
-	}
+	 @GetMapping("/preAddCandidateForm")
+	    public String addCandidateForm(Model model, HttpServletRequest request){
+	        return "addCandidate";
+	    }            
+
+	    @PostMapping("/addCandidate")
+	    public String addCandidate(Model model, HttpServletRequest request, Candidate candidate) {
+	        candidateRep.save(candidate);
+	        return "saveSuccess";
+	    }
+ 
+    //////////////////// UPDATE CANDIDATE ///////////////////
+
     
- //METODO AGGIORNA
-     
     @GetMapping("/updateCandidateForm")
-    public String updateCandidateForm(Model model,HttpServletRequest request) {
-    	           
-    	return "updateCandidateForm";
-    	
-	}            
+    public String updateCandidateForm(Model model, @RequestParam int idCandidate) {
+        Candidate candidate = candidateRep.findById(idCandidate).orElse(null);
+        
+        if (candidate == null) {
+            return "Error";
+        }
+       
+        model.addAttribute("candidate", candidate);
+        
+        return "updateCandidate";
+    }
+
+
+    
    
     @PostMapping("/updateCandidate")
     public String updateCandidate(Model model, HttpServletRequest request, Candidate candidate) {
     	
-    	 candidateRep.save(candidate);
-         return "updateSuccess";
-         
+    	  System.out.println("ciao");
+        candidateRep.save(candidate);
+        System.out.println(candidate);
+        return "updateSuccess";
     }
+    
+    
     
  //ELIMINA 
     @PostMapping("/delete")
@@ -115,6 +126,9 @@ public class CandidateCtr {
 
 		return "candidateMessaggioAndatoABuonFine";
 	}
+    
+    
+    
 
 //GO TO Read by SURNAME
     @GetMapping("/findCandidateBySurnameForm")

@@ -35,13 +35,13 @@ public class StateJobInterviewCtr {
 
 /////////////////////////////////////////////////////// METODO DELETE /////////////////////////////////////////////////////////////////		 	
 
-	@GetMapping("/delete")
+	@GetMapping("/deleteStateJobInterview")
 
 	public String delete(int idStateJobInterview) {
 
 		stateJobInterviewRepository.deleteById(idStateJobInterview);
 
-		return "DeleteOK";
+		return "deleteSuccess";
 	}
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	
 

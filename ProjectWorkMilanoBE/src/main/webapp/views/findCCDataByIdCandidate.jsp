@@ -7,7 +7,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>FIND CANDIDATE COMMERCIAL DATA BY ID CANDIDATE</title>
-<link rel="stylesheet" type="text/css" href="header.css">
 </head>
 <body>
 <table>
@@ -34,12 +33,15 @@
                     <td><c:out value="${candidateCommercialData.businessCost}" /></td>
                     <td><c:out value="${candidateCommercialData.subsidyFlag}" /></td>
                     <td><c:out value="${candidateCommercialData.notes}" /></td>
+                    <td><a href="${pageContext.request.contextPath}/CandidateCommercialDataCtr/deleteCandidateCommercialData?idCandidateCommercial=${candidateCommercialData.idCandidateCommercial}">ELIMINA</a></td>
+                    <td><a href="${pageContext.request.contextPath}/CandidateCommercialDataCtr/updateCandidateCommercialDataForm?idCandidateCommercial=${candidateCommercialData.idCandidateCommercial}">AGGIORNA</a></td>
                 </tr>
             </c:forEach>
         </tbody>
  
 </table>
 
+<p><a href="http://localhost:8080/home">TORNA ALLA HOME!</a></p>
 
 </body>
 </html>
