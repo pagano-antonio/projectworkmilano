@@ -1,14 +1,6 @@
 package com.ctr;
 
 import java.util.List;
-
-
-
-
-import java.util.Optional;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,16 +21,6 @@ public class CandidateCommercialDataCtr {
 	private CandidateCommercialDataRepository candidateCommercialDataRep;
 	@Autowired
 	private CandidateRepository candidateRep;
-	
-
-
-
-//HOME
-	
-	@GetMapping("/Home")
-	public String Home() {
-		return "Home";
-	}
 	
 
 //METODO AGGIUNGI
@@ -109,9 +91,7 @@ public class CandidateCommercialDataCtr {
     	
     	System.out.println("findccdata ok"+Candidate.getIdCandidate());
     	
-    	CandidateCommercialData idC = candidateCommercialDataRep.findByCandidate(Candidate).orElse(null);
-    	
-    	System.out.println(idC.getIdCandidateCommercial());
+    	List<CandidateCommercialData> idC = candidateCommercialDataRep.findByCandidate(Candidate);
     	
 		if (idC!=null) {
 			
