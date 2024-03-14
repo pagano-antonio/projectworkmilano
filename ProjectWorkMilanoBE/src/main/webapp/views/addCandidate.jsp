@@ -9,11 +9,11 @@
 </head>
 <body>
 
-    <form action="${pageContext.request.contextPath}/candidate/addCandidate" method="POST">
+    <form action="${pageContext.request.contextPath}/candidate/addCandidate" method="post">
     
         <h2>Add Candidate:</h2>
         
-        <input type="hidden" name="idCandidate">
+      
         
         <label for="name">Name:</label>
         <input type="text" id="name" name="name"> <br>
