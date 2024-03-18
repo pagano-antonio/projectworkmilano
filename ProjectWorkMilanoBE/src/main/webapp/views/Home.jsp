@@ -23,6 +23,8 @@
     <!-- Contenuto principale sotto l'header e a destra della sidebar -->
     <h1>ROBA DI SIMO</h1>
     <%@ include file="HomeSimona.jsp" %>
+        <h1>ROBA DI ROSS</h1>
+    <%@ include file="HomeRossella.jsp" %>
 </div>
 
 </body>
