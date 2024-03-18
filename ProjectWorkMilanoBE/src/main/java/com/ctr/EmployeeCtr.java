@@ -14,6 +14,7 @@ import com.model.Employee;
 import com.model.EmployeeType;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("EmployeeCtr")
@@ -66,10 +67,11 @@ public class EmployeeCtr {
 	
 	
 	@PostMapping("/aggiornaEmployeePerId")
-	public String aggiornaEmployeePerId(Model model, Employee employee) {
+	public String aggiornaEmployeePerId(Model model, Employee employee, HttpSession session) {
 		System.out.println("aggiorno"+employee);
 		employeeRep.save(employee);
-		employee = employeeRep.findById(employee.getIdEmployee()).get();
+		//employee = employeeRep.findById(employee.getIdEmployee()).get();
+		session.setAttribute("utente", employee);
 		model.addAttribute("employee",employee);
 		List<EmployeeType> lista = employeeTypeRep.findAll();
 		model.addAttribute("lista",lista);

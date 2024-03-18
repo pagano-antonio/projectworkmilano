@@ -9,70 +9,93 @@
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/user.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/pen.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Aggiungi il link per includere Font Awesome -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Header</title>
 </head>
-    <style>
-        /* Stile per l'header fisso */
-        header {
-            background-color: #3498db;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-           justify-content: space-between; /* Allinea a sinistra e a destra */
-           /* align-items: center;*/ 
-        }
+<style>
+/* Stile per l'header fisso */
+header {
+    background-color: #111;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Allinea a sinistra e a destra */
+}
 
-        .nav-link {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            background-color: #2c3e50;
-            border-radius: 5px;
-            display: flex;
-            align-items: center; 
-            padding: 7px 20px;
-            margin-right: 30px; /* Aggiunto margine a destra per separare i link */
-           /* margin-left: 10px; */
-        }
-
-        .nav-link:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .nav-link i {
-            font-size: 30px;
-            margin-right: 15px; /* Aggiunto margine a destra per separare l'icona dal testo */
-        }
-        
-        
-        
-       
-#session-info {
-    position: relative; 
+.nav-link {
+    text-decoration: none;
+    color: #818181;
+    font-size: 20px;
+    display: flex;
+    align-items: center; /* Allinea verticalmente icone e testo */
+    padding: 6px 8px;
+    margin-right: 30px; /* Aggiunto margine a destra per separare i link */
     cursor: pointer;
-} 
+}
+
+.nav-link:hover {
+    color: #f1f1f1;
+}
+
+.nav-link i {
+    font-size: 20px;
+    margin-right: 5px; /* Ridotto il margine a destra delle icone */
+}
+
+#menu-button {
+    text-decoration: none;
+    color: #818181;
+    font-size: 20px;
+    display: flex;
+    align-items: center; /* Allinea verticalmente icone e testo */
+    padding: 6px 8px;
+    cursor: pointer;
+    margin-right: 30px; /* Aggiunto margine a destra per separare i link */
+}
+
+#menu-button:hover {
+    color: #f1f1f1;
+}
+
+#menu-button i {
+    font-size: 20px;
+    margin-right: 5px; /* Ridotto il margine a destra delle icone */
+}
+
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+/* Stile per il popup */
+#session-info {
+    position: relative;
+    cursor: pointer;
+}
 
 #user-popup {
     display: none;
     position: absolute;
-    top: 100%; 
-    left: 50%; 
+    top: 100%;
+    left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    background-color: #3498db;
+    background-color: #111;
     border: 1px solid #ddd;
     padding: 10px;
     width: max-content;
     color: #fff; /* Colore del testo bianco */
-  
-    } 
-    
-
-    </style>
+}
+</style>
 
     <header>
         <!-- Bottone Home -->
@@ -81,6 +104,7 @@
             <span>Home</span>
         </a>
         
+    <span class="nav-link" onclick="toggleNav()">&#9776; Menu</span>
         
         
         
@@ -119,7 +143,7 @@
    
         <!-- Bottone Logout -->
         <a href="${pageContext.request.contextPath}/gestionale/logout" id="logout-link" class="nav-link">
-            <i class="gg-log-out"></i>
+            <i class="gg-log-out"></i><i></i><i></i>
             <span>Logout</span>
         </a>
         
@@ -144,6 +168,17 @@
     document.body.addEventListener("click", function () {
         userPopup.style.display = "none"; // Chiudi il popup se clicchi fuori da user-container
     });
+</script>
+
+<script>
+	function toggleNav() {
+		  var sidenav = document.getElementById("mySidenav");
+		  if (sidenav.style.width === "0px" || sidenav.style.width === "") {
+		    sidenav.style.width = "300px"; // Apri la navbar
+		  } else {
+		    sidenav.style.width = "0"; // Chiudi la navbar
+		  }
+		}
 </script>
 
       

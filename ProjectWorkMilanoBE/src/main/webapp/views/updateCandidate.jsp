@@ -14,6 +14,9 @@
     
         <h2>Update Candidate:</h2>
         
+        <label for="idCandidate">Id Candidate:</label>
+         <input readonly type="number" id="idCandidate" name="idCandidate" value="<%= candidate.getIdCandidate() %>"> <br>
+         
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<%= candidate.getName() %>"> <br>
         
