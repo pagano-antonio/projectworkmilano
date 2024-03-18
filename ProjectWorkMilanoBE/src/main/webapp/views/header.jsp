@@ -53,6 +53,7 @@
        
 #session-info {
     position: relative; 
+    cursor: pointer;
 } 
 
 #user-popup {

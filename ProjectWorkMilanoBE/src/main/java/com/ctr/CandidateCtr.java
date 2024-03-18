@@ -170,4 +170,17 @@ public class CandidateCtr {
     		return "Error";
     	}
     }
+    
+    //////// RICERCA CANDIDATO CHE HA LAVORATO IN UNA CERTA COMPANY //////////
+    @GetMapping ("/preRicercaCandidatoPerCompagnia")
+    public String preRicercaCandidatoPerCompagnia(Model model) {
+    	return "ricercaCandidatoPerCompagnia";
+    }
+    	
+    	@GetMapping("/ricercaCandidatoPerCompagnia")
+    public String ricercaCandidatoPerCompagnia(Model model, @RequestParam String company) {
+    	List<Candidate> candidateLista =candidateRep.findByWorkExperiences_Company(company);
+    	model.addAttribute("candidateLista", candidateLista);
+		return "risultatiRicercaCandidatoPerCompagnia" ;
+    }
 }

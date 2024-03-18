@@ -10,32 +10,32 @@
     <!-- Form per la modifica dati -->
     <form action="${pageContext.request.contextPath}/EmployeeCtr/aggiornaEmployeePerId" method="post">
         <!-- Campi di input per i dati modificabili -->
-        <label for="nome">ID:</label>
-        <input type="text" id="nome" name="nome" value="${utente.idEmployee}" readonly>
+        <label for="idEmployee">ID:</label>
+        <input type="number" id="idEmployee" name="idEmployee" value="${utente.idEmployee}" readonly>
         
-        <label for="nome">Cognome:</label>
-        <input type="text" id="nome" name="nome" value="${utente.surname}" required>
+        <label for="surname">Cognome:</label>
+        <input type="text" id="surname" name="surname" value="${utente.surname}" required>
         
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="${utente.name}" required>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" value="${utente.name}" required>
         
         <br>
         
-         <label for="nome">Username:</label>
-        <input type="text" id="nome" name="nome" value="${utente.username}" required>
+         <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="${utente.username}" required>
         
-        <label for="nome">Email:</label>
-        <input type="text" id="nome" name="nome" value="${utente.email}" required>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="${utente.email}" required>
        
-        <label for="nome">Password:</label>
-        <input type="text" id="nome" name="nome" value="${utente.password}" required>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" value="${utente.password}" required>
         
         <br>
         
       <label for="employeeType">Livello:</label>
 <select id="employeeType" name="employeeType" required>
     <c:forEach var="type" items="${lista}">
-        <option value="${type}">${type.description}</option>
+        <option value="${type.idEmployeeType}">${type.description}</option>
     </c:forEach>
 </select>
 

@@ -68,6 +68,8 @@ public class Candidate implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "candidate")
 	private List<WorkExperience> workExperiences;
+	
+	
 
 	public Candidate() {
 	}

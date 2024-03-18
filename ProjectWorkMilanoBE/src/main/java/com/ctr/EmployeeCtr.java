@@ -69,6 +69,10 @@ public class EmployeeCtr {
 	public String aggiornaEmployeePerId(Model model, Employee employee) {
 		System.out.println("aggiorno"+employee);
 		employeeRep.save(employee);
+		employee = employeeRep.findById(employee.getIdEmployee()).get();
+		model.addAttribute("employee",employee);
+		List<EmployeeType> lista = employeeTypeRep.findAll();
+		model.addAttribute("lista",lista);
 		return "employeeUpdate";
 	}
 		

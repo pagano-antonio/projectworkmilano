@@ -30,7 +30,10 @@ automaticamente la creazione delle query necessarie per l'operazione che stai ce
 	
 
 	List <Candidate> findByCity(String city);
-
+	
+	
+	List<Candidate> findByWorkExperiences_Company(String company);
+	
 	public List<Candidate> findBySurname (String surname);
 	
 	public List<Candidate> findByPhone (BigInteger phone);
