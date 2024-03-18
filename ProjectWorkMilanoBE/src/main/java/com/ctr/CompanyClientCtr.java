@@ -18,117 +18,141 @@ public class CompanyClientCtr {
 
 	@Autowired
 	private CompanyClientRepository companyClientRep;
-	
-	
-	
-	//GO TO create Company Client
+
+	// GO TO create Company Client
 	@GetMapping("/preAddCompanyClientForm")
-	public String addCompanyClientForm () {
+	public String addCompanyClientForm() {
 		return "addCompanyClientForm";
 	}
-	
-	//CREATE Company Client
+
+	// CREATE Company Client
 	@PostMapping("/addCompanyClient")
-	public String addCompanyClient (CompanyClient client) {
-		List<CompanyClient> existingClients = companyClientRep.findByAddressAndCityAndName(client.getAddress(), client.getCity(), client.getName());
-		
-		if(!existingClients.isEmpty()) {
+	public String addCompanyClient(CompanyClient client) {
+		List<CompanyClient> existingClients = companyClientRep.findByAddressAndCityAndName(client.getAddress(),
+				client.getCity(), client.getName());
+
+		if (!existingClients.isEmpty()) {
 			System.out.println("Company Client already exists in the DB.");
-	        return "Error";
+			return "Error";
 		} else {
-		companyClientRep.save(client);
-		System.out.println("Company Client successfully added to DB.");
-		return "addCompanyClientSuccess";
+			companyClientRep.save(client);
+			System.out.println("Company Client successfully added to DB.");
+			return "addCompanyClientSuccess";
 		}
 	}
-	
-	//GO TO read by ID
+
+	// GO TO read by ID
 	@GetMapping("/findByIdCompanyClientForm")
-	public String findByIdCompanyClientForm () {
+	public String findByIdCompanyClientForm() {
 		return "findByIdCompanyClient";
 	}
-	
-	//READ Company Client by ID
+
+	// READ Company Client by ID
 	@GetMapping("/findByIdCompanyClient")
-	public String findByIdCompanyClient (Model model, int idCompanyClient) {
-		
+	public String findByIdCompanyClient(Model model, int idCompanyClient) {
+
 		CompanyClient client = companyClientRep.findByIdCompanyClient(idCompanyClient);
-		
+
+		String searchType = "byID";
+
 		if (client != null) {
 			model.addAttribute("idCompanyClient", client);
-			return "findByIdCompanyClientResults"; 
-			} else {
+			model.addAttribute("searchType", searchType);
+			return "findByIdCompanyClientResults";
+		} else {
 			return "Error";
 		}
 	}
-	
-	//GO TO read by NAME
+
+	// GO TO read by NAME
 	@GetMapping("/preFindCompanyClientByNameForm")
-	public String findCompanyClientByNameForm () {
+	public String findCompanyClientByNameForm() {
 		return "findCompanyClientByNameForm";
 	}
-	
-	//READ Company Client by NAME
+
+	// READ Company Client by NAME
 	@GetMapping("/findCompanyClientByName")
-	public String findCompanyClientByName (Model model, String name) {
+	public String findCompanyClientByName(Model model, String name) {
 		List<CompanyClient> clientList = companyClientRep.findByName(name);
-	
+
+		String searchType = "byName";
+
 		if (clientList != null && clientList.size() > 0) {
 			model.addAttribute("companyClientNamesResults", clientList);
+			model.addAttribute("searchType", searchType);
 			return "findCompanyClientByNameResults";
 		} else {
 			return "Error";
 		}
 	}
-	
-	//GO TO read by CITY
+
+	// GO TO read by CITY
 	@GetMapping("/preFindCompanyClientByCityForm")
-	public String findCompanyClientByCityForm () {
+	public String findCompanyClientByCityForm() {
 		return "findCompanyClientByCityForm";
 	}
-	
-	//READ Company Client by CITY
+
+	// READ Company Client by CITY
 	@GetMapping("/findCompanyClientByCity")
-	public String findCompanyClientByCity (Model model, String city) {
+	public String findCompanyClientByCity(Model model, String city) {
 		List<CompanyClient> clientList = companyClientRep.findByCity(city);
-	
+
+		String searchType = "byCity";
+
 		if (clientList != null && clientList.size() > 0) {
 			model.addAttribute("companyClientCitiesResults", clientList);
+			model.addAttribute("searchType", searchType);
 			return "findCompanyClientByCityResults";
 		} else {
 			return "Error";
 		}
 	}
-	
-	//GO TO update Company Client
+
+	// GO TO update Company Client
 	@GetMapping("/preUpdateCompanyClientForm")
-	public String updateCompanyClientForm (Model model, int idCompanyClient) {
+	public String updateCompanyClientForm(Model model, int idCompanyClient) {
 		CompanyClient client = companyClientRep.findByIdCompanyClient(idCompanyClient);
-		
+
 		model.addAttribute("idCompanyClient", client);
 		return "updateCompanyClientForm";
 	}
-	
-	//UPDATE Company Client
+
+	// UPDATE Company Client
 	@PostMapping("/updateCompanyClient")
-	public String updateCompanyClient (CompanyClient client) {
+	public String updateCompanyClient(CompanyClient client) {
 		companyClientRep.save(client);
-		
+
 		System.out.println("DB Update successful");
 		return "updateSuccess";
 	}
-	
-	//GO TO delete Company Client is useless
-	
-	//DELETE Company Client
+
+	// GO TO delete Company Client is useless
+
+	// DELETE Company Client
 	@GetMapping("/deleteCompanyClient")
-	public String deleteCompanyClient (int idCompanyClient) {
+	public String deleteCompanyClient(Model model, int idCompanyClient, String city, String name, String searchType) {
 		CompanyClient client = companyClientRep.findById(idCompanyClient).orElse(null);
 
 		if (client != null) {
 			companyClientRep.delete(client);
 			System.out.println("Company Client successfully deleted from DB.");
-			return "deleteSuccess";
+
+			if ("byName".equals(searchType)) {
+				
+				List<CompanyClient> newResultsN = companyClientRep.findByName(name);
+				model.addAttribute("companyClientNamesResults", newResultsN);
+				
+				return "findCompanyClientByNameResults";
+				
+			} else if ("byCity".equals(searchType)) {
+				
+				List<CompanyClient> newResultsC = companyClientRep.findByCity(city);
+				model.addAttribute("companyClientCitiesResults", newResultsC);
+				
+				return "findCompanyClientByCityResults";
+			} else {
+				return "deleteSuccess";
+			}
 		} else {
 			return "Error";
 		}

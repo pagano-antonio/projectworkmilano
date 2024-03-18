@@ -16,7 +16,7 @@
 			<th>Company Client Name</th>
 			<th>Company Client City</th>
 			<th>Company Client Address</th>
-			<!-- <th colspan="2"></th> -->
+			<th colspan="2"></th>
 		</tr>
 		<c:forEach var="cc" items="${companyClientNamesResults}">
 		<tr>
@@ -24,8 +24,8 @@
 			<td>${cc.name}</td>
 			<td>${cc.city}</td>
 			<td>${cc.address}</td>
-			<!-- <td>Update Company Client</td> -->
-			<!-- <td>Delete Company Client</td> -->
+			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/preUpdateCompanyClientForm?idCompanyClient=${cc.idCompanyClient}"><button>Update Company Client Data</button></a></td>
+			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient?idCompanyClient=${cc.idCompanyClient}&name=${cc.name}&searchType=byName"><button>Delete Company Client Data</button></a></td>
 		</tr>
 		</c:forEach>
 	</table>

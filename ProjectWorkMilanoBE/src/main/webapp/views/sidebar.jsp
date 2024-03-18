@@ -54,7 +54,7 @@
 }
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-.dropdown-container, .dropdown-container2 {
+.dropdown-container, .dropdown-container2, .containerCandidati {
   display: none;
   background-color: #262626;
   padding-left: 8px;
@@ -77,13 +77,21 @@
 
 <div class="sidenav" id="mySidenav">
  <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a> <!-- Icona "x" per chiudere la sidebar/sidenav -->
-  <a href="#about">Candidati</a>
+
+<button id="dropdownCandidati" class="dropdown-btn">Candidati
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="containerCandidati">
+    <a href="#">Consulta candidati</a>
+    <a href="#">Aggiungi nuovo candidato</a>
+    <a href="#">Ricerca candidato</a>
+  </div>
+
+
   <a href="#services">Aziende</a>
   <a href="#clients">Colloqui</a>
   <a href="#contact">Educazione</a>
   <!-- Aggiungi un ID al pulsante "Dropdown" per identificarlo facilmente con JavaScript -->
- 
- 
  
   <button id="dropdownBtn" class="dropdown-btn">Contratti
     <i class="fa fa-caret-down"></i>
@@ -110,6 +118,7 @@
 // Ottieni il riferimento al pulsante "Dropdown"
 var dropdownBtn = document.getElementById("dropdownBtn");
 var dropdownBtn2 = document.getElementById("dropdownBtn2");
+var dropdownCandidati = document.getElementById("dropdownCandidati");
 
 // Aggiungi un gestore di eventi al clic sul pulsante "Dropdown"
 dropdownBtn.addEventListener("click", function() {
@@ -140,6 +149,22 @@ dropdownBtn2.addEventListener("click", function() {
   } else {
     // Altrimenti, mostralo
     dropdownContainer2.style.display = "block";
+  }
+});
+
+
+//Aggiungi un gestore di eventi al clic sul pulsante "Dropdown"
+dropdownCandidati.addEventListener("click", function() {
+  // Ottieni il riferimento al dropdown container
+  var containerCandidati = document.querySelector(".containerCandidati");
+
+  // Controlla se il dropdown container è attualmente visibile
+  if (containerCandidati.style.display === "block") {
+    // Se è visibile, nascondilo
+    containerCandidati.style.display = "none";
+  } else {
+    // Altrimenti, mostralo
+    containerCandidati.style.display = "block";
   }
 });
 </script>

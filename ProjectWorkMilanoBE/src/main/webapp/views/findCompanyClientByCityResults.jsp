@@ -24,7 +24,7 @@
 			<td>${cc.city}</td>
 			<td>${cc.address}</td>
 			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/preUpdateCompanyClientForm?idCompanyClient=${cc.idCompanyClient}"><button>Update Company Client Data</button></a></td>
-			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient?idCompanyClient=${cc.idCompanyClient}"><button>Delete Company Client Data</button></a></td>
+			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient?idCompanyClient=${cc.idCompanyClient}&city=${cc.city}&searchType=byCity"><button>Delete Company Client Data</button></a></td>
 		</tr>
 		</c:forEach>
 	</table>

@@ -12,6 +12,7 @@
 		<label for="name">Company Client Name:</label>
 		<br>
 		<input type="text" id="name" name="name">
+		<input type="hidden" id="searchType" name="searchType" value="byName">
 		<br>
 		<input type="submit" value="Find Company Client">
 	</form>
