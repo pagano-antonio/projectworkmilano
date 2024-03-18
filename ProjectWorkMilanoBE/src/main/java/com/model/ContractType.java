@@ -79,4 +79,10 @@ public class ContractType implements Serializable {
 		return jobOffer;
 	}
 
+	public ContractType orElse(Object object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

@@ -4,14 +4,25 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.format.annotation.DateTimeFormat;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dao.CompanyClientRepository;
+import com.dao.ContractTypeRepository;
 import com.dao.JobOfferRepository;
+import com.model.CompanyClient;
+import com.model.ContractType;
+import com.ctr.CompanyClientCtr;
+import com.ctr.ContractTypeCtr;
 import com.model.JobOffer;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +34,11 @@ public class JobOfferCtr {
 	@Autowired
 	private JobOfferRepository jobOfferRep;
 	
+	@Autowired
+    private CompanyClientRepository companyClientRep;
 
+    @Autowired
+    private ContractTypeRepository contractTypeRep;
 	
 //METODO AGGIUNGI
 	
@@ -44,12 +59,29 @@ public class JobOfferCtr {
     
  //METODO AGGIORNA
      
-    @GetMapping("/updateJobOfferForm")
-    public String updateJobOffForm(Model model,HttpServletRequest request) {
-    	           
-    	return "updateJobOfferForm";
+    @PostMapping("/updateJobOfferForm")
+    public String updateJobOfferForm(Model model, HttpServletRequest request, JobOffer jobOffer) {
+        int idCompanyClient = Integer.parseInt(request.getParameter("idCompanyClient"));
+        int idContractType = Integer.parseInt(request.getParameter("idContractType"));
+
+        
+		CompanyClient companyClient = companyClientRep.findById(idCompanyClient).orElse(null);
+        ContractType contractType = contractTypeRep.findByIdContractType(idContractType).orElse(null);
+
+        if (companyClient == null || contractType == null) {
+            return "Error";
+        }
+
+        jobOffer.setCompanyClient(companyClient);
+        jobOffer.setContractType(contractType);
+
+        jobOfferRep.save(jobOffer);
+
+        return "updateSuccess";
+    }
+
     	    	
-	}            
+	         
    
     @PostMapping("/updateJobOffer")
     public String updateJobOffer(Model model, HttpServletRequest request, JobOffer jobOffer) {
