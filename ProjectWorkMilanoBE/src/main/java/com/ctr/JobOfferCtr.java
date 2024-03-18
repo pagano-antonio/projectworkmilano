@@ -1,8 +1,10 @@
 package com.ctr;
 
 import java.sql.Date;
+
 import java.util.List;
 
+import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.repository.CrudRepository;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dao.CompanyClientRepository;
 import com.dao.ContractTypeRepository;
 import com.dao.JobOfferRepository;
+
+
 import com.model.CompanyClient;
 import com.model.ContractType;
 import com.ctr.CompanyClientCtr;
@@ -39,6 +43,8 @@ public class JobOfferCtr {
 
     @Autowired
     private ContractTypeRepository contractTypeRep;
+    
+    
 	
 //METODO AGGIUNGI
 	
@@ -59,31 +65,38 @@ public class JobOfferCtr {
     
  //METODO AGGIORNA
      
-    @PostMapping("/updateJobOfferForm")
+    @GetMapping("/updateJobOfferForm")
     public String updateJobOfferForm(Model model, HttpServletRequest request, JobOffer jobOffer) {
-        int idCompanyClient = Integer.parseInt(request.getParameter("idCompanyClient"));
-        int idContractType = Integer.parseInt(request.getParameter("idContractType"));
+        try {
+            int idCompanyClient = Integer.parseInt(request.getParameter("idCompanyClient"));
+            int idContractType = Integer.parseInt(request.getParameter("idContractType"));
 
-        
-		CompanyClient companyClient = companyClientRep.findById(idCompanyClient).orElse(null);
-        ContractType contractType = contractTypeRep.findByIdContractType(idContractType).orElse(null);
+            CompanyClient companyClient = companyClientRep.findByIdCompanyClient(idCompanyClient);
+            ContractType contractType = contractTypeRep.findByIdContractType(idContractType);
 
-        if (companyClient == null || contractType == null) {
+            if (companyClient != null && contractType != null) {
+                jobOffer.setCompanyClient(companyClient);
+                jobOffer.setContractType(contractType);
+
+                jobOfferRep.save(jobOffer);
+
+                return "updateSuccess";
+            } else {
+                return "Error";
+            }
+        } catch (NumberFormatException e) {
+          
+            return "Error";
+        } catch (Exception e) {
+            
+            e.printStackTrace(); 
             return "Error";
         }
-
-        jobOffer.setCompanyClient(companyClient);
-        jobOffer.setContractType(contractType);
-
-        jobOfferRep.save(jobOffer);
-
-        return "updateSuccess";
     }
 
-    	    	
 	         
    
-    @PostMapping("/updateJobOffer")
+    @GetMapping("/updateJobOffer")
     public String updateJobOffer(Model model, HttpServletRequest request, JobOffer jobOffer) {
     	
     	 jobOfferRep.save(jobOffer);
@@ -153,6 +166,35 @@ public class JobOfferCtr {
 		return "findJobOfferByStartDateAndEndDate";
 	}
 
+	//////////// RICERCA JOB OFFER PER SKILL ////////////////
+	
+	@GetMapping("/preRicercaSkill")
+    public String preRicercaSkill (Model model) {
+    	return "ricercaJobOfferPerSkill";
+    }
+    
+    @GetMapping("/ricercaJobOfferPerSkill")
+	public String ricercaJobOfferPerSkill(Model model, @RequestParam int idSkill) {
+    	
+		List<JobOffer> jobOfferLista = jobOfferRep.findByJobOfferSkill_skill_idSkill(idSkill);
+		
+		model.addAttribute("jobOfferLista", jobOfferLista);
+		return "risultatiRicercaJobOfferSkill";
+	}
+    
+   
+    @GetMapping("/risultatiRicercaJobOfferSkill")
+
+	public String risultatiRicercaJobOfferSkill(Model model, int idSkill) {
+
+		List<JobOffer> jobOfferLista = jobOfferRep.findByJobOfferSkill_skill_idSkill(idSkill);
+
+		jobOfferRep.saveAll(jobOfferLista);
+
+		return "ok";
+	}
+	
+	
     
 }
 

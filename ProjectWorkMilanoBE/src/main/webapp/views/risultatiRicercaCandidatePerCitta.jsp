@@ -42,7 +42,7 @@
     <button type="submit">Aggiorna</button>
 			</form>
                         
-                        <form action="${pageContext.request.contextPath}/candidate/delete" method="POST">
+                        <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
                             <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
                             <button type="submit">Elimina</button>
                         </form>

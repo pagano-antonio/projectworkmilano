@@ -53,7 +53,7 @@ public class JobOffer implements Serializable {
 
 	// bi-directional many-to-one association to JobOfferSkill
 	@OneToMany(mappedBy = "jobOffer")
-	private List<JobOfferSkill> jobOfferSkills;
+	private List<JobOfferSkill> jobOfferSkill;
 
 	public JobOffer() {
 	}
@@ -131,11 +131,11 @@ public class JobOffer implements Serializable {
 	}
 
 	public List<JobOfferSkill> getJobOfferSkills() {
-		return this.jobOfferSkills;
+		return this.jobOfferSkill;
 	}
 
-	public void setJobOfferSkills(List<JobOfferSkill> jobOfferSkills) {
-		this.jobOfferSkills = jobOfferSkills;
+	public void setJobOfferSkill(List<JobOfferSkill> jobOfferSkill) {
+		this.jobOfferSkill = jobOfferSkill;
 	}
 
 	public JobOfferSkill addJobOfferSkill(JobOfferSkill jobOfferSkill) {

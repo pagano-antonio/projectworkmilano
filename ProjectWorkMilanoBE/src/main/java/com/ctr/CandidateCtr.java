@@ -75,7 +75,7 @@ public class CandidateCtr {
     
     
  //ELIMINA 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String delete(Model model, HttpServletRequest request, int idCandidate) {
     	
     	candidateRep.deleteById(idCandidate);

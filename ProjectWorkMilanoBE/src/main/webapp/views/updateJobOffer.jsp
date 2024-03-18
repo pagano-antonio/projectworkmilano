@@ -14,7 +14,9 @@
     
     <h2>Update Job Offer:</h2>
     
-    <input type="hidden" name="idJobOffer" value="<%= jobOffer.getIdJobOffer() %>">
+    <label for="idJobOffer">Id JobOffer:</label>
+         <input readonly type="number" id="idJobOffer" name="idJobOffer" value="<%= jobOffer.getIdJobOffer() %>">
+    
     
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" value="<%= jobOffer.getTitle() %>"> <br>

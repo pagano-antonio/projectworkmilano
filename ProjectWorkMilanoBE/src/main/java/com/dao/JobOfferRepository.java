@@ -12,6 +12,8 @@ import com.model.JobOffer;
 public interface JobOfferRepository extends JpaRepository<JobOffer, Integer> {
 
 	List<JobOffer> findByTitle(String title);
+	
+	List<JobOffer> findByJobOfferSkill_skill_idSkill(int idSkill);
 
 	List<JobOffer> findByStartDateAfterAndEndDateBefore(Date startDate, Date endDate);
 }
