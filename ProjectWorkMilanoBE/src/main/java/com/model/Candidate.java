@@ -62,7 +62,7 @@ public class Candidate implements Serializable {
 	// bi-directional many-to-one association to JobInterview
 	@JsonIgnore
 	@OneToMany(mappedBy = "candidate")
-	private List<JobInterview> jobInterviews;
+	private List<JobInterview> jobInterview;
 
 	// bi-directional many-to-one association to WorkExperience
 	@JsonIgnore
@@ -212,23 +212,23 @@ public class Candidate implements Serializable {
 		return education;
 	}
 
-	public List<JobInterview> getJobInterviews() {
-		return this.jobInterviews;
+	public List<JobInterview> getJobInterview() {
+		return this.jobInterview;
 	}
 
 	public void setJobInterviews(List<JobInterview> jobInterviews) {
-		this.jobInterviews = jobInterviews;
+		this.jobInterview = jobInterviews;
 	}
 
 	public JobInterview addJobInterview(JobInterview jobInterview) {
-		getJobInterviews().add(jobInterview);
+		getJobInterview().add(jobInterview);
 		jobInterview.setCandidate(this);
 
 		return jobInterview;
 	}
 
 	public JobInterview removeJobInterview(JobInterview jobInterview) {
-		getJobInterviews().remove(jobInterview);
+		getJobInterview().remove(jobInterview);
 		jobInterview.setCandidate(null);
 
 		return jobInterview;

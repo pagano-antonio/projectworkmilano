@@ -14,8 +14,6 @@
     
         <h2>Update Candidate:</h2>
         
-        <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
-        
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<%= candidate.getName() %>"> <br>
         

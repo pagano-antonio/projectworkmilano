@@ -47,6 +47,11 @@
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">Aggiungi un nuovo candidato</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia">Inserisci Compagnia</a></td>
+            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview">Inserisci Id State Job Interview</a></td>
+            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerOutcome">Inserisci Outcome</a></td>
+            
+            
+
         </tr>
     </table>
    
