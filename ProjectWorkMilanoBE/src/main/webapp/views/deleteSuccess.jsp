@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Delete Success</title>
 </head>
 <body>
-deleteSuccess
+	<h2>Your Data have been successfully deleted</h2>
+	
+	<a href="${pageContext.request.contextPath}/home">Go back Home</a>
 </body>
 </html>

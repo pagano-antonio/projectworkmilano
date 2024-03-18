@@ -13,5 +13,7 @@
 		<input type="text" id="city" name="city">
 		<input type="submit" value="Find Company Client">
 	</form>
+	
+	<a href="${pageContext.request.contextPath}/home">Go back Home</a>
 </body>
 </html>

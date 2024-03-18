@@ -1,5 +1,8 @@
 package com.ctr;
 
+import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -8,10 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dao.CandidateRepository;
+import com.dao.EducationDegreeTypeRepository;
 import com.dao.EducationRepository;
 import com.model.Education;
-
-import jakarta.servlet.http.HttpServletRequest;
+import com.model.EducationDegreeType;
+import com.model.Candidate;
 
 @Controller
 @RequestMapping("/EducationCtr")
@@ -20,16 +25,30 @@ public class EducationCtr {
 	@Autowired
 	private EducationRepository educationRep;
 	
+	@Autowired
+	private EducationDegreeTypeRepository educationDegreeTypeRep;
+	
+	@Autowired
+	private CandidateRepository candidateRep;
+	
 	
 	//GO TO create Education
-	@GetMapping("/addEducationForm")
-	public String addEducationForm () {
-			return "addEducation";
+	@GetMapping("/preAddEducationForm")
+	public String addEducationForm (Model model) {
+		
+		//To add a new Education to DB I need to find Education Degree Types first (foreign key)
+		List<EducationDegreeType> educationDegreeTypeList = educationDegreeTypeRep.findAll();
+		model.addAttribute("EDTlist", educationDegreeTypeList);
+				
+		//I need to find Candidates too (foreign key)
+		List<Candidate> candidateList = candidateRep.findAll();
+		model.addAttribute("candidateList", candidateList);
+		return "addEducationForm";
 	}
 		
 	//CREATE Education
 	@PostMapping("/addEducation")
-	public String addEducation (Education ed) {
+	public String addEducation (Model model, Education ed) {
 			
 		//There is no controller here, because even if it is very unlikely two candidates can have the same
 		//Education data...
@@ -40,9 +59,9 @@ public class EducationCtr {
 		}
 		
 		//GO TO read by ID
-		@GetMapping("/findByIdEducationForm")
+		@GetMapping("/preFindByIdEducationForm")
 		public String findByIdEducationForm () {
-			return "findByIdEducation";
+			return "findByIdEducationForm";
 		}
 		
 		//READ Education by ID
@@ -52,16 +71,26 @@ public class EducationCtr {
 			
 			if (ed != null) {
 				model.addAttribute("idEducation", ed);
-				return "findByIdEducationResults"; 
+				return "findByIdEducationResults";
 				} else {
 				return "Error";
 			}
 		}
 		
 		//GO TO update Education
-		@GetMapping("/updateEducationForm")
-		public String updateEducationForm () {
-			return "updateEducation";
+		@GetMapping("/preUpdateEducationForm")
+		public String updateEducationForm (Model model, int idEducation) {
+			Education ed = educationRep.findByIdEducation(idEducation);
+			model.addAttribute("idEducation", ed);
+			//To add a new Education to DB I need to find Education Degree Types first (foreign key)
+			List<EducationDegreeType> educationDegreeTypeList = educationDegreeTypeRep.findAll();
+			model.addAttribute("EDTlist", educationDegreeTypeList);
+					
+			//I need to find Candidates too (foreign key)
+			List<Candidate> candidateList = candidateRep.findAll();
+			model.addAttribute("candidateList", candidateList);
+
+			return "updateEducationForm";
 		}
 		
 		//UPDATE Education
@@ -70,14 +99,10 @@ public class EducationCtr {
 			educationRep.save(ed);
 			
 			System.out.println("DB Update successful");
-			return "updateEducationSuccessful";
+			return "updateSuccess";
 		}
 		
-		//GO TO delete Education
-		@GetMapping("/deleteEducationForm")
-		public String deleteEducationForm () {
-			return "deleteEducation";
-		}
+		//GO TO delete Education is useless
 		
 		//DELETE Education
 		@GetMapping("/deleteEducation")
@@ -87,7 +112,7 @@ public class EducationCtr {
 				if (ed != null) {
 					educationRep.delete(ed);
 					System.out.println("Education successfully deleted from DB.");
-					return "deleteEducationSuccessful";
+					return "deleteSuccess";
 				} else {
 					return "Error";
 				}

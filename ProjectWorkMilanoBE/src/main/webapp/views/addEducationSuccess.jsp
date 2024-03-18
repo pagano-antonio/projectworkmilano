@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Success</title>
+<title>Add Education Success</title>
 </head>
 <body>
-	<h2>Your update has been successfully registered</h2>
-	<br>
+	<h2>Your Data has been added successfully.</h2>
+	
 	<a href="${pageContext.request.contextPath}/home">Go back Home</a>
 </body>
 </html>

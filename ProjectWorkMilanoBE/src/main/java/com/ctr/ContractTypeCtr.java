@@ -22,9 +22,9 @@ public class ContractTypeCtr {
 	
 	
 	//GO TO create Contract Type
-	@GetMapping("/addContractTypeForm")
+	@GetMapping("/preAddContractTypeForm")
 	public String addContractTypeForm () {
-		return "addContractType";
+		return "addContractTypeForm";
 	}
 	
 	//CREATE Contract Type
@@ -43,15 +43,16 @@ public class ContractTypeCtr {
 	}
 	
 	//GO TO read by ID
-	@GetMapping("/findByIdContractTypeForm")
-	public String findByIdContractTypeForm () {
-		return "findByIdContractType";
+	@GetMapping("/preFindByIdContractTypeForm")
+	public String preFindByIdContractTypeForm () {
+		return "findByIdContractTypeForm";
 	}
 	
 	//READ Contract Type by ID
 	@GetMapping("/findByIdContractType")
 	public String findByIdContractType (Model model, int idContractType) {
 		ContractType contract = contractTypeRep.findByIdContractType(idContractType);
+		
 		
 		if (contract != null) {
 			model.addAttribute("idContractType", contract);
@@ -62,9 +63,12 @@ public class ContractTypeCtr {
 	}
 	
 	//GO TO update Contract Type
-	@GetMapping("/updateContractTypeForm")
-	public String updateContractTypeForm () {
-		return "updateContractType";
+	@GetMapping("/preUpdateContractTypeForm")
+	public String preUpdateContractTypeForm (Model model, int idContractType) {
+		ContractType contract = contractTypeRep.findByIdContractType(idContractType);
+		
+		model.addAttribute("idContractType", contract);
+		return "updateContractTypeForm";
 	}
 	
 	//UPDATE Contract Type
@@ -73,14 +77,10 @@ public class ContractTypeCtr {
 		contractTypeRep.save(contract);
 		
 		System.out.println("DB Update successful");
-		return "updateContractTypeSuccessful";
+		return "updateSuccess";
 	}
 	
-	//GO TO delete Contract Type
-	@GetMapping("/deleteContractTypeForm")
-	public String deleteContractTypeForm () {
-		return "deleteContractType";
-	}
+	//GO TO delete Contract Type is useless
 	
 	//DELETE Contract Type
 	@GetMapping("/deleteContractType")
@@ -90,7 +90,7 @@ public class ContractTypeCtr {
 			if (contract != null) {
 				contractTypeRep.delete(contract);
 				System.out.println("Contract Type successfully deleted from DB.");
-				return "deleteContractTypeSuccessful";
+				return "deleteSuccess";
 			} else {
 				return "Error";
 			}
