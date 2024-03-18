@@ -29,10 +29,13 @@ l'entit√† Candidate. Quando utilizzi questa interfaccia, Spring Data JPA gestir√
 automaticamente la creazione delle query necessarie per l'operazione che stai cercando di eseguire.*/
 	
 
-	List <Candidate> findByCity(String city);
+	public List <Candidate> findByCity(String city);
 	
+	public List <Candidate> findByJobInterview_outcome(int outcome);
 	
-	List<Candidate> findByWorkExperiences_Company(String company);
+	public List <Candidate> findByJobInterview_StateJobInterview_idStateJobInterview(int idStateJobInterview);
+	
+	public List<Candidate> findByWorkExperiences_Company(String company);
 	
 	public List<Candidate> findBySurname (String surname);
 	

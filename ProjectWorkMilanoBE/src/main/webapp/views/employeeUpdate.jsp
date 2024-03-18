@@ -43,5 +43,8 @@
 
         <button type="submit">Conferma Modifiche</button>
     </form>
+    
+    
+    <a href="http://localhost:8080/home"> Torna alla home </a>
 </body>
 </html>

@@ -183,4 +183,39 @@ public class CandidateCtr {
     	model.addAttribute("candidateLista", candidateLista);
 		return "risultatiRicercaCandidatoPerCompagnia" ;
     }
+    	
+    	
+    	/////////// RICERCA CANDIDATE PER JOB INTERVIEW //////////////
+    	
+    	@GetMapping ("/preRicercaCandidatoPerStateJobInterview")
+    	public String preRicercaCandidatoPerStateJobInterview(Model model) {
+    		return "ricercaCandidatoPerStateJobInterview" ;
+    		
+    	}
+    	
+    	@PostMapping("/ricercaCandidatoPerStateJobInterview")
+    	 public String ricercaCandidatoPerStateJobInterview(Model model, @RequestParam int idStateJobInterview) {
+    		List<Candidate> candidateLista =candidateRep.findByJobInterview_StateJobInterview_idStateJobInterview(idStateJobInterview);
+        	model.addAttribute("candidateLista", candidateLista);
+    		return "RisultatiRicercaCandidatoPerStateJobInterview" ;
+    		
+    	}
+   
+    	
+    //////////// RICERCA CANDIDATE PER OUTCOME ////////////////
+    	
+    	@GetMapping ("/preRicercaCandidatoPerOutcome")
+    	public String preRicercaCandidatoPerOutcome(Model model) {
+    		return "ricercaCandidatoPerOutcome" ;
+    		
+    	}
+    	
+    	@PostMapping("/ricercaCandidatoPerOutcome")
+    	 public String ricercaCandidatoPerOutcome(Model model, @RequestParam int outcome) {
+    		List<Candidate> candidateLista =candidateRep.findByJobInterview_outcome(outcome);
+        	model.addAttribute("candidateLista", candidateLista);
+    		return "RisultatiRicercaCandidatoPerOutcome" ;
+    		
+    	}
+    	
 }
