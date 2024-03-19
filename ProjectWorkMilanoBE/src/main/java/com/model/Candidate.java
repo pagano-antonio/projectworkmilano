@@ -8,7 +8,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
@@ -51,7 +53,8 @@ public class Candidate implements Serializable {
 
 	// bi-directional many-to-one association to CandidateSkill
 	@JsonIgnore
-	@OneToMany(mappedBy = "candidate")
+	@OneToMany(mappedBy = "candidate", fetch =FetchType.EAGER,cascade= CascadeType.REMOVE)
+
 	private List<CandidateSkill> candidateSkills;
 
 	// bi-directional many-to-one association to Education

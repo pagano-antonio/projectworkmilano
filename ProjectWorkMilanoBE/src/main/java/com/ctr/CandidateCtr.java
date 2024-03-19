@@ -217,5 +217,27 @@ public class CandidateCtr {
     		return "RisultatiRicercaCandidatoPerOutcome" ;
     		
     	}
-    	
+    //GO TO Read by SKILL
+        @GetMapping("/findCandidateBySkillForm")
+        public String findCandidateBySkillForm () {
+        	
+        	return "findCandidateBySkillForm";
+        }
+
+    //READ Candidate by SKILL
+        @GetMapping("/findCandidateBySkill")   
+        public String findCandidateBySkill(Model model,HttpServletRequest request, String title) {
+        	 System.out.println("sono entrato nel metodo");
+        	List<Candidate> candidatesBySkill = candidateRep.findByCandidateSkills_Skill_Title(title);    
+        	
+        	System.out.println(candidatesBySkill.size());
+        	if(candidatesBySkill.size()> 0) {
+        		System.out.println("sono nell'if");
+        		model.addAttribute("candidatesBySkill", candidatesBySkill);
+        		return "findCandidateBySkill";
+        	} else {
+        		return "NotFound";
+        	}
+        } 
+
 }

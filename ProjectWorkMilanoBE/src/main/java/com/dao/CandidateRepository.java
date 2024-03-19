@@ -42,4 +42,6 @@ automaticamente la creazione delle query necessarie per l'operazione che stai ce
 	public List<Candidate> findByPhone (BigInteger phone);
 
 	public List<Candidate> findByEducations_EducationDegreeType_IdEducationDegreeType (Integer idEducationDegreeType);
+	
+	public List <Candidate> findByCandidateSkills_Skill_Title (String title);
 }
