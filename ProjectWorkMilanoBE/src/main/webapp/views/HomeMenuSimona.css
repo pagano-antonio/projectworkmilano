@@ -1,101 +1,208 @@
 @charset "UTF-8";
 
-/* Importa il font Roboto da Google Fonts */
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,300');
+	H1 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(45deg, #24006b, #f42f8c);
+  z-index: 9999; 
+}
+H2 {
+  color: white;
+}
 
-/* Reset dei margini e dei padding per ul e li */
-ul {
-    padding: 0;
+body{
     margin: 0;
-}
-li {
-    list-style-type: none;
-}
-
-/* Nasconde i radio button */
-input[type='radio'] {
-    display: none;
-}
-
-/* Applica stili al corpo del documento */
-body {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    background: pink;
+    background: linear-gradient(45deg, #24006b, #f42f8c);
+  }
+  
+  .container { 
+  padding-top: 50px; 
+  width: 5000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-rows: auto; /* Imposta l'altezza automatica per le righe della griglia */
+  grid-gap: 1px;
+  margin: auto;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 350px;
+  height: 400px;
+  margin: 3px;
+  background: #fff;
+  box-shadow: 0 15px 60px rgba(0,0,0, .5);
+  border-radius: 15px;
+}
+
+.card .face {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+  .card .face.face1{
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  
+  .card .face.face1 h2{
     margin: 0;
     padding: 0;
-    height: 100vh;
-    -webkit-font-smoothing: antialiased;
+  }
+  
+  .card .face.face1 .content{
+    font-size:1.2em;
+    margin:0;
+    padding:0 0 1em 0;
+    font-weight:500;
+    
+  }
+  ul#menu {
+    font-family: Roboto, sans-serif;
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-
-/* Stili per il contenitore principale */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+ul#menu li {
+    background-color: #000000;
+    border-bottom: 5px solid #808080;
+    display: block;
+    width: 150px;
+    height: 30px;
+    margin: 2px;
+    float: left; /* elementi su singola riga */
 }
-
-/* Stili per gli elementi h1 e p */
-h1 {
-    color: #333;
+ul#menu li a {
+    color: #fff;
+    display: block;
+    font-weight: bold;
+    line-height: 30px;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    text-align: center;
 }
-
-p {
-    color: #666;
+ul#menu li.active, ul#menu li:hover {
+    background-color: #000000;
+    border-bottom: 5px solid #800080;
 }
-
-/* Stili specifici per la classe .swanky */
-.swanky {
-    perspective: 600px;
-    width: 700px;
-    margin: auto;
-    height: 360px;
+  
+  .card .face.face2{
+    background: #111;
+    transition: 0.5s;
+  }
+  
+  .card:nth-child(1) .face.face2{
+    background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(2) .face.face2{
+    background: linear-gradient(45deg, #ccff00, #09afff);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(3) .face.face2{
+    background: linear-gradient(45deg, #e91e63, #ffeb3b);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(4) .face.face2{
+    background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(5) .face.face2{
+    background: linear-gradient(45deg, #ccff00, #09afff);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(6) .face.face2{
+    background: linear-gradient(45deg, #e91e63, #ffeb3b);
+    border-radius: 15px;
+  }
+  .card:nth-child(7) .face.face2{
+    background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(8) .face.face2{
+    background: linear-gradient(45deg, #ccff00, #09afff);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(9) .face.face2{
+    background: linear-gradient(45deg, #e91e63, #ffeb3b);
+    border-radius: 15px;
+  }
+  .card:nth-child(10) .face.face2{
+    background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+  }
+  .card:nth-child(11) .face.face2{
+    background: linear-gradient(45deg, #ccff00, #09afff);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(12) .face.face2{
+    background: linear-gradient(45deg, #e91e63, #ffeb3b);
+    border-radius: 15px;
+  }
+  .card:nth-child(13) .face.face2{
+    background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+  }
+  .card:nth-child(14) .face.face2{
+    background: linear-gradient(45deg, #ccff00, #09afff);
+    border-radius: 15px;
+  }
+  
+  .card:nth-child(15) .face.face2{
+    background: linear-gradient(45deg, #e91e63, #ffeb3b);
+    border-radius: 15px;
+  }
+  .card:hover .face.face2{
+    height: 60px;
+    border-radius: 0 0 15px 15px;
+  }
+  
+  .card .face.face2:before{
+    content:'';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-/* Stili per il titolo */
-.swanky_title {
-    float: right;
-    text-align: left;
-    width: 400px;
-    color: white;
-    position: relative;
-    top: 70px;
-}
-
-/* Stili per il wrapper intro */
-.intro {
-    float: right;
-    color: white;
-    width: 370px;
-    top: 50px;
-    position: relative;
-}
-
-/* Stili per il wrapper */
-.swanky_wrapper {
-    width: 225px;
-    height: auto;
-    overflow: hidden;
-    border-radius: 4px;
-    background: #2a394f;
-}
-
-/* Stili per le etichette */
-.swanky_wrapper label {
-    padding: 25px;
-    float: left;
-    height: 72px;
-    border-bottom: 1px solid #293649;
-    position: relative;
-    width: 100%;
-    color: #eff4fa;
-    transition: text-indent .15s, height .3s;
-    box-sizing: border-box;
-}
-
+    top:0;
+    left:0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255, 0.1);
+    border-radius: 15px 0 0 15px;
+  }
+  
+  .card .face.face2 h2{
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    color: #fff;
+    transition: 0.5s;
+    text-shadow: 0 2px 5px rgba(0,0,0, .2);
+  }
+  
+  .card:hover .face.face2 h2{
+    font-size: 1em;
+  }

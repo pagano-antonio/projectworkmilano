@@ -4,32 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <title>Error</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            text-align: center;
-        }
-        .container {
-            margin: 100px auto;
-            max-width: 600px;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #dc3545;
-        }
-        p {
-            color: #343a40;
-        }
-    </style>
+    <style>body{
+  margin:0;
+  padding:0;
+  font-family: 'Tomorrow', sans-serif;
+  height:100vh;
+background-image: linear-gradient(to top, #2e1753, #1f1746, #131537, #0d1028, #050819);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+.text{
+  position:absolute;
+  top:10%;
+  color:#fff;
+  text-align:center;
+}
+h1{
+  font-size:50px;
+}
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#fff;
+  right:0;
+  animation:starTwinkle 3s infinite linear;
+}
+.astronaut img{
+  width:100px;
+  position:absolute;
+  top:55%;
+  animation:astronautFly 6s infinite linear;
+}
+@keyframes astronautFly{
+  0%{
+    left:-100px;
+  }
+  25%{
+    top:50%;
+    transform:rotate(30deg);
+  }
+  50%{
+    transform:rotate(45deg);
+    top:55%;
+  }
+  75%{
+    top:60%;
+    transform:rotate(30deg);
+  }
+  100%{
+    left:110%;
+    transform:rotate(45deg);
+  }
+}
+@keyframes starTwinkle{
+  0%{
+     background:rgba(255,255,255,0.4);
+  }
+  25%{
+    background:rgba(255,255,255,0.8);
+  }
+  50%{
+   background:rgba(255,255,255,1);
+  }
+  75%{
+    background:rgba(255,255,255,0.8);
+  }
+  100%{
+    background:rgba(255,255,255,0.4);
+  }
+}</style>
 </head>
 <body>
-    <div class="container">
-        <h2>Error</h2>
+    <div class="text">
+  <div>ERROR</div>
+  <h1>404</h1>
+  <hr>
+  <div>Page Not Found</div>
+</div>
+
+<div class="astronaut">
+  <img src="https://images.vexels.com/media/users/3/152639/isolated/preview/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon-by-vexels.png" alt="" class="src">
+
+</div>
         <p>${error}</p>
-    </div>
+ 
 </body>
 </html>
