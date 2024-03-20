@@ -131,10 +131,10 @@ public class CandidateCtr {
     
 
 //GO TO Read by SURNAME
-    @GetMapping("/findCandidateBySurnameForm")
+    @GetMapping("/preFindCandidateBySurnameForm")
     public String findCandidateBySurnameForm() {
     	
-    	return "findCandidateBySurname";
+    	return "findCandidateBySurnameForm";
     }
     
 //READ Candidate by Surname
@@ -144,17 +144,17 @@ public class CandidateCtr {
     	
     	if(candidateList != null && candidateList.size() > 0) {
     		model.addAttribute("candidateSurnamesResults", candidateList);
-    		return "findByCandidateSurnameResults";
+    		return "findCandidateBySurnameResults";
     	} else {
     		return "Error";
     	}
     }
     
 //GO TO Read by PHONE
-    @GetMapping("/findCandidateByPhoneForm")
+    @GetMapping("/preFindCandidateByPhoneForm")
     public String findCandidateByPhoneForm () {
     	
-    	return "findCandidateByPhone";
+    	return "findCandidateByPhoneForm";
     }
 
 

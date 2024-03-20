@@ -10,6 +10,12 @@
 
 <!-- http://localhost:8080/views/homeFrancesca.jsp -->
 
+<h3>Candidate</h3>
+<ul>
+<li><a href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm">Find a Candidate by surname</a></li>
+<li><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm">Find a Candidate by phone</a></li>
+</ul>
+
 <h3>Company Client</h3>
 <ul>
 <li><a href="${pageContext.request.contextPath}/CompanyClientCtr/preAddCompanyClientForm">Add Company Client</a></li>
