@@ -106,7 +106,7 @@ public class JobOfferCtr {
     
  //ELIMINA 
     
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String delete(Model model, HttpServletRequest request, Integer idJobOffer) {
     	
     	jobOfferRep.deleteById(idJobOffer);
@@ -193,10 +193,28 @@ public class JobOfferCtr {
 
 		return "ok";
 	}
+    
+  //RICERCA TRA RAL MINIMA E RAL MASSIMA
+	
+  	@GetMapping("/findJobOfferBetweenMinRalAndMaxRalForm")
+  	public String findJobOfferBetweenMinRalAndMaxRalForm() {
+  		return "findJobOfferBetweenMinRalAndMaxRalForm";
+  	}
+  	
+  	@GetMapping("/findJobOfferBetweenMinRalAndMaxRal")
+  	public String findJobOfferBetweenMinRalAndMaxRal(Model model, int minRal ,int maxRal) {
+  		
+  		List<JobOffer> jobOffers = jobOfferRep.findTitleByMinRalAfterAndMaxRalBefore(minRal, maxRal);
+  		System.out.println("PROVA");
+  		model.addAttribute("offerList",jobOffers);
+  		
+  		return "findJobOfferBetweenMinRalAndMaxRal";
+  	}
+}
 	
 	
     
-}
+
 
 
 

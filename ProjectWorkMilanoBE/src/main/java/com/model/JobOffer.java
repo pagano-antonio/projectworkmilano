@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -42,17 +44,20 @@ public class JobOffer implements Serializable {
 	private String title;
 
 	// bi-directional many-to-one association to CompanyClient
-	@ManyToOne
+	@JsonIgnore
+	@ManyToOne	
 	@JoinColumn(name = "idCompanyClient")
 	private CompanyClient companyClient;
 
 	// bi-directional many-to-one association to ContractType
-	@ManyToOne
+	@JsonIgnore
+	@ManyToOne	
 	@JoinColumn(name = "idContractType")
 	private ContractType contractType;
 
 	// bi-directional many-to-one association to JobOfferSkill
-	@OneToMany(mappedBy = "jobOffer")
+	@JsonIgnore
+	@OneToMany(mappedBy = "jobOffer")	
 	private List<JobOfferSkill> jobOfferSkill;
 
 	public JobOffer() {
@@ -136,20 +141,6 @@ public class JobOffer implements Serializable {
 
 	public void setJobOfferSkill(List<JobOfferSkill> jobOfferSkill) {
 		this.jobOfferSkill = jobOfferSkill;
-	}
-
-	public JobOfferSkill addJobOfferSkill(JobOfferSkill jobOfferSkill) {
-		getJobOfferSkills().add(jobOfferSkill);
-		jobOfferSkill.setJobOffer(this);
-
-		return jobOfferSkill;
-	}
-
-	public JobOfferSkill removeJobOfferSkill(JobOfferSkill jobOfferSkill) {
-		getJobOfferSkills().remove(jobOfferSkill);
-		jobOfferSkill.setJobOffer(null);
-
-		return jobOfferSkill;
 	}
 
 }

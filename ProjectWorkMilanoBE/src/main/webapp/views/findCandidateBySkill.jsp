@@ -28,17 +28,17 @@
 		<c:forEach var="c" items="${candidatesBySkill}">			
 			
 				<tr>
-					<td>${c.idCandidate}</td>					
-					<td>${c.name}</td>			
-					<td>${c.surname}</td>										
-					<td>${c.birthday}</td>
-					<td>${c.birthPlace}</td>
-					<td>${c.address}</td>
-					<td>${c.city}</td>
-					<td>${c.email}</td>
-					<td>${c.phone}</td>
-					<td><a href="${pageContext.request.contextPath}/candidate/updateCandidateForm?idCandidate=${c.idCandidate}"><button>Update</button></a></td>
-					<td><a href="${pageContext.request.contextPath}/candidate/delete?idCandidate=${c.idCandidate}"><button>Delete</button></a></td>
+					<td class="table-success">${c.idCandidate}</td>					
+					<td class="table-success">${c.name}</td>			
+					<td class="table-success">${c.surname}</td>										
+					<td class="table-success">${c.birthday}</td>
+					<td class="table-success">${c.birthPlace}</td>
+					<td class="table-success">${c.address}</td>
+					<td class="table-success">${c.city}</td>
+					<td class="table-success">${c.email}</td>
+					<td class="table-success">${c.phone}</td>
+					<td class="table-success"><a href="${pageContext.request.contextPath}/candidate/updateCandidateForm?idCandidate=${c.idCandidate}"><button>Update</button></a></td>
+					<td class="table-success"><a href="${pageContext.request.contextPath}/candidate/delete?idCandidate=${c.idCandidate}"><button>Delete</button></a></td>
 				</tr>					
 		</c:forEach>				
 	</table>

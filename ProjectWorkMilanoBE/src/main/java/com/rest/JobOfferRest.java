@@ -1,5 +1,7 @@
 package com.rest;
 
+
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,4 +61,19 @@ public class JobOfferRest {
 		return objectJO;
 		
 	}
+	
+//CERCA TRA RAL MINIMA E RAL MASSIMA
+
+		@GetMapping("findJobOfferBetweenMinAndMaxRal/{minRal}/{maxRal}")
+		public List <JobOffer> findJBBetweenMinRalAndMaxRal(@PathVariable(value = "minRal") Integer minRal,@PathVariable(value = "maxRal") Integer maxRal){
+				
+			List <JobOffer> tmp = jobOfferRep.findTitleByMinRalAfterAndMaxRalBefore(minRal, maxRal);
+			for (JobOffer jobOffer : tmp) {
+				jobOffer.setJobOfferSkill(null);			
+			}
+			return tmp;
+		}
 }
+
+
+

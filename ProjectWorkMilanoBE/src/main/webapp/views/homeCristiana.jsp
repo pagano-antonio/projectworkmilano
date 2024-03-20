@@ -58,6 +58,9 @@
 			<tr>		
 			<td><a href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm">CERCA UN CANDIDATO TRAMITE UNA SKILL</a></td>
 			</tr>
+			<tr>
+			<td><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOfferBetweenMinRalAndMaxRalForm">CERCA OFFERTA DI LAVORO TRA DUE RAL</a></td>
+			</tr>
 	</table>
 </body>
 </html>
