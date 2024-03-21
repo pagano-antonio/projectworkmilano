@@ -12,33 +12,36 @@
 H2 {
   color: white;
 }
-
-body{
+body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(45deg, #24006b, #f42f8c);
-  }
+    height: 100vh; /* Altezza pari all'intera altezza della viewport */
+}
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   
-  .container { 
-  padding-top: 50px; 
-  width: 5000px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-auto-rows: auto; /* Imposta l'altezza automatica per le righe della griglia */
-  grid-gap: 1px;
-  margin: auto;
-  justify-content: center;
+ .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 30px;
+    max-width: 1200px; /* Larghezza massima del contenitore */
+    margin-top: 150px; /* Margine superiore per separare l'header dalle card */
 }
 
 .card {
   position: relative;
+  margin: 50px;
   width: 350px;
-  height: 400px;
+  height: 300px;
   margin: 3px;
   background: #fff;
   box-shadow: 0 15px 60px rgba(0,0,0, .5);
@@ -123,61 +126,6 @@ ul#menu li.active, ul#menu li:hover {
     background: linear-gradient(45deg, #e91e63, #ffeb3b);
     border-radius: 15px;
   }
-  
-  .card:nth-child(4) .face.face2{
-    background: linear-gradient(45deg, #3503ad, #f7308c);
-    border-radius: 15px;
-  }
-  
-  .card:nth-child(5) .face.face2{
-    background: linear-gradient(45deg, #ccff00, #09afff);
-    border-radius: 15px;
-  }
-  
-  .card:nth-child(6) .face.face2{
-    background: linear-gradient(45deg, #e91e63, #ffeb3b);
-    border-radius: 15px;
-  }
-  .card:nth-child(7) .face.face2{
-    background: linear-gradient(45deg, #3503ad, #f7308c);
-    border-radius: 15px;
-  }
-  
-  .card:nth-child(8) .face.face2{
-    background: linear-gradient(45deg, #ccff00, #09afff);
-    border-radius: 15px;
-  }
-  
-  .card:nth-child(9) .face.face2{
-    background: linear-gradient(45deg, #e91e63, #ffeb3b);
-    border-radius: 15px;
-  }
-  .card:nth-child(10) .face.face2{
-    background: linear-gradient(45deg, #3503ad, #f7308c);
-    border-radius: 15px;
-  }
-  .card:nth-child(11) .face.face2{
-    background: linear-gradient(45deg, #ccff00, #09afff);
-    border-radius: 15px;
-  }
-  
-  .card:nth-child(12) .face.face2{
-    background: linear-gradient(45deg, #e91e63, #ffeb3b);
-    border-radius: 15px;
-  }
-  .card:nth-child(13) .face.face2{
-    background: linear-gradient(45deg, #3503ad, #f7308c);
-    border-radius: 15px;
-  }
-  .card:nth-child(14) .face.face2{
-    background: linear-gradient(45deg, #ccff00, #09afff);
-    border-radius: 15px;
-  }
-  
-  .card:nth-child(15) .face.face2{
-    background: linear-gradient(45deg, #e91e63, #ffeb3b);
-    border-radius: 15px;
-  }
   .card:hover .face.face2{
     height: 60px;
     border-radius: 0 0 15px 15px;
@@ -206,3 +154,41 @@ ul#menu li.active, ul#menu li:hover {
   .card:hover .face.face2 h2{
     font-size: 1em;
   }
+.openoffers-container {
+    display: flex;
+    justify-content: space-around; /* Distribuisce uniformemente gli elementi lungo la riga */
+    flex-wrap: wrap; /* Permette il wrapping degli elementi quando lo spazio è insufficiente */
+}
+
+.openoffers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px; /* Aggiunge spazio intorno al contenuto */
+    max-width: 300px; /* Larghezza massima per allineare con le card */
+}
+
+.openoffers h2 {
+    color: #800080;
+    font-size: 20px;
+    margin: 10px 0; /* Margine sopra e sotto */
+}
+.openoffers p {
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 0;        
+}
+
+.openoffers a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.openoffers a:hover {
+    text-decoration: underline;
+}
