@@ -210,6 +210,22 @@ public class JobOfferCtr {
   		
   		return "findJobOfferBetweenMinRalAndMaxRal";
   	}
+//RICERCA PER ID CONTRACT TYPE
+	
+  	@GetMapping("/findJobOfferByIdContractTypeForm")
+  	public String findJobOfferByIdContractTypeForm() {
+  		return "findJobOfferByIdContractTypeForm";
+  	}
+  	
+  	@GetMapping("/findJobOfferByIdContractType")
+  	public String findJobOfferByIdContractType(Model model, int idContractType) {
+  		
+  		List <JobOffer> jobOffers = jobOfferRep.findByContractType_idContractType(idContractType);
+  		System.out.println("PROVA");
+  		model.addAttribute("offer",jobOffers);
+  		
+  		return "findJobOfferByIdContractType";
+  	}
 }
 	
 	

@@ -61,6 +61,9 @@
 			<tr>
 			<td><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOfferBetweenMinRalAndMaxRalForm">CERCA OFFERTA DI LAVORO TRA DUE RAL</a></td>
 			</tr>
+			<tr>
+			<td><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOfferByIdContractTypeForm">CERCA OFFERTA DI LAVORO TRAMITE ID CONTRATTO</a></td>
+			</tr>
 	</table>
 </body>
 </html>
