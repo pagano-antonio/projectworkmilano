@@ -1,5 +1,6 @@
 package com.ctr;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -157,4 +158,19 @@ public class CompanyClientCtr {
 			return "Error";
 		}
 	}
+	
+	
+	
+	
+	
+	@GetMapping("/companyClientFind") //------pagina che mostra tutte le company con redirect nel cercaid
+	public String companyClientFind (Model model) {
+		List<CompanyClient> lista = new ArrayList<CompanyClient>();
+		lista=companyClientRep.findAll();
+		model.addAttribute("lista", lista);
+	    return "companyClientLinks";}
+	
+	
+	
+	
 }
