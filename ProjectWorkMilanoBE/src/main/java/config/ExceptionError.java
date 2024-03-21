@@ -9,7 +9,7 @@ public class ExceptionError {
 
 	 @ExceptionHandler(Exception.class)
 	    public String gestisciEccezione(Exception e, Model model) {
-	        model.addAttribute("error", e.getMessage());
+	        model.addAttribute("Error", e.getMessage());
 	        return "Error";
 	    }
 }

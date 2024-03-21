@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dao.CandidateRepository;
 
 import com.model.Candidate;
+import com.model.CandidateCommercialData;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -40,10 +41,16 @@ public class CandidateCtr {
 
 	    @PostMapping("/addCandidate")
 	    public String addCandidate(Model model, HttpServletRequest request, Candidate candidate) {
-	    	System.out.println("Sono Stufa");
-	        candidateRep.save(candidate);
-	        return "saveSuccess";
-	    }
+	    	candidateRep.save(candidate);
+	    	
+	    	
+	        List<Candidate> cList = candidateRep.findAll();
+
+	       
+	        model.addAttribute("LISTAc", cList);
+	        return "ListaCandidateSimona";
+	        
+		}
  
     //////////////////// UPDATE CANDIDATE ///////////////////
 
@@ -91,13 +98,17 @@ public class CandidateCtr {
     	
     }
     
-    @PostMapping("/findByIdCandidate")
+    @PostMapping("/findCandidateById")
     public String findByIdCandidate(Model model, HttpServletRequest request, int idCandidate) {
     	
-    	candidateRep.findById(idCandidate);
-    	return "findByIdCandidate"; 
-    	
-    }
+    	Candidate candidate=candidateRep.findById(idCandidate).get();
+    	if (candidate != null) {
+    	 model.addAttribute("candidate", candidate);
+    	return "findCandidateById"; 
+    	} else {
+            return "Error"; 
+        }
+    }	
 
     //////////// RICERCA CANDIDATE PER CITTA' //////////////////
     

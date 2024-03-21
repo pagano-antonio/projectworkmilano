@@ -44,11 +44,11 @@ body {
 </head>
 <body>
  <div class="container">
-<h1>FIND CANDIDATE COMMERCIAL DATA BY CANDIDATE</h1>
-<form action="${pageContext.request.contextPath}/CandidateCommercialDataCtr/findByIdCandidateCommercialData" method="post">
+<h1>FIND CANDIDATE BY ID</h1>
+<form action="${pageContext.request.contextPath}/candidate/findCandidateById" method="post">
 
-        <label for="idCandidateCommercial"><strong>ID Candidate Commercial:</strong></label>
-        <input type="text" id="idCandidateCommercial" name="idCandidateCommercial">
+        <label for="idCandidate"><strong>ID Candidate:</strong></label>
+        <input type="text" id="idCandidate" name="idCandidate">
         <button type="submit">Search</button>
     </form>
     </div>

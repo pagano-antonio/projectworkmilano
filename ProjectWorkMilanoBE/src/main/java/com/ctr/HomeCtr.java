@@ -29,7 +29,7 @@ public class HomeCtr {
 	
 	
 	@GetMapping("/home")
-	public String goHome(HttpSession session, Model model) {
+	public String Home(HttpSession session, Model model) {
 	    // Ottieni tutte le offerte di lavoro
 	    List<JobOffer> allOffers = jobOfferRep.findAll();
 	    List<JobInterview> allInterviews = jobInterviewRep.findAll();
@@ -56,6 +56,6 @@ public class HomeCtr {
 	    session.setAttribute("openoffers", openOffersToday);
 	    session.setAttribute("futureInterviews", futureInterviews);
 	    
-	    return "Home"; 
+	    return "home"; 
 	}
 }

@@ -22,7 +22,8 @@ header {
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Allinea a sinistra e a destra */
+    justify-content: space-between;
+    z-index: 9999; /* Allinea a sinistra e a destra */
 }
 
 .nav-link {
@@ -34,15 +35,18 @@ header {
     padding: 6px 8px;
     margin-right: 30px; /* Aggiunto margine a destra per separare i link */
     cursor: pointer;
+    
 }
 
 .nav-link:hover {
     color: #f1f1f1;
+    
 }
 
 .nav-link i {
     font-size: 20px;
-    margin-right: 5px; /* Ridotto il margine a destra delle icone */
+    margin-right: 5px;
+    /* Ridotto il margine a destra delle icone */
 }
 
 #menu-button {
@@ -53,33 +57,39 @@ header {
     align-items: center; /* Allinea verticalmente icone e testo */
     padding: 6px 8px;
     cursor: pointer;
-    margin-right: 30px; /* Aggiunto margine a destra per separare i link */
+    margin-right: 30px;
+     /* Aggiunto margine a destra per separare i link */
 }
 
 #menu-button:hover {
     color: #f1f1f1;
+   
 }
 
 #menu-button i {
     font-size: 20px;
-    margin-right: 5px; /* Ridotto il margine a destra delle icone */
+    margin-right: 5px;
+     /* Ridotto il margine a destra delle icone */
 }
 
 .dropdown-container {
     display: none;
     background-color: #262626;
     padding-left: 8px;
+    z-index: 9999;
 }
 
 .fa-caret-down {
     float: right;
     padding-right: 8px;
+    
 }
 
 /* Stile per il popup */
 #session-info {
     position: relative;
     cursor: pointer;
+    
 }
 
 #user-popup {
@@ -88,7 +98,7 @@ header {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 9999;
     background-color: #111;
     border: 1px solid #ddd;
     padding: 10px;

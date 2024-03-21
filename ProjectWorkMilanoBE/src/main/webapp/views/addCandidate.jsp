@@ -11,9 +11,7 @@
 
     <form action="${pageContext.request.contextPath}/candidate/addCandidate" method="post">
     
-        <h2>Add Candidate:</h2>
-        
-      
+        <h2>Add Candidate:</h2>             
         
         <label for="name">Name:</label>
         <input type="text" id="name" name="name"> <br>
