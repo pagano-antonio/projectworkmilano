@@ -30,7 +30,14 @@ public class CandidateCtr {
 	@Autowired
 	private CandidateRepository candidateRep;
 	
-
+//////////// FIND PER LA HOME /////////
+	@GetMapping("/find")
+	
+	public String find (Model model, HttpServletRequest request){
+        return "find";
+    }  
+	
+	
 	
 //METODO AGGIUNGI
 	
