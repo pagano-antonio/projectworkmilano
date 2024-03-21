@@ -10,7 +10,7 @@
 </head>
 <body>
 <% JobOffer jobOffer = (JobOffer) request.getAttribute("jobOffer"); %>
-<form action="${pageContext.request.contextPath}/JobOfferCtr/updateJobOffer" method="POST">
+<form action="${pageContext.request.contextPath}/JobOfferCtr/updateJobOffer" method="post">
     
     <h2>Update Job Offer:</h2>
     
@@ -31,7 +31,7 @@
     <input type="date" id="endDate" name="endDate" value="<%= jobOffer.getEndDate() %>"> <br>
     
     <label for="idCompanyClient">ID Company Client:</label>
-    <input type="hidden" name="idCompanyClient" value="<%= jobOffer.getCompanyClient().getIdCompanyClient() %>">
+    <input readonly type="number" name="companyClient.idCompanyClient" value="<%= jobOffer.getCompanyClient().getIdCompanyClient() %>">
     
     <label for="minRal">Min Ral:</label>
     <input type="text" id="minRal" name="minRal" value="<%= jobOffer.getMinRal() %>"> <br>
@@ -40,7 +40,7 @@
     <input type="text" id="maxRal" name="maxRal" value="<%= jobOffer.getMaxRal() %>"> <br>
     
     <label for="idContractType">ID Contract Type:</label>
-   <input type="hidden" name="idContractType" value="<%= jobOffer.getContractType().getIdContractType() %>">
+   <input  readonly type="number" name="contractTipe.idContractType" value="<%= jobOffer.getContractType().getIdContractType() %>">
     
     <hr> 
 
