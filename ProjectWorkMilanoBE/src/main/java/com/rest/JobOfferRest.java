@@ -68,9 +68,15 @@ public class JobOfferRest {
 		public List <JobOffer> findJBBetweenMinRalAndMaxRal(@PathVariable(value = "minRal") Integer minRal,@PathVariable(value = "maxRal") Integer maxRal){
 				
 			List <JobOffer> tmp = jobOfferRep.findTitleByMinRalAfterAndMaxRalBefore(minRal, maxRal);
-			for (JobOffer jobOffer : tmp) {
-				jobOffer.setJobOfferSkill(null);			
-			}
+			return tmp;
+		}
+		
+//CERCA TRA RAL MINIMA E RAL MASSIMA
+
+		@GetMapping("findJobOfferByIdContractType/{idContractType}")
+		public List <JobOffer> findByIdContractType(@PathVariable(value = "idContractType") int idContractType){
+						
+			List <JobOffer> tmp = jobOfferRep.findByContractType_idContractType(idContractType);					
 			return tmp;
 		}
 }
