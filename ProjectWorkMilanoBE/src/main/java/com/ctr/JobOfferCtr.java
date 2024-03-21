@@ -66,38 +66,18 @@ public class JobOfferCtr {
  //METODO AGGIORNA
      
     @GetMapping("/updateJobOfferForm")
-    public String updateJobOfferForm(Model model, HttpServletRequest request, JobOffer jobOffer) {
-        try {
-            int idCompanyClient = Integer.parseInt(request.getParameter("idCompanyClient"));
-            int idContractType = Integer.parseInt(request.getParameter("idContractType"));
-
-            CompanyClient companyClient = companyClientRep.findByIdCompanyClient(idCompanyClient);
-            ContractType contractType = contractTypeRep.findByIdContractType(idContractType);
-
-            if (companyClient != null && contractType != null) {
-                jobOffer.setCompanyClient(companyClient);
-                jobOffer.setContractType(contractType);
-
-                jobOfferRep.save(jobOffer);
-
-                return "updateSuccess";
-            } else {
-                return "Error";
-            }
-        } catch (NumberFormatException e) {
-          
-            return "Error";
-        } catch (Exception e) {
-            
-            e.printStackTrace(); 
-            return "Error";
-        }
+    public String updateJobOfferForm(Model model, HttpServletRequest request, Integer idJobOffer) {
+    	
+    	JobOffer jobOffer =jobOfferRep.findById(idJobOffer).get();
+    	
+    	model.addAttribute("jobOffer",jobOffer);
+    
+    	return "updateJobOffer";
     }
-
-	         
-   
-    @GetMapping("/updateJobOffer")
-    public String updateJobOffer(Model model, HttpServletRequest request, JobOffer jobOffer) {
+    
+    
+    @PostMapping("/updateJobOffer")
+   public String updateJobOffer(Model model, HttpServletRequest request, JobOffer jobOffer) {
     	
     	 jobOfferRep.save(jobOffer);
          return "updateSuccess";
