@@ -74,9 +74,9 @@ public class JobOfferRest {
 //CERCA TRA RAL MINIMA E RAL MASSIMA
 
 		@GetMapping("findJobOfferByIdContractType/{idContractType}")
-		public JobOffer findByIdContractType(@PathVariable(value = "idContractType") int idContractType){
+		public List <JobOffer> findByIdContractType(@PathVariable(value = "idContractType") int idContractType){
 						
-			JobOffer tmp = jobOfferRep.findByContractType_idContractType(idContractType);					
+			List <JobOffer> tmp = jobOfferRep.findByContractType_idContractType(idContractType);					
 			return tmp;
 		}
 }
