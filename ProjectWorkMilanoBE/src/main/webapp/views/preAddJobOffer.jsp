@@ -34,7 +34,7 @@
 		
 		<label for="idCompanyClient">idCompanyClient:</label>
 		<br>
-		<input type="number" id="idCompanyClient" name="idCompanyClient">
+		<input type="number" id="idCompanyClient" name="companyClient.idCompanyClient">
 		<br>
 		
 		<label for="minRal">minRal:</label>
@@ -49,7 +49,7 @@
 		
 		<label for="idContractType">idContractType:</label>
 		<br>
-		<input type="number" id="idContractType" name="idContractType">
+		<input type="number" id="idContractType" name="contractType.idContractType">
 		<br>
 		
 		<br>
