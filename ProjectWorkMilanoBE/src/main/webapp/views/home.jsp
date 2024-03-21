@@ -14,6 +14,8 @@
 <body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <%@ include file="header.jsp" %>
+      <!-- Inserisci il tuo logo qui -->
+        <img src="LOGO-PROJECT-WORK-JAVA-GIRLS.png" alt="Logo JAVA GIRLS" class="logo">
 
 <div class="container-wrapper">
 	<div class="container">
@@ -23,7 +25,7 @@
 					<!--1 CANDIDATE -->
 					<p>Select the desired action</p>
 					<ul id="menu">
-						<li><a href="${pageContext.request.contextPath}/candidate/findCandidate">FIND</a>
+						<li><a href="${pageContext.request.contextPath}/candidate/find">FIND</a>
 						<li><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">ADD</a>
 					</ul>
 				</div>
@@ -86,6 +88,7 @@
     <br>
     <p><b>GO TO INTERVIEWS</b></p>
     </div>
+</div>
 </div>
 </body>
 </html>

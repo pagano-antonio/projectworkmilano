@@ -169,7 +169,7 @@ ul#menu li.active, ul#menu li:hover {
     padding: 20px;
     border-radius: 10px;
     margin: 20px; /* Aggiunge spazio intorno al contenuto */
-    max-width: 300px; /* Larghezza massima per allineare con le card */
+    max-width: 900px; /* Larghezza massima per allineare con le card */
 }
 
 .openoffers h2 {
@@ -191,4 +191,9 @@ ul#menu li.active, ul#menu li:hover {
 
 .openoffers a:hover {
     text-decoration: underline;
+}
+.logo {
+    position: absolute;
+    bottom: 20px; /* Distanza dal basso */
+    right: 20px; /* Distanza da destra */
 }
