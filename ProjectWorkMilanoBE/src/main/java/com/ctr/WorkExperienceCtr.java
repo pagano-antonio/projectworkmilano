@@ -73,7 +73,7 @@ model.addAttribute("WorkExperience", we);
 
 return "FindByidWorkExperience";
 } else {      
-return "errore"; 
+return "Error"; 
 }
 }   
 /////////////////////////////////////////////////////// METODO UPDATE /////////////////////////////////////////////////////////////////		 
