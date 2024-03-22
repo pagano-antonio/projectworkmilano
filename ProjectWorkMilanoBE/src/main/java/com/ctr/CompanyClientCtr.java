@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dao.CompanyClientRepository;
+import com.dao.JobOfferRepository;
 import com.model.CompanyClient;
+import com.model.JobOffer;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/CompanyClientCtr")
@@ -19,6 +23,12 @@ public class CompanyClientCtr {
 
 	@Autowired
 	private CompanyClientRepository companyClientRep;
+	@Autowired
+	private JobOfferRepository jobOfferRep;
+	
+	
+	
+	
 
 	// GO TO create Company Client
 	@GetMapping("/preAddCompanyClientForm")
@@ -169,7 +179,14 @@ public class CompanyClientCtr {
 		lista=companyClientRep.findAll();
 		model.addAttribute("lista", lista);
 	    return "companyClientLinks";}
-	
+
+	/* @PostMapping("/findJobOfferByClientCompany")
+	    public String findJobOfferByClientCompany(Model model, HttpServletRequest request, Integer idCompanyClient) {
+	    	List <JobOffer> offerlist = jobOfferRep.findByCompanyClient(idCompanyClient);
+	        model.addAttribute("jobOffers", offerlist);
+	    	return "findJobOfferByIdCompantClient"; }
+*/	    	
+	    
 	
 	
 	

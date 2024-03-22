@@ -114,10 +114,6 @@ header {
             <span>Home</span>
         </a>
         
-    <span class="nav-link" onclick="toggleNav()">&#9776; Menu</span>
-        
-        
-        
    <div id="user-container">
     <!-- Bottone User -->
     <div id="session-info" class="nav-link">

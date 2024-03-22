@@ -2,6 +2,8 @@ package com.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -23,11 +25,13 @@ public class JobOfferSkill implements Serializable {
 	private int idJobOfferSkill;
 
 	// bi-directional many-to-one association to JobOffer
-	@ManyToOne
+	@JsonIgnore
+	@ManyToOne	
 	@JoinColumn(name = "idJobOffer")
 	private JobOffer jobOffer;
 
 	// bi-directional many-to-one association to Skill
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idSkill")
 	private Skill skill;

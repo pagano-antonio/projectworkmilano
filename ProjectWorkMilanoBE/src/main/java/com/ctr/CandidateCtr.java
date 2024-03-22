@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dao.CandidateRepository;
-
+import com.dao.EducationDegreeTypeRepository;
 import com.model.Candidate;
 import com.model.CandidateCommercialData;
+import com.model.EducationDegreeType;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -30,6 +31,19 @@ public class CandidateCtr {
 	@Autowired
 	private CandidateRepository candidateRep;
 	
+
+//////////// FIND PER LA HOME /////////
+	@GetMapping("/find")
+	
+	public String find (Model model, HttpServletRequest request){
+        return "find";
+    }  
+	
+	
+	@Autowired
+	private EducationDegreeTypeRepository edtRep;
+	
+
 
 	
 //METODO AGGIUNGI
@@ -142,45 +156,72 @@ public class CandidateCtr {
     
 
 //GO TO Read by SURNAME
-    @GetMapping("/preFindCandidateBySurnameForm")
-    public String findCandidateBySurnameForm() {
-    	
-    	return "findCandidateBySurnameForm";
-    }
-    
-//READ Candidate by Surname
-    @GetMapping("/findCandidateBySurname")
-    public String findCandidateBySurname (Model model, String surname) {
-    	List<Candidate> candidateList = candidateRep.findBySurname(surname);
-    	
-    	if(candidateList != null && candidateList.size() > 0) {
-    		model.addAttribute("candidateSurnamesResults", candidateList);
-    		return "findCandidateBySurnameResults";
-    	} else {
-    		return "Error";
-    	}
-    }
-    
-//GO TO Read by PHONE
-    @GetMapping("/preFindCandidateByPhoneForm")
-    public String findCandidateByPhoneForm () {
-    	
-    	return "findCandidateByPhoneForm";
-    }
+	@GetMapping("/preFindCandidateBySurnameForm")
+	public String findCandidateBySurnameForm() {
 
+		return "findCandidateBySurnameForm";
+	}
+
+//READ Candidate by Surname
+	@GetMapping("/findCandidateBySurname")
+	public String findCandidateBySurname(Model model, String surname) {
+		List<Candidate> candidateList = candidateRep.findBySurname(surname);
+
+		if (candidateList != null && candidateList.size() > 0) {
+			model.addAttribute("candidateSurnamesResults", candidateList);
+			return "findCandidateBySurnameResults";
+		} else {
+			return "Error";
+		}
+	}
+
+//GO TO Read by PHONE
+	@GetMapping("/preFindCandidateByPhoneForm")
+	public String findCandidateByPhoneForm() {
+
+		return "findCandidateByPhoneForm";
+	}
 
 //READ Candidate by Phone
-    @GetMapping("/findCandidateByPhone")
-    public String findCandidateByPhone (Model model, BigInteger phone) {
-    	List<Candidate> candidatesList = candidateRep.findByPhone(phone);
-    	
-    	if(candidatesList != null && candidatesList.size() > 0) {
-    		model.addAttribute("candidatesPhonesResults", candidatesList);
-    		return "findByCandidatePhonesResults";
-    	} else {
-    		return "Error";
-    	}
-    }
+	@GetMapping("/findCandidateByPhone")
+	public String findCandidateByPhone(Model model, BigInteger phone) {
+		List<Candidate> candidatesList = candidateRep.findByPhone(phone);
+
+		if (candidatesList != null && candidatesList.size() > 0) {
+			model.addAttribute("candidatesPhonesResults", candidatesList);
+			return "findByCandidatePhonesResults";
+		} else {
+			return "Error";
+		}
+	}
+
+//GO TO READ Candidate by Education Degree Type
+	@GetMapping("/preFindCandidateByEDTForm")
+	public String preFindCandidateByEDTForm(Model model) {
+		// Education Degree Type is ideally a fixed list. Also, it would be
+		// uncomfortable to find the
+		// elements inserting a number. That is why the user will see a select section
+		// with the EDT
+		// instead of their IDs
+		List<EducationDegreeType> edtList = edtRep.findAll();
+		model.addAttribute("EDTList", edtList);
+		return "findCandidateByEDTForm";
+	}
+
+//READ Candidate by Education Degree Type
+	@GetMapping("/findCandidateByEDT")
+	public String findCandidateByEDT(Model model, Integer idEducationDegreeType) {
+		List<Candidate> candidatesList = candidateRep.findByEducations_EducationDegreeType_IdEducationDegreeType(idEducationDegreeType);
+		
+		if(candidatesList != null && candidatesList.size() > 0) {
+			List<EducationDegreeType> edtList = edtRep.findAll();
+			model.addAttribute("EDTList", edtList);
+			model.addAttribute("candidatesEDTResults", candidatesList);
+			return "findCandidateByEDTResults";
+		} else {
+			return "Error";
+		}
+	}
     
     //////// RICERCA CANDIDATO CHE HA LAVORATO IN UNA CERTA COMPANY //////////
     @GetMapping ("/preRicercaCandidatoPerCompagnia")

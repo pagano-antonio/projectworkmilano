@@ -3,6 +3,8 @@ package com.model;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
@@ -25,6 +27,7 @@ public class Skill implements Serializable {
 	private String title;
 
 	// bi-directional many-to-one association to CandidateSkill
+	@JsonIgnore
 	@OneToMany(mappedBy = "skill")
 	private List<CandidateSkill> candidateSkills;
 
