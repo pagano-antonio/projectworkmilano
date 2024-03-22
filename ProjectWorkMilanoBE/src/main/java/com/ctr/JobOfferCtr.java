@@ -191,7 +191,6 @@ public class JobOfferCtr {
   		
   		return "findJobOfferBetweenMinRalAndMaxRal";
   	}
-<<<<<<< HEAD
   	
     //RICERCA PER ID COMPANY CLIENT
 	
@@ -207,7 +206,9 @@ public class JobOfferCtr {
   		
   		model.addAttribute("offerList",jobOffers);
   		return "findJobOfferByIdCompanyClient";
-=======
+  		
+  	}
+
 //RICERCA PER ID CONTRACT TYPE
 	
   	@GetMapping("/findJobOfferByIdContractTypeForm")
@@ -223,7 +224,7 @@ public class JobOfferCtr {
   		model.addAttribute("offer",jobOffers);
   		
   		return "findJobOfferByIdContractType";
->>>>>>> 12fdb86779110ebfe65fb21ecd2b180d3eb345fd
+
   	}
 }
 	

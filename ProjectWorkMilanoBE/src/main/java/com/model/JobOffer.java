@@ -59,11 +59,9 @@ public class JobOffer implements Serializable {
 
 	// bi-directional many-to-one association to JobOfferSkill
 	@JsonIgnore
-<<<<<<< HEAD
+
 	@OneToMany(mappedBy = "jobOffer", fetch =FetchType.EAGER,cascade= CascadeType.REMOVE)	
-=======
-	@OneToMany(mappedBy = "jobOffer",fetch =FetchType.EAGER,cascade= CascadeType.REMOVE)	
->>>>>>> 12fdb86779110ebfe65fb21ecd2b180d3eb345fd
+	
 	private List<JobOfferSkill> jobOfferSkill;
 
 	public JobOffer() {
