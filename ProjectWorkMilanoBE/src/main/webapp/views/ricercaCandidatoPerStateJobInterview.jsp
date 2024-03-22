@@ -7,7 +7,7 @@
 <title>Ricerca Candidate Per Job Interview</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="post">
+<form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="get">
     <h2>Inserisci Compagnia :</h2>
     <input type="text" id="idStateJobInterview" name="idStateJobInterview" placeholder="Inserisci Id State Job Interview'">
     <input type="submit" value="Cerca">

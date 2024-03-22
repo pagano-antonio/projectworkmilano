@@ -52,6 +52,7 @@
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
              <td><a href="${pageContext.request.contextPath}/JobOfferCtr/preRicercaSkill">Inserisci idSkill</a></td>
               <td><a href="${pageContext.request.contextPath}/candidate/find">FIND</a></td>
+              <td><a href="${pageContext.request.contextPath}/wk/preRicercaWEPerIdCandidate"> RICERCA WORK EXPERIENCE PER ID CANDIDATE</a></td>
             
             
 

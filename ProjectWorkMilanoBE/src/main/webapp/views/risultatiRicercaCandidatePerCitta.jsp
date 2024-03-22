@@ -46,17 +46,34 @@
                             <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
                             <button type="submit">Elimina</button>
                         </form>
+                        
+                        
+
+   <!-- TASTI PER INFO SU CANDIDATE -->
    
     <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
         <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
         <button type="submit">Skills</button>
     </form>
     
-     <form action="${pageContext.request.contextPath}/candidate/findCCDataByIdCandidate" method="Get">
-        <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-        <button type="submit">Education Degree Type</button>
-    </form>
-                        
+     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
+    <input type="hidden" name="idStateJobInterview" value="${candidateLista.idCandidate}">
+    <button type="submit">Job Interview</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
+    <input type="hidden" name="idEducation" value="${candidateLista.idCandidate}">
+    <button type="submit">Education </button>
+</form>
+
+<form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+    <button type="submit">Work Experience </button>
+</form>
+     
+              
+              <!-- TASTO HOMEß -->
+              
                         <a href="${pageContext.request.contextPath}/home">Go back Home</a>
                     </td>
                 </tr>

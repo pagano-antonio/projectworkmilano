@@ -44,7 +44,9 @@
             <th colspan="2">Quick Links</th>
         </tr>
         <tr>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
+        <td><a href="${pageContext.request.contextPath}/candidate/findByIdCandidateForm">Inserisci Id Candidate</a></td>
+        <td><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">Add Candidate </a></td>
+        <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">Aggiungi un nuovo candidato</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia">Inserisci Compagnia</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview">Inserisci Id State Job Interview</a></td>
@@ -54,6 +56,8 @@
 <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm">Find a Candidate by phone</a></td>
 <td><a href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm">CERCA UN CANDIDATO TRAMITE UNA SKILL</a></td>
 <td><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOfferBetweenMinRalAndMaxRalForm">CERCA OFFERTA DI LAVORO TRA DUE RAL</a></td>
+<td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByEDTForm">Education Degree Type</a></td>
+
             
             
 

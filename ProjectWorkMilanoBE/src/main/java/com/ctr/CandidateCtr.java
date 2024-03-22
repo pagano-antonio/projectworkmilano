@@ -245,7 +245,7 @@ public class CandidateCtr {
     		
     	}
     	
-    	@PostMapping("/ricercaCandidatoPerStateJobInterview")
+    	@GetMapping("/ricercaCandidatoPerStateJobInterview")
     	 public String ricercaCandidatoPerStateJobInterview(Model model, @RequestParam int idStateJobInterview) {
     		List<Candidate> candidateLista =candidateRep.findByJobInterview_StateJobInterview_idStateJobInterview(idStateJobInterview);
         	model.addAttribute("candidateLista", candidateLista);

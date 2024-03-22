@@ -1,8 +1,12 @@
 package com.dao;
+import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+
 import com.model.WorkExperience;
 
 //WorkExperienceRepository è un'interfaccia CHE ESTENDE JpaRepository. WorkExperienceRepository è UN repository CHE GESTISCE 
@@ -13,7 +17,7 @@ import com.model.WorkExperience;
 @Repository
 public interface WorkExperienceRepository extends JpaRepository<WorkExperience, Integer> {
 	
-
+	List<WorkExperience> findByCandidateIdCandidate(int idCandidate);
 	//QUI VANNO INSERITI TUTTI I METODI DA IMPLEMENTARE NEI CTR
 	
 }
