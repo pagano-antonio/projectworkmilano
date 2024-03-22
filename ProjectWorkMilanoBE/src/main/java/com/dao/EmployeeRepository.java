@@ -10,5 +10,7 @@ import com.model.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	Employee findByUsername(String username); //mi serve per la pagina di login (lau)
+	
+	Employee findByUsernameAndPassword(String username, String password);
     
 }
