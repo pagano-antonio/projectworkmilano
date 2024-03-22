@@ -12,7 +12,7 @@ import com.model.Employee;
 
 @CrossOrigin
 @RestController
-@RequestMapping("Login")
+@RequestMapping("/Login")
 public class LoginRest {
 
 	@Autowired

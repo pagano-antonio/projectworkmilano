@@ -30,7 +30,7 @@ body {
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
-   H1 {
+  H1 {
   position: absolute;
   top: 15%;
   left: 50%;
@@ -39,6 +39,42 @@ body {
   background: white;
   border-radius: 10px;
   z-index: 9999; 
+}
+ H2 {
+  position: relative; 
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+a {
+  color: black; /* colore del testo */
+  text-decoration: underline; /* rimuove il sottolineato di default */
+  transition: color 0.3s ease;
+  border-radius: 10px; /* animazione del cambio di colore */
+}
+
+a:hover {
+  color: white;
+  background-color: #f7308c; /* colore del testo al passaggio del mouse */
+  border-radius: 10px;
 }
 </style>
 </head>

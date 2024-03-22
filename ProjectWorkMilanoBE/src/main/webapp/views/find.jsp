@@ -3,60 +3,94 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Homepage</title>
+<title>Find Candidate</title>
 <style>
-    body {
-        background-color: #f0e6ff; 
+    * {
+    font-family:Century Gothic;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+body {
+        display: flex;
+        justify-content: center;      
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
     }
+
     .container {
-        margin: 50px auto;
-        text-align: center;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
-    h1 {
-        color: white; 
-    }
-    table {
-        border: 2px solid #6200ea; 
-        border-collapse: collapse;
-        width: 50%;
-        margin: 0 auto;
-    }
-    th, td {
-        padding: 10px;
-        border: 1px solid #ddd;
-    }
-    th {
-        background-color: #b39ddb; 
-    a {
-        display: block;
-        margin-bottom: 10px;
-        font-size: 18px;
-        color: #6200ea; 
-        text-decoration: none;
-    }
+  H1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+ H2 {
+  position: relative; 
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+a {
+  color: black; /* colore del testo */
+  text-decoration: none; /* rimuove il sottolineato di default */
+  transition: color 0.3s ease;
+  border-radius: 10px; /* animazione del cambio di colore */
+}
+
+a:hover {
+  color: white;
+  background-color: #f7308c; /* colore del testo al passaggio del mouse */
+  border-radius: 10px;
+}
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>Welcome to our Unicorn Recruitment Agency!</h1>
+    <h1>You are in Candidate!</h1>
+    <br>
+    <h2>Please, select the desired action!</h2>
+    <br>
     <table>
         <tr>
-            <th colspan="2">Quick Links</th>
-        </tr>
-        <tr>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">Aggiungi un nuovo candidato</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia">Inserisci Compagnia</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview">Inserisci Id State Job Interview</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerOutcome">Inserisci Outcome</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
-    <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm">Find a Candidate by surname</a></td>
-<td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm">Find a Candidate by phone</a></td>
-<td><a href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm">CERCA UN CANDIDATO TRAMITE UNA SKILL</a></td>
-<td><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOfferBetweenMinRalAndMaxRalForm">CERCA OFFERTA DI LAVORO TRA DUE RAL</a></td>
-            
-            
-
+            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta"><strong>Find by CITY</strong></a></td>
+            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia"><strong>Find by COMPANY</strong></a></td>
+            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview"><strong>Find by STATE JOB INTERVIEW</strong></a></td>
+            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerOutcome"><strong>Find by OUTCOME</strong></a></td>           
+            <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm"><strong>Find by SURNAME</strong></a></td>
+            <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"><strong>Find by PHONE</strong></a></td>
+            <td><a href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm"><strong>Find by SKILL</strong></a></td>
         </tr>
     </table>
    
