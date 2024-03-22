@@ -47,6 +47,14 @@
                             <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
                             <button type="submit">Elimina</button>
                         </form>
+       
+       
+         <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+        <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+        <button type="submit">Skills</button>
+    </form>
+                     
+                        <a href="${pageContext.request.contextPath}/home">Go back Home</a>
                     </td>
                 </tr>
             </c:forEach>

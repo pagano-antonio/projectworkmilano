@@ -37,7 +37,10 @@ public String inserisci (@RequestBody Employee e) {
 @GetMapping("ricercaByIdEmployee/{idEmployee}")
 public Employee ricercaByIdEmployee(@PathVariable("idEmployee") int Employee) {
   
+	System.out.println("PROVA");
 	Employee employee = employeeRep.findById(Employee).get();
+	
+	
   
 	return employee;
 }

@@ -14,30 +14,10 @@
 <body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <%@ include file="header.jsp" %>
+      <!-- Inserisci il tuo logo qui -->
+        <img src="LOGO-PROJECT-WORK-JAVA-GIRLS.png" alt="Logo JAVA GIRLS" class="logo">
 
-<div class="openoffers">
-    <h2> Hai ${fn:length(openoffers)} offerte di lavoro aperte</h2>
-    (tramite un metodo in homectr verifica la data odierna e mi propone solo le offers che ad oggi sono aperte)
-    <c:forEach var="offer" items="${openoffers}">
-        <!-- Visualizza ogni offerta -->
-        <p><b>${offer.title}, ${offer.companyClient.city}</b> - ${offer.description} - Scadenza: ${offer.endDate} - <b>Visualizza</b></p>
-    </c:forEach>
-    <br>
-    <p><b>GO TO JOB OFFER</b></p>
-</div>
-
-<div class="openoffers">
-    <h2> Hai ${fn:length(futureInterviews)} job interview in arrivo</h2>
-    (tramite un metodo in homectr verifica la data odierna e mi propone solo le interview che devono ancora verificarsi)
-    <c:forEach var="interview" items="${futureInterviews}">
-        <!-- Visualizza ogni offerta -->
-        <p><b>${interview.candidate.surname} ${interview.candidate.name}, ${interview.stateJobInterview.title}</b> - Quando: ${interview.date} - <b>Visualizza</b></p>
-        
-    </c:forEach>
-    <br>
-    <p><b>GO TO INTERVIEWS</b></p>
-</div>
-
+<div class="container-wrapper">
 	<div class="container">
 		<div class="card">
 			<div class="face face1">
@@ -45,7 +25,7 @@
 					<!--1 CANDIDATE -->
 					<p>Select the desired action</p>
 					<ul id="menu">
-						<li><a href="${pageContext.request.contextPath}/candidate/findByIdCandidateForm">FIND BY ID</a>
+						<li><a href="${pageContext.request.contextPath}/candidate/find">FIND</a>
 						<li><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">ADD</a>
 					</ul>
 				</div>
@@ -61,12 +41,8 @@
 					<!--4 COMPANY CLIENT -->
 					<p>Select the desired action</p>
 					<ul id="menu">
-						<li><a
-							href="${pageContext.request.contextPath}/CompanyClientCtr/preAddCompanyClientForm">Add
-								Company Client</a></li>
-						<li><a
-							href="${pageContext.request.contextPath}/CompanyClientCtr/findByIdCompanyClientForm">Find
-								a Company Client by ID</a></li>						
+						<li><a href="${pageContext.request.contextPath}/CompanyClientCtr/companyClientFind">FIND </a></li>						
+					<li><a href="${pageContext.request.contextPath}/CompanyClientCtr/preAddCompanyClientForm">ADD</a></li>
 					</ul>
 				</div>
 			</div>		
@@ -80,7 +56,8 @@
 				<!--10 JOB OFFER -->
 				<p>Select the desired action</p>
 				<ul id="menu">
-				
+				<li><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOffer">FIND</a>
+						<li><a href="${pageContext.request.contextPath}/JobOfferCtr/addJobOfferForm">ADD</a>
 
 			</ul>
 			</div>
@@ -90,7 +67,29 @@
 		</div>
 	</div>
 </div>
+<div class="openoffers-container">
+    <div class="openoffers">
+        <h2> Hai ${fn:length(openoffers)} offerte di lavoro aperte</h2>
+        <c:forEach var="offer" items="${openoffers}">
+        <!-- Visualizza ogni offerta -->
+        <p><b>${offer.title}, ${offer.companyClient.city}</b> - ${offer.description} - Scadenza: ${offer.endDate} - <b>Visualizza</b></p>
+    </c:forEach>
+    <br>
+    <p><b>GO TO JOB OFFER</b></p>
+    </div>
 
+    <div class="openoffers">
+        <h2> Hai ${fn:length(futureInterviews)} job interview in arrivo</h2>
+         <c:forEach var="interview" items="${futureInterviews}">
+        <!-- Visualizza ogni offerta -->
+        <p><b>${interview.candidate.surname} ${interview.candidate.name}, ${interview.stateJobInterview.title}</b> - Quando: ${interview.date} - <b>Visualizza</b></p>
+        
+    </c:forEach>
+    <br>
+    <p><b>GO TO INTERVIEWS</b></p>
+    </div>
+</div>
+</div>
 </body>
 </html>
 

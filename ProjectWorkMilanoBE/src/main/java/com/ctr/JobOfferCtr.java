@@ -46,22 +46,23 @@ public class JobOfferCtr {
     
     
 	
-//METODO AGGIUNGI
+    //METODO AGGIUNGI
 	
-	@GetMapping("/addJobOfferForm")
-    public String addJobOffForm(Model model,HttpServletRequest request){
+   	@GetMapping("/preInsertJobOffer")
+       public String preInsert(Model model){
+              
+   		return "preAddJobOffer";
+   		
+   	}            
            
-		return "addJobOfferForm";
-		
-	}            
-        
-    @PostMapping("/addJobOffer")
-    public String addJobOffer(Model model, HttpServletRequest request, JobOffer jobOffer) {
-            
-    	jobOfferRep.save(jobOffer);
-        return "saveSuccess";
-        
-	}
+       @PostMapping("/preAddJobOffer")
+       public String inserisci(Model model, HttpServletRequest request, JobOffer jobOffer) {
+               
+       	jobOfferRep.save(jobOffer);
+       	
+       	return "addJobOfferSuccess";
+           
+   	}
     
  //METODO AGGIORNA
      
@@ -189,6 +190,41 @@ public class JobOfferCtr {
   		model.addAttribute("offerList",jobOffers);
   		
   		return "findJobOfferBetweenMinRalAndMaxRal";
+  	}
+  	
+    //RICERCA PER ID COMPANY CLIENT
+	
+  	@GetMapping("/preInsertIdCompanyClient")
+  	public String preInsertIdCompanyClient() {
+  		return "preFindJobOfferByIdCompanyClient";
+  	}
+  	
+  	@PostMapping("/preFindJobOfferByIdCompanyClient")
+  	public String findByIdCompanyClient(Model model, int idCompanyClient) {
+  		
+  		List<JobOffer> jobOffers = jobOfferRep.findBycompanyClient_idCompanyClient(idCompanyClient);
+  		
+  		model.addAttribute("offerList",jobOffers);
+  		return "findJobOfferByIdCompanyClient";
+  		
+  	}
+
+//RICERCA PER ID CONTRACT TYPE
+	
+  	@GetMapping("/findJobOfferByIdContractTypeForm")
+  	public String findJobOfferByIdContractTypeForm() {
+  		return "findJobOfferByIdContractTypeForm";
+  	}
+  	
+  	@GetMapping("/findJobOfferByIdContractType")
+  	public String findJobOfferByIdContractType(Model model, int idContractType) {
+  		
+  		List <JobOffer> jobOffers = jobOfferRep.findByContractType_idContractType(idContractType);
+  		System.out.println("PROVA");
+  		model.addAttribute("offer",jobOffers);
+  		
+  		return "findJobOfferByIdContractType";
+
   	}
 }
 	

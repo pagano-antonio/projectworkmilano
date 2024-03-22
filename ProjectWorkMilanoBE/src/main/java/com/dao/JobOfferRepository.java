@@ -20,4 +20,9 @@ public interface JobOfferRepository extends JpaRepository<JobOffer, Integer> {
 	List<JobOffer> findByStartDateAfterAndEndDateBefore(Date startDate, Date endDate);
 	
 	List<JobOffer> findTitleByMinRalAfterAndMaxRalBefore(int minRal, int maxRal);
+
+	List<JobOffer> findBycompanyClient_idCompanyClient(int idCompanyClient);
+	
+	List<JobOffer> findByContractType_idContractType(int idContractType);
+
 }
