@@ -47,6 +47,3 @@
 	<a href="${pageContext.request.contextPath}/views/homeCristiana.jsp">Home</a>	
 </body>
 </html>
-
-</body>
-</html>

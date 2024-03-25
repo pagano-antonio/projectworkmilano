@@ -67,7 +67,7 @@ public class JobOfferRest {
 		@GetMapping("findJobOfferBetweenMinAndMaxRal/{minRal}/{maxRal}")
 		public List <JobOffer> findJBBetweenMinRalAndMaxRal(@PathVariable(value = "minRal") Integer minRal,@PathVariable(value = "maxRal") Integer maxRal){
 				
-			List <JobOffer> tmp = jobOfferRep.findTitleByMinRalAfterAndMaxRalBefore(minRal, maxRal);
+			List <JobOffer> tmp = jobOfferRep.findByMinRalGreaterThanEqualAndMaxRalGreaterThanEqual(minRal, maxRal);
 			return tmp;
 		}
 		
