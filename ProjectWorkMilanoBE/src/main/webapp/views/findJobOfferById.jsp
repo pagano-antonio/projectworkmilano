@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.model.JobOffer"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Risultati ricerca JobOffer By StartDate and EndDate</title>
+<title>Risultati ricerca JobOffer By Id Company Client</title>
 </head>
 <body>
-<h1>Risultati Ricerca JobOffer By StartDate and EndDate</h1>
+<h1>Risultati Ricerca JobOffer By Id Company Client</h1>
 
-	<table border="1, solid, #000000">
+	<table border="1">
 
 		<tr>
 			<th>IdJobOffer</th>
@@ -36,16 +37,15 @@
 			<td>${j.minRal}</td>
 			<td>${j.maxRal}</td>
 			<td>${j.contractType.idContractType}</td>
-			
-			
-			
-          <td><a href="${pageContext.request.contextPath}/JobOfferCtr/updateJobOfferForm?idJobOffer=${j.idJobOffer}"><button>Update</button></a></td>
+
+        <td><a href="${pageContext.request.contextPath}/JobOfferCtr/updateJobOfferForm?idJobOffer=${j.idJobOffer}"><button>Update</button></a></td>
 		<td><a href="${pageContext.request.contextPath}/JobOfferCtr/delete?idJobOffer=${j.idJobOffer}"><button>Delete</button></a></td>				
-			
-                    
+			          
 		</tr>
 		
 		</c:forEach>
 	</table>
+
+
 </body>
 </html>
