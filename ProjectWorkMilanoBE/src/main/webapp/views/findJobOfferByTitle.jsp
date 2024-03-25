@@ -12,7 +12,7 @@
 <body>
 <h1>Risultati Ricerca JobOffer By Title</h1>
 
-	<table border="1, solid, #000000">
+	<table border="1">
 
 		<tr>
 			<th>IdJobOffer</th>
@@ -38,12 +38,10 @@
 			<td>${j.minRal}</td>
 			<td>${j.maxRal}</td>
 			<td>${j.contractType.idContractType}</td>
-			
-			
-			
-          <!-- FORM PER MODIFICA ED ELIMINA -->
-			
-                    
+
+        <td><a href="${pageContext.request.contextPath}/JobOfferCtr/updateJobOfferForm?idJobOffer=${j.idJobOffer}"><button>Update</button></a></td>
+		<td><a href="${pageContext.request.contextPath}/JobOfferCtr/delete?idJobOffer=${j.idJobOffer}"><button>Delete</button></a></td>				
+			          
 		</tr>
 		
 		</c:forEach>

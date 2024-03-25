@@ -40,7 +40,7 @@
     <input type="text" id="maxRal" name="maxRal" value="<%= jobOffer.getMaxRal() %>"> <br>
     
     <label for="idContractType">ID Contract Type:</label>
-   <input  readonly type="number" name="contractTipe.idContractType" value="<%= jobOffer.getContractType().getIdContractType() %>">
+   <input  readonly type="number" name="contractType.idContractType" value="<%= jobOffer.getContractType().getIdContractType() %>">
     
     <hr> 
 

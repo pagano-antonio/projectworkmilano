@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Risultati ricerca JobOffer By StartDate and EndDate</title>
+<title>Risultati ricerca JobOffer By Id Company Client</title>
 </head>
 <body>
-<h1>Risultati Ricerca JobOffer By StartDate and EndDate</h1>
+<h1>Risultati Ricerca JobOffer By Id Company Client</h1>
 
 	<table border="1, solid, #000000">
 
@@ -38,8 +38,8 @@
 			<td>${j.contractType.idContractType}</td>
 			
 			
-			
-          <!-- FORM PER MODIFICA ED ELIMINA -->
+			<td><a href="${pageContext.request.contextPath}/JobOfferCtr/updateJobOfferForm?idJobOffer=${j.idJobOffer}"><button>Update</button></a></td>
+		<td><a href="${pageContext.request.contextPath}/JobOfferCtr/delete?idJobOffer=${j.idJobOffer}"><button>Delete</button></a></td>				
 			
                     
 		</tr>

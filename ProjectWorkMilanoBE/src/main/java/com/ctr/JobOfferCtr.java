@@ -37,15 +37,8 @@ public class JobOfferCtr {
 
 	@Autowired
 	private JobOfferRepository jobOfferRep;
-	
-	@Autowired
-    private CompanyClientRepository companyClientRep;
-
-    @Autowired
-    private ContractTypeRepository contractTypeRep;
     
-    
-	
+ 
     //METODO AGGIUNGI
 	
    	@GetMapping("/preInsertJobOffer")
@@ -64,26 +57,26 @@ public class JobOfferCtr {
            
    	}
     
- //METODO AGGIORNA
-     
-    @GetMapping("/updateJobOfferForm")
-    public String updateJobOfferForm(Model model, HttpServletRequest request, Integer idJobOffer) {
-    	
-    	JobOffer jobOffer =jobOfferRep.findById(idJobOffer).get();
-    	
-    	model.addAttribute("jobOffer",jobOffer);
-    
-    	return "updateJobOffer";
-    }
-    
-    
-    @PostMapping("/updateJobOffer")
-   public String updateJobOffer(Model model, HttpServletRequest request, JobOffer jobOffer) {
-    	
-    	 jobOfferRep.save(jobOffer);
-         return "updateSuccess";
-         
-    }
+       //METODO AGGIORNA
+       
+       @GetMapping("/updateJobOfferForm")
+       public String updateJobOfferForm(Model model, HttpServletRequest request, Integer idJobOffer) {
+       	
+       	JobOffer jobOffer =jobOfferRep.findById(idJobOffer).get();
+       	
+       	model.addAttribute("jobOffer",jobOffer);
+       
+       	return "updateJobOffer";
+       }
+       
+       
+       @PostMapping("/updateJobOffer")
+      public String updateJobOffer(Model model, HttpServletRequest request, JobOffer jobOffer) {
+       	
+       	 jobOfferRep.save(jobOffer);
+            return "updateSuccess";
+            
+       }
     
  //ELIMINA 
     
@@ -97,21 +90,24 @@ public class JobOfferCtr {
     
  //RICERCA PER ID 
     
-    @GetMapping("/findByIdJobOfferForm")
+    @GetMapping("/preInsertIdJobOffer")
     public String findByIdJobOffForm(Model model, HttpServletRequest request) {
     	
-    	return "findByIdJobOfferForm";
+    	return "preFindJobOfferById";
     	
     }
-    
-    @PostMapping("/findByIdJobOffer")
-    public String findByIdJobOffer(Model model, HttpServletRequest request, Integer idJobOffer) {
-    	
-    	jobOfferRep.findById(idJobOffer);
-    	return "findByIdJobOffer"; 
-    	
+        
+    @PostMapping("/preFindJobOfferById")
+    public String findByIdJobOffer(Model model, HttpServletRequest request, int idJobOffer) {
+        List<JobOffer> jobOffers = jobOfferRep.findById(idJobOffer);
+        if (jobOffers == null) {
+            return "Error";
+        } else {
+            model.addAttribute("offerList", jobOffers);
+            return "findJobOfferById";
+        }
     }
-    
+
  //RICERCA PER TITLE
     
 	@GetMapping("/preInsertTitle")
@@ -124,10 +120,13 @@ public class JobOfferCtr {
 	public String findByTitle(Model model, String title) {
 
 		List<JobOffer> jobOffers = jobOfferRep.findByTitle(title);
-
-		model.addAttribute("offerList",jobOffers);
-
-		return "findJobOfferByTitle";
+		
+		if(jobOffers.isEmpty()) {
+			return "Error";
+		} else {
+			model.addAttribute("offerList",jobOffers);
+			return "findJobOfferByTitle";
+		}
 	}
 	
   //RICERCA PER STARTDATE E ENDDATE
@@ -141,10 +140,13 @@ public class JobOfferCtr {
 	public String findByStartDateAndEndDate(Model model, Date startDate,Date endDate) {
 		
 		List<JobOffer> jobOffers = jobOfferRep.findByStartDateAfterAndEndDateBefore(startDate, endDate);
-		System.out.println("PROVA");
-		model.addAttribute("offerList",jobOffers);
 		
-		return "findJobOfferByStartDateAndEndDate";
+		if(jobOffers.isEmpty()) {
+			return "Error";
+		} else {
+			model.addAttribute("offerList",jobOffers);
+			return "findJobOfferByStartDateAndEndDate";
+		}
 	}
 
 	//////////// RICERCA JOB OFFER PER SKILL ////////////////
@@ -202,11 +204,14 @@ public class JobOfferCtr {
   	@PostMapping("/preFindJobOfferByIdCompanyClient")
   	public String findByIdCompanyClient(Model model, int idCompanyClient) {
   		
-  		List<JobOffer> jobOffers = jobOfferRep.findBycompanyClient_idCompanyClient(idCompanyClient);
+  		List<JobOffer> companyClient = jobOfferRep.findBycompanyClient_idCompanyClient(idCompanyClient);
   		
-  		model.addAttribute("offerList",jobOffers);
-  		return "findJobOfferByIdCompanyClient";
-  		
+  		if(companyClient.isEmpty()) {
+  			return "Error";
+  		} else {
+  	  		model.addAttribute("offerList",companyClient);
+  	  		return "findJobOfferByIdCompanyClient";
+  		}
   	}
 
 //RICERCA PER ID CONTRACT TYPE
