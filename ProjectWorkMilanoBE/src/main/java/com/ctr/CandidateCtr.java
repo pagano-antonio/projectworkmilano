@@ -1,13 +1,7 @@
 package com.ctr;
 
-
-import java.util.ArrayList;
-
-
 import java.math.BigInteger;
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,13 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.dao.CandidateRepository;
 import com.dao.EducationDegreeTypeRepository;
 import com.model.Candidate;
-import com.model.CandidateCommercialData;
 import com.model.EducationDegreeType;
-
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -30,7 +21,8 @@ public class CandidateCtr {
 	
 	@Autowired
 	private CandidateRepository candidateRep;
-	
+	@Autowired
+	private EducationDegreeTypeRepository edtRep;
 
 //////////// FIND PER LA HOME /////////
 	@GetMapping("/find")
@@ -38,14 +30,7 @@ public class CandidateCtr {
 	public String find (Model model, HttpServletRequest request){
         return "find";
     }  
-	
-	
-	@Autowired
-	private EducationDegreeTypeRepository edtRep;
-	
 
-
-	
 //METODO AGGIUNGI
 	
 	 @GetMapping("/preAddCandidateForm")
@@ -70,23 +55,20 @@ public class CandidateCtr {
 
     
     @GetMapping("/updateCandidateForm")
-    public String updateCandidateForm(Model model, @RequestParam int idCandidate) {
-        Candidate candidate = candidateRep.findById(idCandidate).orElse(null);
+    public String updateCandidateForm(Model model, int idCandidate) {
+        Candidate cdt = candidateRep.findById(idCandidate).get();
         
-        if (candidate == null) {
-            return "Error";
-        }
+        if (cdt != null) {
        
-        model.addAttribute("candidate", candidate);
+        model.addAttribute("candidate", cdt);
         
         return "updateCandidate";
     }
+        return "Error";
+    }
 
-
-    
-   
-    @PostMapping("/updateCandidate")
-    public String updateCandidate(Model model, HttpServletRequest request, Candidate candidate) {
+    @PostMapping("/updateCandidate1")
+    public String updateCandidate(Candidate candidate) {
    
         candidateRep.save(candidate);
   
@@ -97,7 +79,7 @@ public class CandidateCtr {
     
  //ELIMINA 
     @GetMapping("/delete")
-    public String delete(Model model, HttpServletRequest request, int idCandidate) {
+    public String delete( int idCandidate) {
     	
     	candidateRep.deleteById(idCandidate);
         return "deleteSuccess";

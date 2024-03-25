@@ -81,7 +81,7 @@ a:hover {
 </head>
 <body>
 <% Candidate candidate = (Candidate) request.getAttribute("candidate"); %>
-    <form action="${pageContext.request.contextPath}/candidate/updateCandidate" method="POST">
+    <form action="${pageContext.request.contextPath}/candidate/updateCandidate1" method="post">
     
         <h2>Update Candidate:</h2>
         

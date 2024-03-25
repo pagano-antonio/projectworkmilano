@@ -8,6 +8,7 @@ import java.math.BigInteger;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -44,4 +45,6 @@ automaticamente la creazione delle query necessarie per l'operazione che stai ce
 	public List<Candidate> findByEducations_EducationDegreeType_IdEducationDegreeType (Integer idEducationDegreeType);
 	
 	public List <Candidate> findByCandidateSkills_Skill_Title (String title);
+
+
 }

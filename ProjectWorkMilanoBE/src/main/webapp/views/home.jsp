@@ -14,7 +14,7 @@
 <body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <%@ include file="header.jsp" %>
-      <!-- Inserisci il tuo logo qui -->
+      <!-- LOGO -->
         <img src="images/LOGO-PROJECT-WORK-JAVA-GIRLS.png" alt="Logo JAVA GIRLS" class="logo">
 
 <div class="container-wrapper">

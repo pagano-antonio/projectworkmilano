@@ -9,6 +9,6 @@
 <body>
 	<h2>Your Data have been successfully deleted</h2>
 	
-	<a href="${pageContext.request.contextPath}/home">Go back Home</a>
+	<a href="${pageContext.request.contextPath}/home">Go Home</a>
 </body>
 </html>
