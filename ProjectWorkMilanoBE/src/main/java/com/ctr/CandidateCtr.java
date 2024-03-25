@@ -288,7 +288,7 @@ public class CandidateCtr {
         		model.addAttribute("candidatesBySkill", candidatesBySkill);
         		return "findCandidateBySkill";
         	} else {
-        		return "NotFound";
+        		return "Error";
         	}
         } 
 

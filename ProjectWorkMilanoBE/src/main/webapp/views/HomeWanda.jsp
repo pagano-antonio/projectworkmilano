@@ -44,6 +44,9 @@
             <th colspan="2">Quick Links</th>
         </tr>
         <tr>
+        
+        
+         <td><a href="${pageContext.request.contextPath}/skill/preRicercaSkillPerIdCandidate">Inserisci idCandidate per skill</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">Aggiungi un nuovo candidato</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia">Inserisci Compagnia</a></td>

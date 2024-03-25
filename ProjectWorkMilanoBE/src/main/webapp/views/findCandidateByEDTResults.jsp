@@ -51,6 +51,31 @@
 				<td><a
 					href="${pageContext.request.contextPath}/candidate/delete?idCandidate=${can.idCandidate}"><button>Delete
 							Candidate Data</button></a></td>
+							
+				  <!-- TASTI PER INFO SU CANDIDATE -->
+   
+         
+   
+    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+        <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+        <button type="submit">Skills</button>
+    </form>
+    
+     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
+    <input type="hidden" name="idStateJobInterview" value="${can.idCandidate}">
+    <button type="submit">Job Interview</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
+    <input type="hidden" name="idEducation" value="${can.idCandidate}">
+    <button type="submit">Education </button>
+</form>
+
+<form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+    <button type="submit">Work Experience </button>
+</form>
+     			
 			</tr>
 		</c:forEach>
 	</table>

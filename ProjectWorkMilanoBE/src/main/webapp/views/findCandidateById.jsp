@@ -109,12 +109,12 @@ th {
         
 
         <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
-    		<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+    		<input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">Aggiorna</button>
 			</form>
                         
    <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
-      <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+      <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
       <button type="submit">Elimina</button>
        </form>
         
@@ -128,10 +128,14 @@ th {
     <button type="submit">Job Interview</button>
 </form>
 
+
+
 <form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
     <input type="hidden" name="idEducation" value="${candidate.idCandidate}">
     <button type="submit">Education </button>
 </form>
+
+
 
 <form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
     <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
