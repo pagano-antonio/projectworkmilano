@@ -12,8 +12,8 @@
     font-family:Century Gothic;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 1px;
+    margin: 1px;
 }
 body {
         display: flex;
@@ -28,12 +28,11 @@ body {
     .container {
         background: white;
         padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;      
     }
   H1 {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -42,12 +41,11 @@ body {
   z-index: 9999; 
 }
  H2 {
-  position: relative; 
+  position: absolute; 
   top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: Century Gothic;
-  background: white;
+  font-family: Century Gothic;  
   border-radius: 10px;
   z-index: 9999; 
 }
@@ -66,15 +64,19 @@ th {
 }
 
 a {
-  color: black; /* colore del testo */
-  text-decoration: underline; /* rimuove il sottolineato di default */
-  transition: color 0.3s ease;
-  border-radius: 10px; /* animazione del cambio di colore */
+    color:black;
+    position: absolute;
+    top: 80%;
+    left:50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
 }
-
 a:hover {
   color: white;
-  background-color: #f7308c; /* colore del testo al passaggio del mouse */
+  background-color: black; /* colore del testo al passaggio del mouse */
   border-radius: 10px;
 }
 </style>
@@ -82,7 +84,7 @@ a:hover {
 <body>
 <div class="container">
 <h1>THIS IS THE UPDATE CANDIDATE LIST</h1> 
-<h2>with new candidate</h2> 
+<h2>The candidate has been added!</h2> 
 
 <table>
 <thead>
@@ -116,7 +118,7 @@ a:hover {
  
 </table>
 
-<p><a href="http://localhost:8080/home">GO HOME!</a></p>
+<p><a href="http://localhost:8080/home"><strong>GO HOME!</strong></a></p>
 </div>
 </body>
 </html>

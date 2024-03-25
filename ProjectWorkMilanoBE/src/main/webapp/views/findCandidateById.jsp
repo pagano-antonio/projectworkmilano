@@ -117,18 +117,18 @@ a:hover {
       <button type="submit">DELETE</button>
        </form>
         
-	 <form action="${pageContext.request.contextPath}/candidate/ricercaSkillPerIdCandidate" method="Post">
+	 <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
         <button type="submit">SKILLS</button>
     </form>
     
-     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
-    <input type="hidden" name="idStateJobInterview" value="${candidate.idCandidate}">
+     <form action="${pageContext.request.contextPath}/JobInterviewCtr/findJobInterviewByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">JOB INTERVIEW</button>
 </form>
 
-<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
-    <input type="hidden" name="idEducation" value="${candidate.idCandidate}">
+<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">EDUCATION</button>
 </form>
 

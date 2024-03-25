@@ -72,4 +72,5 @@ public class CandidateSkillCtr {
     	candidateSkillRep.findById(idCandidateSkill);
     	return "findByIdCandidateSkill";  	
     }
+  
 }

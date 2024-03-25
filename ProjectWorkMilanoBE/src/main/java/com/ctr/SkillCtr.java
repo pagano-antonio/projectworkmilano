@@ -44,13 +44,16 @@ public class SkillCtr {
 	
 	 @GetMapping ("/preRicercaSkillPerIdCandidate")
 	    public String preRicercaSkillPerIdCandidate(Model model) {
+		 
+		 System.out.println("prefind ok");
+		 
 	    	return "ricercaSkillPerIdCandidate";
 	    }
 	
 	
-	@PostMapping("/ricercaSkillPerIdCandidate")   
+	@GetMapping("/ricercaSkillPerIdCandidate")   
 	public String ricercaSkillPerIdCandidate(Model model, HttpServletRequest request, int idCandidate) {
-		
+		 System.out.println("find ok");
 		List <Skill> sList = skillRep.findByCandidateSkills_candidate_idCandidate(idCandidate);
 		model.addAttribute("sList", sList);
 		
