@@ -1,0 +1,87 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/log-out.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/user.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/pen.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<header>
+    <!-- Bottone Home -->
+    <a href="./home" class="nav-link">
+        <i class="gg-home"></i>
+        <span>Home</span>
+    </a>
+    
+<div id="user-container">
+<!-- Bottone User -->
+<div id="session-info" class="nav-link">
+    <i class="gg-user"></i>
+    <span>User: nome cognome</span>
+</div>
+
+<!-- Popup Modifica Dati -->
+<div id="user-popup">
+    <p>Cognome: cognome</p>
+    <p>Nome: nome</p>
+    <p>Email: email</p>
+    <p>Username: username</p>
+     <p>Livello: livello employee type</p>
+
+    <a href="${pageContext.request.contextPath}/EmployeeCtr/aggiornaEmployeePerId?idEmployee=${utente.idEmployee}" id="modifica-dati" class="nav-link">
+       <i class="gg-pen"></i>
+        <span>Visualizza/Modifica Dati</span>
+    </a>
+</div>
+</div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Bottone Logout -->
+    <a href="${pageContext.request.contextPath}/gestionale/logout" id="logout-link" class="nav-link">
+        <i class="gg-log-out"></i><i></i><i></i>
+        <span>Logout</span>
+    </a>
+    
+    
+
+
+
+
+      </header>
+
+
+
+<script>
+var userContainer = document.getElementById("user-container");
+var userPopup = document.getElementById("user-popup");
+
+userContainer.addEventListener("click", function (event) {
+    event.stopPropagation(); // Evita la chiusura immediata del popup al click su user-popup
+    userPopup.style.display = (userPopup.style.display === "block") ? "none" : "block";
+});
+
+document.body.addEventListener("click", function () {
+    userPopup.style.display = "none"; // Chiudi il popup se clicchi fuori da user-container
+});
+</script>
+
+<script>
+    function toggleNav() {
+      var sidenav = document.getElementById("mySidenav");
+      if (sidenav.style.width === "0px" || sidenav.style.width === "") {
+        sidenav.style.width = "300px"; // Apri la navbar
+      } else {
+        sidenav.style.width = "0"; // Chiudi la navbar
+      }
+    }
+    </script>

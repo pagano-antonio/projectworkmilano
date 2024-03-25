@@ -1,0 +1,46 @@
+<div class="container">
+    
+    <form (ngSubmit)="updateCandidate()">
+        
+            <h1>Update Candidate:</h1>
+            
+            <label for="idCandidate"><strong>Id Candidate:</strong></label>
+            <input readonly type="number" id="idCandidate" [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone: true}" value="{{candidate.idCandidate}}"> 
+            <br>
+             
+            <label for="name"><strong>Name:</strong></label>
+            <input type="text" id="name" [(ngModel)] ="candidate.name" [ngModelOptions]="{standalone: true}" value="{{candidate.name}}"> 
+            <br>
+            
+            <label for="surname"><strong>Surname:</strong></label>
+            <input type="text" id="surname" [(ngModel)] ="candidate.surname" [ngModelOptions]="{standalone: true}" value="{{candidate.surname}}"> 
+            <br>
+            
+            <label for="birthday"><strong>Birthday:</strong></label>
+            <input type="date" id="birthday" [(ngModel)] ="candidate.birthday" [ngModelOptions]="{standalone: true}" value="{{candidate.birthday}}"> 
+            <br>
+            
+            <label for="birthPlace"><strong>Birth Place:</strong></label>
+            <input type="text" id="birthPlace" [(ngModel)] ="candidate.birthPlace" [ngModelOptions]="{standalone: true}" value="{{candidate.birthPlace}}"> 
+            <br>
+            
+            <label for="address"><strong>Address:</strong></label>
+            <input type="text" id="address" [(ngModel)] ="candidate.address" [ngModelOptions]="{standalone: true}" value="{{candidate.address}}"> 
+            <br>
+            
+            <label for="city"><strong>City:</strong></label>
+            <input type="text" id="city" [(ngModel)] ="candidate.city" [ngModelOptions]="{standalone: true}" value="{{candidate.city}}"> 
+            <br>
+            
+            <label for="email"><strong>Email:</strong></label>
+            <input type="text" id="email" [(ngModel)] ="candidate.email" [ngModelOptions]="{standalone: true}" value="{{candidate.email}}"> 
+            <br>
+            
+            <label for="phone"><strong>Phone:</strong></label>
+            <input type="number" id="phone" [(ngModel)] ="candidate.phone" [ngModelOptions]="{standalone: true}" value="{{candidate.phone}}"> 
+            <br>
+     
+            <button type="submit"><strong>UPDATE</strong></button>
+        
+        </form>
+        </div>
