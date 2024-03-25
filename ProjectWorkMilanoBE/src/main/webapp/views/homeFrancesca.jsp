@@ -22,7 +22,7 @@
 <li><a href="${pageContext.request.contextPath}/CompanyClientCtr/preAddCompanyClientForm">Add Company Client</a></li>
 <li><a href="${pageContext.request.contextPath}/CompanyClientCtr/findByIdCompanyClientForm">Find a Company Client by ID</a></li>
 <li><a href="${pageContext.request.contextPath}/CompanyClientCtr/preFindCompanyClientByNameForm">Find a Company Client by Name</a></li>
-<li><a href="${pageContext.request.contextPath}/CompanyClientCtr/preFindCompanyClientByCityForm">Find a Company Client bycon City</a></li>
+<li><a href="${pageContext.request.contextPath}/CompanyClientCtr/preFindCompanyClientByCityForm">Find a Company Client by City</a></li>
 <li>Update Company Client: to watch it work go to "Find a Company Client by ID/Name/City"</li>
 <li>Delete Company Client: same.</li>
 </ul>
