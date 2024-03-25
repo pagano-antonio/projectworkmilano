@@ -193,7 +193,10 @@ ul#menu li.active, ul#menu li:hover {
     text-decoration: underline;
 }
 .logo {
-    position: absolute;
-    bottom: 20px; /* Distanza dal basso */
-    right: 20px; /* Distanza da destra */
+	position:absolute;
+	height: 250px;
+	width: 250px;
+    top: 750px;
+    right: 35px;
+   
 }
