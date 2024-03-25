@@ -84,28 +84,11 @@ a:hover {
     <br>
     <table>
         <tr>
-<<<<<<< HEAD
+
             <th colspan="2">Quick Links</th>
         </tr>
         <tr>
-        <td><a href="${pageContext.request.contextPath}/candidate/findByIdCandidateForm">Inserisci Id Candidate</a></td>
-        <td><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">Add Candidate </a></td>
-        <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preAddCandidateForm">Aggiungi un nuovo candidato</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia">Inserisci Compagnia</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview">Inserisci Id State Job Interview</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerOutcome">Inserisci Outcome</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta">Inserisci Città</a></td>
-    <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm">Find a Candidate by surname</a></td>
-<td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm">Find a Candidate by phone</a></td>
-<td><a href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm">CERCA UN CANDIDATO TRAMITE UNA SKILL</a></td>
-<td><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOfferBetweenMinRalAndMaxRalForm">CERCA OFFERTA DI LAVORO TRA DUE RAL</a></td>
-<td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByEDTForm">Education Degree Type</a></td>
-
-            
-            
-
-=======
+  <td><a href="${pageContext.request.contextPath}/candidate/findByIdCandidateForm">Inserisci Id Candidate</a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta"><strong>Find by CITY</strong></a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia"><strong>Find by COMPANY</strong></a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview"><strong>Find by STATE JOB INTERVIEW</strong></a></td>
@@ -113,7 +96,7 @@ a:hover {
             <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm"><strong>Find by SURNAME</strong></a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"><strong>Find by PHONE</strong></a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm"><strong>Find by SKILL</strong></a></td>
->>>>>>> 8cfc4f42025454a2feb36d2a3c53be8cbf3b37ef
+			<td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByEDTForm">Education Degree Type</a></td>
         </tr>
     </table>
    
