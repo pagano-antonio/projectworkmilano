@@ -21,7 +21,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             return false;
         }
 
-        // L'utente è autenticato, consenti la continuazione della richiesta
+        
         
         System.out.println("Sono nell'interceptor, attributo sessione: " + session.getAttribute("utente"));
         
