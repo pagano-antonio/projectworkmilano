@@ -85,11 +85,11 @@ Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperien
 
 if (weOp.isPresent()) {
 	WorkExperience we = weOp.get();
-model.addAttribute("WorkExperience", we);
+model.addAttribute("WorkExperienceList", we);
 
 return "preUpdateForm";
 } else {      
-return "errore"; 
+return "Error"; 
 }
 }
 @PostMapping("/updateWork")
@@ -97,7 +97,7 @@ public String updateWork( @ModelAttribute("WorkExperience") WorkExperience sji) 
 
 	WorkExperienceRepository.save(sji);		
 
-return "updateOK";
+return "updateSuccess";
 
 }
 
