@@ -40,21 +40,27 @@ body {
   border-radius: 10px;
   z-index: 9999; 
 }
-.go-home {
-    position: fixed;
-    bottom: 20px; /* Distanza dal bordo inferiore della pagina */
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: Century Gothic;
-    background: white;
-    border-radius: 10px;
-    z-index: 9999;
+a {
+    color:black;
+    position: absolute;
+    top: 80%;
+    left:50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+}
+a:hover {
+  color: white;
+  background-color: black; /* colore del testo al passaggio del mouse */
+  border-radius: 10px;
 }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>ACCESS</h1> 
+<h1>LOGIN PAGE</h1> 
 <h2>Insert Username and Password</h2>  
 
     <form action="${pageContext.request.contextPath}/gestionale/login" method="post">

@@ -12,8 +12,8 @@
     font-family:Century Gothic;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 1px;
+    margin: 1px;
 }
 body {
         display: flex;
@@ -28,16 +28,24 @@ body {
     .container {
         background: white;
         padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;      
     }
-   H1 {
+  H1 {
   position: absolute;
   top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
   background: white;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+ H2 {
+  position: absolute; 
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
@@ -55,10 +63,28 @@ th {
   background-color: #f2f2f2;
 }
 
+a {
+    color:black;
+    position: absolute;
+    top: 80%;
+    left:50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+}
+a:hover {
+  color: white;
+  background-color: black; /* colore del testo al passaggio del mouse */
+  border-radius: 10px;
+}
 </style>
 </head>
 <body>
 <div class="container">
+<h1>EDUCATION</h1>
+<h2>This is Candidate's education</h2>
 <table>
 <thead>
             <tr>
@@ -68,8 +94,7 @@ th {
                 <th>PLACE</th>
                 <th>DATE</th>
                 <th>FINAL GRADE</th>
-                <th>ID CANDIDATE</th>
-                
+                <th>ID CANDIDATE</th>               
                 <th>DELETE</th>
                 <th>UPDATE</th>
             </tr>
@@ -84,7 +109,6 @@ th {
                     <td><c:out value="${education.date}" /></td>
                     <td><c:out value="${education.finalGrade}" /></td>
                   <td><c:out value="${education.candidate.idCandidate}" /></td>
-
                   <td><a href="${pageContext.request.contextPath}/EducationCtr/deleteEducation?idEducation=${education.idEducation}">delete</a></td>
                     <td><a href="${pageContext.request.contextPath}/EducationCtr/preUpdateEducationForm?idEducation=${education.idEducation}">update</a></td> 
                 </tr>
