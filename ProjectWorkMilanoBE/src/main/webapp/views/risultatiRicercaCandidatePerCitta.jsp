@@ -120,7 +120,7 @@ th {
     <button type="submit">JOB INTERVIEW</button>
 </form>
 
-<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="get">
+<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="post">
     <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">EDUCATION</button>
 </form>

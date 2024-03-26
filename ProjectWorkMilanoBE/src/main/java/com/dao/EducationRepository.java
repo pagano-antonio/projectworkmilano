@@ -16,6 +16,6 @@ public interface EducationRepository extends JpaRepository <Education, Integer> 
 	
 	public Education findByIdEducation (int idEducation);
 	List<Education> findByCandidate(Candidate candidate);
-	List<Education> findByCandidate_idCandidate(int idCandidate);
+	//List<Education> findByCandidate_idCandidate(int idCandidate);
 
 }
