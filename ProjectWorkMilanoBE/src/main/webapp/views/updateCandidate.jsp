@@ -12,8 +12,8 @@
     font-family:Century Gothic;
     align-items: center;
     justify-content: center;
-    padding: 8px;
-    margin: 8px;
+    padding: 4px;
+    margin: 4px;
 }
 body {
         display: flex;

@@ -95,8 +95,7 @@ a:hover {
                 <th>DATE</th>
                 <th>FINAL GRADE</th>
                 <th>ID CANDIDATE</th>               
-                <th>DELETE</th>
-                <th>UPDATE</th>
+                <th>ACTIONS</th>
             </tr>
         </thead>
   <tbody>
@@ -108,16 +107,23 @@ a:hover {
                     <td><c:out value="${education.place}" /></td>
                     <td><c:out value="${education.date}" /></td>
                     <td><c:out value="${education.finalGrade}" /></td>
-                  <td><c:out value="${education.candidate.idCandidate}" /></td>
-                  <td><a href="${pageContext.request.contextPath}/EducationCtr/deleteEducation?idEducation=${education.idEducation}">delete</a></td>
-                    <td><a href="${pageContext.request.contextPath}/EducationCtr/preUpdateEducationForm?idEducation=${education.idEducation}">update</a></td> 
+                    <td><c:out value="${education.candidate.idCandidate}" /></td>
+                    <td>
+               <form action="${pageContext.request.contextPath}/EducationCtr/deleteEducation" method="Get">
+    		<input type="hidden" name="idEducation" value="${education.idEducation}">
+    <button type="submit">DELETE</button>
+			</form>                        
+   <form action="${pageContext.request.contextPath}/EducationCtr/preUpdateEducationForm" method="Get">
+      <input type="hidden" name="idEducation" value="${education.idEducation}">
+      <button type="submit">UPDATE</button>
+       </form>
+   </td>                       
                 </tr>
             </c:forEach>
         </tbody>
  
 </table>
-
-<p><a href="http://localhost:8080/home">GO HOME!</a></p>
+<a href="http://localhost:8080/home">GO HOME!</a>
 </div>
 </body>
 </html>

@@ -14,6 +14,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>FIND COMPANY CLIENT</title>
 <style>
+
 * {
 	font-family: Century Gothic;
 	align-items: center;
@@ -34,7 +35,7 @@ body {
 
 .container {
 	background: white;
-	padding: 20px;
+	padding: 1px;
 	border-radius: 10px;
 }
 
@@ -67,7 +68,7 @@ table {
 
 th, td {
 	border: 1px solid black;
-	padding: 8px;
+	padding: 1px;
 	text-align: left;
 }
 
@@ -75,26 +76,6 @@ th {
 	background-color: #f2f2f2;
 }
 
-a {
-	color: black;
-	position: absolute;
-	top: 90%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-family: Century Gothic;
-	background: white;
-	border-radius: 10px;
-	padding: 15px;
-}
-
-a:hover {
-	color: white;
-	background-color: black; /* colore del testo al passaggio del mouse */
-	border-radius: 10px;
-}
-p.{
-position:center;
-}
 </style>
 </head>
 <body>

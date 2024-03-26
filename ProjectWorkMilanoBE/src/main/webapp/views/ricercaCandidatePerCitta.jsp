@@ -45,7 +45,8 @@ body {
 <div class="container">
 <h1>SEARCH CANDIDATE BY CITY</h1> 
 <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatePerCitta" method="get">
-    <h2>INSERT CITY :</h2>
+
+    <label for="city"><strong>City:</strong></label>
     <input type="text" id="city" name="city" placeholder="city">
     <input type="submit" value="Cerca">
 </form>

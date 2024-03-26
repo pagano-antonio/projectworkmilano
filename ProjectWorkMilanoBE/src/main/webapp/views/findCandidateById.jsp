@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Find Candidate By id LIST</title>
 <style>
     * {
     font-family:Century Gothic;
