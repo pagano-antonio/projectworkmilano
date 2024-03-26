@@ -64,14 +64,11 @@ public String updateSkill(Model model,HttpServletRequest request,Skill skill) {
 ///////// ELIMINA ////////
 
 @GetMapping("/delete")
-
-public String delete(Model model, HttpServletRequest request, int idSkill) {
-
-	skillRep.deleteById(idSkill);
-
-	return "deleteSuccess";
+public String delete(Model model, @RequestParam int idSkill) {
+    skillRep.deleteById(idSkill);
+    return "deleteSuccess";
 }
-	
+
 	
 	//////////// RICERCA SKILL PER ID SKILLL ////////////////
 	
