@@ -86,17 +86,17 @@ th {
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="candidateLista" items="${candidateLista}">
+            <c:forEach var="candidate" items="${candidateLista}">
                 <tr>
-                    <td>${candidateLista.idCandidate}</td>
-                    <td>${candidateLista.name}</td>
-                    <td>${candidateLista.surname}</td>
-                    <td>${candidateLista.birthday}</td>
-                    <td>${candidateLista.birthPlace}</td>
-                    <td>${candidateLista.address}</td>
-                    <td>${candidateLista.city}</td>
-                    <td>${candidateLista.email}</td>
-                    <td>${candidateLista.phone}</td>
+                    <td>${candidate.idCandidate}</td>
+                    <td>${candidate.name}</td>
+                    <td>${candidate.surname}</td>
+                    <td>${candidate.birthday}</td>
+                    <td>${candidate.birthPlace}</td>
+                    <td>${candidate.address}</td>
+                    <td>${candidate.city}</td>
+                    <td>${candidate.email}</td>
+                    <td>${candidate.phone}</td>
                     <td>
          <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
     		<input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
