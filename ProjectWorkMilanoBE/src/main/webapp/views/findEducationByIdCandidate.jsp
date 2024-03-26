@@ -8,7 +8,6 @@
 <meta charset="ISO-8859-1">
 <title>FIND EDUCATION BY ID CANDIDATE</title>
 <style>
- <style>
 body {
         font-family: Century Gothic;
         display: flex;

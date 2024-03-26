@@ -19,7 +19,7 @@ export class Candidate {
 
     /*Liste*/
     private candidateCommercialData!: CandidateCommercialData[];
-    private candidateSkills!: CandidateSkill[];
+    private _candidateSkills!: CandidateSkill[];
     private educations!: Education[];
     private jobInterview!: JobInterview[];
     private workExperiences!: WorkExperience[];
@@ -95,5 +95,13 @@ export class Candidate {
 
     get phone():BigInt{
         return this._phone;
+    }
+
+    set candidateSkills(value:CandidateSkill[]){
+        this._candidateSkills = value;
+    }
+
+    get candidateSkills():CandidateSkill[]{
+        return this._candidateSkills;
     }
 }

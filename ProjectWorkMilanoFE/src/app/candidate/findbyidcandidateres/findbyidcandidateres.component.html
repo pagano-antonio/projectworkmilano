@@ -36,20 +36,20 @@
                 
     <form (ngSubmit)="goToUpdateCandidate()">
         <input type="hidden" [(ngModel)] ="candidate.idCandidate" [ngModelOptions]="{standalone: true}" value="{{candidate.idCandidate}}">
-        <button type="submit">Aggiorna</button>
+        <button type="submit">UPDATE</button>
     </form>
                                 
-<!--        <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
-            <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-            <button type="submit">Elimina</button>
-            </form>
+    <form (ngSubmit)="deleteCandidateOnResPage()">
+        <input type="hidden" [(ngModel)] ="candidate.idCandidate" [ngModelOptions]="{standalone: true}" value="{{candidate.idCandidate}}">
+        <button type="submit">DELETE</button>
+    </form>
                 
-            <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
-                <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
-                <button type="submit">Skills</button>
-            </form>
+    <form (ngSubmit)="showCandidatesSkills()">
+        <input type="hidden" [(ngModel)] = "candidate.idCandidate" [ngModelOptions]="{standalone: true}" value="{{candidate.idCandidate}}">
+        <button type="submit">SKILLS</button>
+    </form>
             
-            <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
+    <!--        <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
             <input type="hidden" name="idStateJobInterview" value="${candidate.idCandidate}">
             <button type="submit">Job Interview</button>
         </form>

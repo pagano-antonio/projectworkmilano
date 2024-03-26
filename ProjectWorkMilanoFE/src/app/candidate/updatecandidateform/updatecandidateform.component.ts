@@ -34,9 +34,9 @@ export class UpdatecandidateformComponent {
     
   updateCandidate(){
     console.log('Ci sei!');
-    this.candidateService.updateCandidate(this.candidate).subscribe(data => {
-      this.candidate = data;
-      this.router.navigate(['/updatecandidate', this.candidate]);
-    })
+      this.candidateService.updateCandidate(this.candidate).subscribe(data => {
+        console.log(data);
+       this.router.navigate(['/findbyidcandidateres', this.candidate.idCandidate]);
+      })
   }
 }

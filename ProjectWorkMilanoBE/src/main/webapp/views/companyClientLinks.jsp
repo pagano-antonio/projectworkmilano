@@ -22,8 +22,8 @@ body {
         height: 100vh;
         background: linear-gradient(45deg, #3503ad, #f7308c);
     border-radius: 15px;
-    padding: 3px;
-    margin: 3px;
+    padding: 8px;
+    margin: 8px;
     }
 
     .container {
@@ -31,15 +31,15 @@ font-family: Century Gothic;
         justify-content: center;      
         align-items: center;
         background: white;
-        padding: 3px;
-    margin:3px;
+        padding: 8px;
+    margin:8px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     
   H1 {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -66,8 +66,7 @@ th {
 </head>
 <body>
 	<div class="container">
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 		<%@ include file="findByIdCompanyClient.jsp"%>
 		<br>
 		<%@ include file="findCompanyClientByNameForm.jsp"%>
@@ -75,16 +74,14 @@ th {
 		<%@ include file="findCompanyClientByCityForm.jsp"%>
 		<br>
 
-		<h1>FIND COMPANY CLIENT</h1>
-
 		<%
     List<CompanyClient> tmp = (List<CompanyClient>) request.getAttribute("lista");
     if (tmp == null) {
         tmp = new ArrayList<>();
     }
 %>
-<p>COMPANY CLIENT'S LIST</p>
-
+		
+		<br>
 		<table>
 			<thead>
 				<tr>
@@ -93,7 +90,6 @@ th {
 					<th>Address</th>
 					<th>City</th>
 					<th>Actions</th>
-
 				</tr>
 			</thead>
 			<tbody>
@@ -117,7 +113,6 @@ th {
         <button type="submit">Update</button>
     </form>
 </td>
-
 				</tr>
 
 				<% } %>
@@ -125,6 +120,5 @@ th {
 			</tbody>
 		</table>
 	</div>
-	
 </body>
 </html>

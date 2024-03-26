@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -6,33 +7,30 @@
 <meta charset="UTF-8">
 <title>Ricerca date</title>
 <style>
-    * {
-    font-family:Century Gothic;
-    align-items: center;
-    justify-content: center;
-    padding: 1px;
-    margin: 1px;
-}
 body {
+        font-family: Century Gothic;
         display: flex;
         justify-content: center;      
         align-items: center;
         height: 100vh;
-        margin: 0;
         background: linear-gradient(45deg, #3503ad, #f7308c);
     border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
     }
 
     .container {
-        background: white;
-        display: flex;
+font-family: Century Gothic;
         justify-content: center;      
         align-items: center;
-        padding: 20px;
+        background: white;
+        padding: 10px;
+    margin: 10px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
-   H1 {
+    
+  H1 {
   position: absolute;
   top: 15%;
   left: 50%;
@@ -44,28 +42,36 @@ body {
 }
  H2 {
   position: absolute; 
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
-a {
-    color:black;
-    position: absolute;
-    top: 80%;
-  transform: translate(-50%, -50%);
-  font-family: Century Gothic;
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-}
-a:hover {
-  color: white;
-  background-color: black; /* colore del testo al passaggio del mouse */
-  border-radius: 10px;
-}
+label {
+    font-weight: bold; /* Rende il testo in grassetto */
+    color: #333; /* Colore del testo */
+    margin-right: 10px; /* Spazio a destra del label */
+  }
+
+  /* Stile per l'input text */
+  input[type="text"] {
+    padding: 5px; /* Spazio interno dell'input */
+    border: 1px solid #ccc; /* Bordo grigio */
+    border-radius: 3px; /* Bordi arrotondati */
+    font-size: 14px; /* Dimensione del testo */
+  }
+input[type="number"] {
+    padding: 5px; /* Spazio interno dell'input */
+    border: 1px solid #ccc; /* Bordo grigio */
+    border-radius: 3px; /* Bordi arrotondati */
+    font-size: 14px; /* Dimensione del testo */
+  }
+  /* Stile per il break */
+  br {
+    margin-bottom: 10px; /* Spazio sotto il break */
+  }
 </style>
 </head>
 <body>

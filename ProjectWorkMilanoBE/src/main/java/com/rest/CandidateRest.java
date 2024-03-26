@@ -15,6 +15,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +39,7 @@ public class CandidateRest {
 	private CandidateRepository candidateRep;
 	
 	
-//AGGIUNGI
+	//AGGIUNGI
 		
 	@PostMapping("addCandidate")
 	public String addCandidate (@RequestBody Candidate candidate) {		
@@ -48,27 +49,27 @@ public class CandidateRest {
 		
 	}
 		
-//AGGIORNA
+	//AGGIORNA
 		
 	@PutMapping("updateCandidate")
-	public String updateJobInterview (@RequestBody Candidate candidate) {
+	public ResponseEntity<String> updateCandidate (@RequestBody Candidate candidate) {
 			
 		candidateRep.save(candidate);
-		return "updateSuccess";
+		return ResponseEntity.ok("Update successful");
 		
 	}
 		
-//ELIMINA
+	//ELIMINA
 		
 	@DeleteMapping ("deleteCandidate/{idCandidate}")	
-	public String deleteCandidate (@PathVariable (name = "idCandidate") Integer idCandidate) {
+	public ResponseEntity<String> deleteCandidate (@PathVariable (name = "idCandidate") Integer idCandidate) {
 			
 		candidateRep.deleteById(idCandidate);
-		return "deleteSuccess";
+		return ResponseEntity.ok("Delete Success");
 		
 	}
 		
-//CERCA PER ID
+	//CERCA PER ID
 		
 	@GetMapping("findByIdCandidate/{idCandidate}")
 	public Candidate findByIdCandiidate (@PathVariable(value = "idCandidate") int idCandidate){
@@ -79,19 +80,17 @@ public class CandidateRest {
 
 	}	
 	
-	 //////////// RICERCA CANDIDATE PER CITTA' //////////////////
+	//////////// RICERCA CANDIDATE PER CITTA' //////////////////
 	
 	@GetMapping("ricercaByCity/{city}")
 	public List<Candidate> ricercaByCity(@PathVariable("city") String city) {
 					
-
-	List<Candidate> candidate = (List<Candidate>)candidateRep.findByCity(city);
-
-	return candidate;
+		List<Candidate> candidate = (List<Candidate>)candidateRep.findByCity(city);
+		return candidate;
 
 	}
 	
-//READ BY SURNAME
+	//READ BY SURNAME
 	
 	@GetMapping("findCandidateBySurname/{surname}")
 	public List<Candidate> findBySurname (@PathVariable(value="surname") String surname) {
@@ -101,25 +100,33 @@ public class CandidateRest {
 		//localhost:8080/Candidate/findCandidateBySurname/Rubino
 	}
 	
-//READ BY PHONE
+	//READ BY PHONE
 	
 	@GetMapping("findCandidateByPhone/{phone}")
 	public List<Candidate> findCandidateByPhone (@PathVariable(value="phone") BigInteger phone){
 		
 		List<Candidate> candidate = candidateRep.findByPhone(phone);
-		
 		return candidate;
 		
 		//localhost:8080/Candidate/findCandidateByPhone/3405678
 
 	}
 	
-//READ BY ID EDUCATION DEGREE TYPE
+	//READ BY ID EDUCATION DEGREE TYPE
 	
 	@GetMapping("findCandidateByIdEducationDegreeType/{idEducationDegreeType}")
 	public List<Candidate> findByEducations_EducationDegreeType_IdEducationDegreeType (@PathVariable(value="idEducationDegreeType")Integer idEducationDegreeType){
 		
 		return candidateRep.findByEducations_EducationDegreeType_IdEducationDegreeType(idEducationDegreeType);
 		//localhost:8080/Candidate/findCandidateByIdEducationDegreeType/1
+	}
+	
+	//READ BY SKILLS
+	
+	@GetMapping("findCandidateBySkill/{title}")
+	public List<Candidate> findCandidateBySkill (@PathVariable(value="title") String title){
+		
+		return candidateRep.findByCandidateSkills_Skill_Title(title);
+		//localhost:8080/Candidate/findCandidateBySkill/agile
 	}
 }

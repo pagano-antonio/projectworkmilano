@@ -101,7 +101,7 @@ th {
 			  <!-- TASTI PER INFO SU CANDIDATE -->
   
   <td> 
-    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+    <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${can.idCandidate}">
         <button type="submit">Skills</button>
     </form>

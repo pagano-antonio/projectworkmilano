@@ -53,7 +53,7 @@ font-family: Century Gothic;
 }
 button[type="submit"] {
         margin-top: 20px; /* Adjust as needed */
-        margin-left:100px;
+        margin-left:50px;
         width: 150px; /* Adjust as needed */
     }
 label {
@@ -83,7 +83,7 @@ label {
 <body>
 <div class="container">
 <h1>ADD NEW CANDIDATE</h1>
-   <h2>Insert informations here:</h2>    
+   <h2>Insert data here:</h2>    
     <form action="${pageContext.request.contextPath}/candidate/addCandidate" method="post">
           
  <br>    
