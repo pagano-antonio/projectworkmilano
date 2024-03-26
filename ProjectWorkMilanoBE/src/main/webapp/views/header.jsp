@@ -13,10 +13,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Header</title>
 </head>
+
 <style>
 /* Stile per l'header fisso */
 header {
-    background-color: #111;
+    font-family: Century Gothic;
+    background-color: black;
     padding: 10px;
     position: fixed;
     top: 0;
@@ -30,10 +32,11 @@ header {
     text-decoration: none;
     color: #818181;
     font-size: 20px;
+    font-family: Century Gothic;
     display: flex;
     align-items: center; /* Allinea verticalmente icone e testo */
     padding: 6px 8px;
-    margin-right: 30px; /* Aggiunto margine a destra per separare i link */
+    margin-right: 0; /* Aggiunto margine a destra per separare i link */
     cursor: pointer;
     
 }

@@ -189,6 +189,10 @@ public class JobOfferCtr {
   	public String findJobOfferBetweenMinRalAndMaxRal(Model model, int minRal ,int maxRal) {
   		
   		List<JobOffer> jobOffers = jobOfferRep.findByMinRalGreaterThanEqualAndMaxRalGreaterThanEqual(minRal, maxRal);
+
+  		System.out.println("PROVA");
+  		model.addAttribute("offerList",jobOffers);
+
   		
   		if(jobOffers.isEmpty()) {
   			return "Error";
@@ -205,7 +209,7 @@ public class JobOfferCtr {
   		return "preFindJobOfferByIdCompanyClient";
   	}
   	
-  	@PostMapping("/preFindJobOfferByIdCompanyClient")
+  	@GetMapping("/preFindJobOfferByIdCompanyClient")
   	public String findByIdCompanyClient(Model model, int idCompanyClient) {
   		
   		List<JobOffer> companyClient = jobOfferRep.findBycompanyClient_idCompanyClient(idCompanyClient);

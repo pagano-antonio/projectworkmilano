@@ -11,113 +11,110 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dao.CandidateRepository;
 import com.dao.WorkExperienceRepository;
+import com.model.Candidate;
 import com.model.WorkExperience;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-
-
-
 @Controller
-@RequestMapping ("/wk")
-public class WorkExperienceCtr {
-	
-	@Autowired
-	private WorkExperienceRepository WorkExperienceRepository; 
-	
+@RequestMapping("/wk")
+public class WorkExperienceCtr {  
 
-	
+	@Autowired
+	private WorkExperienceRepository WorkExperienceRepository;
+	@Autowired
+	CandidateRepository candidateRep;
+
 /////////////////////////////////////////////////////    METODO ADD  /////////////////////////////////////////////////////////////////		 
 
-@GetMapping("/preAddWork")
-public String preAddWork() {
+	@GetMapping("/addNewWorkExperience")
+	public String preAddWork(Model model, HttpServletRequest request) {
+		List<Candidate> candidateList = candidateRep.findAll();
+		model.addAttribute("candidates", candidateList);
+		return "addNewWorkExperience";
+	}
 
-return "preAdd";
-}
+	@PostMapping("/addNewWorkExperienceSuccess")
+	public String addWork(Model model, WorkExperience we) {
 
-@PostMapping("/addWork")
-public String addWork(Model model, WorkExperience we) {
+		WorkExperienceRepository.save(we);
 
-	WorkExperienceRepository.save(we);
-
-return "AddOK";
-}
+		return "addNewWorkExperienceSuccess";
+	}
 
 /////////////////////////////////////////////////////// METODO DELETE /////////////////////////////////////////////////////////////////		 	
 
-@GetMapping("/deleteWork")
+	@GetMapping("/deleteWork")
 
-public String deleteWork(int idWorkExperience) {
+	public String deleteWork(int idWorkExperience) {
 
-	WorkExperienceRepository.deleteById(idWorkExperience);
+		WorkExperienceRepository.deleteById(idWorkExperience);
 
-return "DeleteOK";
-}
+		return "deleteSuccess";
+	}
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	
 
-@GetMapping("/preFindByIdWork")
-public String preFindByIdWork() {
+	@GetMapping("/findByIdWorkExperienceForm")
+	public String preFindByIdWork() {
 
-return "preFindByidWorkExperience";
-}
+		return "findByIdWorkExperienceForm";
+	}
 
-@PostMapping("/findByIdWork")
-public String findByIdWork(Model model, int idWorkExperience) {
+	@GetMapping("/findByIdWorkExperience")
+	public String findByIdWork(Model model, int idWorkExperience) {
 
-Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperience);
+		Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperience);
 
-if (weOp.isPresent()) {
-	WorkExperience we = weOp.get();
-model.addAttribute("WorkExperience", we);
+		if (weOp.isPresent()) {
+			WorkExperience we = weOp.get();
+			model.addAttribute("WorkExperience", we);
 
-return "FindByidWorkExperience";
-} else {      
-return "Error"; 
-}
-}   
+			return "findByIdWorkExperience";
+		} else {
+			return "Error";
+		}
+	}
 /////////////////////////////////////////////////////// METODO UPDATE /////////////////////////////////////////////////////////////////		 
 
-@GetMapping("/preUpdateWork")
-public String preUpdate(Model model,int idWorkExperience ) {
+	@GetMapping("/updateWorkExperienceForm")
+	public String preUpdate(Model model, Integer idWorkExperience) {
 
-Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperience);
+		Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperience);
+		List<Candidate> candidateList = candidateRep.findAll();
+		
+		if (weOp.isPresent()) {
+			WorkExperience we = weOp.get();
+			model.addAttribute("WorkExperience", we);
+			model.addAttribute("candidates", candidateList);
 
-if (weOp.isPresent()) {
-	WorkExperience we = weOp.get();
-model.addAttribute("WorkExperienceList", we);
+			return "updateWorkExperienceForm";
+		} else {
+			return "errore";
+		}
+	}
 
-return "preUpdateForm";
-} else {      
-return "Error"; 
-}
-}
-@PostMapping("/updateWork")
-public String updateWork( @ModelAttribute("WorkExperience") WorkExperience sji) {
+	@PostMapping("/updateWork")
+	public String updateWork(@ModelAttribute("WorkExperience") WorkExperience sji) {
 
-	WorkExperienceRepository.save(sji);		
+		WorkExperienceRepository.save(sji);
+		return "updateWorkExperienceSuccess";
 
-return "updateSuccess";
-
-}
+	}
 
 /////////// RICERCA WORK EXPERIENCE PER ID CANDIDATE //////////////
-@GetMapping("/preRicercaWEPerIdCandidate")
-public String preRicercaWEPerIdCandidate() {
+	@GetMapping("/preRicercaWEPerIdCandidate")
+	public String preRicercaWEPerIdCandidate() {
 
-return "ricercaWEPerIdCandidate";
-}
+		return "ricercaWEPerIdCandidate";
+	}
 
-@PostMapping("/ricercaWEPerIdCandidate")
-public String ricercaWEPerIdCandidate(Model model, @RequestParam int idCandidate) {
-    List<WorkExperience> wkLista = WorkExperienceRepository.findByCandidateIdCandidate(idCandidate);
-    model.addAttribute("workExperienceList", wkLista);
-    return "risultatiRicercaWorkExperiencePerIdCandidate";
-}
-
-
-
+	@PostMapping("/ricercaWEPerIdCandidate")
+	public String ricercaWEPerIdCandidate(Model model, @RequestParam int idCandidate) {
+		List<WorkExperience> wkLista = WorkExperienceRepository.findByCandidateIdCandidate(idCandidate);
+		model.addAttribute("workExperienceList", wkLista);
+		return "risultatiRicercaWorkExperiencePerIdCandidate";
+	}
 
 }
-
-

@@ -1,34 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.model.Candidate"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-<title>Risultati Ricerca Candidato Per State Job Interview</title>
+<title>Candidate by State Job Interview</title>
 <style>
-    * {
-    font-family:Century Gothic;
-    align-items: center;
-    justify-content: center;
-    padding: 1px;
-    margin: 1px;
-}
 body {
+        font-family: Century Gothic;
         display: flex;
         justify-content: center;      
         align-items: center;
         height: 100vh;
-        margin: 0;
         background: linear-gradient(45deg, #3503ad, #f7308c);
     border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
     }
 
     .container {
+font-family: Century Gothic;
+        justify-content: center;      
+        align-items: center;
         background: white;
-        padding: 20px;
-        border-radius: 10px;      
+        padding: 10px;
+    margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
+    
   H1 {
   position: absolute;
   top: 15%;
@@ -40,48 +42,35 @@ body {
   z-index: 9999; 
 }
  H2 {
-  position: relative; 
-  top: 15%;
+  position: absolute; 
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
-  background: white;
   border-radius: 10px;
   z-index: 9999; 
 }
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-}
-th {
-  background-color: #f2f2f2;
+	border: 1px solid black;
+	padding: 1px;
+	text-align: center;
 }
 
-a {
-    color:black;
-    position: absolute;
-    top: 80%;
-    left:50%;
-  transform: translate(-50%, -50%);
-  font-family: Century Gothic;
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-}
-a:hover {
-  color: white;
-  background-color: black; /* colore del testo al passaggio del mouse */
-  border-radius: 10px;
+th {
+	background-color: #f2f2f2;
 }
 </style>
 </head>
 <body>
+<div class="container">
+
+<h1>CANDIDATE</h1>
+<h2>Candidates' job interview: RESULTS</h2>
     <table>
         <thead>
             <tr>
@@ -149,8 +138,9 @@ a:hover {
                     </td>
                 </tr>
             </c:forEach>
-         </thead>
-        <tbody>
+        </tbody>
+         </table>
+</div>
 </body>
 </html>
 

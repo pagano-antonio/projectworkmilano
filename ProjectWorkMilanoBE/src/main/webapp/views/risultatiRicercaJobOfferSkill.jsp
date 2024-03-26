@@ -1,14 +1,77 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.model.JobOffer"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Risultati ricerca JobOffer By id Skill</title>
+    <title>JobOffer By id Skill</title>
+    <style>
+body {
+        font-family: Century Gothic;
+        display: flex;
+        justify-content: center;      
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    }
+
+    .container {
+font-family: Century Gothic;
+        justify-content: center;      
+        align-items: center;
+        background: white;
+        padding: 10px;
+    margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+  H1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+ H2 {
+  position: absolute; 
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	border: 1px solid black;
+	padding: 1px;
+	text-align: center;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+</style>
 </head>
 <body>
-    <h1>Risultati Ricerca JobOffer By id Skill</h1>
+<div class="container">
+
+<h1>JOB OFFER</h1>
+
+    <h2>JobOffer By id Skill: RESULTS!</h2>
 
     <table>
         <thead>
@@ -58,5 +121,6 @@
             </c:forEach>
         </tbody>
     </table>
+    </div>
 </body>
 </html>

@@ -55,7 +55,8 @@
 			<c:forEach var="employee" items="${employeeList}">
 				<option value="${employee.idEmployee}">${employee.name} ${employee.surname}</option>
 			</c:forEach>
-		</select>		
+		</select>
+		<br>		
 		<input type="submit" value="Update Contract Type Data">
 	</form>
 	<br>

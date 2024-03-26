@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Inserimento jobOffer fatto!!</title>
+<title>JOB OFFER ADD</title>
 </head>
 <body>
+<h1>JOB OFFER SUCCESS</h1>
+	<h2>Your Data has been added successfully.</h2>
 
-<h2>INSERIMENTO EFFETTUATO CON SUCCESSO!!</h2>
-
-<button type="submit"><a href="http://localhost:8080/views/HomeRossella.jsp">Torna alla home</a></button>
 
 </body>
 </html>

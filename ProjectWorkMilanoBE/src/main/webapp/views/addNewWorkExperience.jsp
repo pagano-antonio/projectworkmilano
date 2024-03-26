@@ -1,12 +1,13 @@
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.model.Candidate"%>
-<%@ page import="com.ctr.CandidateCtr"%>
 <%@ include file="header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ADD CANDIDATE</title>
+<title>ADD WORK EXPERIENCE</title>
 <style>
 
 body {
@@ -82,37 +83,38 @@ label {
 </head>
 <body>
 <div class="container">
-<h1>ADD NEW CANDIDATE</h1>
-   <h2>Insert informations here:</h2>    
-    <form action="${pageContext.request.contextPath}/candidate/addCandidate" method="post">
-          
- <br>    
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"> <br>
-<br>
-        <label for="surname">Surname:</label>
-        <input type="text" id="surname" name="surname"> <br>
-<br>
-        <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday"> <br>
-<br>
-        <label for="birthPlace">Birth Place:</label>
-        <input type="text" id="birthPlace" name="birthPlace"> <br>
-<br>
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address"> <br>
-<br>
+<h1>ADD NEW WORK EXPERIENCE</h1>
+ <h2>Insert informations here:</h2>  
+    <form action="${pageContext.request.contextPath}/wk/addNewWorkExperienceSuccess" method="post">             
+        
+        <label for="candidate"><strong>Seleziona un candidato:</strong></label>
+           <select id="candidate" name="candidate">
+               <c:forEach items="${candidates}" var="candidate">
+                   <option value="${candidate.idCandidate}">
+                       ${candidate.name} ${candidate.surname}
+                   </option>
+               </c:forEach>
+           </select><br>    
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"> <br>  
+              
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description"> <br>
+        
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate"> <br>
+        
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate"> <br>
+        
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company"> <br>
+        
         <label for="city">City:</label>
-        <input type="text" id="city" name="city"> <br>
-<br>
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email"> <br>
-<br>
-        <label for="phone">Phone:</label>
-        <input type="number" id="phone" name="phone"> <br> 
-<br>
-        <button type="submit"><strong>ADD</strong></button>
-<br>
+        <input type="text" id="city" name="city"> <br>    
+
+        <button type="submit">ADD</button>
+    
     </form>
     </div>
 </body>

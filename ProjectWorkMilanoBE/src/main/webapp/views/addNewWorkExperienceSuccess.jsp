@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Education Success</title>
+<title>Add Work Experience Success</title>
 <style>
 
 body {
@@ -53,7 +53,7 @@ font-family: Century Gothic;
 </style>
 </head>
 <body>
-<h1>EDUCATION SUCCESS</h1>
+	<h1>WORK EXPERIENCE SUCCESS</h1>
 	<h2>Your Data has been added successfully.</h2>
 </body>
 </html>

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ include file="header.jsp"%>
-<%@ page import="com.model.CompanyClient"%>
-
+<%@ page import="com.model.WorkExperience"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Find Company Client by ID: Results</title>
+<title>Results</title>
 <style>
 body {
         font-family: Century Gothic;
@@ -68,32 +67,41 @@ th {
 </head>
 <body>
 <div class="container">
-<h1>COMPANY CLIENT LIST</h1> 
-	<h2>Find Company Client by ID: Results</h2>
+<h1>WORK EXPERIENCE</h1> 
+	<h2>Work Experience by ID: Results</h2>
 	
 	<table>
 		<tr>
-			<th>Company ID</th>
-			<th>Company Name</th>
-			<th>Company City</th>
-			<th>Company Address</th>
+			<th>Id Work Experience</th>
+			<th>Id Candidate</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Company</th>
+			<th>City</th>
 			<th>Update</th>
-			<th>Delete</th>
-			<th>View JO</th>
+			<th>Delete</th>			
+			</tr>
 			
-		</tr>
-		<%CompanyClient client = (CompanyClient) request.getAttribute("idCompanyClient");%>
-		<tr>
-			<td><%=client.getIdCompanyClient()%></td>
-			<td><%=client.getName()%></td>
-			<td><%=client.getCity()%></td>
-			<td><%=client.getAddress()%></td>
-			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/preUpdateCompanyClientForm?idCompanyClient=<%=client.getIdCompanyClient()%>"><button>Update Company Client Data</button></a></td>
-			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient?idCompanyClient=<%=client.getIdCompanyClient()%>&searchType=byID"><button>Delete Company Client Data</button></a></td>
-	     	<td><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferByIdCompanyClient?idCompanyClient=<%=client.getIdCompanyClient()%>"><button><b>See Job Offers</b></button></a></td>
-		</tr>
+			<%WorkExperience wk = (WorkExperience) request.getAttribute("WorkExperience");%>
+			
+			<tr>	
+					
+			<td><%=wk.getIdWorkExperience()%></td>			
+			<td><%=wk.getCandidate().getIdCandidate()%></td>
+			<td><%=wk.getTitle()%></td>
+			<td><%=wk.getDescription()%></td>
+			<td><%=wk.getStartDate()%></td>				
+			<td><%=wk.getEndDate()%></td>
+			<td><%=wk.getCompany()%></td>
+			<td><%=wk.getCity()%></td>
+			<td><a href="${pageContext.request.contextPath}/wk/updateWorkExperienceForm?idWorkExperience=<%=wk.getIdWorkExperience()%>"><button>Update</button></a></td>
+			<td><a href="${pageContext.request.contextPath}/wk/deleteWork?idWorkExperience=<%=wk.getIdWorkExperience()%>"><button>Delete</button></a></td>	
+			</tr>
 	</table>
+	<br>
 </div>
-	
+
 </body>
 </html>

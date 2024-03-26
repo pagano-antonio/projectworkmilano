@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page import="com.model.Skill"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>LIST CANDIDATE</title>
+    <meta charset="UTF-8">
+    <title>Skill By ID :</title>
 <style>
 body {
         font-family: Century Gothic;
@@ -68,40 +68,41 @@ th {
 </head>
 <body>
 <div class="container">
-<h1>THIS IS THE UPDATE CANDIDATE LIST</h1> 
-<h2>The candidate has been added!</h2> 
+    <h1>SKILL</h1>
+    <h2>SKILL BY ID: RESULTS! </h2>
 
-<table>
-<thead>
+    <table>
+        <thead>
             <tr>
-                <th>ID CANDIDATE</th>
-                <th>NAME</th>
-                <th>SURNAME</th>
-                <th>BIRTHDAY</th>
-                <th>BIRTHPLACE</th>
-                <th>ADDRESS</th>
-                <th>CITY</th>
-                <th>EMAIL</th>
-                <th>PHONE</th>                                               
+                <th>Id Skill</th>
+                <th>Title</th>
+                <th>Description</th>
+             
             </tr>
         </thead>
-  <tbody>
-            <c:forEach var="candidate" items="${LISTAc}">
-                <tr>                   
-                    <td><c:out value="${candidate.idCandidate}" /></td>
-                    <td><c:out value="${candidate.name}" /></td>
-                    <td><c:out value="${candidate.surname}" /></td>
-                    <td><c:out value="${candidate.birthday}" /></td>
-                    <td><c:out value="${candidate.birthPlace}" /></td>
-                    <td><c:out value="${candidate.address}" /></td>
-                    <td><c:out value="${candidate.city}" /></td>
-                    <td><c:out value="${candidate.email}" /></td>
-                    <td><c:out value="${candidate.phone}" /></td>
-                    </tr>
-            </c:forEach>
-        </tbody>
+        <tbody>
+        
+        <%Skill sList = (Skill) request.getAttribute("sList");%>
+		<tr>
+		
+			<td><%=sList.getIdSkill()%></td>
+			<td><%=sList.getTitle()%></td>
+			<td><%=sList.getDescription()%></td>
+<td>
+                        <form action="${pageContext.request.contextPath}/skill/preEliminaSkill" method="Get">
+                            <input type="hidden" name="idSkill" value="${sList.idSkill}">
+                            <button type="submit">UPDATE</button>
+                        </form>                       
+                        <form action="${pageContext.request.contextPath}/skill/preAggiornaSkill" method="Get">
+                            <input type="hidden" name="idSkill" value="${sList.idSkill}">
+                            <button type="submit">DELETE</button>
+                        </form>
+                    </td>
+                </tr>
  
-</table>
+        </tbody>
+    </table>    
+
 </div>
 </body>
 </html>

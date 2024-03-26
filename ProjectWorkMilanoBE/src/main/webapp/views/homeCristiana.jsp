@@ -64,6 +64,13 @@
 			<tr>
 			<td><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOfferByIdContractTypeForm">CERCA OFFERTA DI LAVORO TRAMITE ID CONTRATTO</a></td>
 			</tr>
+			<tr>
+			<td><a href="${pageContext.request.contextPath}/wk/addNewWorkExperience">AGGIUNGI UNA NUOVA ESPERIENZA DI LAVORO</a></td>
+			</tr>
+			<tr>
+			<td><a href="${pageContext.request.contextPath}/wk/findByIdWorkExperienceForm">CERCA ID WORK EXPERIENCE</a></td>
+			</tr>
+			
 	</table>
 </body>
 </html>
