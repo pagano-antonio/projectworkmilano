@@ -37,7 +37,7 @@
 			<td><%=wk.getCompany()%></td>
 			<td><%=wk.getCity()%></td>
 			<td><a href="${pageContext.request.contextPath}/wk/updateWorkExperienceForm?idWorkExperience=<%=wk.getIdWorkExperience()%>""><button>Update</button></a></td>
-			<td><a href="${pageContext.request.contextPath}/wk/delete?idWorkExperience=<%=wk.getIdWorkExperience()%>"><button>Delete</button></a></td>	
+			<td><a href="${pageContext.request.contextPath}/wk/deleteWork?idWorkExperience=<%=wk.getIdWorkExperience()%>"><button>Delete</button></a></td>	
 			</tr>
 	</table>
 	<br>
