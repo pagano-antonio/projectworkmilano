@@ -16,8 +16,8 @@ body {
         height: 100vh;
         background: linear-gradient(45deg, #3503ad, #f7308c);
     border-radius: 15px;
-    padding: 10px;
-    margin: 10px;
+    padding: 20px;
+    margin: 20px;
     }
 
     .container {
@@ -25,8 +25,8 @@ font-family: Century Gothic;
         justify-content: center;      
         align-items: center;
         background: white;
-        padding: 10px;
-    margin: 10px;
+        padding: 20px;
+    margin: 20px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
@@ -57,7 +57,6 @@ table {
 
 th, td {
 	border: 1px solid black;
-	padding: 1px;
 	text-align: center;
 }
 
@@ -93,18 +92,16 @@ th {
               <form action="${pageContext.request.contextPath}/skill/preAggiornaSkill" method="Get">
      <input type="hidden" name="idSkill" value="${sLista.idSkill}">
   <button type="submit">UPDATE</button>
-  
+  </form>
               <form action="${pageContext.request.contextPath}/skill/preEliminaSkill" method="Get">
     		<input type="hidden" name="idSkill" value="${sList.idSkill}">
     <button type="submit">DELETE</button>
 			</form>                       
-      
-  </form></td>
+ </td>
                 </tr>
             </c:forEach>
         </tbody>
     </table>    
     </div>
-        <a href="${pageContext.request.contextPath}/home"><strong>GO HOME</strong></a>
 </body>
 </html>

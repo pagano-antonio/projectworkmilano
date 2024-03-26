@@ -110,8 +110,8 @@ label {
 			  <!-- TASTI PER INFO SU CANDIDATE -->
    
           
-   
-    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+ <td>  
+    <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${can.idCandidate}">
         <button type="submit">Skills</button>
     </form>
@@ -130,7 +130,7 @@ label {
     <input type="hidden" name="idCandidate" value="${can.idCandidate}">
     <button type="submit">Work Experience </button>
 </form>
-   		
+ </td>  		
 		</tr>
 		</c:forEach>
 	</table>
