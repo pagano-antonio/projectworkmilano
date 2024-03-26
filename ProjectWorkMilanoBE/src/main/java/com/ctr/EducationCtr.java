@@ -128,7 +128,7 @@ public class EducationCtr {
 			    	
 			    }
 			    
-			    @PostMapping("/findEducationByIdCandidate")
+			    @GetMapping("/findEducationByIdCandidate")
 			    public String findEducationByIdCandidate(Model model, Candidate Candidate) {
 			    	
 			    	System.out.println("findEducationByIdCandidate ok");
