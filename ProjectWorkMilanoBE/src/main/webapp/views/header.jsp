@@ -13,6 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Header</title>
 </head>
+
+<br>
 <style>
 /* Stile per l'header fisso */
 header {

@@ -163,10 +163,7 @@ public class CompanyClientCtr {
 		} else {
 			return "Error";
 		}
-	}
-	
-	
-	
+	}	
 	
 	
 	@GetMapping("/companyClientFind") //------pagina che mostra tutte le company con redirect nel cercaid
