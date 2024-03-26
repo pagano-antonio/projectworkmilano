@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/wk")
-public class WorkExperienceCtr {
+public class WorkExperienceCtr {  
 
 	@Autowired
 	private WorkExperienceRepository WorkExperienceRepository;
