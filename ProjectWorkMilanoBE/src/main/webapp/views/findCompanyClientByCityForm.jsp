@@ -47,6 +47,7 @@ font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
+
 label {
     font-weight: bold; /* Rende il testo in grassetto */
     color: #333; /* Colore del testo */
@@ -75,7 +76,9 @@ input[type="number"] {
 <body>
 	<form action="${pageContext.request.contextPath}/CompanyClientCtr/findCompanyClientByCity">
 		<label for="city"><strong>Company Client City:</strong></label>
+		<br>
 		<input type="text" id="city" name="city">
+		<br>
 		<input type="submit" value="Find Company Client">
 	</form>
 </body>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    <%@ include file="header.jsp"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +47,7 @@ font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
+
 label {
     font-weight: bold; /* Rende il testo in grassetto */
     color: #333; /* Colore del testo */
@@ -75,10 +75,10 @@ input[type="number"] {
 </head>
 <body>
 <div class="container">
-<h1>FIND COMPANY CLIENT BY ID</h1>
-<h2>Insert data here</h2>	
+<h1>FIND COMPANY CLIENT</h1>
+	
 	<form action="${pageContext.request.contextPath}/CompanyClientCtr/findByIdCompanyClient">
-		<label for="idCompanyClient"><strong>Insert the Company Client ID to get your results --> Company Client ID:</strong></label>
+		<label for="idCompanyClient"><strong>Company Client ID:</strong></label>
 		<br>
 		<input type="number" id="idCompanyClient" name="idCompanyClient">
 		<input type="hidden" id="searchType" name="searchType" value="byID">

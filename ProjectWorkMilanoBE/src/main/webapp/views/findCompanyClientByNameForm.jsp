@@ -47,6 +47,7 @@ font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
+
 label {
     font-weight: bold; /* Rende il testo in grassetto */
     color: #333; /* Colore del testo */
@@ -74,12 +75,11 @@ input[type="number"] {
 </head>
 <body>
 	<form action="${pageContext.request.contextPath}/CompanyClientCtr/findCompanyClientByName">
-	<br>
-		<label for="name"><strong>Insert the Company Client Name to get results -- Company Client Name:</strong></label>
+		<label for="name"><strong>Company Client Name:</strong></label>
 		<br>
 		<input type="text" id="name" name="name">
-		<br>
 		<input type="hidden" id="searchType" name="searchType" value="byName">
+		<br>
 		<input type="submit" value="Find Company Client">
 	</form>
 </body>

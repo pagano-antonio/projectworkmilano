@@ -7,7 +7,6 @@
 <meta charset="ISO-8859-1">
 <title>preFindByIdCandidate</title>
 <style>
-<style>
 body {
         font-family: Century Gothic;
         display: flex;
