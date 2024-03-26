@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page import="com.model.CompanyClient"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ include file="header.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,50 +14,38 @@
 <title>FIND COMPANY CLIENT</title>
 <style>
 
-* {
-	font-family: Century Gothic;
-	align-items: center;
-	justify-content: center;
-	padding: 1px;
-	margin: 1px;
-}
-
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	margin: 0;
-	background: linear-gradient(45deg, #3503ad, #f7308c);
-	border-radius: 15px;
-}
+        font-family: Century Gothic;
+        display: flex;
+        justify-content: center;      
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+    padding: 3px;
+    margin: 3px;
+    }
 
-.container {
-	background: white;
-	padding: 1px;
-	border-radius: 10px;
-}
-
-H1 {
-	position: absolute;
-	top: 10%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-family: Century Gothic;
-	background: white;
-	border-radius: 10px;
-	z-index: 9999;
-}
-
-H2 {
-	position: absolute;
-	top: 15%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-family: Century Gothic;
-	background: white;
-	border-radius: 10px;
-	z-index: 9999;
+    .container {
+font-family: Century Gothic;
+        justify-content: center;      
+        align-items: center;
+        background: white;
+        padding: 3px;
+    margin:3px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+  H1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  z-index: 9999; 
 }
 
 table {
@@ -74,11 +62,9 @@ th, td {
 th {
 	background-color: #f2f2f2;
 }
-
 </style>
 </head>
 <body>
-<%@ include file="header.jsp"%>
 	<div class="container">
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -122,7 +108,7 @@ th {
         <input type="hidden" name="idCompanyClient" value="<%= p.getIdCompanyClient() %>">
         <button type="submit">Details</button>
     </form>
-    <form action="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient" method="POST" style="display: inline;">
+    <form action="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient" method="GET" style="display: inline;">
         <input type="hidden" name="idCompanyClient" value="<%= p.getIdCompanyClient() %>">
         <button type="submit">Delete</button>
     </form>
@@ -139,8 +125,6 @@ th {
 			</tbody>
 		</table>
 	</div>
-	
-<a href="${pageContext.request.contextPath}/home">GO HOME</a>
 	
 </body>
 </html>

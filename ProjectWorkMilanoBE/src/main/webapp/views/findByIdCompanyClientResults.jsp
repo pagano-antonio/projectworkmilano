@@ -1,37 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp"%>
 <%@ page import="com.model.CompanyClient"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Company Client by ID: Results</title>
 <style>
-    * {
-    font-family:Century Gothic;
-    align-items: center;
-    justify-content: center;
-    padding: 1px;
-    margin: 1px;
-}
 body {
+        font-family: Century Gothic;
         display: flex;
         justify-content: center;      
         align-items: center;
         height: 100vh;
-        margin: 0;
         background: linear-gradient(45deg, #3503ad, #f7308c);
     border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
     }
 
     .container {
+font-family: Century Gothic;
+        justify-content: center;      
+        align-items: center;
         background: white;
-        padding: 20px;
-        border-radius: 10px;      
+        padding: 10px;
+    margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
+    
   H1 {
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -41,47 +43,32 @@ body {
 }
  H2 {
   position: absolute; 
-  top: 15%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
-  background: white;
   border-radius: 10px;
   z-index: 9999; 
 }
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-}
-th {
-  background-color: #f2f2f2;
+	border: 1px solid black;
+	padding: 1px;
+	text-align: center;
 }
 
-a {
-    color:black;
-    position: absolute;
-    top: 80%;
-    left:50%;
-  transform: translate(-50%, -50%);
-  font-family: Century Gothic;
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-}
-a:hover {
-  color: white;
-  background-color: black; /* colore del testo al passaggio del mouse */
-  border-radius: 10px;
+th {
+	background-color: #f2f2f2;
 }
 </style>
 </head>
 <body>
+<div class="container">
+<h1>COMPANY CLIENT LIST</h1> 
 	<h2>Find Company Client by ID: Results</h2>
 	
 	<table>
@@ -90,7 +77,10 @@ a:hover {
 			<th>Company Name</th>
 			<th>Company City</th>
 			<th>Company Address</th>
-			<th colspan="3"></th>
+			<th>Update</th>
+			<th>Delete</th>
+			<th>View JO</th>
+			
 		</tr>
 		<%CompanyClient client = (CompanyClient) request.getAttribute("idCompanyClient");%>
 		<tr>
@@ -103,8 +93,7 @@ a:hover {
 	     	<td><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferByIdCompanyClient?idCompanyClient=<%=client.getIdCompanyClient()%>"><button><b>See Job Offers</b></button></a></td>
 		</tr>
 	</table>
-	
-	<a href="${pageContext.request.contextPath}/home">Go back Home</a>
+</div>
 	
 </body>
 </html>

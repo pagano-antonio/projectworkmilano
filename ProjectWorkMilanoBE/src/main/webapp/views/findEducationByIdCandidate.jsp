@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -8,28 +8,30 @@
 <meta charset="ISO-8859-1">
 <title>FIND EDUCATION BY ID CANDIDATE</title>
 <style>
-    * {
-    font-family:Century Gothic;
-    align-items: center;
-    justify-content: center;
-    padding: 1px;
-    margin: 1px;
-}
+ <style>
 body {
+        font-family: Century Gothic;
         display: flex;
         justify-content: center;      
         align-items: center;
         height: 100vh;
-        margin: 0;
         background: linear-gradient(45deg, #3503ad, #f7308c);
     border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
     }
 
     .container {
+font-family: Century Gothic;
+        justify-content: center;      
+        align-items: center;
         background: white;
-        padding: 20px;
-        border-radius: 10px;      
+        padding: 10px;
+    margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
+    
   H1 {
   position: absolute;
   top: 15%;
@@ -42,7 +44,7 @@ body {
 }
  H2 {
   position: absolute; 
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -50,41 +52,25 @@ body {
   z-index: 9999; 
 }
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-}
-th {
-  background-color: #f2f2f2;
+	border: 1px solid black;
+	padding: 1px;
+	text-align: center;
 }
 
-a {
-    color:black;
-    position: absolute;
-    top: 80%;
-    left:50%;
-  transform: translate(-50%, -50%);
-  font-family: Century Gothic;
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-}
-a:hover {
-  color: white;
-  background-color: black; /* colore del testo al passaggio del mouse */
-  border-radius: 10px;
+th {
+	background-color: #f2f2f2;
 }
 </style>
 </head>
 <body>
 <div class="container">
 <h1>EDUCATION</h1>
-<h2>This is Candidate's education</h2>
+<h2>This is EDUCATION</h2>
 <table>
 <thead>
             <tr>
@@ -123,7 +109,7 @@ a:hover {
         </tbody>
  
 </table>
-<a href="http://localhost:8080/home">GO HOME!</a>
+</div>
 </div>
 </body>
 </html>
