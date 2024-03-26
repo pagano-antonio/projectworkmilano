@@ -87,7 +87,9 @@ th {
 			<th>City</th>
 			<th>Email</th>
 			<th>Phone</th>
-			<th colspan="2"></th>
+			<th>U</th>
+			<th>D</th>
+			<th>More actions</th>
 		</tr>
 		<c:forEach var="can" items="${candidatesEDTResults}">
 			<tr>
@@ -111,7 +113,7 @@ th {
    
          
   <td> 
-    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+    <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${can.idCandidate}">
         <button type="submit">Skills</button>
     </form>

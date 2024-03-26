@@ -99,7 +99,7 @@ public class WorkExperienceCtr {
 	public String updateWork(@ModelAttribute("WorkExperience") WorkExperience sji) {
 
 		WorkExperienceRepository.save(sji);
-		return "updateWorkExperienceSuccess";
+		return "updateSuccess";
 
 	}
 

@@ -240,8 +240,16 @@ public class JobOfferCtr {
   	  		model.addAttribute("offer",jobOffers);
   	  		return "findJobOfferByIdContractType";
   		}
+  	//METODO FIND
+  	} 		
+  @GetMapping("/findJobOffer")
+  	       public String findJobOffer(){
+  	              
+  	   		return "findJobOffer";
+  	   	}  
+  	
   	}
-}
+
 	
 	
     

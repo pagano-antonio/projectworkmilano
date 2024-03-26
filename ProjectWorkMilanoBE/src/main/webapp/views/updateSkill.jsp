@@ -1,10 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@ include file="header.jsp"%>
+<%@ page import="com.model.Skill"%>
+<%@ page import="com.ctr.SkillCtr"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Find Company Client by ID</title>
-<style>
+    <meta charset="UTF-8">
+    <title>Update Skill</title>
+    <style>
 body {
         font-family: Century Gothic;
         display: flex;
@@ -47,7 +51,6 @@ font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
-
 label {
     font-weight: bold; /* Rende il testo in grassetto */
     color: #333; /* Colore del testo */
@@ -71,20 +74,32 @@ input[type="number"] {
   br {
     margin-bottom: 10px; /* Spazio sotto il break */
   }
+  button[type="submit"] {
+        margin-top: 20px; /* Adjust as needed */
+        margin-left:50px;
+        width: 150px; /* Adjust as needed */
+    }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>FIND COMPANY CLIENT</h1>
-	
-	<form action="${pageContext.request.contextPath}/CompanyClientCtr/findByIdCompanyClient">
-		<label for="idCompanyClient"><strong>Company Client ID:</strong></label>
-		<br>
-		<input type="number" id="idCompanyClient" name="idCompanyClient">
-		<input type="hidden" id="searchType" name="searchType" value="byID">
-		<br>
-		<input type="submit" value="Find Company Client">
-	</form>
+<h1>SKILL</h1> 
+	<h2>Update Skill:</h2>
+<% Skill sList = (Skill) request.getAttribute("sList"); %>
+<form action="${pageContext.request.contextPath}/skill/updateSkill" method="post">
+    
+    <label for="idSkill">Id Skill:</label>
+    <input readonly type="number" id="idSkill" name="idSkill" value="<%= sList.getIdSkill() %>">
+        
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="<%= sList.getTitle() %>"> <br>
+    
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" value="<%= sList.getDescription() %>"> <br>     
+
+    <button type="submit">Update</button>
+
+</form>
 </div>
 </body>
 </html>

@@ -16,8 +16,8 @@ body {
         height: 100vh;
         background: linear-gradient(45deg, #3503ad, #f7308c);
     border-radius: 15px;
-    padding: 10px;
-    margin: 10px;
+    padding: 4px;
+    margin: 4px;
     }
 
     .container {
@@ -25,15 +25,15 @@ font-family: Century Gothic;
         justify-content: center;      
         align-items: center;
         background: white;
-        padding: 10px;
-    margin: 10px;
+        padding: 4px;
+    margin: 4px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     
   H1 {
   position: absolute;
-  top: 15%;
+  top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -43,7 +43,7 @@ font-family: Century Gothic;
 }
  H2 {
   position: absolute; 
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -82,7 +82,8 @@ th {
                 <th>ADDRESS</th>
                 <th>CITY</th>
                 <th>EMAIL</th>
-                <th>PHONE</th>                                               
+                <th>PHONE</th>
+                <th>More Actions</th>                                               
             </tr>
         </thead>
   <tbody>
@@ -97,7 +98,36 @@ th {
                     <td><c:out value="${candidate.city}" /></td>
                     <td><c:out value="${candidate.email}" /></td>
                     <td><c:out value="${candidate.phone}" /></td>
-                    </tr>
+                    <td><form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
+    		<input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+    <button type="submit">UPDATE</button>
+			</form>
+                        
+   <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
+      <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+      <button type="submit">DELETE</button>
+       </form>
+        
+	 <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
+        <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+        <button type="submit">SKILLS</button>
+    </form>
+    
+     <form action="${pageContext.request.contextPath}/JobInterviewCtr/findJobInterviewByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+    <button type="submit">JOB INTERVIEW</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+    <button type="submit">EDUCATION</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+    <button type="submit">WORK EXPERIENCE</button>
+</form></td>
+        </tr>
             </c:forEach>
         </tbody>
  

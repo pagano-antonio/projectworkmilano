@@ -102,7 +102,7 @@ th {
 					<a href="${pageContext.request.contextPath}/candidate/updateCandidateForm?idCandidate=${c.idCandidate}">Update</a>
 					<a href="${pageContext.request.contextPath}/candidate/delete?idCandidate=${c.idCandidate}">Delete</a>
 
-    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+    <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${c.idCandidate}">
         <button type="submit">Skills</button>
     </form>  

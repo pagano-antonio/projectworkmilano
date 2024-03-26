@@ -83,7 +83,7 @@ th {
         <th>CITY</th>
         <th>EMAIL</th>
         <th>PHONE</th> 
-        <th>ACTIONS</th>                                              
+        <th>More Actions</th>                                              
     </tr>
 </thead>
 <tbody>

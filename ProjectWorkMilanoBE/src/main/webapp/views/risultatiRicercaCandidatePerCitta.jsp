@@ -110,7 +110,7 @@ th {
   <button type="submit">DELETE</button>
   </form>
    
-    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+    <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
         <button type="submit">SKILLS</button>
     </form>
@@ -120,8 +120,8 @@ th {
     <button type="submit">JOB INTERVIEW</button>
 </form>
 
-<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
-    <input type="hidden" name="idEducation" value="${candidateLista.idCandidate}">
+<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">EDUCATION</button>
 </form>
 

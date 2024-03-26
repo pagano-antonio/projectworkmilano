@@ -118,34 +118,33 @@ public class EducationCtr {
 					return "Error";
 				}
 		}
-				 //RICERCA PER ID CANDIDATE
-			    @GetMapping("/preFindEducationByIdCandidate")
-			    public String preFindEducationByIdCandidate() {
-			    	
-			    	System.out.println("preFindEducationByIdCandidate ok");
-			    	
-			    	return "preFindEducationByIdCandidate";
-			    	
-			    }
-			    
-			    @PostMapping("/findEducationByIdCandidate")
-			    public String findEducationByIdCandidate(Model model, Candidate Candidate) {
-			    	
-			    	System.out.println("findEducationByIdCandidate ok");
-			    	
-			    	List<Education> edu = educationRep.findByCandidate(Candidate);
-			    	
-					if (edu!=null) {
-						
-						System.out.println("findeducation ok?");					
-						
-						model.addAttribute("LISTA", edu);
-						
+		//RICERCA PER ID CANDIDATE
+        @GetMapping("/preFindEducationByIdCandidate")
+        public String preFindEducationByIdCandidate() {
 
-						return "findEducationByIdCandidate";
-					} else {
-						return "Error";
-					}	
-			    }
+            System.out.println("preFindEducationByIdCandidate ok");
 
-			}
+            return "preFindEducationByIdCandidate";
+
+        }
+
+        @PostMapping("/findEducationByIdCandidate")
+        public String findEducationByIdCandidate(Model model, Candidate Candidate) {
+
+            System.out.println("findEducationByIdCandidate ok");
+
+            List<Education> edu = educationRep.findByCandidate(Candidate);
+
+            if (edu!=null) {
+
+                System.out.println("findeducation ok?");
+
+                model.addAttribute("LISTA", edu);
+
+
+                return "findEducationByIdCandidate";
+            } else {
+                return "Error";
+            }
+        }
+}

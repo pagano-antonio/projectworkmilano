@@ -68,21 +68,31 @@ public class CandidateCtr {
     }
 
     @PostMapping("/updateCandidate1")
-    public String updateCandidate(Candidate candidate) {
+    public String updateCandidate(Candidate candidate, Model model) {
    
         candidateRep.save(candidate);
+        
+        List<Candidate> cList = candidateRep.findAll();
+
+	       
+        model.addAttribute("LISTAc", cList);
   
-        return "updateSuccess";
+        return "ListaCandidateSimona";
     }
     
     
     
  //ELIMINA 
     @GetMapping("/delete")
-    public String delete( int idCandidate) {
+    public String delete( int idCandidate, Model model) {
     	
     	candidateRep.deleteById(idCandidate);
-        return "deleteSuccess";
+    	
+    	List<Candidate> cList = candidateRep.findAll();
+
+	       
+        model.addAttribute("LISTAc", cList);
+        return "ListaCandidateSimona";
         
     }
     
