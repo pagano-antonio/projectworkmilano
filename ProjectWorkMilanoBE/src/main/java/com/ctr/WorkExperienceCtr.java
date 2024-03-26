@@ -52,7 +52,7 @@ public class WorkExperienceCtr {
 
 		WorkExperienceRepository.deleteById(idWorkExperience);
 
-		return "DeleteOK";
+		return "deleteSuccess";
 	}
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	
 
@@ -82,9 +82,12 @@ public class WorkExperienceCtr {
 	public String preUpdate(Model model, Integer idWorkExperience) {
 
 		Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperience);
+		List<Candidate> candidateList = candidateRep.findAll();
+		
 		if (weOp.isPresent()) {
 			WorkExperience we = weOp.get();
 			model.addAttribute("WorkExperience", we);
+			model.addAttribute("candidates", candidateList);
 
 			return "updateWorkExperienceForm";
 		} else {
