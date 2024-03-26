@@ -82,14 +82,13 @@ a:hover {
 </head>
 <body>
 	<form action="${pageContext.request.contextPath}/CompanyClientCtr/findCompanyClientByName">
-		<label for="name"><strong>Insert the Company Client Name to get results --> Company Client Name:</strong></label>
+	<br>
+		<label for="name"><strong>Insert the Company Client Name to get results -- Company Client Name:</strong></label>
 		<br>
 		<input type="text" id="name" name="name">
-		<input type="hidden" id="searchType" name="searchType" value="byName">
 		<br>
+		<input type="hidden" id="searchType" name="searchType" value="byName">
 		<input type="submit" value="Find Company Client">
 	</form>
-	
-
 </body>
 </html>

@@ -8,71 +8,84 @@
 <meta charset="UTF-8">
 <title>List Candidate by city:</title>
 <style>
-* {
-	font-family: Century Gothic;
-	align-items: center;
-	justify-content: center;
-	padding: 0;
-	margin: 0;
+    * {
+    font-family:Century Gothic;
+    align-items: center;
+    justify-content: center;
+    padding: 1px;
+    margin: 1px;
 }
-
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	margin: 0;
-	background: linear-gradient(45deg, #3503ad, #f7308c);
-	border-radius: 15px;
-}
+        display: flex;
+        justify-content: center;      
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+    }
 
-.container {
-	background: white;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;      
+    }
+  H1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  z-index: 9999; 
 }
-
-H1 {
-	position: absolute;
-	top: 15%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-family: Century Gothic;
-	background: white;
-	border-radius: 10px;
-	z-index: 9999;
+ H2 {
+  position: absolute; 
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  border-radius: 10px;
+  z-index: 9999; 
 }
-
 table {
-	border-collapse: collapse;
-	width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 th, td {
-	border: 1px solid black;
-	padding: 8px;
-	text-align: left;
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
 }
-
 th {
-	background-color: #f2f2f2;
-}
-a {
-  color: black; /* colore del testo */
-  text-decoration: underline; /* rimuove il sottolineato di default */
-  transition: color 0.3s ease;
-  border-radius: 10px; /* animazione del cambio di colore */
+  background-color: #f2f2f2;
 }
 
+a {
+    color:black;
+    position: absolute;
+    top: 80%;
+    left:50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+}
 a:hover {
   color: white;
-  background-color: #f7308c; /* colore del testo al passaggio del mouse */
-  border-radius: 3px;
+  background-color: black; /* colore del testo al passaggio del mouse */
+  border-radius: 10px;
 }
 </style>
 </head>
 <body>
+<div class="container">
+
+<h1>CANDIDATE</h1>
+<h2>This is Candidates' LIST by city</h2>
 
     <table>
         <thead>
@@ -86,6 +99,7 @@ a:hover {
                 <th>City</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -101,51 +115,41 @@ a:hover {
                     <td>${candidateLista.email}</td>
                     <td>${candidateLista.phone}</td>
                     <td>
-                     
-
-   <!-- TASTI PER INFO SU CANDIDATE -->
-   
-          
               <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
     		<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-    <button type="submit">Aggiorna</button>
+    <button type="submit">UPDATE</button>
 			</form>
                         
       <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
      <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-  <button type="submit">Elimina</button>
+  <button type="submit">DELETE</button>
   </form>
    
     <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
         <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-        <button type="submit">Skills</button>
+        <button type="submit">SKILLS</button>
     </form>
     
      <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
     <input type="hidden" name="idStateJobInterview" value="${candidateLista.idCandidate}">
-    <button type="submit">Job Interview</button>
+    <button type="submit">JOB INTERVIEW</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
     <input type="hidden" name="idEducation" value="${candidateLista.idCandidate}">
-    <button type="submit">Education </button>
+    <button type="submit">EDUCATION</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
     <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-    <button type="submit">Work Experience </button>
+    <button type="submit">WORK EXPERIENCE</button>
 </form>
-     
-              
-              <!-- TASTO HOMEß -->
-              
-                        <a href="${pageContext.request.contextPath}/home">Go back Home</a>
+            
+<a href="${pageContext.request.contextPath}/home"><strong>GO HOME</strong></a>
                     </td>
                 </tr>
             </c:forEach>
-         </thead>
         <tbody>
-
-
+</div>
 </body>
 </html>
