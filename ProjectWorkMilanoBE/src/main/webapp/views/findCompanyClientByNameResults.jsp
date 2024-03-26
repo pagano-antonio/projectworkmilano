@@ -6,8 +6,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Find Company Client by Name: Results</title>
+<%@ include file="header.jsp"%>
 </head>
 <body>
+<br>
 	<h2>Find Company Client by Name: Results</h2>
 	
 	<table>
@@ -26,7 +28,7 @@
 			<td>${cc.address}</td>
 			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/preUpdateCompanyClientForm?idCompanyClient=${cc.idCompanyClient}"><button>Update Company Client Data</button></a></td>
 			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient?idCompanyClient=${cc.idCompanyClient}&name=${cc.name}&searchType=byName"><button>Delete Company Client Data</button></a></td>
-		<td><a href=""><button><b>See Job Offers</b></button></a></td>
+		    <td><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferByIdCompanyClient?idCompanyClient=${cc.idCompanyClient}"><button><b>See Job Offers</b></button></a></td>
 		</tr>
 		</c:forEach>
 	</table>

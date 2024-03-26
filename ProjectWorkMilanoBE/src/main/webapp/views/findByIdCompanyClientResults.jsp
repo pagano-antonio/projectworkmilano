@@ -100,7 +100,7 @@ a:hover {
 			<td><%=client.getAddress()%></td>
 			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/preUpdateCompanyClientForm?idCompanyClient=<%=client.getIdCompanyClient()%>"><button>Update Company Client Data</button></a></td>
 			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient?idCompanyClient=<%=client.getIdCompanyClient()%>&searchType=byID"><button>Delete Company Client Data</button></a></td>
-		<td><a href=""><button><b>See Job Offers</b></button></a></td>
+	     	<td><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferByIdCompanyClient?idCompanyClient=<%=client.getIdCompanyClient()%>"><button><b>See Job Offers</b></button></a></td>
 		</tr>
 	</table>
 	

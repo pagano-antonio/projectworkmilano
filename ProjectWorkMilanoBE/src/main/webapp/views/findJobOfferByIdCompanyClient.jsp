@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Risultati ricerca JobOffer By Id Company Client</title>
+<%@ include file="header.jsp"%>
 </head>
 <body>
+<br>
 <h1>Risultati Ricerca JobOffer By Id Company Client</h1>
 
 	<table border="1, solid, #000000">
@@ -46,5 +48,10 @@
 		
 		</c:forEach>
 	</table>
+	
+	<a href="${pageContext.request.contextPath}/JobOfferCtr/preInsertJobOffer">Add new Job Offer</a>
+	<a href="${pageContext.request.contextPath}/home">Go back Home</a>
+	
+	
 </body>
 </html>

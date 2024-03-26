@@ -25,7 +25,7 @@
 			<td>${cc.address}</td>
 			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/preUpdateCompanyClientForm?idCompanyClient=${cc.idCompanyClient}"><button>Update Company Client Data</button></a></td>
 			<td><a href="${pageContext.request.contextPath}/CompanyClientCtr/deleteCompanyClient?idCompanyClient=${cc.idCompanyClient}&city=${cc.city}&searchType=byCity"><button>Delete Company Client Data</button></a></td>
-		    <td><a href=""><button><b>See Job Offers</b></button></a></td>
+		    <td><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferByIdCompanyClient?idCompanyClient=${cc.idCompanyClient}"><button><b>See Job Offers</b></button></a></td>
 		</tr>
 		</c:forEach>
 	</table>

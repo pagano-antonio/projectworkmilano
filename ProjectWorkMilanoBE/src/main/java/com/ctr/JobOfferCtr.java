@@ -209,7 +209,7 @@ public class JobOfferCtr {
   		return "preFindJobOfferByIdCompanyClient";
   	}
   	
-  	@PostMapping("/preFindJobOfferByIdCompanyClient")
+  	@GetMapping("/preFindJobOfferByIdCompanyClient")
   	public String findByIdCompanyClient(Model model, int idCompanyClient) {
   		
   		List<JobOffer> companyClient = jobOfferRep.findBycompanyClient_idCompanyClient(idCompanyClient);

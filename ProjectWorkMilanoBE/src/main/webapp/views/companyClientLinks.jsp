@@ -5,7 +5,6 @@
 <%@ page import="com.model.CompanyClient"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ include file="header.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -79,7 +78,7 @@ th {
 </style>
 </head>
 <body>
-
+<%@ include file="header.jsp"%>
 	<div class="container">
 		<script
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
