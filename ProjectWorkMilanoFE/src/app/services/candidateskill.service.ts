@@ -1,16 +1,16 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Skill } from '../model/Skill';
+import { HttpClient } from '@angular/common/http';
+import { CandidateSkill } from '../model/CandidateSkill';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SkillServiceService {
+export class CandidateskillService {
 
   constructor(private hC: HttpClient) { }
 
-  addSkill(skill:Skill){
-    return this.hC.post<String>('http://localhost:8080/Skill/inserisci', skill, {
+  addCandidateSkill(canskill:CandidateSkill){
+    return this.hC.post<String>('http://localhost:8080/CandidateSkill/addCandidateSkill', canskill, {
       responseType: 'text' as 'json'
       // The "as 'json'" part is a type assertion needed to satisfy TypeScript's type checking,
       // because the HttpClient methods expect a generic type that matches the responseType.
@@ -18,12 +18,8 @@ export class SkillServiceService {
     });
   }
 
-  getSkillById(id:number){
-    return this.hC.get<Skill>('http://localhost:8080/Skill/ricercaByIdSkill/'+ id);
-  }
-
-  updateSkill(skill:Skill){
-    return this.hC.put<String>('http://localhost:8080/Skill/aggiornaSkill', skill, {
+  updateCandidateSkill(canskill:CandidateSkill){
+    return this.hC.put<String>('http://localhost:8080/CandidateSkill/updateCandidateSkill', canskill, {
       responseType: 'text' as 'json'
       // The "as 'json'" part is a type assertion needed to satisfy TypeScript's type checking,
       // because the HttpClient methods expect a generic type that matches the responseType.
@@ -31,16 +27,16 @@ export class SkillServiceService {
     });
   }
 
-  deleteSkill(id:number){
-    return this.hC.delete<Skill>('http://localhost:8080/Skill/elimina?idSkill=' + id, {
+  deleteCandidateSkill(id:number){
+    return this.hC.delete<CandidateSkill>('http://localhost:8080/CandidateSkill/deleteCandidateSkill/' + id, {
       responseType: 'text' as 'json'
       // The "as 'json'" part is a type assertion needed to satisfy TypeScript's type checking,
       // because the HttpClient methods expect a generic type that matches the responseType.
       // Since we're overriding the default expected JSON response with text, we need this assertion.
     });
   }
-  
-  getSkillsByIdCandidate(id:number){
-    return this.hC.get<Skill>('http://localhost:8080/Skill/findSkillByIdCandidate/'+ id);
+
+  getCandidateSkillById(id:number){
+    return this.hC.get<CandidateSkill>('http://localhost:8080/CandidateSkill/findByIdCandidateSkill/'+ id);
   }
 }

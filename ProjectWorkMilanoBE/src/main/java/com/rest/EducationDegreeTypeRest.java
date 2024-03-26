@@ -1,6 +1,8 @@
 package com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.EducationDegreeTypeRepository;
 import com.model.EducationDegreeType;
 
+@CrossOrigin
 @RestController
 @RequestMapping("EducationDegreeType")
 public class EducationDegreeTypeRest {
@@ -23,33 +26,33 @@ public class EducationDegreeTypeRest {
 //--------------------INSERISCI---------------------------------------
 	
 	@PostMapping("inserisciEducationDegreeType")
-    public String inserisciEducationDegreeType(@RequestBody EducationDegreeType educationDegreeType) {
+    public ResponseEntity<String> inserisciEducationDegreeType(@RequestBody EducationDegreeType educationDegreeType) {
 
         System.out.println("Inserito nel db:"+educationDegreeType);
         educationDegreeTypeRep.save(educationDegreeType);
 
-        return "OK, inserito";
+        return ResponseEntity.ok("OK, inserito");
     }
 	
 //--------------------AGGIORNA---------------------------------------
 	
 	@PutMapping("aggiornaEducationDegreeType")
-	public String aggiornaEducationDegreeType (@RequestBody EducationDegreeType educationDegreeType ) {
+	public ResponseEntity<String> aggiornaEducationDegreeType (@RequestBody EducationDegreeType educationDegreeType ) {
 
 		System.out.println("Aggiornamento riuscito"+ educationDegreeType);
 		educationDegreeTypeRep.save(educationDegreeType);
 		
-		return "Ok, aggiornata";
+		return ResponseEntity.ok("Ok, aggiornata");
 	}
 	
 //--------------------ELIMINA---------------------------------------
 	
 	@DeleteMapping("eliminaEducationDegreeType/{idEducationDegreeType}")
-	public String eliminaEducationDegreeType (@RequestParam(value="idEducationDegreeType") int idEducationDegreeType) {
+	public ResponseEntity<String> eliminaEducationDegreeType (@RequestParam(value="idEducationDegreeType") int idEducationDegreeType) {
 		
 		System.out.println("Eliminazione riuscita: " +idEducationDegreeType);
 		educationDegreeTypeRep.deleteById(idEducationDegreeType);
-		return "Ok, eliminata";
+		return ResponseEntity.ok("Ok, eliminata");
 	}
 	
 //--------------------CERCA BY ID---------------------------------------

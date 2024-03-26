@@ -3,6 +3,8 @@ package com.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.CompanyClientRepository;
 import com.model.CompanyClient;
 
+@CrossOrigin
 @RestController
 @RequestMapping("CompanyClient")
 public class CompanyClientRest {
@@ -26,13 +29,13 @@ public class CompanyClientRest {
 	
 	//Create
 	@PostMapping("addCompanyClient")
-	public String addCompanyClient (@RequestBody CompanyClient clientData) {
+	public ResponseEntity<String> addCompanyClient (@RequestBody CompanyClient clientData) {
 		
 		CompanyClient client = companyClientRep.save(clientData);
 		
 		System.out.println("Data successfully added to DB.");
 		
-		return client.toString();
+		return ResponseEntity.ok("Add Success");
 		
 		//localhost:8080/CompanyClient/addCompanyClient
 		
@@ -69,24 +72,24 @@ public class CompanyClientRest {
 	
 	//Update
 	@PutMapping("updateCompanyClient")
-	public String updateCompanyClient (@RequestBody CompanyClient clientData) {
+	public ResponseEntity<String> updateCompanyClient (@RequestBody CompanyClient clientData) {
 		
-		CompanyClient client = companyClientRep.save(clientData);
+		companyClientRep.save(clientData);
 		
 		System.out.println("DB Update successful");
 		
-		return client.toString();
+		return ResponseEntity.ok("Update Success");
 		
 		//localhost:8080/CompanyClient/updateCompanyClient
 	}
 	
 	//Delete
 	@DeleteMapping("deleteCompanyClient")
-	public String deleteCompanyClient (@RequestParam(value="idCompanyClient") int idCompanyClient) {
+	public ResponseEntity<String> deleteCompanyClient (@RequestParam(value="idCompanyClient") int idCompanyClient) {
 		
 		companyClientRep.deleteById(idCompanyClient);
 		
-		return "Company Client successfully deleted from DB.";
+		return ResponseEntity.ok("Company Client successfully deleted from DB.");
 		
 		//localhost:8080/CompanyClient/deleteCompanyClient?idCompanyClient=1
 	}

@@ -18,90 +18,122 @@ export class Candidate {
     private _surname!: String;
 
     /*Liste*/
-    private candidateCommercialData!: CandidateCommercialData[];
+    private _candidateCommercialData!: CandidateCommercialData[];
     private _candidateSkills!: CandidateSkill[];
-    private educations!: Education[];
-    private jobInterview!: JobInterview[];
-    private workExperiences!: WorkExperience[];
+    private _educations!: Education[];
+    private _jobInterview!: JobInterview[];
+    private _workExperiences!: WorkExperience[];
 
     /*I GETTER e i SETTER*/
-    set idCandidate(value:number){
+    public set idCandidate(value:number){
         this._idCandidate = value;
     }
 
-    get idCandidate():number {
+    public get idCandidate():number {
         return this._idCandidate;
     }
 
-    set name(value:String){
+    public set name(value:String){
         this._name = value;
     }
 
-    get name():String{
+    public get name():String{
         return this._name;
     }
 
-    set surname(value:String){
+    public set surname(value:String){
         this._surname = value;
     }
 
-    get surname():String{
+    public get surname():String{
         return this._surname;
     }
 
-    set birthday(value:Date){
+    public set birthday(value:Date){
         this._birthday = value;
     }
 
-    get birthday():Date{
+    public get birthday():Date{
         return this._birthday;
     }
 
-    set birthPlace(value:String){
+    public set birthPlace(value:String){
         this._birthPlace = value;
     }
 
-    get birthPlace():String{
+    public get birthPlace():String{
         return this._birthPlace;
     }
 
-    set address(value:String){
+    public set address(value:String){
         this._address = value;
     }
 
-    get address():String{
+    public get address():String{
         return this._address;
     }
 
-    set city(value:String){
+    public set city(value:String){
         this._city = value;
     }
 
-    get city():String{
+    public get city():String{
         return this._city;
     }
 
-    set email(value:String){
+    public set email(value:String){
         this._email = value;
     }
 
-    get email():String{
+    public get email():String{
         return this._email;
     }
 
-    set phone(value:BigInt){
+    public set phone(value:BigInt){
         this._phone = value;
     }
 
-    get phone():BigInt{
+    public get phone():BigInt{
         return this._phone;
     }
 
-    set candidateSkills(value:CandidateSkill[]){
+    public set candidateCommercialData(value:CandidateCommercialData[]){
+        this._candidateCommercialData = value;
+    }
+
+    public get candidateCommercialData():CandidateCommercialData[]{
+        return this._candidateCommercialData;
+    }
+
+    public set candidateSkills(value:CandidateSkill[]){
         this._candidateSkills = value;
     }
 
-    get candidateSkills():CandidateSkill[]{
+    public get candidateSkills():CandidateSkill[]{
         return this._candidateSkills;
+    }
+
+    public set educations(value:Education[]){
+        this._educations = value;
+    }
+
+    public get educations():Education[]{
+        return this._educations;
+    }
+
+    public set jobInterview(value:JobInterview[]){
+        this._jobInterview = value;
+    }
+
+    public get jobInterview():JobInterview[]{
+        return this._jobInterview;
+    }
+
+    public set workExperiences(value:WorkExperience[]){
+        this._workExperiences = value;
+    }
+
+    public get workExperiences():WorkExperience[]{
+        return this._workExperiences;
     }
 }

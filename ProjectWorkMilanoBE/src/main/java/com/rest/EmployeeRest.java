@@ -1,6 +1,7 @@
 package com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,82 +25,80 @@ public class EmployeeRest {
 	@Autowired
 	private EmployeeRepository employeeRep;
 	
-///////// INSERIMENTO /////////
+	///////// INSERIMENTO /////////
 
-@PostMapping("inserisci")
-public String inserisci (@RequestBody Employee e) {
-	System.out.println("inserimento nel DB: " + e.getIdEmployee());
-	return "Inserimento Employee" ;
-}
+	@PostMapping("inserisci")
+	public ResponseEntity<String> inserisci (@RequestBody Employee e) {
+		System.out.println("inserimento nel DB: " + e.getIdEmployee());
+		return ResponseEntity.ok("Inserimento Employee");
+	}
 
-////////LEGGI/RICERCA ////////
+	////////LEGGI/RICERCA ////////
 
-@GetMapping("ricercaByIdEmployee/{idEmployee}")
-public Employee ricercaByIdEmployee(@PathVariable("idEmployee") int Employee) {
+	@GetMapping("ricercaByIdEmployee/{idEmployee}")
+	public Employee ricercaByIdEmployee(@PathVariable("idEmployee") int Employee) {
   
-	System.out.println("PROVA");
-	Employee employee = employeeRep.findById(Employee).get();
+		System.out.println("PROVA");
+		Employee employee = employeeRep.findById(Employee).get();
 	
-	
-  
-	return employee;
-}
+		return employee;
+	}
 
-///////// AGGIORNARE //////////
+	///////// AGGIORNARE //////////
 
-@PutMapping("aggiornaEmployee")
-public String aggiornaEmployee(@RequestBody Employee employee) {
+	@PutMapping("aggiornaEmployee")
+	public ResponseEntity<String> aggiornaEmployee(@RequestBody Employee employee) {
     System.out.println(employee.toString());
 
    
-    if (employee.getEmployeeType() == null) {
-        return "Il campo 'idEmployeeType' non può essere null";
-    }
+    	if (employee.getEmployeeType() == null) {
+    		return ResponseEntity.ok("Il campo 'idEmployeeType' non può essere null");
+    	}
 
-    if (employee.getSurname() == null || employee.getSurname().isEmpty()) {
-        return "Il campo 'surname' non può essere null o vuoto";
-    }
+    	if (employee.getSurname() == null || employee.getSurname().isEmpty()) {
+    		return ResponseEntity.ok("Il campo 'surname' non può essere null o vuoto");
+    	}
 
-    if (employee.getEmail() == null || employee.getEmail().isEmpty()) {
-        return "Il campo 'email' non può essere null o vuoto";
-    }
+    	if (employee.getEmail() == null || employee.getEmail().isEmpty()) {
+    		return ResponseEntity.ok("Il campo 'email' non può essere null o vuoto");
+    	}
 
-    if (employee.getPassword() == null || employee.getPassword().isEmpty()) {
-        return "Il campo 'password' non può essere null o vuoto";
-    }
+    	if (employee.getPassword() == null || employee.getPassword().isEmpty()) {
+    		return ResponseEntity.ok("Il campo 'password' non può essere null o vuoto");
+    	}
 
-    if (employee.getUsername() == null || employee.getUsername().isEmpty()) {
-        return "Il campo 'username' non può essere null o vuoto";
-    }
+    	if (employee.getUsername() == null || employee.getUsername().isEmpty()) {
+    		return ResponseEntity.ok("Il campo 'username' non può essere null o vuoto");
+    	}
 
-    Employee employeeDaAggiornare = employeeRep.findById(employee.getIdEmployee()).orElse(null);
+    	Employee employeeDaAggiornare = employeeRep.findById(employee.getIdEmployee()).orElse(null);
 
-    if (employeeDaAggiornare == null) {
-        return "Utente non trovato per l'ID specificato";
-    }
+    	if (employeeDaAggiornare == null) {
+    		return ResponseEntity.ok("Utente non trovato per l'ID specificato");
+    	}
 
     
-    employeeDaAggiornare.setEmployeeType(employee.getEmployeeType());
-    employeeDaAggiornare.setSurname(employee.getSurname());
-    employee.setEmail(employee.getEmail());
-    employee.setPassword(employee.getPassword());
-    employee.setUsername(employee.getUsername());
+    	employeeDaAggiornare.setEmployeeType(employee.getEmployeeType());
+    	employeeDaAggiornare.setSurname(employee.getSurname());
+    	employee.setEmail(employee.getEmail());
+    	employee.setPassword(employee.getPassword());
+    	employee.setUsername(employee.getUsername());
 
    
-    employeeRep.save(employeeDaAggiornare);
+    	employeeRep.save(employeeDaAggiornare);
 
-    return "Aggiornamento employee andato a buon fine.";
-}
+    	return ResponseEntity.ok("Aggiornamento employee andato a buon fine.");
+	}
 
 
-///////// ELIMINA ////////
-@DeleteMapping ("elimina")
-public String eliminaEmployee (@RequestParam (name = "idEmployee") int idEmployee) {
+	///////// ELIMINA ////////
+	@DeleteMapping ("elimina")
+	public ResponseEntity<String> eliminaEmployee (@RequestParam (name = "idEmployee") int idEmployee) {
 
-	employeeRep.deleteById(idEmployee);
+		employeeRep.deleteById(idEmployee);
 
-return "ELIMINATO";
+		return ResponseEntity.ok("ELIMINATO");
 
-}
+	}
 
 }

@@ -3,6 +3,7 @@ package com.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,9 +29,9 @@ public class SkillRest {
 	///////// INSERIMENTO /////////
 
 	@PostMapping("inserisci")
-	public String inserisci (@RequestBody Skill s) {
+	public ResponseEntity<String> inserisci (@RequestBody Skill s) {
 		System.out.println("inserimento nel DB: " + s.getIdSkill());
-		return "Inserimento Skill" ;
+		return ResponseEntity.ok("Inserimento Skill");
 	}
 
 	////////LEGGI/RICERCA ////////
@@ -47,21 +48,21 @@ public class SkillRest {
 	///////// AGGIORNAMENTO /////////
 
 	@PutMapping("aggiornaSkill")
-	public String aggiornaSkill(@RequestBody Skill skill) {
+	public ResponseEntity<String> aggiornaSkill(@RequestBody Skill skill) {
 		System.out.println(skill.toString());
 
 		if (skill.getTitle() == null || skill.getTitle().isEmpty()) {
-			return "Il campo 'title' non può essere null o vuoto";
+			return ResponseEntity.ok("Il campo 'title' non può essere null o vuoto");
 		}
 
 		if (skill.getDescription() == null || skill.getDescription().isEmpty()) {
-			return "Il campo 'description' non può essere null o vuoto";
+			return ResponseEntity.ok("Il campo 'description' non può essere null o vuoto");
 		}
 
 		Skill s = skillRep.findById(skill.getIdSkill()).orElse(null);
 
 		if (s == null) {
-			return "Skill non trovata per l'ID specificato";
+			return ResponseEntity.ok("Skill non trovata per l'ID specificato");
 		}
 
 		// Aggiornamento dei campi
@@ -70,16 +71,16 @@ public class SkillRest {
 
 		skillRep.save(s);
 
-		return "Aggiornamento Skill andato a buon fine.";
+		return ResponseEntity.ok("Aggiornamento Skill andato a buon fine.");
 	}
 
 	///////// ELIMINA ////////
 	@DeleteMapping ("elimina")
-	public String eliminaSkill (@RequestParam (name = "idSkill") int idSkill) {
+	public ResponseEntity<String> eliminaSkill (@RequestParam (name = "idSkill") int idSkill) {
 		
 		skillRep.deleteById(idSkill);
 
-		return "Eliminato";
+		return ResponseEntity.ok("Eliminato");
 
 	}
 	

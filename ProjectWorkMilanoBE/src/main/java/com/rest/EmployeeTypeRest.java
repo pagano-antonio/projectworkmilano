@@ -1,6 +1,8 @@
 package com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.EmployeeTypeRepository;
 import com.model.EmployeeType;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("EmployeeType")
 public class EmployeeTypeRest {
@@ -24,33 +26,33 @@ public class EmployeeTypeRest {
 //--------------------INSERISCI---------------------------------------
 
 	@PostMapping("inserisciEmployeeType")
-    public String inserisciEmployeeType(@RequestBody EmployeeType employeeType) {
+    public ResponseEntity<String> inserisciEmployeeType(@RequestBody EmployeeType employeeType) {
 
         System.out.println("Inserito nel db:"+employeeType);
         employeeTypeRep.save(employeeType);
 
-        return "OK, inserito";
+        return ResponseEntity.ok("OK, inserito");
     }
 	
 //--------------------AGGIORNA---------------------------------------
 	
 	@PutMapping("aggiornaEmployeeType")
-	public String aggiornaEmployeeType (@RequestBody EmployeeType employeeType ) {
+	public ResponseEntity<String> aggiornaEmployeeType (@RequestBody EmployeeType employeeType ) {
 
 		System.out.println("Aggiornamento riuscito"+ employeeType);
 		employeeTypeRep.save(employeeType);
 		
-		return "Ok, aggiornata";
+		return ResponseEntity.ok("Ok, aggiornata");
 	}
 	
 //--------------------ELIMINA---------------------------------------
 	
 	@DeleteMapping("eliminaEmployeeType/{idEmployeeType}")
-	public String eliminaEmployeeType (@RequestParam(value="idEmployeeType") int idEmployeeType) {
+	public ResponseEntity<String> eliminaEmployeeType (@RequestParam(value="idEmployeeType") int idEmployeeType) {
 		
 		System.out.println("Eliminazione riuscita: " +idEmployeeType);
 		employeeTypeRep.deleteById(idEmployeeType);
-		return "Ok, eliminata";
+		return ResponseEntity.ok("Ok, eliminata");
 	}
 	
 //--------------------CERCA BY ID---------------------------------------

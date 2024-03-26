@@ -42,10 +42,10 @@ public class CandidateRest {
 	//AGGIUNGI
 		
 	@PostMapping("addCandidate")
-	public String addCandidate (@RequestBody Candidate candidate) {		
+	public ResponseEntity<String> addCandidate (@RequestBody Candidate candidate) {		
 			
 		candidateRep.save(candidate);
-		return "saveSuccess";
+		return ResponseEntity.ok("Save Success");
 		
 	}
 		
@@ -77,7 +77,6 @@ public class CandidateRest {
 		Candidate candidate = candidateRep.findById(idCandidate).get();		
 		return candidate;
 		
-
 	}	
 	
 	//////////// RICERCA CANDIDATE PER CITTA' //////////////////
