@@ -93,33 +93,34 @@ th {
 			<td>${can.city}</td>
 			<td>${can.email}</td>
 			<td>${can.phone}</td>
-			<td><form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
-    		<input type="hidden" name="idCandidate" value="${can.idCandidate}">
+			<td>
+         <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
+    		<input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">UPDATE</button>
 			</form>
                         
    <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
-      <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+      <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
       <button type="submit">DELETE</button>
        </form>
         
 	 <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
-        <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+        <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
         <button type="submit">SKILLS</button>
     </form>
     
      <form action="${pageContext.request.contextPath}/JobInterviewCtr/findJobInterviewByIdCandidate" method="Post">
-    <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">JOB INTERVIEW</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="Post">
-    <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">EDUCATION</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
-    <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">WORK EXPERIENCE</button>
 </form></td>
         </tr>

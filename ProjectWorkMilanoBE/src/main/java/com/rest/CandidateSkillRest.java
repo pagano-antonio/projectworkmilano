@@ -1,6 +1,8 @@
 package com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dao.CandidateRepository;
 import com.dao.CandidateSkillRepository;
-import com.model.Candidate;
 import com.model.CandidateSkill;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/CandidateSkill")
 public class CandidateSkillRest {
@@ -23,37 +24,37 @@ public class CandidateSkillRest {
 	private CandidateSkillRepository candidateSkillRep;
 	
 	
-//AGGIUNGI
+	//AGGIUNGI
 		
 	@PostMapping("addCandidateSkill")
-	public String addCandidateSkill (@RequestBody CandidateSkill candidateSkill) {		
+	public ResponseEntity<String> addCandidateSkill (@RequestBody CandidateSkill candidateSkill) {		
 			
 		candidateSkillRep.save(candidateSkill);
-		return "saveSuccess";
+		return ResponseEntity.ok("Save Success");
 		
 	}
 		
-//AGGIORNA
+	//AGGIORNA
 		
 	@PutMapping("updateCandidateSkill")
-	public String updateCandidateSkill (@RequestBody CandidateSkill candidateSkill) {
+	public ResponseEntity<String> updateCandidateSkill (@RequestBody CandidateSkill candidateSkill) {
 			
 		candidateSkillRep.save(candidateSkill);
-		return "updateSuccess";
+		return ResponseEntity.ok("Update Success");
 		
 	}
 		
-//ELIMINA
+	//ELIMINA
 		
 	@DeleteMapping ("deleteCandidateSkill/{idCandidateSkill}")	
-	public String deleteCandidateSkill (@PathVariable (name = "idCandidateSkill") Integer idCandidateSkill) {
+	public ResponseEntity<String> deleteCandidateSkill (@PathVariable (name = "idCandidateSkill") Integer idCandidateSkill) {
 			
 		candidateSkillRep.deleteById(idCandidateSkill);
-		return "deleteSuccess";
+		return ResponseEntity.ok("Delete Success");
 		
 	}
 		
-//CERCA PER ID
+	//CERCA PER ID
 		
 	@GetMapping("findByIdCandidateSkill/{idCandidateSkill}")
 	public CandidateSkill findByIdCandiidateSkill (@PathVariable(value = "idCandidateSkill") Integer idCandidateSkill){

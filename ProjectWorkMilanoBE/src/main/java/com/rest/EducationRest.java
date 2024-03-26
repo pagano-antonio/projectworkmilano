@@ -1,6 +1,8 @@
 package com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.EducationRepository;
 import com.model.Education;
 
+@CrossOrigin
 @RestController
 @RequestMapping("Education")
 public class EducationRest {
@@ -24,13 +27,13 @@ public class EducationRest {
 	
 		//Create
 		@PostMapping("addEducation")
-		public String addEducation (@RequestBody Education ed) {
+		public ResponseEntity<String> addEducation (@RequestBody Education ed) {
 			
 			Education education = educationRep.save(ed);
 			
 			System.out.println("Data successfully added to DB.");
 			
-			return education.toString();
+			return ResponseEntity.ok("Data successfully added to DB.");
 			
 			//localhost:8080/Education/addEducation
 			
@@ -49,24 +52,24 @@ public class EducationRest {
 		
 		//Update
 		@PutMapping("updateEducation")
-		public String updateEducation (@RequestBody Education ed) {
+		public ResponseEntity<String> updateEducation (@RequestBody Education ed) {
 			
-			Education education = educationRep.save(ed);
+			educationRep.save(ed);
 			
 			System.out.println("DB Update successful");
 			
-			return education.toString();
+			return ResponseEntity.ok("DB Update successful");
 			
 			//localhost:8080/Education/updateEducation
 		}
 		
 		//Delete
 		@DeleteMapping("deleteEducation")
-		public String deleteEducation (@RequestParam(value="idEducation") int idEducation) {
+		public ResponseEntity<String> deleteEducation (@RequestParam(value="idEducation") int idEducation) {
 			
 			educationRep.deleteById(idEducation);
 			
-			return "Education successfully deleted from DB.";
+			return ResponseEntity.ok("Education successfully deleted from DB.");
 			
 			//localhost:8080/Education/deleteEducation?idEducation=1
 		}

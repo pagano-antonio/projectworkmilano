@@ -3,6 +3,8 @@ package com.rest;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.StateJobInterviewRepository;
 import com.model.StateJobInterview;
 
+@CrossOrigin
 @RestController
 @RequestMapping("StateJobInterviewRest")
 public class StateJobInterviewRest {
@@ -23,30 +26,31 @@ public class StateJobInterviewRest {
 
 /////////////////////////////////////////////////////    METODO ADD  /////////////////////////////////////////////////////////////////		 
 
-	@PostMapping
-	public String add(@RequestBody StateJobInterview sji) {
+	@PostMapping("addStateJobInterview")
+	public ResponseEntity<String> add(@RequestBody StateJobInterview sji) {
 
 		System.out.println(sji.toString());
 		stateJobInterviewRepository.save(sji);
-		return "OK";
+		return ResponseEntity.ok("OK");
 	}
 
 /////////////////////////////////////////////////////    METODO DELETE  /////////////////////////////////////////////////////////////////		 
 
-	@DeleteMapping
-	public String delete(@PathVariable("idStateJobInterview") int idStateJobInterview) {
+	@DeleteMapping("deleteStateJobInterview/{idStateJobInterview}")
+	public ResponseEntity<String> delete(@PathVariable(value="idStateJobInterview") int idStateJobInterview) {
 
 		StateJobInterview res = stateJobInterviewRepository.findById(idStateJobInterview).get();
 
 		if (res != null) {
 
-			stateJobInterviewRepository.delete(res);			
+			stateJobInterviewRepository.delete(res);
+			return ResponseEntity.ok("Delete Success");
 
 		} else {
 
-			// Se l'utente non viene trovato, restituisci un codice di stato 404 (Not Found)			
+			// Se l'utente non viene trovato, restituisci un codice di stato 404 (Not Found)	
+			return ResponseEntity.ok("Delete Not Success");
 		}
-		return null;
 	}
 
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	
@@ -65,11 +69,11 @@ public class StateJobInterviewRest {
 
 /////////////////////////////////////////////////// METODO UPDATE /////////////////////////////////////////////////////////////////		 	
 
-	@PutMapping
-	public String update(@RequestBody StateJobInterview sji) {
+	@PutMapping("updateStateJobInterview")
+	public ResponseEntity<String> update(@RequestBody StateJobInterview sji) {
 
 		stateJobInterviewRepository.save(sji);
 
-		return "OK";
+		return ResponseEntity.ok("OK");
 	}
 }

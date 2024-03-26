@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.WorkExperienceRepository;
 import com.model.WorkExperience;
 
+@CrossOrigin
 @RestController
 @RequestMapping("WorkExperienceRest")
 public class WorkExperienceRest {
@@ -23,28 +25,29 @@ public class WorkExperienceRest {
 	private WorkExperienceRepository workExperienceRepository;
 /////////////////////////////////////////////////////    METODO ADD  /////////////////////////////////////////////////////////////////		 
 
-	@PostMapping
-	public String add(@RequestBody WorkExperience sji) {
+	@PostMapping("addWorkExperience")
+	public ResponseEntity<String> add(@RequestBody WorkExperience sji) {
 
 		workExperienceRepository.save(sji);
-		return "OK";
+		return ResponseEntity.ok("OK");
 	}
 
 /////////////////////////////////////////////////////    METODO DELETE  /////////////////////////////////////////////////////////////////		 
 
-	@DeleteMapping
-	public String delete(@PathVariable("idWorkExperience") int idWorkExperience) {
+	@DeleteMapping("deleteWorkExperience/{idWorkExperience}")
+	public ResponseEntity<String> delete(@PathVariable("idWorkExperience") int idWorkExperience) {
 
 		WorkExperience res = workExperienceRepository.findById(idWorkExperience).get();;
 
 		if (res != null) {
 
-			workExperienceRepository.delete(res);			
+			workExperienceRepository.delete(res);
+			ResponseEntity.ok("Delete Success");
 
 		} else {
 				
 		}
-		return null;
+		return ResponseEntity.ok("Delete NOT Success");
 	}
 /////////////////////////////////////////////////// METODO FIND BY ID /////////////////////////////////////////////////////////////////		 	
 
@@ -62,11 +65,11 @@ public class WorkExperienceRest {
 
 /////////////////////////////////////////////////// METODO UPDATE /////////////////////////////////////////////////////////////////		 	
 
-	@PutMapping
-	public String update(@RequestBody WorkExperience sji) {
+	@PutMapping("updateWorkExperience")
+	public ResponseEntity<String> update(@RequestBody WorkExperience sji) {
 
 		workExperienceRepository.save(sji);
 
-		return "OK";
+		return ResponseEntity.ok("OK");
 	}
 }

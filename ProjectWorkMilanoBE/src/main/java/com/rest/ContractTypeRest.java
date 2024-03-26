@@ -1,6 +1,8 @@
 package com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.ContractTypeRepository;
 import com.model.ContractType;
 
+@CrossOrigin
 @RestController
 @RequestMapping("ContractType")
 public class ContractTypeRest {
@@ -24,13 +27,13 @@ public class ContractTypeRest {
 	
 	//Create
 	@PostMapping("addContractType")
-	public String addContractType (@RequestBody ContractType contractTypeData) {
+	public ResponseEntity<String> addContractType (@RequestBody ContractType contractTypeData) {
 		
 		ContractType contract = contractTypeRep.save(contractTypeData);
 		
 		System.out.println("Data successfully added to DB.");
 		
-		return contract.toString();
+		return ResponseEntity.ok("Data successfully added to DB.");
 		
 		//localhost:8080/ContractType/addContractType
 		
@@ -49,24 +52,24 @@ public class ContractTypeRest {
 	
 	//Update
 	@PutMapping("updateContractType")
-	public String updateContractType (@RequestBody ContractType contractTypeData) {
+	public ResponseEntity<String> updateContractType (@RequestBody ContractType contractTypeData) {
 		
 		ContractType contract = contractTypeRep.save(contractTypeData);
 		
 		System.out.println("DB Update successful");
 		
-		return contract.toString();
+		return ResponseEntity.ok("DB Update successful");
 		
 		//localhost:8080/ContractType/updateContractType
 	}
 	
 	//Delete
 	@DeleteMapping("deleteContractType")
-	public String deleteContractType (@RequestParam(value="idContractType") int idContractType) {
+	public ResponseEntity<String> deleteContractType (@RequestParam(value="idContractType") int idContractType) {
 		
 		contractTypeRep.deleteById(idContractType);
 		
-		return "Contract Type successfully deleted from DB.";
+		return ResponseEntity.ok("Contract Type successfully deleted from DB.");
 		
 		//localhost:8080/ContractType/deleteContractType?idCompanyClient=1
 	}

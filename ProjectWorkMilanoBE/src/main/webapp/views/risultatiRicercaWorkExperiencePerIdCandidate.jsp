@@ -98,7 +98,7 @@ th {
                 <td>${workExperience.company}</td>
                 <td>${workExperience.city}</td>
                 <td>
-                    <form action="${pageContext.request.contextPath}/wk/preUpdateWork" method="Get">
+                    <form action="${pageContext.request.contextPath}/wk/updateWorkExperienceForm" method="Get">
                         <input type="hidden" name="idWorkExperience" value="${workExperience.idWorkExperience}">
                         <button type="submit">UPDATE</button>
                     </form>

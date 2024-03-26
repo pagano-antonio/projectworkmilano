@@ -10,39 +10,46 @@ export class Skill {
 
     /*Liste*/
     private _candidateSkills!: CandidateSkill[];
-    private jobOfferSkill!: JobOfferSkill[];
+    private _jobOfferSkill!: JobOfferSkill[];
 
     /*I GETTER e i SETTER ci servono? Non mi sembra*/
-    set idSkill(value:number){
+    public set idSkill(value:number){
         this._idSkill = value;
     }
 
-    get idSkill():number {
+    public get idSkill():number {
         return this._idSkill;
     }
 
-    set description(value:String){
+    public set description(value:String){
         this._description = value;
     }
 
-    get description():String{
+    public get description():String{
         return this._description;
     }
 
-    set title(value:String){
+    public set title(value:String){
         this._title = value;
     }
 
-    get title():String{
+    public get title():String{
         return this._title;
     }
 
-    set candidateSkills(value:CandidateSkill[]){
+    public set candidateSkills(value:CandidateSkill[]){
         this._candidateSkills = value;
     }
 
-    get candidateSkills():CandidateSkill[]{
+    public get candidateSkills():CandidateSkill[]{
         return this._candidateSkills;
+    }
+
+    public get jobOfferSkill(): JobOfferSkill[] {
+        return this._jobOfferSkill;
+    }
+    public set jobOfferSkill(value: JobOfferSkill[]) {
+        this._jobOfferSkill = value;
     }
 
 }

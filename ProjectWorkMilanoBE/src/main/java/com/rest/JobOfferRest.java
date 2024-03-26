@@ -3,6 +3,8 @@ package com.rest;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.JobOfferRepository;
 import com.model.JobOffer;
 
+@CrossOrigin
 @RestController
 @RequestMapping("JobOffer")
 public class JobOfferRest {
@@ -25,30 +28,30 @@ public class JobOfferRest {
 //AGGIUNGI
 	
 	@PostMapping("addJobOffer")
-	public String addJobOffer (@RequestBody JobOffer jobOffer) {		
+	public ResponseEntity<String> addJobOffer (@RequestBody JobOffer jobOffer) {		
 			
 		jobOfferRep.save(jobOffer);
-		return "saveSuccess";
+		return ResponseEntity.ok("Save Success");
 		
 	}
 		
 //AGGIORNA
 	
 	@PutMapping("updateJobOffer")
-	public String updateJobOffer (@RequestBody JobOffer jobOffer) {
+	public ResponseEntity<String> updateJobOffer (@RequestBody JobOffer jobOffer) {
 			
 		jobOfferRep.save(jobOffer);
-		return "updateSuccess";
+		return ResponseEntity.ok("Update Success");
 		
 	}
 		
 //ELIMINA
 		
 	@DeleteMapping ("deleteJobOffer/{idJobOffer}")	
-	public String deleteJobOffer (@PathVariable (name = "idJobOffer") Integer idJobOffer) {
+	public ResponseEntity<String> deleteJobOffer (@PathVariable (name = "idJobOffer") Integer idJobOffer) {
 			
 		jobOfferRep.deleteById(idJobOffer);
-		return "deleteSuccess";
+		return ResponseEntity.ok("Delete Success");
 		
 	}
 		
@@ -71,7 +74,7 @@ public class JobOfferRest {
 			return tmp;
 		}
 		
-//CERCA TRA RAL MINIMA E RAL MASSIMA
+//CERCA PER ID CONTRACT TYPE
 
 		@GetMapping("findJobOfferByIdContractType/{idContractType}")
 		public List <JobOffer> findByIdContractType(@PathVariable(value = "idContractType") int idContractType){

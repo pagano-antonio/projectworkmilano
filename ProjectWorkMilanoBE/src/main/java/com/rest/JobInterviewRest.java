@@ -1,6 +1,8 @@
 package com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dao.JobInterviewRepository;
 import com.model.JobInterview;
 
+@CrossOrigin
 @RestController
 @RequestMapping("JobInterview")
 public class JobInterviewRest {
@@ -23,30 +26,30 @@ public class JobInterviewRest {
 //AGGIUNGI
 	
 	@PostMapping("addJobInterview")
-	public String addJobInterview (@RequestBody JobInterview jobInterview) {		
+	public ResponseEntity<String> addJobInterview (@RequestBody JobInterview jobInterview) {		
 		
 		jobInterviewRep.save(jobInterview);
-		return "saveSuccess";
+		return ResponseEntity.ok("Save Success");
 		
 	}
 	
 //AGGIORNA
 	
 	@PutMapping("updateJobInterview")
-	public String updateJobInterview (@RequestBody JobInterview jobInterview) {
+	public ResponseEntity<String> updateJobInterview (@RequestBody JobInterview jobInterview) {
 		
 		jobInterviewRep.save(jobInterview);
-		return "updateSuccess";
+		return ResponseEntity.ok("Update Success");
 		
 	}
 	
 //ELIMINA
 	
 	@DeleteMapping ("deleteJobInterview/{idJobInterview}")	
-	public String deleteJobInterview (@PathVariable (name = "idJobInterview") Integer idJobInterview) {
+	public ResponseEntity<String> deleteJobInterview (@PathVariable (name = "idJobInterview") Integer idJobInterview) {
 		
 	     jobInterviewRep.deleteById(idJobInterview);
-	     return "deleteSuccess";
+	     return ResponseEntity.ok("Delete Success");
 	     
 	}
 	
