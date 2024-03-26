@@ -88,6 +88,7 @@ th {
 			<td><%=sList.getIdSkill()%></td>
 			<td><%=sList.getTitle()%></td>
 			<td><%=sList.getDescription()%></td>
+<<<<<<< HEAD
 <td>
                         <form action="${pageContext.request.contextPath}/skill/preEliminaSkill" method="Get">
                             <input type="hidden" name="idSkill" value="${sList.idSkill}">
@@ -98,6 +99,11 @@ th {
                             <button type="submit">DELETE</button>
                         </form>
                     </td>
+=======
+
+			<td><a href="${pageContext.request.contextPath}/skill/updateSkillForm?idSkill=${sList.idSkill}"><button>Update</button></a></td>
+			<td><a href="${pageContext.request.contextPath}/skill/delete?idSkill=${sList.idSkill}"><button>Delete</button></a></td>
+>>>>>>> 53f139d (aggiornamento rossella skill)
                 </tr>
  
         </tbody>

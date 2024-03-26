@@ -24,6 +24,54 @@ public class SkillCtr {
 	@Autowired
 	private SkillRepository skillRep;
 	
+///////// INSERIMENTO /////////
+	
+	
+@GetMapping("/preInsertSkill")
+public String preInsert(Model model) {
+
+	return "preAddSkill";
+
+}
+@PostMapping("/preAddSkill")
+public String inserisci(Model model,HttpServletRequest request,Skill skill) {
+
+	skillRep.save(skill);
+
+	return "addSkillSuccess";
+}
+
+///////// AGGIORNAMENTO /////////
+
+@GetMapping("/updateSkillForm")
+public String updateSkillForm(Model model, HttpServletRequest request, int idSkill) {
+	
+	Skill sList = skillRep.findById(idSkill).get();
+	
+	model.addAttribute("sList",sList);
+
+	return "updateSkill";
+}
+
+@PostMapping("/updateSkill")
+public String updateSkill(Model model,HttpServletRequest request,Skill skill) {
+
+	skillRep.save(skill);
+
+	return "updateSuccess";
+}
+
+///////// ELIMINA ////////
+
+@GetMapping("/delete")
+
+public String delete(Model model, HttpServletRequest request, int idSkill) {
+
+	skillRep.deleteById(idSkill);
+
+	return "deleteSuccess";
+}
+	
 	
 	//////////// RICERCA SKILL PER ID SKILLL ////////////////
 	
@@ -49,27 +97,6 @@ public class SkillCtr {
 
 	}
 	
-	
-	
-	///////// INSERIMENTO /////////
-	
-	 
-	@GetMapping("/preInserimento")
-	public String preInserimento(Model model) {
-
-
-		return "OK";
- 
-	}
-	@PostMapping("/inserimentoSkill")
-	public String inserimento(Model model,HttpServletRequest request,Skill skill) {
-
-		skillRep.save(skill);
-
-		return "Ok";
-	}
-	
-	
 	////////////// RICERCA SKILL PER ID CANDIDATE ////////////////
 	
 	 @GetMapping ("/preRicercaSkillPerIdCandidate")
@@ -92,9 +119,6 @@ public class SkillCtr {
 	    
 
 	}
-
-	
-	
 
 	//////// LEGGI/RICERCA ////////
 	
@@ -121,28 +145,5 @@ public class SkillCtr {
 
 	}
 	
-	
-	///////// AGGIORNAMENTO /////////
-	
-	@PostMapping("/aggiornaSkill")
-	public String aggiorna(Model model,Skill skill) {
 
-		skillRep.save(skill);
-
-		return "Ok";
-	}
-	
-	///////// ELIMINA ////////
-	
-	@PostMapping("/eliminaSkill")
-
-	public String eliminaSkill( @RequestParam("idSkill") int idSkill) {
-
-		Skill skill = skillRep.findById(idSkill).get();
-
-
-		skillRep.delete(skill);
-
-		return "Ok";
-	}
 }
