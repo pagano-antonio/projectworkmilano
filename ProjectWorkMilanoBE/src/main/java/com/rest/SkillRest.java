@@ -1,5 +1,7 @@
 package com.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,40 +46,49 @@ public class SkillRest {
 	
 	///////// AGGIORNAMENTO /////////
 
-@PutMapping("aggiornaSkill")
-public String aggiornaSkill(@RequestBody Skill skill) {
-System.out.println(skill.toString());
+	@PutMapping("aggiornaSkill")
+	public String aggiornaSkill(@RequestBody Skill skill) {
+		System.out.println(skill.toString());
 
-if (skill.getTitle() == null || skill.getTitle().isEmpty()) {
-    return "Il campo 'title' non può essere null o vuoto";
-}
+		if (skill.getTitle() == null || skill.getTitle().isEmpty()) {
+			return "Il campo 'title' non può essere null o vuoto";
+		}
 
-if (skill.getDescription() == null || skill.getDescription().isEmpty()) {
-    return "Il campo 'description' non può essere null o vuoto";
-}
+		if (skill.getDescription() == null || skill.getDescription().isEmpty()) {
+			return "Il campo 'description' non può essere null o vuoto";
+		}
 
-Skill s = skillRep.findById(skill.getIdSkill()).orElse(null);
+		Skill s = skillRep.findById(skill.getIdSkill()).orElse(null);
 
-if (s == null) {
-    return "Skill non trovata per l'ID specificato";
-}
+		if (s == null) {
+			return "Skill non trovata per l'ID specificato";
+		}
 
-// Aggiornamento dei campi
-s.setTitle(skill.getTitle());
-s.setDescription(skill.getDescription());
+		// Aggiornamento dei campi
+		s.setTitle(skill.getTitle());
+		s.setDescription(skill.getDescription());
 
-skillRep.save(s);
+		skillRep.save(s);
 
-return "Aggiornamento Skill andato a buon fine.";
-}
+		return "Aggiornamento Skill andato a buon fine.";
+	}
 
 	///////// ELIMINA ////////
-@DeleteMapping ("elimina")
-public String eliminaSkill (@RequestParam (name = "idSkill") int idSkill) {
+	@DeleteMapping ("elimina")
+	public String eliminaSkill (@RequestParam (name = "idSkill") int idSkill) {
 		
-skillRep.deleteById(idSkill);
+		skillRep.deleteById(idSkill);
 
-return "Eliminato";
+		return "Eliminato";
 
-}
+	}
+	
+	//READ Skill by ID CANDIDATE
+	@GetMapping("findSkillByIdCandidate/{idCandidate}")
+	public List <Skill> findSkillByIdCandidate (@PathVariable(value="idCandidate") int idCandidate) {
+		
+		return skillRep.findByCandidateSkills_candidate_idCandidate(idCandidate);
+		//localhost:8080/Skill/findSkillByIdCandidate/1
+		
+	}
 }
