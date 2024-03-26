@@ -95,6 +95,8 @@ a:hover {
             <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"><strong>Find by PHONE</strong></a></td>
             <td><a href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm"><strong>Find by SKILL</strong></a></td>
 			<td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByEDTForm"><strong>Find by EDUCATION DEGREE TYPE</strong></a></td>
+			<td><a href="${pageContext.request.contextPath}/CandidateCommercialDataCtr/addCandidateCommercialDataForm"><strong>Add COMMERCIAL DATA</strong></a></td>
+			
         </tr>
     </table>  
 </div>
