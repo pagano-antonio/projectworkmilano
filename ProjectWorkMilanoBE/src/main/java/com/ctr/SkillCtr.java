@@ -1,6 +1,9 @@
 package com.ctr;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,33 @@ public class SkillCtr {
 	
 	@Autowired
 	private SkillRepository skillRep;
+	
+	
+	//////////// RICERCA SKILL PER ID SKILLL ////////////////
+	
+	 @GetMapping ("/preRicercaSkillById")
+	 
+	    public String preRicercaSkillById(Model model) {
+	
+		 
+	    	return "ricercaSkillById";
+	    }
+	
+	
+	@GetMapping("/ricercaSkillById")   
+	public String ricercaSkillById(Model model, HttpServletRequest request, int idSkill) {
+		
+	Skill sList = skillRep.findById(idSkill).get();
+	
+		model.addAttribute("sList", sList);
+		
+		return "risultatiSkillById";
+
+	    
+
+	}
+	
+	
 	
 	///////// INSERIMENTO /////////
 	

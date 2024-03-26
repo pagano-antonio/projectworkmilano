@@ -6,16 +6,17 @@
 <meta charset="UTF-8">
 <title>Ricerca Skill Per ID Candidate</title>
 <style>
-    * {
-    font-family:Century Gothic;
-    align-items: center;
-    justify-content: center;
-    padding: 1px;
-    margin: 1px;
+    
+{
+  font-family:Century Gothic;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  margin: 1px;
 }
 body {
         display: flex;
-        justify-content: center;      
+        justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 0;
@@ -26,7 +27,7 @@ body {
     .container {
         background: white;
         display: flex;
-        justify-content: center;      
+        justify-content: center;
         align-items: center;
         padding: 20px;
         border-radius: 10px;
@@ -71,7 +72,7 @@ a:hover {
 <body>
 <div class="container">
 <h1>SKILL</h1> 
-	<h2>Find Skill by ID Candidate:</h2>
+    <h2>Find Skill by ID Candidate:</h2>
 
 <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="get">
     <label for="idCandidate"><strong>ID Candidate:</strong></label>
@@ -81,3 +82,5 @@ a:hover {
 </div>
 </body>
 </html>
+
+
