@@ -39,6 +39,31 @@
 					<td class="table-success">${c.phone}</td>
 					<td class="table-success"><a href="${pageContext.request.contextPath}/candidate/updateCandidateForm?idCandidate=${c.idCandidate}"><button>Update</button></a></td>
 					<td class="table-success"><a href="${pageContext.request.contextPath}/candidate/delete?idCandidate=${c.idCandidate}"><button>Delete</button></a></td>
+					
+					
+					  <!-- TASTI PER INFO SU CANDIDATE -->
+
+    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+        <input type="hidden" name="idCandidate" value="${c.idCandidate}">
+        <button type="submit">Skills</button>
+    </form>
+    
+     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
+    <input type="hidden" name="idStateJobInterview" value="${c.idCandidate}">
+    <button type="submit">Job Interview</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
+    <input type="hidden" name="idEducation" value="${c.idCandidate}">
+    <button type="submit"> Education </button>
+</form>
+
+<form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${c.idCandidate}">
+    <button type="submit">Work Experience </button>
+</form>
+     
+					
 				</tr>					
 		</c:forEach>				
 	</table>

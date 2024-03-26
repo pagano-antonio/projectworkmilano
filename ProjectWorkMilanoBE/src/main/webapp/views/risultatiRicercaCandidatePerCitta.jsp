@@ -73,7 +73,7 @@ a:hover {
 </style>
 </head>
 <body>
-<<<<<<< HEAD
+
     <table>
         <thead>
             <tr>
@@ -101,21 +101,20 @@ a:hover {
                     <td>${candidateLista.email}</td>
                     <td>${candidateLista.phone}</td>
                     <td>
-                    
-                    
+                     
+
+   <!-- TASTI PER INFO SU CANDIDATE -->
+   
+          
               <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
     		<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
     <button type="submit">Aggiorna</button>
 			</form>
                         
-                        <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
-                            <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-                            <button type="submit">Elimina</button>
-                        </form>
-                        
-                        
-
-   <!-- TASTI PER INFO SU CANDIDATE -->
+      <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
+     <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+  <button type="submit">Elimina</button>
+  </form>
    
     <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
         <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">

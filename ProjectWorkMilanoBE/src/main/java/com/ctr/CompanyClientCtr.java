@@ -25,10 +25,6 @@ public class CompanyClientCtr {
 	private CompanyClientRepository companyClientRep;
 	@Autowired
 	private JobOfferRepository jobOfferRep;
-	
-	
-	
-	
 
 	// GO TO create Company Client
 	@GetMapping("/preAddCompanyClientForm")

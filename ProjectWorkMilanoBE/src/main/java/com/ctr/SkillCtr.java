@@ -1,21 +1,21 @@
 package com.ctr;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.dao.SkillRepository;
-
 import com.model.Skill;
-
 import jakarta.servlet.http.HttpServletRequest;
 
 
 
 @Controller
+@RequestMapping ("/skill")
 public class SkillCtr {
 	
 	@Autowired
@@ -38,6 +38,33 @@ public class SkillCtr {
 
 		return "Ok";
 	}
+	
+	
+	////////////// RICERCA SKILL PER ID CANDIDATE ////////////////
+	
+	 @GetMapping ("/preRicercaSkillPerIdCandidate")
+	    public String preRicercaSkillPerIdCandidate(Model model) {
+		 
+		 System.out.println("prefind ok");
+		 
+	    	return "ricercaSkillPerIdCandidate";
+	    }
+	
+	
+	@GetMapping("/ricercaSkillPerIdCandidate")   
+	public String ricercaSkillPerIdCandidate(Model model, HttpServletRequest request, int idCandidate) {
+		 System.out.println("find ok");
+		List <Skill> sList = skillRep.findByCandidateSkills_candidate_idCandidate(idCandidate);
+		model.addAttribute("sList", sList);
+		
+		return "risultatiSkillPerIdCandidate";
+
+	    
+
+	}
+
+	
+	
 
 	//////// LEGGI/RICERCA ////////
 	
@@ -45,9 +72,9 @@ public class SkillCtr {
 	public String preInserimentoId(Model model) {
 
 
-		return "Ok";
+		return "Ok"; 
 
-	}
+	} 
 
 
 	@PostMapping("/ricercaPerIdSkill")

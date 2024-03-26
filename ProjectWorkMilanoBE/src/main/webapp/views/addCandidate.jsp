@@ -11,8 +11,8 @@
     font-family:Century Gothic;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 8px;
+    margin: 8px;
 }
 body {
         display: flex;
@@ -25,11 +25,15 @@ body {
     }
 
     .container {
+
+        justify-content: center;      
+        align-items: center;
         background: white;
-        padding: 20px;
+        padding: 1px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
+    
   H1 {
   position: absolute;
   top: 15%;
@@ -50,32 +54,13 @@ body {
   border-radius: 10px;
   z-index: 9999; 
 }
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
+button[type="submit"] {
+        margin-top: 20px; /* Adjust as needed */
+        margin-left:100px;
+        width: 150px; /* Adjust as needed */
+    }
 
-th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-}
-th {
-  background-color: #f2f2f2;
-}
 
-a {
-  color: black; /* colore del testo */
-  text-decoration: underline; /* rimuove il sottolineato di default */
-  transition: color 0.3s ease;
-  border-radius: 10px; /* animazione del cambio di colore */
-}
-
-a:hover {
-  color: white;
-  background-color: #f7308c; /* colore del testo al passaggio del mouse */
-  border-radius: 10px;
-}
 </style>
 </head>
 <body>
@@ -109,7 +94,7 @@ a:hover {
         <label for="phone">Phone:</label>
         <input type="number" id="phone" name="phone"> <br> 
     
-        <button type="submit">ADD</button>
+        <button type="submit"><strong>ADD</strong></button>
     
     </form>
     </div>

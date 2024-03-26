@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>FIND CANDIDATE BY ID</h1>
+    <form (ngSubmit)="searchCandidateById()">
+    
+            <label for="idCandidate"><strong>ID Candidate:</strong></label>
+            <input type="text" id="idCandidate" [(ngModel)] ="idCandidate" [ngModelOptions]="{standalone: true}">
+            <button type="submit">Search</button>
+        </form>
+        </div>

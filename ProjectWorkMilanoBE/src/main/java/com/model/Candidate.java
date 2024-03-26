@@ -51,7 +51,7 @@ public class Candidate implements Serializable {
 
 	// bi-directional many-to-one association to CandidateCommercialData
 	@JsonIgnore
-	@OneToMany(mappedBy = "candidate")
+	@OneToMany(mappedBy = "candidate",fetch =FetchType.EAGER,cascade= CascadeType.REMOVE)
 	private List<CandidateCommercialData> candidateCommercialData;
 
 	// bi-directional many-to-one association to CandidateSkill
@@ -62,17 +62,17 @@ public class Candidate implements Serializable {
 
 	// bi-directional many-to-one association to Education
 	@JsonIgnore
-	@OneToMany(mappedBy = "candidate")
+	@OneToMany(mappedBy = "candidate",fetch =FetchType.EAGER,cascade= CascadeType.REMOVE)
 	private List<Education> educations;
 
 	// bi-directional many-to-one association to JobInterview
 	@JsonIgnore
-	@OneToMany(mappedBy = "candidate")
+	@OneToMany(mappedBy = "candidate",fetch =FetchType.EAGER,cascade= CascadeType.REMOVE)
 	private List<JobInterview> jobInterview;
 
 	// bi-directional many-to-one association to WorkExperience
 	@JsonIgnore
-	@OneToMany(mappedBy = "candidate")
+	@OneToMany(mappedBy = "candidate",fetch =FetchType.EAGER,cascade= CascadeType.REMOVE)
 	private List<WorkExperience> workExperiences;
 	
 	

@@ -6,7 +6,80 @@
 <head>
     <meta charset="UTF-8">
 <title>Risultati Ricerca Candidato Per State Job Interview</title>
+<style>
+    * {
+    font-family:Century Gothic;
+    align-items: center;
+    justify-content: center;
+    padding: 1px;
+    margin: 1px;
+}
+body {
+        display: flex;
+        justify-content: center;      
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(45deg, #3503ad, #f7308c);
+    border-radius: 15px;
+    }
 
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;      
+    }
+  H1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+ H2 {
+  position: relative; 
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+a {
+    color:black;
+    position: absolute;
+    top: 80%;
+    left:50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+}
+a:hover {
+  color: white;
+  background-color: black; /* colore del testo al passaggio del mouse */
+  border-radius: 10px;
+}
+</style>
 </head>
 <body>
     <table>
@@ -38,20 +111,39 @@
                     <td>
                     
                     
+     <!-- TASTI PER INFO SU CANDIDATE -->
+   
+          
               <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
     		<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
     <button type="submit">Aggiorna</button>
 			</form>
                         
-                        <form action="${pageContext.request.contextPath}/candidate/delete" method="get">
-                            <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-                            <button type="submit">Elimina</button>
-                        </form>
-                        
-               <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+      <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
+     <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+  <button type="submit">Elimina</button>
+  </form>
+   
+    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
         <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
         <button type="submit">Skills</button>
     </form>
+    
+     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
+    <input type="hidden" name="idStateJobInterview" value="${candidateLista.idCandidate}">
+    <button type="submit">Job Interview</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
+    <input type="hidden" name="idEducation" value="${candidateLista.idCandidate}">
+    <button type="submit">Education </button>
+</form>
+
+<form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+    <button type="submit">Work Experience </button>
+</form>
+               
              
                         <a href="${pageContext.request.contextPath}/home">Go back Home</a>
                     </td>

@@ -37,20 +37,39 @@
                     <td>
                     
                     
+  <!-- TASTI PER INFO SU CANDIDATE -->
+   
+          
               <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
     		<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
     <button type="submit">Aggiorna</button>
 			</form>
                         
-                        <form action="${pageContext.request.contextPath}/candidate/delete" method="get">
-                            <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-                            <button type="submit">Elimina</button>
-                        </form>
-               
-                 <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+      <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
+     <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+  <button type="submit">Elimina</button>
+  </form>
+   
+    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
         <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
         <button type="submit">Skills</button>
     </form>
+    
+     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
+    <input type="hidden" name="idStateJobInterview" value="${candidateLista.idCandidate}">
+    <button type="submit">Job Interview</button>
+</form>
+
+<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
+    <input type="hidden" name="idEducation" value="${candidateLista.idCandidate}">
+    <button type="submit">Education </button>
+</form>
+
+<form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+    <button type="submit">Work Experience </button>
+</form>
+     
     
                         <a href="${pageContext.request.contextPath}/home">Go back Home</a>
                     </td>

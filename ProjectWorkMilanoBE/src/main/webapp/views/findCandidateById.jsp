@@ -12,8 +12,8 @@
     font-family:Century Gothic;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    margin: 10px;
+    padding: 1px;
+    margin: 1px;
 }
 body {
         display: flex;
@@ -54,15 +54,20 @@ th, td {
 th {
   background-color: #f2f2f2;
 }
-.go-home {
+a {
+    color:black;
     position: absolute;
-    top: 15%;
-  left: 50%;
+    top: 80%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
   background: white;
   border-radius: 10px;
-  z-index: 9999; 
+  padding: 15px;
+}
+a:hover {
+  color: white;
+  background-color: black; /* colore del testo al passaggio del mouse */
+  border-radius: 10px;
 }
 </style>
 </head>
@@ -82,7 +87,8 @@ th {
         <th>ADDRESS</th>
         <th>CITY</th>
         <th>EMAIL</th>
-        <th>PHONE</th>                                               
+        <th>PHONE</th> 
+        <th>ACTIONS</th>                                              
     </tr>
 </thead>
 <tbody>
@@ -100,47 +106,43 @@ th {
         <td><%= candidate.getCity() %></td>
         <td><%= candidate.getEmail() %></td>
         <td><%= candidate.getPhone() %></td>
-        </tr>
-   
-</tbody>
-</table>
-
-        <!-- PULSANTI -->
-        
-
-        <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
-    		<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-    <button type="submit">Aggiorna</button>
+        <td>
+         <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
+    		<input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+    <button type="submit">UPDATE</button>
 			</form>
                         
    <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
-      <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-      <button type="submit">Elimina</button>
+      <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+      <button type="submit">DELETE</button>
        </form>
         
-	 <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
+	 <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
-        <button type="submit">Skills</button>
+        <button type="submit">SKILLS</button>
     </form>
     
-     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
-    <input type="hidden" name="idStateJobInterview" value="${candidate.idCandidate}">
-    <button type="submit">Job Interview</button>
+     <form action="${pageContext.request.contextPath}/JobInterviewCtr/findJobInterviewByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+    <button type="submit">JOB INTERVIEW</button>
 </form>
 
-<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
-    <input type="hidden" name="idEducation" value="${candidate.idCandidate}">
-    <button type="submit">Education </button>
+<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+    <button type="submit">EDUCATION</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
     <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
-    <button type="submit">Work Experience </button>
-</form>
-    </div>
-    
-    <!-- Pulsante "GO HOME!" in basso -->
-    <p class="go-home"><a href="http://localhost:8080/home">GO HOME!</a></p>
+    <button type="submit">WORK EXPERIENCE</button>
+</form></td>
+        </tr>
+   
+</tbody>
+</table>
 </div>
+    <!-- Pulsante "GO HOME!" in basso -->
+    <p class="go-home"><a href="http://localhost:8080/home"><strong>GO HOME!</strong></a></p>
+
 </body>
 </html>

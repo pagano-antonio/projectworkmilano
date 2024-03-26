@@ -39,7 +39,8 @@
 			
 			
 			
-          <!-- FORM PER MODIFICA ED ELIMINA -->
+          <td><a href="${pageContext.request.contextPath}/JobOfferCtr/updateJobOfferForm?idJobOffer=${j.idJobOffer}"><button>Update</button></a></td>
+		<td><a href="${pageContext.request.contextPath}/JobOfferCtr/delete?idJobOffer=${j.idJobOffer}"><button>Delete</button></a></td>				
 			
                     
 		</tr>

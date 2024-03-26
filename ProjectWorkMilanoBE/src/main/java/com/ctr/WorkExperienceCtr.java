@@ -82,7 +82,6 @@ public class WorkExperienceCtr {
 	public String preUpdate(Model model, Integer idWorkExperience) {
 
 		Optional<WorkExperience> weOp = WorkExperienceRepository.findById(idWorkExperience);
-
 		if (weOp.isPresent()) {
 			WorkExperience we = weOp.get();
 			model.addAttribute("WorkExperience", we);
@@ -97,7 +96,6 @@ public class WorkExperienceCtr {
 	public String updateWork(@ModelAttribute("WorkExperience") WorkExperience sji) {
 
 		WorkExperienceRepository.save(sji);
-
 		return "updateWorkExperienceSuccess";
 
 	}
