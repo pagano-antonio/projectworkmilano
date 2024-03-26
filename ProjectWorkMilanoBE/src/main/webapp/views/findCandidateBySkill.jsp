@@ -98,31 +98,36 @@ th {
 					<td>${c.city}</td>
 					<td>${c.email}</td>
 					<td>${c.phone}</td>
-					<td>
-					<a href="${pageContext.request.contextPath}/candidate/updateCandidateForm?idCandidate=${c.idCandidate}">Update</a>
-					<a href="${pageContext.request.contextPath}/candidate/delete?idCandidate=${c.idCandidate}">Delete</a>
-
-    <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
+					<td><form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
+    		<input type="hidden" name="idCandidate" value="${c.idCandidate}">
+    <button type="submit">UPDATE</button>
+			</form>
+                        
+   <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
+      <input type="hidden" name="idCandidate" value="${c.idCandidate}">
+      <button type="submit">DELETE</button>
+       </form>
+        
+	 <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${c.idCandidate}">
-        <button type="submit">Skills</button>
-    </form>  
-     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
-    <input type="hidden" name="idStateJobInterview" value="${c.idCandidate}">
-    <button type="submit">Job Interview</button>
+        <button type="submit">SKILLS</button>
+    </form>
+    
+     <form action="${pageContext.request.contextPath}/JobInterviewCtr/findJobInterviewByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${c.idCandidate}">
+    <button type="submit">JOB INTERVIEW</button>
 </form>
 
-<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
-    <input type="hidden" name="idEducation" value="${c.idCandidate}">
-    <button type="submit"> Education </button>
+<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${c.idCandidate}">
+    <button type="submit">EDUCATION</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
     <input type="hidden" name="idCandidate" value="${c.idCandidate}">
-    <button type="submit">Work Experience </button>
-</form>
- </td>    
-					
-				</tr>					
+    <button type="submit">WORK EXPERIENCE</button>
+</form></td>
+        </tr>			
 		</c:forEach>				
 	</table>
 </div>

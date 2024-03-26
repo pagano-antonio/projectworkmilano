@@ -111,8 +111,6 @@ th {
         </c:forEach>
     </tbody>
 </table>
-
-<a href="${pageContext.request.contextPath}/home">GO HOME</a>
 </div>
 </body>
 </html>

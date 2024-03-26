@@ -87,8 +87,6 @@ th {
 			<th>City</th>
 			<th>Email</th>
 			<th>Phone</th>
-			<th>U</th>
-			<th>D</th>
 			<th>More actions</th>
 		</tr>
 		<c:forEach var="can" items="${candidatesEDTResults}">
@@ -102,38 +100,38 @@ th {
 				<td>${can.city}</td>
 				<td>${can.email}</td>
 				<td>${can.phone}</td>
-				<td><a
-					href="${pageContext.request.contextPath}/candidate/updateCandidateForm?idCandidate=${can.idCandidate}"><button>Update
-							Candidate Data</button></a></td>
-				<td><a
-					href="${pageContext.request.contextPath}/candidate/delete?idCandidate=${can.idCandidate}"><button>Delete
-							Candidate Data</button></a></td>
-							
-				  <!-- TASTI PER INFO SU CANDIDATE -->
-   
-         
-  <td> 
-    <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
+				<td>
+         <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
+    		<input type="hidden" name="idCandidate" value="${can.idCandidate}">
+    <button type="submit">UPDATE</button>
+			</form>
+                        
+   <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
+      <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+      <button type="submit">DELETE</button>
+       </form>
+        
+	 <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
         <input type="hidden" name="idCandidate" value="${can.idCandidate}">
-        <button type="submit">Skills</button>
+        <button type="submit">SKILLS</button>
     </form>
     
-     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
-    <input type="hidden" name="idStateJobInterview" value="${can.idCandidate}">
-    <button type="submit">Job Interview</button>
+     <form action="${pageContext.request.contextPath}/JobInterviewCtr/findJobInterviewByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+    <button type="submit">JOB INTERVIEW</button>
 </form>
 
-<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
-    <input type="hidden" name="idEducation" value="${can.idCandidate}">
-    <button type="submit">Education </button>
+<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${can.idCandidate}">
+    <button type="submit">EDUCATION</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
     <input type="hidden" name="idCandidate" value="${can.idCandidate}">
-    <button type="submit">Work Experience </button>
-</form>
-  </td>   			
-			</tr>
+    <button type="submit">WORK EXPERIENCE</button>
+</form></td>
+        </tr>
+   
 		</c:forEach>
 	</table>
 </div>

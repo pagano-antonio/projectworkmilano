@@ -88,49 +88,49 @@ th {
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="candidateLista" items="${candidateLista}">
+            <c:forEach var="candidate" items="${candidateLista}">
                 <tr>
-                    <td>${candidateLista.idCandidate}</td>
-                    <td>${candidateLista.name}</td>
-                    <td>${candidateLista.surname}</td>
-                    <td>${candidateLista.birthday}</td>
-                    <td>${candidateLista.birthPlace}</td>
-                    <td>${candidateLista.address}</td>
-                    <td>${candidateLista.city}</td>
-                    <td>${candidateLista.email}</td>
-                    <td>${candidateLista.phone}</td>
+                    <td>${candidate.idCandidate}</td>
+                    <td>${candidate.name}</td>
+                    <td>${candidate.surname}</td>
+                    <td>${candidate.birthday}</td>
+                    <td>${candidate.birthPlace}</td>
+                    <td>${candidate.address}</td>
+                    <td>${candidate.city}</td>
+                    <td>${candidate.email}</td>
+                    <td>${candidate.phone}</td>
                     <td>
-              <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
-    		<input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+         <form action="${pageContext.request.contextPath}/candidate/updateCandidateForm" method="Get">
+    		<input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">UPDATE</button>
 			</form>
                         
-      <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
-     <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
-  <button type="submit">DELETE</button>
-  </form>
-   
-    <form action="${pageContext.request.contextPath}/candidate/findCandidateBySkill" method="Get">
-        <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+   <form action="${pageContext.request.contextPath}/candidate/delete" method="Get">
+      <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+      <button type="submit">DELETE</button>
+       </form>
+        
+	 <form action="${pageContext.request.contextPath}/skill/ricercaSkillPerIdCandidate" method="Get">
+        <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
         <button type="submit">SKILLS</button>
     </form>
     
-     <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerStateJobInterview" method="Get">
-    <input type="hidden" name="idStateJobInterview" value="${candidateLista.idCandidate}">
+     <form action="${pageContext.request.contextPath}/JobInterviewCtr/findJobInterviewByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">JOB INTERVIEW</button>
 </form>
 
-<form action="${pageContext.request.contextPath}/EducationCtr/findByIdEducation" method="Get">
-    <input type="hidden" name="idEducation" value="${candidateLista.idCandidate}">
+<form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">EDUCATION</button>
 </form>
 
 <form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
-    <input type="hidden" name="idCandidate" value="${candidateLista.idCandidate}">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">WORK EXPERIENCE</button>
-</form>
-                    </td>
-                </tr>
+</form></td>
+        </tr>
+   
             </c:forEach>
 </tbody>
 </table>
