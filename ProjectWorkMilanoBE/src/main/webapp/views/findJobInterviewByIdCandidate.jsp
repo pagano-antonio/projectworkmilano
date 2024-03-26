@@ -110,9 +110,17 @@ a:hover {
                     <td><c:out value="${jobInterview.outcome}" /></td>
                     <td><c:out value="${jobInterview.notes}" /></td>
                     <td><c:out value="${jobInterview.employee.idEmployee}" /></td>
-                    <td><a href="${pageContext.request.contextPath}/JobInterviewCtr/delete?idJobInterview=${jobInterview.idJobInterview}">delete</a></td>
-                    <td><a href="${pageContext.request.contextPath}/JobInterviewCtr/updateJobInterviewForm?idJobInterview=${jobInterview.idJobInterview}">update</a></td>
-                </tr>
+                    
+                    <td><form action="${pageContext.request.contextPath}/JobInterviewCtr/delete" method="get">
+					    <input type="hidden" name="idJobInterview" value="${jobInterview.idJobInterview}">
+					    <button type="submit">DELETE</button>
+						</form></td>
+
+					<td><form action="${pageContext.request.contextPath}/JobInterviewCtr/updateJobInterviewForm" method="get">
+					    <input type="hidden" name="idJobInterview" value="${jobInterview.idJobInterview}">
+					    <button type="submit">UPDATE</button>
+						</form></td>
+					        </tr>					 
             </c:forEach>
         </tbody>
  

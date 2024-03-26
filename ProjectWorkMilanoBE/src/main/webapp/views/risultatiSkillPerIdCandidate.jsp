@@ -103,13 +103,16 @@ a:hover {
                     <td>${sList.title}</td>
                     <td>${sList.description}</td>                
                     <td>
+                    
+              <form action="${pageContext.request.contextPath}/skill/preAggiornaSkill" method="Get">
+     <input type="hidden" name="idSkill" value="${sLista.idSkill}">
+  <button type="submit">UPDATE</button>
+  
               <form action="${pageContext.request.contextPath}/skill/preEliminaSkill" method="Get">
     		<input type="hidden" name="idSkill" value="${sList.idSkill}">
-    <button type="submit">UPDATE</button>
+    <button type="submit">DELETE</button>
 			</form>                       
-      <form action="${pageContext.request.contextPath}/skill/preAggiornaSkill" method="Get">
-     <input type="hidden" name="idSkill" value="${sLista.idSkill}">
-  <button type="submit">DELETE</button>
+      
   </form></td>
                 </tr>
             </c:forEach>

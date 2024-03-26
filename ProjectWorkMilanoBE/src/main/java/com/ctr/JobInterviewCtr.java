@@ -73,7 +73,7 @@ public class JobInterviewCtr {
     }
     
  //ELIMINA 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String delete(Model model, HttpServletRequest request, Integer idJobInterview) {
     	
     	jobInterviewRep.deleteById(idJobInterview);
