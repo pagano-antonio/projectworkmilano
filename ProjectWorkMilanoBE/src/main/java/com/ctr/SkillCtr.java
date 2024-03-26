@@ -23,13 +23,13 @@ public class SkillCtr {
 	
 	///////// INSERIMENTO /////////
 	
-	
+	 
 	@GetMapping("/preInserimento")
 	public String preInserimento(Model model) {
 
 
 		return "OK";
-
+ 
 	}
 	@PostMapping("/inserimentoSkill")
 	public String inserimento(Model model,HttpServletRequest request,Skill skill) {
