@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    <%@ include file="header.jsp"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Find Job Offer By IdCompanyClient</title>
+<title>Find Job Offer By ID Company Client</title>
+<%@ include file="header.jsp"%> 
 <style>
 body {
         font-family: Century Gothic;
@@ -77,7 +77,7 @@ input[type="number"] {
 <body>
 <div class="container">
 <h1>JOB OFFER</h1> 
-<h2>Find Job Offer By idCompanyClient</h2>
+<h2>Find Job Offer By ID Company Client</h2>
 
 <form action="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferByIdCompanyClient" method="post">
 	

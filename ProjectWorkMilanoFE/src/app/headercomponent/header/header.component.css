@@ -4,10 +4,11 @@ header {
     padding: 10px;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100% !important;
     display: flex;
     justify-content: space-between;
-    z-index: 9999; /* Allinea a sinistra e a destra */
+    align-self: stretch; /* Assicura che l'header si estenda per tutta la larghezza */
+    z-index: 9999;
 }
 
 .nav-link {

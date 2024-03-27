@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Job Interview form</title>
+<title>Update Job Interview</title>
 <style>
 body {
         font-family: Century Gothic;

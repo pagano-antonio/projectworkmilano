@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Candidate by skill</title>
+<title>Find Candidate by Skill - Results</title>
+<%@ include file="header.jsp"%>
 <style>
 body {
         font-family: Century Gothic;

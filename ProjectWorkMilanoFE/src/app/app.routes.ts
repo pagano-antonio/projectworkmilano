@@ -12,7 +12,7 @@ export const routes: Routes = [
 {path: '', component: HomeComponent}, //Home
 {path: 'deleted/:id', component: DeleteComponent}, //Delete Success
 {path: 'error', component: ErrorComponent}, //Error
-{path: 'find', component: FindComponent}, //Find page con tutte le query in tabella
+{path: 'findcandidate', component: FindComponent}, //Find page con tutte le query in tabella
 {path: 'findbyidcandidateform', component: FindbyidcandidateformComponent}, //Find by ID Candidate Form
 {path: 'findbyidcandidateres/:id', component: FindbyidcandidateresComponent}, //Find by ID Candidate Res Page
 {path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //da Find by ID Candidate Res -> Update Candidate Form

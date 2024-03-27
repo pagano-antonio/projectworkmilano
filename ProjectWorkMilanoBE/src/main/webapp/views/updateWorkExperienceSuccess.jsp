@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<h1>update Success!</h1>
+	<h1>Update Success!</h1>
 	<br>
 	<a href="${pageContext.request.contextPath}/home">Go back Home</a>
 

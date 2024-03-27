@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.model.Education"%>
 <!DOCTYPE html>
@@ -7,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Education Data</title>
+<%@ include file="header.jsp"%>
  <style>
 body {
         font-family: Century Gothic;

@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Inserimento Skill fatto!!</title>
+<title>Add Skill Success</title>
+<%@ include file="header.jsp"%>
 </head>
 <body>
 

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    <%@ include file="header.jsp"%>
 <%@ page import="com.model.JobOffer"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JobOffer By Id</title>
+<title>Find Job Offer By ID - Results</title>
+<%@ include file="header.jsp"%>
 <style>
 body {
         font-family: Century Gothic;
