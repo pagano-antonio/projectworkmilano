@@ -94,27 +94,29 @@ input[type="number"] {
                     <th>Email</th>
                     <th>Password</th>
                     <th>Level</th>
-                    <th>Azioni</th>
+                    <th>Changes</th>
                    
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="employee" items="${lista}">
+                <c:forEach var="cicci" items="${lista}">
                     <tr>
-                        <td>${employee.idEmployee}</td>
-                        <td>${employee.surname}</td>
-                        <td>${employee.name}</td>
-                        <td>${employee.username}</td>
-                        <td>${employee.email}</td>
-                        <td>${employee.password}</td>
-                        <td>${employee.employeeType.description}</td>
+                        <td>${cicci.idEmployee}</td>
+                        <td>${cicci.surname}</td>
+                        <td>${cicci.name}</td>
+                        <td>${cicci.username}</td>
+                        <td>${cicci.email}</td>
+                        <td>${cicci.password}</td>
+                        <td>${cicci.employeeType.description}</td>
                         <td> 
-                        <a href="">Delete e update</a>
+                        <a href="${pageContext.request.contextPath}/EmployeeCtr/aggiornaEmployeePerId?idEmployee=${cicci.idEmployee}"><button>Update</button></a>
+                        <a href="${pageContext.request.contextPath}/EmployeeCtr/eliminaEmployeePerId?idEmployee=${cicci.idEmployee}"><button>Delete</button></a>
                         </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
+        <h2><a href="${pageContext.request.contextPath}/EmployeeCtr/preInserimento">Add new Employee</a></h2>
     </div>
 </body>
 </html>

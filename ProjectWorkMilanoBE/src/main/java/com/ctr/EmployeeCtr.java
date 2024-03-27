@@ -30,15 +30,17 @@ public class EmployeeCtr {
 	
 	@GetMapping("/preInserimento")
     public String preInserimento(Model model) {
-
-        return "OK";
+		List<EmployeeType> lista = employeeTypeRep.findAll();
+		model.addAttribute("lista",lista);
+        return "employeeAdd";
     } 
 	
 	@PostMapping("/inserimentoEmployee")
-    public String inserisci(Model model, HttpServletRequest request, Employee employee) {
-
+    public String inserisci(Model model, Employee employee) {
 		employeeRep.save(employee);
-		return "OK";
+		List<Employee> lista = employeeRep.findAll();
+		model.addAttribute("lista",lista);
+		return "seeallEmployees";
     }
 	
 	@GetMapping("/preInserimentoId")
@@ -68,22 +70,45 @@ public class EmployeeCtr {
 	
 	@PostMapping("/aggiornaEmployeePerId")
 	public String aggiornaEmployeePerId(Model model, Employee employee, HttpSession session) {
-		System.out.println("aggiorno"+employee);
-		employeeRep.save(employee);
-		//employee = employeeRep.findById(employee.getIdEmployee()).get();
-		session.setAttribute("utente", employee);
-		model.addAttribute("employee",employee);
-		List<EmployeeType> lista = employeeTypeRep.findAll();
-		model.addAttribute("lista",lista);
+	
+		//employeeRep.save(employee);
+		//if (session.getAttribute(""))
+		//session.setAttribute("utente", employee);
+		//model.addAttribute("employee",employee);
+		
+
+		    
+		    // Verifica se l'employee è quello attualmente in sessione
+		    Employee employeeInSession = (Employee) session.getAttribute("utente");
+		    if (employeeInSession != null && employeeInSession.getIdEmployee() == employee.getIdEmployee()) {
+		        // Aggiorna e salva l'employee
+		        employeeRep.save(employee);
+		        // Aggiorna l'employee in sessione
+		        session.setAttribute("utente", employee);
+		    } else {
+		        // Aggiorna e salva l'employee senza modificare la sessione
+		        employeeRep.save(employee);
+		    }
+
+		    // Aggiungi l'employee aggiornato al model
+		    model.addAttribute("employee", employee);
+		
+		
+		
+		
+		
+		List<EmployeeType> lista = employeeTypeRep.findAll(); //per mandare i livelli di employee
+		model.addAttribute("lista",lista); // per mandare i livello di employee
 		return "employeeUpdate";
 	}
 		
-	@PostMapping("/eliminaEmployeePerId")
+	@GetMapping("/eliminaEmployeePerId")
 	public String eliminaEmployeePerId (Model model, int idEmployee) {
 		System.out.println("Eliminazione riuscita: " + idEmployee);
-		
 		employeeRep.deleteById(idEmployee);
-		return "OK";
+		List<Employee> lista = employeeRep.findAll();
+		model.addAttribute("lista",lista);
+		return "seeallEmployees";
 	}
 	
 	@GetMapping("/seeallEmployees")

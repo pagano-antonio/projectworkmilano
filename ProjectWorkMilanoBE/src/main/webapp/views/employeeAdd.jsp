@@ -87,11 +87,8 @@ input[type="number"] {
      
 
     <!-- Form per la modifica dati -->
-    <form action="${pageContext.request.contextPath}/EmployeeCtr/aggiornaEmployeePerId" method="post">
+    <form action="${pageContext.request.contextPath}/EmployeeCtr/inserimentoEmployee" method="post">
         <!-- Campi di input per i dati modificabili -->
-        <label for="idEmployee">ID:</label>
-        <input type="number" id="idEmployee" name="idEmployee" value="${employee.idEmployee}" readonly>
-        <br>
         <label for="surname">Surname:</label>
         <input type="text" id="surname" name="surname" value="${employee.surname}" required>
         <br>

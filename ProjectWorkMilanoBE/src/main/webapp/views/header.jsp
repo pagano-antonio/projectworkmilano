@@ -126,15 +126,14 @@ header {
 
     <!-- Popup Modifica Dati -->
     <div id="user-popup">
-        <p>Cognome: ${utente.surname}</p>
-        <p>Nome: ${utente.name}</p>
+        <p>${utente.surname} ${utente.name}</p>
         <p>Email: ${utente.email}</p>
         <p>Username: ${utente.username}</p>
-         <p>Livello: ${utente.employeeType.description}</p>
+         <p>Level: ${utente.employeeType.description}</p>
 
         <a href="${pageContext.request.contextPath}/EmployeeCtr/aggiornaEmployeePerId?idEmployee=${utente.idEmployee}" id="modifica-dati" class="nav-link">
            <i class="gg-pen"></i>
-            <span>Visualizza/Modifica Dati</span>
+            <span>See/Update</span>
         </a>
     </div>
 </div>

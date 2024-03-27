@@ -72,7 +72,8 @@
         <h2> You have <b>${fn:length(openoffers)}</b> open job offers</h2>
         <c:forEach var="offer" items="${openoffers}">
         <!-- Visualizza ogni offerta -->
-        <p><b>${offer.title}, ${offer.companyClient.city}</b> - ${offer.description} - Scadenza: ${offer.endDate} - <b><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferById?idJobOffer=${offer.idJobOffer}">Visualizza</a></b></p>
+        <p><b>${offer.title}, ${offer.companyClient.city}</b> - ${offer.description} - Due: ${offer.endDate} - 
+        <b><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferById?idJobOffer=${offer.idJobOffer}">Details</a></b></p>
     </c:forEach>
     <br>
     
@@ -83,8 +84,8 @@
         <h2> You have <b>${fn:length(futureInterviews)}</b> job interviews incoming</h2>
          <c:forEach var="interview" items="${futureInterviews}">
         <!-- Visualizza ogni offerta -->
-        <p><b>${interview.candidate.surname} ${interview.candidate.name}, ${interview.stateJobInterview.title}</b> - Quando: ${interview.date} - 
-        <b><a href="${pageContext.request.contextPath}/JobInterviewCtr/findByIdJobInterview?idJobInterview=${interview.idJobInterview}">Visualizza</a></b></p>
+        <p><b>${interview.candidate.surname} ${interview.candidate.name}, ${interview.stateJobInterview.title}</b> - On: ${interview.date} - 
+        <b><a href="${pageContext.request.contextPath}/JobInterviewCtr/findByIdJobInterview?idJobInterview=${interview.idJobInterview}">Details</a></b></p>
         
     </c:forEach>
     <br>
