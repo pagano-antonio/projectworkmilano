@@ -22,12 +22,6 @@
     background: linear-gradient(45deg, #3503ad, #f7308c);
   }
   
-  .main-container {
-    width: 90%; /* Utilizza il 90% della larghezza dello schermo */
-    max-width: 1200px; /* Larghezza massima del contenitore */
-    margin: 0 auto;
-    text-align: center; /* Centra il contenitore orizzontalmente */
-  }
 
   .container {
     font-family: Century Gothic;
@@ -51,11 +45,8 @@
  H2 {
     position: absolute;
     top: 25%;
-    left: 50%;
-   
-  H3 {
-    text-align: center; /* Centra il testo all'interno dell'elemento H3 */
-   }
+    left: 50%;   
+  
   
   a, button {
     text-align: center; /* Centra il testo all'interno di link e pulsanti */
@@ -84,16 +75,10 @@ th {
     background-color: #f2f2f2; /* Aggiunge un colore di sfondo alle celle dell'intestazione */
 }
 
-  /* Media query per schermi di dimensioni fino a 768px */
-  @media only screen and (max-width: 768px) {
-    .container {
-      min-width: 150px; /* Riduci la larghezza minima per adattarsi ai dispositivi più piccoli */
-    }
-  }
 </style>
 </head>
 <body>
-	<div class="main-container">	
+
 	<div class="container">
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -105,7 +90,7 @@ th {
 			<div class="container">
 		<%@ include file="findCompanyClientByCityForm.jsp"%>
 		</div>
-</div>
+
 
 		<%
     List<CompanyClient> tmp = (List<CompanyClient>) request.getAttribute("lista");
@@ -114,7 +99,7 @@ th {
     }
 %>
 
-<div class="main-container">
+
 <div class="container">
 
 		<table>
@@ -155,6 +140,6 @@ th {
 			</tbody>
 		</table>
 	</div>
-	</div>
+
 </body>
 </html>

@@ -64,6 +64,7 @@ th, td {
 th {
 	background-color: #f2f2f2;
 }
+
 </style>
 </head>
 <body>
@@ -105,6 +106,7 @@ th {
 					    <input type="hidden" name="idJobInterview" value="${interview.idJobInterview}">
 					    <button type="submit">UPDATE</button>
 						</form></td>
+						
 					        </tr>					 
         </tbody>
  

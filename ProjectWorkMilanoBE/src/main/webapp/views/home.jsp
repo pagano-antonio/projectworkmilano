@@ -89,7 +89,7 @@
         
     </c:forEach>
     <br>
-    <p><b><a href="${pageContext.request.contextPath}/JobInterviewCtr/seeallJobInterview">SE ALL JOB INTERVIEWS</a></b></p>
+    <p><b><a href="${pageContext.request.contextPath}/JobInterviewCtr/seeallJobInterview">SEE ALL JOB INTERVIEWS</a></b></p>
     </div>
 </div>
 </div>
