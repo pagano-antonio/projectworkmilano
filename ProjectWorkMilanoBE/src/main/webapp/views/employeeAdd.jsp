@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Update Employee Data</title>
+    <title>Add Employee Data</title>
     <%@ include file="header.jsp"%>
     <style>
 body {
@@ -43,13 +43,14 @@ font-family: Century Gothic;
 }
  H2 {
   position: absolute; 
-  top: 20%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
+
 label {
     font-weight: bold; /* Rende il testo in grassetto */
     color: #333; /* Colore del testo */
@@ -78,11 +79,15 @@ input[type="number"] {
         margin-left:50px;
         width: 150px; /* Adjust as needed */
     }
+  a {
+  	color: white;
+  }
+  
 </style>
 </head>
 <body>
 <div class="container">
-     <h1>Update employee data:</h1>
+     <h1>Add employee data:</h1>
      
      
 
@@ -142,8 +147,7 @@ input[type="number"] {
 
 <% Employee utente = (Employee) session.getAttribute("utente"); %>
 <% if (utente != null && utente.getEmployeeType().getDescription().equals("HR Manager")) { %>
-    <h1><a href="${pageContext.request.contextPath}/EmployeeCtr/seeallEmployees">See all Employees</a></h1>
-    <h2><a href="${pageContext.request.contextPath}/EmployeeCtr/preInserimento">Add new Employee</a></h2>
+    <h2><a href="${pageContext.request.contextPath}/EmployeeCtr/seeallEmployees">See all Employees</a></h2>
 <% } %>
 
 </body>

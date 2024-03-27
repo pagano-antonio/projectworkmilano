@@ -18,7 +18,7 @@
   .main-container {
     width: 90%; /* Utilizza il 90% della larghezza dello schermo */
     max-width: 1200px; /* Larghezza massima del contenitore */
-    margin-top: 20%;
+    margin-top: 80px;
     text-align: center; /* Centra il contenitore orizzontalmente */
   }
 
@@ -34,7 +34,7 @@
 
   H1 {
     position: absolute;
-    top: 15%;
+    top: 8%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: Century Gothic;

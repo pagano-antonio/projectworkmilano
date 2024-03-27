@@ -42,8 +42,19 @@ font-family: Century Gothic;
   z-index: 9999; 
 }
  H2 {
+  
   position: absolute; 
-  top: 20%;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  border-radius: 10px;
+  z-index: 9999; 
+}
+
+ H3 {
+  position: absolute; 
+  top: 83%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -78,6 +89,9 @@ input[type="number"] {
         margin-left:50px;
         width: 150px; /* Adjust as needed */
     }
+  a {
+  	color: white;
+  }
 </style>
 </head>
 <body>
@@ -145,8 +159,8 @@ input[type="number"] {
 
 <% Employee utente = (Employee) session.getAttribute("utente"); %>
 <% if (utente != null && utente.getEmployeeType().getDescription().equals("HR Manager")) { %>
-    <h1><a href="${pageContext.request.contextPath}/EmployeeCtr/seeallEmployees">See all Employees</a></h1>
-    <h2><a href="${pageContext.request.contextPath}/EmployeeCtr/preInserimento">Add new Employee</a></h2>
+    <h2><a href="${pageContext.request.contextPath}/EmployeeCtr/seeallEmployees">See all Employees</a></h2>
+    <h3><a href="${pageContext.request.contextPath}/EmployeeCtr/preInserimento">Add new Employee</a></h3>
 <% } %>
 
 </body>

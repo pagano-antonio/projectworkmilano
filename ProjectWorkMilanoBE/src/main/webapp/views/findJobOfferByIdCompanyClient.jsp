@@ -50,6 +50,15 @@ font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
+ H3 {
+  position: absolute; 
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  border-radius: 10px;
+  z-index: 9999; 
+}
 table {
 	border-collapse: collapse;
 	width: 100%;
@@ -84,6 +93,8 @@ th {
 			<th>MinRal</th>
 			<th>MaxRal</th>
 			<th>IdContractType</th>
+			<th>Modify</th>
+			
 		</tr>
 		
 			<c:forEach var="j" items="${offerList}">
@@ -100,17 +111,17 @@ th {
 			<td>${j.contractType.idContractType}</td>
 			
 			
-			<td><a href="${pageContext.request.contextPath}/JobOfferCtr/updateJobOfferForm?idJobOffer=${j.idJobOffer}"><button>Update</button></a></td>
-		<td><a href="${pageContext.request.contextPath}/JobOfferCtr/delete?idJobOffer=${j.idJobOffer}"><button>Delete</button></a></td>				
-			<td><a href="${pageContext.request.contextPath}/JobOfferCtr/preInsertJobOffer">Add new Job Offer</a></td>
+			<td><a href="${pageContext.request.contextPath}/JobOfferCtr/updateJobOfferForm?idJobOffer=${j.idJobOffer}"><button>Update</button></a>
+		<a href="${pageContext.request.contextPath}/JobOfferCtr/delete?idJobOffer=${j.idJobOffer}"><button>Delete</button></a></td>				
+			
                     
 		</tr>
 		
 		</c:forEach>
 	</table>
-	
-	<a href="${pageContext.request.contextPath}/JobOfferCtr/preInsertJobOffer">Add new Job Offer</a>
-</div>
+	</div>
+	<h3><a style="color: #FFFFFF" href="${pageContext.request.contextPath}/JobOfferCtr/preInsertJobOffer">Add new Job Offer</a></h3>
+
 	
 </body>
 </html>

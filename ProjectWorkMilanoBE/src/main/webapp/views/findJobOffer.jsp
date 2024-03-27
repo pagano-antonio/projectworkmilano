@@ -17,7 +17,7 @@
   .main-container {
     width: 90%; /* Utilizza il 90% della larghezza dello schermo */
     max-width: 1200px; /* Larghezza massima del contenitore */
-    margin-top: 20%;
+    margin-top: 0 auto;
     text-align: center; /* Centra il contenitore orizzontalmente */
   }
 
