@@ -41,6 +41,6 @@ export class SkillServiceService {
   }
   
   getSkillsByIdCandidate(id:number){
-    return this.hC.get<Skill>('http://localhost:8080/Skill/findSkillByIdCandidate/'+ id);
+    return this.hC.get<Skill[]>('http://localhost:8080/Skill/findSkillByIdCandidate/'+ id);
   }
 }

@@ -1,24 +1,37 @@
-<div class="container">
-    <h1>You are in Candidate!</h1>
-    <br>
-    <h2>Please, select the desired action!</h2>
-    <br>
-    <table>
-        <tr>
+<header>
+    <div ng-include="app/headercomponent/header.component.html"></div>
+</header>
 
-            <th colspan="2">Quick Links</th>
-        </tr>
-        <tr>
-            <td><a href="./findbyidcandidateform">Inserisci Id Candidate</a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCitta"><strong>Find by CITY</strong></a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia"><strong>Find by COMPANY</strong></a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview"><strong>Find by STATE JOB INTERVIEW</strong></a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerOutcome"><strong>Find by OUTCOME</strong></a></td>           
-            <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm"><strong>Find by SURNAME</strong></a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"><strong>Find by PHONE</strong></a></td>
-            <td><a href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm"><strong>Find by SKILL</strong></a></td>
-			<td><a href="${pageContext.request.contextPath}/candidate/preFindCandidateByEDTForm">Education Degree Type</a></td>
-        </tr>
-    </table>
-   
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <h1>THIS IS CANDIDATE</h1> 
+        <h2>Please, select the desired action!</h2>
+    
+        <table>
+            <tr>
+                <td><a class="custom-link" href="./findbyidcandidateform"><strong>Find by ID CANDIDATE</strong></a></td>
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCitta"><strong>Find by CITY</strong></a></td>
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia"><strong>Find by COMPANY</strong></a></td>
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview"><strong>Find by STATE JOB INTERVIEW</strong></a></td>
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerOutcome"><strong>Find by OUTCOME</strong></a></td>           
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm"><strong>Find by SURNAME</strong></a></td>
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"><strong>Find by PHONE</strong></a></td>
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm"><strong>Find by SKILL</strong></a></td>
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateByEDTForm"><strong>Find by EDUCATION DEGREE TYPE</strong></a></td>
+                <td><a class="custom-link" href="${pageContext.request.contextPath}/CandidateCommercialDataCtr/addCandidateCommercialDataForm"><strong>Add COMMERCIAL DATA</strong></a></td>
+                
+            </tr>
+        </table>  
+    </div>

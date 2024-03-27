@@ -12,5 +12,5 @@ import { HeaderComponent } from "./headercomponent/header/header.component";
     imports: [RouterOutlet, HomeComponent, ErrorComponent, HeaderComponent]
 })
 export class AppComponent {
-  title = 'ProjectWorkMilanoFE';
+  title = 'Java Interviews - Home Angular';
 }

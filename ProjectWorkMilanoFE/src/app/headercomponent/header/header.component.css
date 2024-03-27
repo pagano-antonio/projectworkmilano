@@ -4,10 +4,10 @@ header {
     padding: 10px;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100% !important;
     display: flex;
     justify-content: space-between;
-    align-self: stretch; /* Assicura che l'header si estenda per tutta la larghezza */
     z-index: 9999;
 }
 

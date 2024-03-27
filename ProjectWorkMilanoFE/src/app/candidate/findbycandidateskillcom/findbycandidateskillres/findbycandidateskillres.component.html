@@ -1,34 +1,46 @@
-<!--<div class="container">
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
     <h1>SKILL</h1>
-    <h2>This is Candidate's skill</h2>
-    
-    <table>
+    <h2>SKILL BY ID: RESULTS!</h2>
+
+    <table *ngIf="skills && skills.length > 0">
         <thead>
             <tr>
-                <th>Id Skill</th>
+                <th>ID Skill</th>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Actions</th>  
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>${sList.idSkill}</td>
-                <td>${sList.title}</td>
-                <td>${sList.description}</td>                
+            <tr *ngFor="let skill of skills">
+                <td>{{ skill.idSkill }}</td>
+                <td>{{ skill.title }}</td>
+                <td>{{ skill.description }}</td>
                 <td>
-                  <form action="${pageContext.request.contextPath}/skill/preEliminaSkill" method="Get">
-                <input type="hidden" name="idSkill" value="${sList.idSkill}">
-        <button type="submit">UPDATE</button>
-                </form>                       
-          <form action="${pageContext.request.contextPath}/skill/preAggiornaSkill" method="Get">
-         <input type="hidden" name="idSkill" value="${sLista.idSkill}">
-      <button type="submit">DELETE</button>
-      </form></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>    
-        </div>
-            <a href="${pageContext.request.contextPath}/home"><strong>GO HOME</strong></a>-->
+                    <a href="${pageContext.request.contextPath}/skill/updateSkillForm?idSkill=${sList.idSkill}">
+                        <button>Update</button>
+                    </a>
+                    <a>
+                        <button>Delete</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!skills || skills.length === 0">
+        <p>Non ci sono skill associate a questo candidato.</p>
+    </div>
+</div>

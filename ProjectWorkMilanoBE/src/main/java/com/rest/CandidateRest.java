@@ -128,4 +128,10 @@ public class CandidateRest {
 		return candidateRep.findByCandidateSkills_Skill_Title(title);
 		//localhost:8080/Candidate/findCandidateBySkill/agile
 	}
+	
+	//FIND ALL
+	@GetMapping("findAllCandidates")
+    public List<Candidate> findAllCandidates() {
+        return candidateRep.findAll();
+    }
 }

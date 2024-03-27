@@ -1,27 +1,27 @@
-* {
-    font-family:Century Gothic;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    margin: 10px;
-}
 body {
-        display: flex;
-        justify-content: center;      
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background: linear-gradient(45deg, #3503ad, #f7308c);
-    border-radius: 15px;
-    }
+  font-family: Century Gothic;
+  display: flex;
+  justify-content: center;      
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #3503ad, #f7308c);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px;
+}
 
-    .container {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-  H1 {
+.container {
+  font-family: Century Gothic;
+  justify-content: center;      
+  align-items: center;
+  background: white;
+  padding: 15px;
+  margin:15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+H1 {
   position: absolute;
   top: 15%;
   left: 50%;
@@ -31,16 +31,11 @@ body {
   border-radius: 10px;
   z-index: 9999; 
 }
- H2 {
-  position: relative; 
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Century Gothic;
-  background: white;
-  border-radius: 10px;
-  z-index: 9999; 
+
+H2 {
+  color: black;
 }
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -48,22 +43,21 @@ table {
 
 th, td {
   border: 1px solid black;
-  padding: 8px;
-  text-align: left;
+  padding: 14px;
+  text-align: center;
 }
+
 th {
   background-color: #f2f2f2;
 }
-
-a {
-  color: black; /* colore del testo */
-  text-decoration: none; /* rimuove il sottolineato di default */
-  transition: color 0.3s ease;
-  border-radius: 10px; /* animazione del cambio di colore */
+.custom-link {
+  text-decoration: none; /* Rimuove la sottolineatura */
+  color: black; /* Cambia il colore del testo */
+  font-weight: bold; /* Rende il testo in grassetto */
+  /* Altri stili che desideri applicare al link */
 }
 
-a:hover {
-  color: white;
-  background-color: #f7308c; /* colore del testo al passaggio del mouse */
-  border-radius: 10px;
+.custom-link:hover {
+  color: #9370DB;; /* Cambia il colore del testo quando il cursore passa sopra il link */
+  /* Altri stili che desideri applicare al link quando il cursore passa sopra */
 }

@@ -1,0 +1,15 @@
+H1 {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Century Gothic;
+    background: white;
+    border-radius: 10px;
+    z-index: 9999; 
+}
+
+a {
+    background-color: white;
+    border-radius: 10px;
+}

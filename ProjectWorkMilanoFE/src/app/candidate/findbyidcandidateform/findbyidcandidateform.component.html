@@ -1,9 +1,28 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <h1>FIND CANDIDATE BY ID</h1>
+    <h2>Insert data here</h2>
+    <!--In Angular non è necessario usare l'attributo "method" all'interno di <form>-->
+    <!--Angular gestisce l'invio del modulo in modo più diretto rispetto all'invio 
+        tradizionale dei moduli HTML. Angular cattura l'evento di submit del modulo 
+        e chiama una funzione definita nell'attributo ngSubmit, senza fare un submit 
+        HTTP tradizionale.-->
     <form (ngSubmit)="searchCandidateById()">
     
             <label for="idCandidate"><strong>ID Candidate:</strong></label>
-            <input type="text" id="idCandidate" [(ngModel)] ="idCandidate" [ngModelOptions]="{standalone: true}">
+            <input type="number" [(ngModel)] ="idCandidate" [ngModelOptions]="{standalone: true}">
             <button type="submit">Search</button>
-        </form>
-        </div>
+
+    </form>
+</div>

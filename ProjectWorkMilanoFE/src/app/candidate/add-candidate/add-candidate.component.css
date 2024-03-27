@@ -42,6 +42,12 @@ H2 {
     z-index: 9999; 
 }
 
+button[type="submit"] {
+    margin-top: 20px; /* Adjust as needed */
+    margin-left:50px;
+    width: 150px; /* Adjust as needed */
+}
+
 label {
     font-weight: bold; /* Rende il testo in grassetto */
     color: #333; /* Colore del testo */
@@ -63,13 +69,6 @@ input[type="number"] {
     font-size: 14px; /* Dimensione del testo */
 }
 
-/* Stile per il break */
 br {
     margin-bottom: 10px; /* Spazio sotto il break */
-}
-
-button[type="submit"] {
-    margin-top: 20px; /* Adjust as needed */
-    margin-left:50px;
-    width: 150px; /* Adjust as needed */
 }

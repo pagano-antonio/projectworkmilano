@@ -15,7 +15,6 @@ import { SkillServiceService } from '../../services/skill-service.service';
 })
 export class FindbyidcandidateresComponent {
   candidate:Candidate = new Candidate;
-  skill:Skill = new Skill;
   
   constructor(private router: Router, private route:ActivatedRoute, private candidateService: CandidateService, private skillService: SkillServiceService) {
     this.candidate.idCandidate = this.route.snapshot.params['id'];
@@ -53,26 +52,26 @@ deleteCandidateOnResPage(){
   })
 }
 
-showCandidatesSkills(){
+showCandidateSkills() {
   console.log('Ci sei!');
-  this.skillService.getSkillsByIdCandidate(this.skill.candidateSkills[0].candidate.idCandidate).subscribe(data => {
-      console.log(data);
-      this.skill = data;
-      this.router.navigate(['/findbycandidateskillres', this.skill.candidateSkills[0].candidate.idCandidate]);
-})
+  const id = this.candidate.idCandidate; // Ottieni l'ID del candidato
+  if (id) { // Verifica se l'ID del candidato è definito
+    this.skillService.getSkillsByIdCandidate(id).subscribe(
+      (data: Skill[]) => {
+        console.log(data);
+        // Puoi fare qualsiasi cosa con i dati ricevuti, ad esempio memorizzarli in una variabile del componente
+        // this.skills = data; // Supponendo che skills sia una variabile del componente in cui memorizzare le skill
+        this.router.navigate(['/findbycandidateskillres', id]); // Naviga alla pagina dei risultati con l'ID del candidato
+      },
+      (error) => {
+        console.error('Errore durante il recupero delle skill del candidato:', error);
+        // Gestisci l'errore in base ai requisiti del tuo progetto
+      }
+    );
+  } else {
+    console.error('ID del candidato non definito');
+    // Gestisci il caso in cui l'ID del candidato non sia definito
+  }
+
 }
-
-/*showCandidatesSkills(){
-  console.log('Ci sei!');
-  const skillTitle = this.candidate.candidateSkills[0].skill.title; // Supponendo che tu voglia prendere il primo titolo di skill
-  console.log(skillTitle); // Assicurati di ottenere il titolo correttamente
-  // Ora puoi utilizzare skillTitle come parametro per il tuo metodo getCandidateBySkills
-  this.candidateService.getCandidateBySkills(skillTitle).subscribe(data => {
-    console.log(data);
-    this.candidate = data;
-    // Supponendo che tu voglia navigare sulla base del titolo della skill
-    this.router.navigate(['/findbycandidateskillres', skillTitle]);
-  });
-}*/
-
 }

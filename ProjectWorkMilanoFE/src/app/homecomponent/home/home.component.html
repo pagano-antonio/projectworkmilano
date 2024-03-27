@@ -2,7 +2,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>JAVA INTERVIEWS</title>
+	<title>Java Interview - Home Angular</title>
 </head>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -15,7 +15,7 @@
 			<!-- LOGO -->
 			<!---------->
 
-<!--<img src="images/LOGO-PROJECT-WORK-JAVA-GIRLS.png" alt="Logo JAVA GIRLS" class="logo">-->
+<img src="assets/images/LOGO-PROJECT-WORK-JAVA-GIRLS.png" alt="Logo JAVA GIRLS" class="logo">
 
 <div class="container-wrapper">
 	<div class="container">
@@ -81,33 +81,27 @@
 	  </div>
 
 	  <div class="openoffers-container">
-		  <div class="openoffers">
-			  <h2> You have <!--${fn:length(openoffers)}--> open job offers</h2>
-			  <!--<c:forEach var="offer" items="${openoffers}">-->
-
-			  <!----------------------------->
-			  <!-- Visualizza ogni offerta -->
-			  <!----------------------------->
-
-			  <p><b><!--${offer.title}-->, <!--${offer.companyClient.city}--></b> - <!--${offer.description}--> - Deadline: <!--${offer.endDate}--> - <b>Show</b></p>
-		  <!--</c:forEach>-->
-		  <br>
-		  <p><b>GO TO JOB OFFER</b></p>
-		  </div>
-	  
-		  <div class="openoffers">
-			  <h2> You have <!--${fn:length(futureInterviews)}--> upcoming job interviews</h2>
-			   <!--<c:forEach var="interview" items="${futureInterviews}">-->
-			  
-			<!-----------------------------> 
+		<div class="openoffers">
+			<h2> You have <b><!--${fn:length(openoffers)}--></b> open job offers</h2>
+			<!--<c:forEach var="offer" items="${openoffers}">-->
 			<!-- Visualizza ogni offerta -->
-			<!----------------------------->
-
-			  <p><b><!--${interview.candidate.surname}--> <!--${interview.candidate.name}-->, <!--${interview.stateJobInterview.title}--></b> - When: <!--${interview.date}--> - <b>Show</b></p>
-			  
-		  <!--</c:forEach>-->
-		  <br>
-		  <p><b>GO TO INTERVIEWS</b></p>
-		  </div>
-	  </div>
-	  </div>
+			<p><b><!--${offer.title}-->, <!--${offer.companyClient.city}--></b> - <!--${offer.description}--> - Scadenza: <!--${offer.endDate}--> - <b><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferById?idJobOffer=${offer.idJobOffer}">Visualizza</a></b></p>
+		<!--</c:forEach>-->
+		<br>
+		
+		<p><b><a href="${pageContext.request.contextPath}/JobOfferCtr/seeallJobOffer">SEE ALL JOB OFFERS</a></b></p>
+		</div>
+	
+		<div class="openoffers">
+			<h2> You have <b><!--${fn:length(futureInterviews)}--></b> job interviews incoming</h2>
+			 <!--<c:forEach var="interview" items="${futureInterviews}">-->
+			<!-- Visualizza ogni offerta -->
+			<p><b><!--${interview.candidate.surname}--> <!--${interview.candidate.name}-->, <!--${interview.stateJobInterview.title}--></b> - Quando: <!--${interview.date}--> - 
+			<b><a href="${pageContext.request.contextPath}/JobInterviewCtr/findByIdJobInterview?idJobInterview=${interview.idJobInterview}">Visualizza</a></b></p>
+			
+		<!--</c:forEach>-->
+		<br>
+		<p><b><a href="${pageContext.request.contextPath}/JobInterviewCtr/seeallJobInterview">SEE ALL JOB INTERVIEWS</a></b></p>
+		</div>
+	</div>
+	</div>

@@ -1,0 +1,66 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>THIS IS THE UPDATE CANDIDATE LIST</h1> 
+    <br>
+    <h2>The candidate has been added!</h2> 
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID CANDIDATE</th>
+                <th>NAME</th>
+                <th>SURNAME</th>
+                <th>BIRTHDAY</th>
+                <th>BIRTHPLACE</th>
+                <th>ADDRESS</th>
+                <th>CITY</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>More Actions</th>                                               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let candidate of candidates">
+                <td>{{ candidate.idCandidate }}</td>
+                <td>{{ candidate.name }}</td>
+                <td>{{ candidate.surname }}</td>
+                <td>{{ candidate.birthday }}</td>
+                <td>{{ candidate.birthPlace }}</td>
+                <td>{{ candidate.address }}</td>
+                <td>{{ candidate.city }}</td>
+                <td>{{ candidate.email }}</td>
+                <td>{{ candidate.phone }}</td>
+                <td>
+                    <button (click)="updateCandidate(candidate.idCandidate)">UPDATE</button>
+                    <button (click)="deleteCandidate()">DELETE</button>
+                    <button (click)="showCandidateSkills(candidate.idCandidate)">SKILLS</button>
+                    <button>JOB INTERVIEW</button>
+                    <button>EDUCATION</button>
+                    <button>WORK EXPERIENCE</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
