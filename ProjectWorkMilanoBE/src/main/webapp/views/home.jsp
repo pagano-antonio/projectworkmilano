@@ -57,7 +57,7 @@
 				<p>Select the desired action</p>
 				<ul id="menu">
 				<li><a href="${pageContext.request.contextPath}/JobOfferCtr/findJobOffer">FIND</a>
-						<li><a href="${pageContext.request.contextPath}/JobOfferCtr/addJobOfferForm">ADD</a>
+						<li><a href="${pageContext.request.contextPath}/JobOfferCtr/preInsertJobOffer">ADD</a>
 
 			</ul>
 			</div>

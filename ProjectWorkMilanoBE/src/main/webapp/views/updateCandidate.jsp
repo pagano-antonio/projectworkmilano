@@ -83,6 +83,8 @@ input[type="number"] {
 <body>
 <div class="container">
      <h1>Update Candidate:</h1>
+     <h2> Insert data here</h2>
+     
 <% Candidate candidate = (Candidate) request.getAttribute("candidate"); %>
     <form action="${pageContext.request.contextPath}/candidate/updateCandidate1" method="post">
     

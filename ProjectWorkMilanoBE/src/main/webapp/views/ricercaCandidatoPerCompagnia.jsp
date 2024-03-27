@@ -76,7 +76,7 @@ input[type="number"] {
 <body>
 <div class="container">
 <h1>CANDIDATE</h1> 
-	<h2>Find Candidate by Company:</h2>
+	<h2>Find Candidate who worked by Company</h2>
 
 <form action="${pageContext.request.contextPath}/candidate/ricercaCandidatoPerCompagnia" method="get">
     <label for="company"><strong>Company:</strong></label>
