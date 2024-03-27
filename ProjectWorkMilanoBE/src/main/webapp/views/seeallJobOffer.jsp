@@ -104,5 +104,8 @@ th {
 		</c:forEach>				
 	</table>
 </div>	
+
+<a href="${pageContext.request.contextPath}/JobOfferCtr/preInsertJobOffer"><button>Add new Job Offer</button></a>
+
 </body>
 </html>
