@@ -1,6 +1,19 @@
 @charset "UTF-8";
 
-	H1 {
+/* Aggiungi le regole CSS per l'header */
+header {
+  background-color: #111;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+}
+	
+H1 {
   position: absolute;
   top: 5%;
   left: 50%;

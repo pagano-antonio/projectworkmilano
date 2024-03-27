@@ -11,7 +11,7 @@
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/pen.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Aggiungi il link per includere Font Awesome -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Header</title>
+    <title></title>
 </head>
 
 <style>
