@@ -127,6 +127,10 @@ th {
     <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
     <button type="submit">WORK EXPERIENCE</button>
 </form></td>
+<form action="${pageContext.request.contextPath}/wk/ricercaWEPerIdCandidate" method="Post">
+    <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
+    <button type="submit">WORK EXPERIENCE</button>
+</form></td>
         </tr>
             </c:forEach>
         </tbody>

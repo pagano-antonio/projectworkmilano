@@ -45,6 +45,7 @@ font-family: Century Gothic;
   
   position: absolute; 
   top: 80%;
+<<<<<<< Updated upstream
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -55,6 +56,8 @@ font-family: Century Gothic;
  H3 {
   position: absolute; 
   top: 83%;
+=======
+>>>>>>> Stashed changes
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -160,7 +163,11 @@ input[type="number"] {
 <% Employee utente = (Employee) session.getAttribute("utente"); %>
 <% if (utente != null && utente.getEmployeeType().getDescription().equals("HR Manager")) { %>
     <h2><a href="${pageContext.request.contextPath}/EmployeeCtr/seeallEmployees">See all Employees</a></h2>
+<<<<<<< Updated upstream
     <h3><a href="${pageContext.request.contextPath}/EmployeeCtr/preInserimento">Add new Employee</a></h3>
+=======
+    <h2><a href="${pageContext.request.contextPath}/EmployeeCtr/preInserimento">Add new Employee</a></h2>
+>>>>>>> Stashed changes
 <% } %>
 
 </body>

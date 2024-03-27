@@ -145,7 +145,9 @@ public class CandidateCommercialDataCtr {
 			return "findCCDataByIdCandidate";
 		} else {
 			return "Error";
-		}	
+		}
+    }
+		
     }
 
-}
+
