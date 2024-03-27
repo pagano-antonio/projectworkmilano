@@ -77,7 +77,8 @@ th {
                 <th>Id Skill</th>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Actions</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
               
             </tr>
         </thead>
@@ -87,25 +88,13 @@ th {
                     <td>${sList.idSkill}</td>
                     <td>${sList.title}</td>
                     <td>${sList.description}</td>                
-                    <td>
-                    
 
-              <form action="${pageContext.request.contextPath}/skill/preAggiornaSkill" method="Get">
-     <input type="hidden" name="idSkill" value="${sLista.idSkill}">
-  <button type="submit">UPDATE</button>
-  </form>
-              <form action="${pageContext.request.contextPath}/skill/preEliminaSkill" method="Get">
-    		<input type="hidden" name="idSkill" value="${sList.idSkill}">
-    <button type="submit">DELETE</button>
-			</form>                       
- </td>
 
  <td><a href="${pageContext.request.contextPath}/skill/updateSkillForm?idSkill=${sList.idSkill}"><button>Update</button></a></td>
 <td><a href="${pageContext.request.contextPath}/skill/delete?idSkill=${sList.idSkill}"><button>Delete</button></a></td>                   
-      
-  </form></td>
 
                 </tr>
+                
             </c:forEach>
         </tbody>
     </table>    
