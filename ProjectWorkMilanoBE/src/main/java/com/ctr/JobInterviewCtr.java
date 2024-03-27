@@ -30,15 +30,25 @@ public class JobInterviewCtr {
 	
 	@GetMapping("/addJobInterviewForm")
     public String addJobIntForm(Model model,HttpServletRequest request){
+		List<Candidate> candidateList = candidateRep.findAll();
+		model.addAttribute("candidateList", candidateList);
+		
+		List<Employee> employeeList = employeeRep.findAll();
+		model.addAttribute("employeeList", employeeList);
+		
+		List<StateJobInterview> StateJobList = stateJobInterviewRepository.findAll();
+		model.addAttribute("Jilist", StateJobList);
            
 		return "addJobInterviewForm";
 	}            
         
     @PostMapping("/addJobInterview")
     public String addJobInterview(Model model, HttpServletRequest request, JobInterview jobInterview) {
-            
+            System.out.println("CI ENMTRIAMIO");
     	jobInterviewRep.save(jobInterview);
-        return "saveSuccess";
+    	List<JobInterview> interviewList = jobInterviewRep.findAll();						
+			model.addAttribute("interviewList", interviewList);
+        return "seeallJobInterview";
         
 	}
     
@@ -89,10 +99,13 @@ public class JobInterviewCtr {
     	
     }
     
-    @PostMapping("/findByIdJobInterview")
+    @GetMapping("/findByIdJobInterview")
     public String findByIdJobInterview(Model model, HttpServletRequest request, Integer idJobInterview) {
     	
-    	jobInterviewRep.findById(idJobInterview);
+    	JobInterview interview = jobInterviewRep.findById(idJobInterview).get();
+    	model.addAttribute("interview", interview);
+    
+    	
     	return "findByIdJobInterview"; 
     	
     }
@@ -126,4 +139,14 @@ public class JobInterviewCtr {
 			return "Error";
 		}
 }
+    
+    
+    //SEE ALL
+    @GetMapping("/seeallJobInterview")
+    public String seeallJobInterview(Model model) {	
+    	List<JobInterview> interviewList = jobInterviewRep.findAll();						
+			model.addAttribute("interviewList", interviewList);
+			return "seeallJobInterview";
+	
+    		}
 }

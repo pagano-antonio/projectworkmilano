@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>FIND JOB INTERVIEW BY ID CANDIDATE</title>
+<title>FIND JOB INTERVIEW BY ID</title>
 <style>
 body {
         font-family: Century Gothic;
@@ -70,43 +70,42 @@ th {
 <div class="container">
 
 <h1>JOB INTERVIEW</h1>
-<h2>This is Candidates' job interview</h2>
+<h2>This is job interview by ID</h2>
 <table>
 <thead>
             <tr>
                 <th>ID JOB INTERVIEW</th>
-                <th>ID CANDIDATE</th>
+                <th>CANDIDATE</th>
                 <th>DATE</th>
-                <th>ID STATE JOB INTERVIEW</th>
+                <th>STATE JOB INTERVIEW</th>
                 <th>OUTCOME</th>
                 <th>NOTES</th>
-                <th>ID EMPLOYEE</th>               
+                <th>EMPLOYEE</th>               
                 <th>DELETE</th>
                 <th>UPDATE</th>
             </tr>
         </thead>
   <tbody>
-            <c:forEach var="jobInterview" items="${LISTAji}">
+   
                 <tr>
-                   <td><c:out value="${jobInterview.idJobInterview}" /></td>
-                    <td><c:out value="${jobInterview.candidate.idCandidate}" /></td>
-                    <td><c:out value="${jobInterview.date}" /></td>
-                    <td><c:out value="${jobInterview.stateJobInterview.idStateJobInterview}" /></td>
-                    <td><c:out value="${jobInterview.outcome}" /></td>
-                    <td><c:out value="${jobInterview.notes}" /></td>
-                    <td><c:out value="${jobInterview.employee.idEmployee}" /></td>
+                   <td><c:out value="${interview.idJobInterview}" /></td>
+                    <td><c:out value="${interview.candidate.name} ${interview.candidate.surname}" /></td>
+                    <td><c:out value="${interview.date}" /></td>
+                    <td><c:out value="${interview.stateJobInterview.title}" /></td>
+                    <td><c:out value="${interview.outcome}" /></td>
+                    <td><c:out value="${interview.notes}" /></td>
+                    <td><c:out value="${interview.employee.name} ${interview.employee.surname}" /></td>
                     
                     <td><form action="${pageContext.request.contextPath}/JobInterviewCtr/delete" method="get">
-					    <input type="hidden" name="idJobInterview" value="${jobInterview.idJobInterview}">
+					    <input type="hidden" name="idJobInterview" value="${interview.idJobInterview}">
 					    <button type="submit">DELETE</button>
 						</form></td>
 
 					<td><form action="${pageContext.request.contextPath}/JobInterviewCtr/updateJobInterviewForm" method="get">
-					    <input type="hidden" name="idJobInterview" value="${jobInterview.idJobInterview}">
+					    <input type="hidden" name="idJobInterview" value="${interview.idJobInterview}">
 					    <button type="submit">UPDATE</button>
 						</form></td>
 					        </tr>					 
-            </c:forEach>
         </tbody>
  
 </table>

@@ -79,7 +79,7 @@ input[type="number"] {
 <h1>JOB OFFER</h1> 
 	<h2>Find Job Offer By ID:</h2>
 
-<form action="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferById" method="post">
+<form action="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferById" method="get">
 	
 		<label for="idJobOffer"><strong>ID JOB OFFER:</strong></label>
 

@@ -69,24 +69,26 @@
 </div>
 <div class="openoffers-container">
     <div class="openoffers">
-        <h2> Hai ${fn:length(openoffers)} offerte di lavoro aperte</h2>
+        <h2> You have <b>${fn:length(openoffers)}</b> open job offers</h2>
         <c:forEach var="offer" items="${openoffers}">
         <!-- Visualizza ogni offerta -->
-        <p><b>${offer.title}, ${offer.companyClient.city}</b> - ${offer.description} - Scadenza: ${offer.endDate} - <b>Visualizza</b></p>
+        <p><b>${offer.title}, ${offer.companyClient.city}</b> - ${offer.description} - Scadenza: ${offer.endDate} - <b><a href="${pageContext.request.contextPath}/JobOfferCtr/preFindJobOfferById?idJobOffer=${offer.idJobOffer}">Visualizza</a></b></p>
     </c:forEach>
     <br>
-    <p><b>GO TO JOB OFFER</b></p>
+    
+    <p><b><a href="${pageContext.request.contextPath}/JobOfferCtr/seeallJobOffer">SEE ALL JOB OFFERS</a></b></p>
     </div>
 
     <div class="openoffers">
-        <h2> Hai ${fn:length(futureInterviews)} job interview in arrivo</h2>
+        <h2> You have <b>${fn:length(futureInterviews)}</b> job interviews incoming</h2>
          <c:forEach var="interview" items="${futureInterviews}">
         <!-- Visualizza ogni offerta -->
-        <p><b>${interview.candidate.surname} ${interview.candidate.name}, ${interview.stateJobInterview.title}</b> - Quando: ${interview.date} - <b>Visualizza</b></p>
+        <p><b>${interview.candidate.surname} ${interview.candidate.name}, ${interview.stateJobInterview.title}</b> - Quando: ${interview.date} - 
+        <b><a href="${pageContext.request.contextPath}/JobInterviewCtr/findByIdJobInterview?idJobInterview=${interview.idJobInterview}">Visualizza</a></b></p>
         
     </c:forEach>
     <br>
-    <p><b>GO TO INTERVIEWS</b></p>
+    <p><b><a href="${pageContext.request.contextPath}/JobInterviewCtr/seeallJobInterview">SE ALL JOB INTERVIEWS</a></b></p>
     </div>
 </div>
 </div>

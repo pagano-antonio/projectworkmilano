@@ -95,7 +95,7 @@ public class JobOfferCtr {
     	
     }
         
-    @PostMapping("/preFindJobOfferById")
+    @GetMapping("/preFindJobOfferById")
     public String findByIdJobOffer(Model model, HttpServletRequest request, int idJobOffer) {
         List<JobOffer> jobOffers = jobOfferRep.findById(idJobOffer);
         if (jobOffers == null) {
@@ -248,9 +248,17 @@ public class JobOfferCtr {
   	   		return "findJobOffer";
   	   	}  
   	
-  	}
 
-	
+
+	//SEE ALL
+@GetMapping("/seeallJobOffer")
+ public String seeallJobOffer(Model model) {
+	List<JobOffer> jobOffers = jobOfferRep.findAll();
+		model.addAttribute("offerList",jobOffers);
+		System.out.print(jobOffers);
+	return "seeallJobOffer";
+}
+}
 	
     
 
