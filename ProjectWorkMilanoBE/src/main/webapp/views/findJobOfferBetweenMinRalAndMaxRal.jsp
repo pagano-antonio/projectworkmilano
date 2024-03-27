@@ -93,6 +93,7 @@ th {
 					<td class="table-success">${j.title}</td>			
 					<td class="table-success">${j.description}</td>										
 					<td class="table-success">${j.startDate}</td>
+					<td class="table-success">${j.endDate}</td>
 					<td class="table-success">${j.companyClient.idCompanyClient}</td>
 					<td class="table-success">${j.minRal}</td>
 					<td class="table-success">${j.maxRal}</td>

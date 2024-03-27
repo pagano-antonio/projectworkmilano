@@ -12,67 +12,100 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Company Client Hub</title>
 <%@ include file="header.jsp"%>
-<style>
+    <style>
+  body {
+    font-family: Century Gothic;
+    display: flex;
+    justify-content: center;      
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #3503ad, #f7308c);
+  }
+  
+  .main-container {
+    width: 90%; /* Utilizza il 90% della larghezza dello schermo */
+    max-width: 1200px; /* Larghezza massima del contenitore */
+    margin: 0 auto;
+    text-align: center; /* Centra il contenitore orizzontalmente */
+  }
 
-body {
-        font-family: Century Gothic;
-        display: flex;
-        justify-content: center;      
-        align-items: center;
-        height: 100vh;
-        background: linear-gradient(45deg, #3503ad, #f7308c);
-    border-radius: 15px;
-    padding: 8px;
-    margin: 8px;
-    }
+  .container {
+    font-family: Century Gothic;
+    background: white;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra il testo all'interno del container */
+  }
 
-    .container {
-font-family: Century Gothic;
-        justify-content: center;      
-        align-items: center;
-        background: white;
-        padding: 8px;
-    margin:8px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    
   H1 {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Century Gothic;
-  background: white;
-  border-radius: 10px;
-  z-index: 9999; 
-}
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Century Gothic;
+    background: white;
+    border-radius: 10px;
+  }
+ H2 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+   
+  H3 {
+    text-align: center; /* Centra il testo all'interno dell'elemento H3 */
+   }
+  
+  a, button {
+    text-align: center; /* Centra il testo all'interno di link e pulsanti */
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+
+  .custom-link:hover {
+    color: #9370DB;
+  }
 
 table {
-	border-collapse: collapse;
-	width: 100%;
+    border-collapse: collapse; /* Unisce i bordi delle celle */
+    width: 100%;
+    border: 3px solid black; /* Aggiunge un bordo al di fuori della tabella */
 }
 
 th, td {
-	border: 1px solid black;
-	padding: 1px;
-	text-align: left;
+    border: 3px solid black; /* Aggiunge un bordo a tutte le celle */
+    padding: 2px; /* Aggiunge spazio interno alle celle */
+    text-align: center;
 }
 
 th {
-	background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Aggiunge un colore di sfondo alle celle dell'intestazione */
 }
+
+  /* Media query per schermi di dimensioni fino a 768px */
+  @media only screen and (max-width: 768px) {
+    .container {
+      min-width: 150px; /* Riduci la larghezza minima per adattarsi ai dispositivi più piccoli */
+    }
+  }
 </style>
 </head>
 <body>
+	<div class="main-container">	
 	<div class="container">
+
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 		<%@ include file="findByIdCompanyClient.jsp"%>
-		<br>
+		</div>
+			<div class="container">
 		<%@ include file="findCompanyClientByNameForm.jsp"%>
-		<br>
+		</div>
+			<div class="container">
 		<%@ include file="findCompanyClientByCityForm.jsp"%>
-		<br>
+		</div>
+</div>
 
 		<%
     List<CompanyClient> tmp = (List<CompanyClient>) request.getAttribute("lista");
@@ -80,8 +113,10 @@ th {
         tmp = new ArrayList<>();
     }
 %>
-		
-		<br>
+
+<div class="main-container">
+<div class="container">
+
 		<table>
 			<thead>
 				<tr>
@@ -119,6 +154,7 @@ th {
 
 			</tbody>
 		</table>
+	</div>
 	</div>
 </body>
 </html>

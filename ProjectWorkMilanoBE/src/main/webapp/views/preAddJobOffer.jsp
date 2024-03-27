@@ -120,14 +120,8 @@ input[type="number"] {
 		<input type="number" id="idContractType" name="contractType.idContractType">
 		<br>
 		
-		<br>
-		<label for="tipoOperazione">Operation Type:</label>
-		<br>
-		<input type="text" id="tipo_operazione" name="tipo_operazione">
-		<br>
+<input type="submit" value="Invia">
 
- 		<br>
-		<input type="submit" value="Invia">
 	</form>
 	</div>
 </body>

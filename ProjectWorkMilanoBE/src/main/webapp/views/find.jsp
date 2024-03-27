@@ -7,86 +7,120 @@
 <meta charset="UTF-8">
 <style>
   body {
-        font-family: Century Gothic;
-        display: flex;
-        justify-content: center;      
-        align-items: center;
-        height: 100vh;
-        background: linear-gradient(45deg, #3503ad, #f7308c);
-    border-radius: 15px;
-    padding: 15px;
-    margin: 15px;
-    }
+    font-family: Century Gothic;
+    display: flex;
+    justify-content: center;      
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #3503ad, #f7308c);
+  }
+  
+  .main-container {
+    width: 90%; /* Utilizza il 90% della larghezza dello schermo */
+    max-width: 1200px; /* Larghezza massima del contenitore */
+    margin-top: 40%;
+    text-align: center; /* Centra il contenitore orizzontalmente */
+  }
 
-    .container {
-font-family: Century Gothic;
-        justify-content: center;      
-        align-items: center;
-        background: white;
-        padding: 15px;
-    margin:15px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    
+  .container {
+    font-family: Century Gothic;
+    background: white;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra il testo all'interno del container */
+  }
+
   H1 {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Century Gothic;
-  background: white;
-  border-radius: 10px;
-  z-index: 9999; 
-}
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Century Gothic;
+    background: white;
+    border-radius: 10px; 
+  }
+ H2 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+   
+  H3 {
+    text-align: center; /* Centra il testo all'interno dell'elemento H3 */
+   }
+  
+  a, button {
+    text-align: center; /* Centra il testo all'interno di link e pulsanti */
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
 
-table {
-	border-collapse: collapse;
-	width: 100%;
-}
+  .custom-link:hover {
+    color: #9370DB;
+  }
 
-th, td {
-	border: 1px solid black;
-	padding: 14px;
-	text-align: center;
-}
-
-th {
-	background-color: #f2f2f2;
-}
-.custom-link {
-  text-decoration: none; /* Rimuove la sottolineatura */
-  color: black; /* Cambia il colore del testo */
-  font-weight: bold; /* Rende il testo in grassetto */
-  /* Altri stili che desideri applicare al link */
-}
-
-.custom-link:hover {
-  color: #9370DB;; /* Cambia il colore del testo quando il cursore passa sopra il link */
-  /* Altri stili che desideri applicare al link quando il cursore passa sopra */
-}
+  /* Media query per schermi di dimensioni fino a 768px */
+  @media only screen and (max-width: 768px) {
+    .container {
+      min-width: 150px; /* Riduci la larghezza minima per adattarsi ai dispositivi più piccoli */
+    }
+  }
 </style>
+
 </head>
 <body>
-<div class="container">
-<h1>THIS IS CANDIDATE</h1> 
-    <h2>Please, select the desired action!</h2>
 
-    <table>
-        <tr>
-            <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/findByIdCandidateForm"><strong>Find by ID CANDIDATE</strong></a></td>
-            <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCitta"><strong>Find by CITY</strong></a></td>
-            <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia"><strong>Find by COMPANY</strong></a></td>
-            <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview"><strong>Find by STATE JOB INTERVIEW</strong></a></td>
-            <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerOutcome"><strong>Find by OUTCOME</strong></a></td>           
-            <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm"><strong>Find by SURNAME</strong></a></td>
-            <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"><strong>Find by PHONE</strong></a></td>
-            <td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm"><strong>Find by SKILL</strong></a></td>
-			<td><a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateByEDTForm"><strong>Find by EDUCATION DEGREE TYPE</strong></a></td>
-			<td><a class="custom-link" href="${pageContext.request.contextPath}/CandidateCommercialDataCtr/addCandidateCommercialDataForm"><strong>Add COMMERCIAL DATA</strong></a></td>
-			
-        </tr>
-    </table>  
-</div>
+<h1>CANDIDATE:select search method</h1> 
+
+
+<div class="main-container"> 
+<div class="container">   
+  <h3>SEARCH CANDIDATE BY ID</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/findByIdCandidateForm"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div> 
+      <div class="container">   
+  <h3>SEARCH CANDIDATE BY CITY</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCitta"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div>           
+     <div class="container">   
+  <h3>SEARCH CANDIDATE BY COMPANY</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerCompagnia"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div> 
+  <div class="container">   
+  <h3>SEARCH CANDIDATE BY STATE JOB INTERVIEW</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerStateJobInterview"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div> 
+ <div class="container">   
+  <h3>SEARCH CANDIDATE BY STATE OUTCOME</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preRicercaCandidatoPerOutcome"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div>
+  <div class="container"> 
+  <h3>SEARCH CANDIDATE BY SURNAME</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateBySurnameForm"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div> 
+  <div class="container">
+ <h3>SEARCH CANDIDATE BY PHONE</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div> 
+ <div class="container">
+ <h3>SEARCH CANDIDATE BY SKILL</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div> 
+  <div class="container">
+ <h3>SEARCH CANDIDATE BY EDUCATION DEGREE TYPE</h3>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateByEDTForm"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+   <hr style="border-color: #000000">         
+ </div>   
+</div>  
 </body>
 </html>
