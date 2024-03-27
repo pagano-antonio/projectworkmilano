@@ -85,6 +85,19 @@ public class EmployeeCtr {
 		employeeRep.deleteById(idEmployee);
 		return "OK";
 	}
+	
+	@GetMapping("/seeallEmployees")
+	public String seeallEmployees (Model model) {
+
+		System.out.println("entra");
+		
+		List<Employee> lista = employeeRep.findAll();
+		model.addAttribute("lista",lista);
+		
+		System.out.println(lista);
+		
+		return "seeallEmployees";
+	}
 
 }
 

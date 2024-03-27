@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.model.Employee"%>
 <!DOCTYPE html> 
 <html>
 <head>
@@ -81,7 +82,7 @@ input[type="number"] {
 </head>
 <body>
 <div class="container">
-     <h1>Update your data:</h1>
+     <h1>Update employee data:</h1>
 
     <!-- Form per la modifica dati -->
     <form action="${pageContext.request.contextPath}/EmployeeCtr/aggiornaEmployeePerId" method="post">
@@ -108,10 +109,17 @@ input[type="number"] {
         
         <br>
         
-      <label for="employeeType">Livello:</label>
-<select id="employeeType" name="employeeType" required>
+<label for="employeeType">Livello:</label>
+<select id="employeeType" name="employeeType" required disabled>
     <c:forEach var="type" items="${lista}">
-        <option value="${type.idEmployeeType}">${type.description}</option>
+        <c:choose>
+            <c:when test="${type.idEmployeeType eq employee.employeeType.idEmployeeType}">
+                <option value="${type.idEmployeeType}" selected>${type.description}</option>
+            </c:when>
+            <c:otherwise>
+                <option value="${type.idEmployeeType}">${type.description}</option>
+            </c:otherwise>
+        </c:choose>
     </c:forEach>
 </select>
 
@@ -119,7 +127,24 @@ input[type="number"] {
 
         <button type="submit">Conferma Modifiche</button>
     </form>
-    
+   
 </div>
+
+<script>
+    var userRole = "${utente.employeeType.description}"; // Ottieni il ruolo dell'utente dalla sessione
+
+    // Verifica se l'utente è HR Manager e abilita/disabilita il campo di selezione
+    if (userRole === "HR Manager") {
+        document.getElementById("employeeType").removeAttribute("disabled");
+    } else {
+        document.getElementById("employeeType").setAttribute("disabled", "disabled");
+    }
+</script>
+
+<% Employee utente = (Employee) session.getAttribute("utente"); %>
+<% if (utente != null && utente.getEmployeeType().getDescription().equals("HR Manager")) { %>
+    <h1><a href="${pageContext.request.contextPath}/EmployeeCtr/seeallEmployees">See all Employees</a></h1>
+<% } %>
+
 </body>
 </html>
