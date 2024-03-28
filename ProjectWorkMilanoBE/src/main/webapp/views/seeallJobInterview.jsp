@@ -50,6 +50,15 @@ font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
+ H3 {
+  position: absolute; 
+  top: 83%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  border-radius: 10px;
+  z-index: 9999; 
+}
 table {
 	border-collapse: collapse;
 	width: 100%;
@@ -63,6 +72,9 @@ th, td {
 
 th {
 	background-color: #f2f2f2;
+}
+a{
+	color: white;
 }
 </style>
 </head>
@@ -112,7 +124,7 @@ th {
 </table>
 
 <div>
-<a href="${pageContext.request.contextPath}/JobInterviewCtr/addJobInterviewForm">Add New Job Interview</a>
+<h3><a href="${pageContext.request.contextPath}/JobInterviewCtr/addJobInterviewForm">Add New Job Interview</a></h3>
 </div>
 
 </div>

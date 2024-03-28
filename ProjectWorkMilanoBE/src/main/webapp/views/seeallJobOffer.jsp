@@ -49,6 +49,15 @@ font-family: Century Gothic;
   border-radius: 10px;
   z-index: 9999; 
 }
+ H3 {
+  position: absolute; 
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Century Gothic;
+  border-radius: 10px;
+  z-index: 9999; 
+}
 table {
 	border-collapse: collapse;
 	width: 100%;
@@ -62,6 +71,9 @@ th, td {
 
 th {
 	background-color: #f2f2f2;
+}
+a{
+	color: white;
 }
 </style>
 </head>
@@ -105,7 +117,7 @@ th {
 	</table>
 </div>	
 
-<a href="${pageContext.request.contextPath}/JobOfferCtr/preInsertJobOffer"><button>Add new Job Offer</button></a>
+<h3><a href="${pageContext.request.contextPath}/JobOfferCtr/preInsertJobOffer">Add new Job Offer</a></h3>
 
 </body>
 </html>
