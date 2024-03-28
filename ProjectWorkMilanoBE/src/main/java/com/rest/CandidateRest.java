@@ -43,7 +43,8 @@ public class CandidateRest {
 		
 	@PostMapping("addCandidate")
 	public ResponseEntity<String> addCandidate (@RequestBody Candidate candidate) {		
-			
+		
+		System.out.println("Candidato in ingresso ADD Candidate" + candidate);
 		candidateRep.save(candidate);
 		return ResponseEntity.ok("Save Success");
 		

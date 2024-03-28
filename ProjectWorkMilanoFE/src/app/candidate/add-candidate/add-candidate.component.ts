@@ -19,6 +19,7 @@ export class AddCandidateComponent {
 
   addCandidate(){
     console.log('Ci sei!');
+    console.log('Candidato inviato:' + this.candidate.name);
     this.candidateService.addCandidate(this.candidate).subscribe(data => {
       console.log(data);
       this.router.navigate(['/allcandidates']);
