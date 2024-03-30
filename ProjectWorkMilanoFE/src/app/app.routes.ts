@@ -29,5 +29,5 @@ export const routes: Routes = [
 
 /*Link 'globali'*/
 {path: 'deleted/:id', component: DeleteComponent}, //Delete Success
-{path: 'error', component: ErrorComponent} //Error
+{path: '**', component: ErrorComponent} //Error
 ];
