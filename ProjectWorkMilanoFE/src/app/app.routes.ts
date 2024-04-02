@@ -11,13 +11,14 @@ import { AddCandidateComponent } from './candidate/add-candidate/add-candidate.c
 import { AllCandidatesComponent } from './candidate/candidates-list/candidates-list.component';
 
 export const routes: Routes = [
+
 /*Blocco di link legati alla Home*/
 {path: 'home', component: HomeComponent}, //Home
 {path: 'findcandidate', component: FindComponent}, //Find page con tutte le query in tabella
 {path: 'addcandidate', component: AddCandidateComponent}, //Aggiungi Candidato
-{path: 'allcandidates', component: AllCandidatesComponent},
+{path: 'allcandidates', component: AllCandidatesComponent}, //Restituisce la lista di TUTTI i candidati + il nuovo aggiunto
 
-/*Blocco di link su Candidate -> Find*/
+/*Blocco di link Candidate -> Find*/
 {path: 'findbyidcandidateform', component: FindbyidcandidateformComponent}, //Find by ID Candidate Form
 
 /*Pagine dei risultati di Candidate -> Find*/

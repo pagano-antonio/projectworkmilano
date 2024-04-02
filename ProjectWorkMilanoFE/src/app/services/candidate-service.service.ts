@@ -10,7 +10,10 @@ export class CandidateService {
 
   constructor(private hC: HttpClient) { }
 
+  candidate:Candidate = new Candidate;
+
   addCandidate(candidate:Candidate){
+    
     return this.hC.post<String>('http://localhost:8080/Candidate/addCandidate', candidate, {
       responseType: 'text' as 'json'
       // The "as 'json'" part is a type assertion needed to satisfy TypeScript's type checking,

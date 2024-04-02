@@ -7,25 +7,25 @@ import { WorkExperience } from "./WorkExperience";
 export class Candidate {
 
     /*Attributi*/
-    public idCandidate!: number;
-    public address!: String;
-    public birthday!: Date;
-    public birthPlace!: String;
-    public city!: String;
-    public email!: String;
-    public name!: String;
-    public phone!: BigInt;
-    public surname!: String;
+    private _idCandidate!: number;
+    private _address!: String;
+    private _birthday!: Date;
+    private _birthPlace!: String;
+    private _city!: String;
+    private _email!: String;
+    private _name!: String;
+    private _phone!: BigInt;
+    private _surname!: String;
 
     /*Liste*/
-    public candidateCommercialData!: CandidateCommercialData[];
-    public candidateSkills!: CandidateSkill[];
-    public educations!: Education[];
-    public jobInterview!: JobInterview[];
-    public workExperiences!: WorkExperience[];
+    private _candidateCommercialData!: CandidateCommercialData[];
+    private _candidateSkills!: CandidateSkill[];
+    private _educations!: Education[];
+    private _jobInterview!: JobInterview[];
+    private _workExperiences!: WorkExperience[];
 
     /*I GETTER e i SETTER*/
-    /*public set idCandidate(value:number){
+    public set idCandidate(value:number){
         this._idCandidate = value;
     }
 
@@ -135,5 +135,6 @@ export class Candidate {
 
     public get workExperiences():WorkExperience[]{
         return this._workExperiences;
-    }*/
+    }
+    
 }
