@@ -9,26 +9,33 @@ import { DeleteComponent } from './deletecomponent/delete/delete.component';
 import { FindbycandidateskillresComponent } from './candidate/findbycandidateskillcom/findbycandidateskillres/findbycandidateskillres.component';
 import { AddCandidateComponent } from './candidate/add-candidate/add-candidate.component';
 import { AllCandidatesComponent } from './candidate/candidates-list/candidates-list.component';
+import { UpdateskillformComponent } from './skill/updateskillform/updateskillform.component';
+import { UpdatecomponentComponent } from './updatecomponent/updatecomponent.component';
 
 export const routes: Routes = [
 
-/*Blocco di link legati alla Home*/
+/*Home*/
 {path: 'home', component: HomeComponent}, //Home
-{path: 'findcandidate', component: FindComponent}, //Find page con tutte le query in tabella
-{path: 'addcandidate', component: AddCandidateComponent}, //Aggiungi Candidato
+{path: 'findcandidate', component: FindComponent}, //Candidate -> Find
+{path: 'addcandidate', component: AddCandidateComponent}, //Candidate -> Add
+
 {path: 'allcandidates', component: AllCandidatesComponent}, //Restituisce la lista di TUTTI i candidati + il nuovo aggiunto
 
-/*Blocco di link Candidate -> Find*/
+/*Candidate -> Find*/
 {path: 'findbyidcandidateform', component: FindbyidcandidateformComponent}, //Find by ID Candidate Form
 
-/*Pagine dei risultati di Candidate -> Find*/
-{path: 'findbyidcandidateres/:id', component: FindbyidcandidateresComponent}, //Find by ID Candidate Res Page
+/*Candidate -> Find -> Res Pages*/
+{path: 'findbyidcandidateres/:id', component: FindbyidcandidateresComponent}, //Find by ID Candidate Res
 
-/*I pulsanti che si trovano nelle Res Page di Candidate*/
-{path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //da Find by ID Candidate Res -> Update Candidate Form
-{path: 'findbycandidateskillres/:id', component: FindbycandidateskillresComponent}, //da Find by Id Candidate Res -> Mostra Skill Candidate passando per SKILL
+/*Find by ID Candidate Res*/
+{path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //UPDATE -> Update Candidate Form
+{path: 'findbycandidateskillres/:id', component: FindbycandidateskillresComponent}, //SKILLS -> Candidate Skills
+
+/*Find by ID Candidate Res -> SKILLS*/
+{path: 'updateskillform/:id', component: UpdateskillformComponent}, //UPDATE -> Update Skill Form
 
 /*Link 'globali'*/
+{path: 'updatesuccess', component: UpdatecomponentComponent}, //Update Success
 {path: 'deleted/:id', component: DeleteComponent}, //Delete Success
 {path: '**', component: ErrorComponent} //Error
 ];

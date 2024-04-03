@@ -12,7 +12,10 @@ body {
 
 .container {
   font-family: Century Gothic;
-  justify-content: center;      
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+  left: 5%;    
   align-items: center;
   background: white;
   padding: 15px;
@@ -23,7 +26,7 @@ body {
 
 H1 {
   position: absolute;
-  top: 15%;
+  top: -85%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -34,6 +37,9 @@ H1 {
 
 H2 {
   color: black;
+  position: absolute;
+  top: -65%;
+  left: 35%;
 }
 
 table {

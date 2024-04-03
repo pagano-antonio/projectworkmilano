@@ -11,6 +11,8 @@ body {
 }
 
 .container {
+  position: relative;
+  top: 70%;
   font-family: Century Gothic;
   justify-content: center;      
   align-items: center;
@@ -22,11 +24,12 @@ body {
 }
 
 H1 {
-  position: absolute;
+  position: relative;
   top: 15%;
-  left: 50%;
+  left: 10%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
+  text-align: center;
   background: white;
   border-radius: 10px;
   z-index: 9999; 
@@ -34,10 +37,12 @@ H1 {
 
 H2 {
   position: absolute; 
-  top: 20%;
-  left: 50%;
+  top: 27%;
+  left: 53%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
+  text-align: center;
+  color: black;
   border-radius: 10px;
   z-index: 9999; 
 }

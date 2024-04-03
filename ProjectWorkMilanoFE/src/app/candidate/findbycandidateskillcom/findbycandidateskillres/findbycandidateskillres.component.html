@@ -1,19 +1,11 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <div class="container">
     <h1>SKILL</h1>
     <h2>SKILL BY ID: RESULTS!</h2>
 
+    <!--'*ngIf' è il corrispettivo dell'If. In questo caso sto dicendo: se 'skill' è
+    definita ed è > 0 allora mostra la tabella e il suo contenuto.-->
     <table *ngIf="skills && skills.length > 0">
         <thead>
             <tr>
@@ -24,17 +16,17 @@
             </tr>
         </thead>
         <tbody>
+            <!--Questo invece è il corrispettivo del forEach. 'skills' è la lista e 
+            'skill' è il singolo elemento, mentre idSkill, title e description sono
+            attributi di 'skill'.-->
             <tr *ngFor="let skill of skills">
                 <td>{{ skill.idSkill }}</td>
                 <td>{{ skill.title }}</td>
                 <td>{{ skill.description }}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/skill/updateSkillForm?idSkill=${sList.idSkill}">
-                        <button>Update</button>
-                    </a>
-                    <a>
-                        <button>Delete</button>
-                    </a>
+                    <!--Passo in ingresso l'ID della skill che voglio aggiornare/eliminare-->
+                    <button (click) = "goToUpdateSkills(skill.idSkill)">Update</button>
+                    <button (click) = "deleteCandidateSkill(skill.idSkill)">Delete</button>
                 </td>
             </tr>
         </tbody>
