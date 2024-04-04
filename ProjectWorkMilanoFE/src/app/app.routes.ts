@@ -11,6 +11,7 @@ import { AddCandidateComponent } from './candidate/add-candidate/add-candidate.c
 import { AllCandidatesComponent } from './candidate/candidates-list/candidates-list.component';
 import { UpdateskillformComponent } from './skill/updateskillform/updateskillform.component';
 import { UpdatecomponentComponent } from './updatecomponent/updatecomponent.component';
+import { FindjobinterviewbyidcandidateComponent } from './candidate/findjobinterviewbyidcandidate/findjobinterviewbyidcandidate.component';
 
 export const routes: Routes = [
 
@@ -30,6 +31,7 @@ export const routes: Routes = [
 /*Find by ID Candidate Res*/
 {path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //UPDATE -> Update Candidate Form
 {path: 'findbycandidateskillres/:id', component: FindbycandidateskillresComponent}, //SKILLS -> Candidate Skills
+{path: 'findjobinterviewbyidcandidate/:id', component: FindjobinterviewbyidcandidateComponent}, //JOB INTERVIEWS -> Candidate JIs
 
 /*Find by ID Candidate Res -> SKILLS*/
 {path: 'updateskillform/:id', component: UpdateskillformComponent}, //UPDATE -> Update Skill Form

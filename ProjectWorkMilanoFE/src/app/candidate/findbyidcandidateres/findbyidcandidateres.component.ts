@@ -1,33 +1,47 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { Candidate } from '../../model/Candidate';
+import { JobInterview } from '../../model/JobInterview';
 import { Skill } from '../../model/Skill';
 import { CandidateService } from '../../services/candidate-service.service';
 import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 import { SkillServiceService } from '../../services/skill-service.service';
+import { JobinterviewService } from '../../services/jobinterview.service';
 
 @Component({
   selector: 'app-findbyidcandidateres',
   standalone: true,
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet, FormsModule, NgFor],
   templateUrl: './findbyidcandidateres.component.html',
   styleUrl: './findbyidcandidateres.component.css'
 })
 export class FindbyidcandidateresComponent {
   candidate:Candidate = new Candidate;
   
-  constructor(private router: Router, private route:ActivatedRoute, private candidateService: CandidateService, private skillService: SkillServiceService) {
+  constructor(private router: Router, private route:ActivatedRoute, private candidateService: CandidateService, private skillService: SkillServiceService, private jiService: JobinterviewService) {
     this.candidate.idCandidate = this.route.snapshot.params['id'];
     }
 
+  /*ngOnInit è il momento in cui puoi preparare il tuo componente per funzionare 
+  correttamente. Una volta che ngOnInit è stato chiamato, il componente è pronto per 
+  essere utilizzato. In termini più tecnici, è un hook del ciclo di vita del componente Angular. 
+  Viene chiamata una sola volta dopo che il componente è stato creato.*/
   ngOnInit() {
-      // Sottoscrizione ai cambiamenti dei parametri dell'URL
+      /*Questo è l'aggancio all'URL della richiesta, che dipende dai parametri in ingresso.
+      In questo caso, ci riferiamo a 'findbyidcandidateres/:id' e dunque al parametro 'id'.*/
       this.route.params.subscribe(params => {
-        const id = +params['id']; // Converte l'ID in numero
-        if (!isNaN(id)) { // Verifica se l'ID è un numero valido
+        /*'id' è una stringa perché gli URL sono stringhe, ma a noi serve un numero. Con il +
+        rendiamo 'id' un numero.*/
+        const id = +params['id'];
+        /*Se 'id' è numero. 'isNaN' significa 'is Not a Number' ed è 'true' di default. In questo
+        caso invece gli stiamo dicendo se 'isNaN' è falso, allora fai questo.*/
+        if (!isNaN(id)) {
+          /*se 'id' è un numero valido assegnalo a 'idCandidate' di 'candidate'.*/
           this.candidate.idCandidate = id;
+          /*Adesso prendi l'ID e usalo per farti restituire i dettagli del candidato interessato.*/
           this.candidateService.getCandidateById(id).subscribe(data => {
-          this.candidate = data; // Assegna i dettagli del candidato alla proprietà candidate
+          this.candidate = data;
           })
       }
 })
@@ -73,5 +87,24 @@ showCandidateSkills() {
     // Gestisci il caso in cui l'ID del candidato non sia definito
   }
 
+}
+
+showCandidateJobInterviews(){
+  console.log('Sei in showCandidateJobInterviews');
+  const id = this.candidate.idCandidate;
+  if(id){
+    this.jiService.getJobInterviewByIdCandidate(id).subscribe(
+      (data: JobInterview[]) =>{
+        console.log(data);
+        this.router.navigate(['findjobinterviewbyidcandidate', id]);
+      },
+      (error) => {
+        console.error('Errore durante il recupero del colloquio del candidato:', error);
+      }
+    );
+  } else {
+  console.error('ID del candidato non definito');
+  // Gestisci il caso in cui l'ID del candidato non sia definito
+}
 }
 }

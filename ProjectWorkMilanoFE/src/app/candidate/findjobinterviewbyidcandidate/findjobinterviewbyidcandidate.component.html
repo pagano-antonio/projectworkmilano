@@ -1,0 +1,49 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="container">
+
+    <h1>JOB INTERVIEW</h1>
+    <h2>This is Candidates' job interview</h2>
+    <table>
+    <thead>
+        <tr>
+            <th>ID JOB INTERVIEW</th>
+            <th>ID CANDIDATE</th>
+            <th>DATE</th>
+            <th>ID STATE JOB INTERVIEW</th>
+            <th>OUTCOME</th>
+            <th>NOTES</th>
+            <th>ID EMPLOYEE</th>               
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let jobInterview of jobInterviews">
+            <td>{{jobInterview.idJobInterview}}</td>
+            <td>{{jobInterview.candidate.idCandidate}}</td>
+            <td>{{jobInterview.date}}</td>
+            <td>{{jobInterview.stateJobInterview.idStateJobInterview}}</td>
+            <td>{{jobInterview.outcome}}</td>
+            <td>{{jobInterview.notes}}</td>
+            <td>{{jobInterview.employee.idEmployee}}</td>
+                        
+                        <td><form action="${pageContext.request.contextPath}/JobInterviewCtr/delete" method="get">
+                            <input type="hidden" name="idJobInterview" value="${jobInterview.idJobInterview}">
+                            <button type="submit">DELETE</button>
+                            </form></td>
+    
+                        <td><form action="${pageContext.request.contextPath}/JobInterviewCtr/updateJobInterviewForm" method="get">
+                            <input type="hidden" name="idJobInterview" value="${jobInterview.idJobInterview}">
+                            <button type="submit">UPDATE</button>
+                            </form></td>
+                                </tr>					 
+            </tbody>
+     
+    </table>
+    
+    <div>
+    <a href="${pageContext.request.contextPath}/JobInterviewCtr/addJobInterviewForm">Add New Job Interview</a>
+    </div>
+    
+    </div>

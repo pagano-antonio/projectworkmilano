@@ -46,10 +46,10 @@
                 <button type="submit">SKILLS</button>
             </form>
         
-         <form action="${pageContext.request.contextPath}/JobInterviewCtr/findJobInterviewByIdCandidate" method="Post">
-        <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
-        <button type="submit">JOB INTERVIEW</button>
-    </form>
+            <form (ngSubmit)="showCandidateJobInterviews()">
+                <input type="hidden" [(ngModel)] = "candidate.idCandidate" [ngModelOptions]="{standalone: true}" value="{{candidate.idCandidate}}">
+                <button type="submit">JOB INTERVIEWS</button>
+            </form>
     
     <form action="${pageContext.request.contextPath}/EducationCtr/findEducationByIdCandidate" method="Post">
         <input type="hidden" name="idCandidate" value="${candidate.idCandidate}">
