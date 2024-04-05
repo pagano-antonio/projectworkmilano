@@ -22,6 +22,10 @@ export class EmployeeService {
     return this.hC.get<Employee>('http://localhost:8080/Employee/ricercaByIdEmployee/'+ id);
   }
 
+  getAllEmployees(){
+    return this.hC.get<Employee[]>('http://localhost:8080/Employee/findAllEmployees');
+  }
+
   updateEmployee(employee:Employee){
     return this.hC.put<String>('http://localhost:8080/Employee/aggiornaEmployee', employee, {
       responseType: 'text' as 'json'

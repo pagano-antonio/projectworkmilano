@@ -12,6 +12,7 @@ import { AllCandidatesComponent } from './candidate/candidates-list/candidates-l
 import { UpdateskillformComponent } from './skill/updateskillform/updateskillform.component';
 import { UpdatecomponentComponent } from './updatecomponent/updatecomponent.component';
 import { FindjobinterviewbyidcandidateComponent } from './candidate/findjobinterviewbyidcandidate/findjobinterviewbyidcandidate.component';
+import { UpdateJobInterviewFormComponent } from './jobInterview/update-job-interview-form/update-job-interview-form.component';
 
 export const routes: Routes = [
 
@@ -35,6 +36,9 @@ export const routes: Routes = [
 
 /*Find by ID Candidate Res -> SKILLS*/
 {path: 'updateskillform/:id', component: UpdateskillformComponent}, //UPDATE -> Update Skill Form
+
+/*Find by ID Candidate Res -> JOB INTERVIEWS */
+{path: 'updatejobinterviewform/:id', component: UpdateJobInterviewFormComponent}, //UPDATE -> Update JOB INTERVIEW Form
 
 /*Link 'globali'*/
 {path: 'updatesuccess', component: UpdatecomponentComponent}, //Update Success

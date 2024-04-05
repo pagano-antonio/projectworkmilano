@@ -13,9 +13,9 @@
             <th>ID STATE JOB INTERVIEW</th>
             <th>OUTCOME</th>
             <th>NOTES</th>
-            <th>ID EMPLOYEE</th>               
+            <th>ID EMPLOYEE</th>
+            <th>UPDATE</th>               
             <th>DELETE</th>
-            <th>UPDATE</th>
         </tr>
     </thead>
     <tbody>
@@ -27,23 +27,22 @@
             <td>{{jobInterview.outcome}}</td>
             <td>{{jobInterview.notes}}</td>
             <td>{{jobInterview.employee.idEmployee}}</td>
-                        
-                        <td><form action="${pageContext.request.contextPath}/JobInterviewCtr/delete" method="get">
-                            <input type="hidden" name="idJobInterview" value="${jobInterview.idJobInterview}">
-                            <button type="submit">DELETE</button>
-                            </form></td>
+            <td>
+                <button (click)="goToUpdateJobInterview(jobInterview.idJobInterview)">UPDATE</button>
+            </td>
+            <td>
+                <button (click) = "deleteJobInterview(jobInterview.idJobInterview)">DELETE</button>
+            </td>
+            </tr>					 
+        </tbody>
     
-                        <td><form action="${pageContext.request.contextPath}/JobInterviewCtr/updateJobInterviewForm" method="get">
-                            <input type="hidden" name="idJobInterview" value="${jobInterview.idJobInterview}">
-                            <button type="submit">UPDATE</button>
-                            </form></td>
-                                </tr>					 
-            </tbody>
-     
     </table>
     
     <div>
-    <a href="${pageContext.request.contextPath}/JobInterviewCtr/addJobInterviewForm">Add New Job Interview</a>
+    <a href="">Add New Job Interview</a>
+    <!--Questo link non funziona perché non mi andava di creare Add Job Interview ^^|||-->
+    <!--C'è un problema in questo metodo in Eclipse, dopo l'aggiunta restituisce l'elenco
+    completo ma il nuovo ADD è vuoto.-->
     </div>
     
     </div>

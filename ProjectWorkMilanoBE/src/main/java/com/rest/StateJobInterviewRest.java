@@ -1,5 +1,6 @@
 package com.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.dao.StateJobInterviewRepository;
+import com.model.Candidate;
 import com.model.StateJobInterview;
 
 @CrossOrigin
@@ -76,4 +78,10 @@ public class StateJobInterviewRest {
 
 		return ResponseEntity.ok("OK");
 	}
+	
+	//FIND ALL
+		@GetMapping("findAllStateJobInterviews")
+	    public List<StateJobInterview> findAllStateJobInterviews() {
+	        return stateJobInterviewRepository.findAll();
+	    }
 }

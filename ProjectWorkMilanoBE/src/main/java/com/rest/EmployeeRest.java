@@ -1,5 +1,7 @@
 package com.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dao.EmployeeRepository;
-
+import com.model.Candidate;
 import com.model.Employee;
 
 @CrossOrigin
@@ -100,5 +102,11 @@ public class EmployeeRest {
 		return ResponseEntity.ok("ELIMINATO");
 
 	}
+	
+	//FIND ALL
+		@GetMapping("findAllEmployees")
+	    public List<Employee> findAllEmployees() {
+	        return employeeRep.findAll();
+	    }
 
 }

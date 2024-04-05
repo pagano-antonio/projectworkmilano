@@ -22,6 +22,10 @@ export class StatejobinterviewService {
     return this.hC.get<StateJobInterview>('http://localhost:8080/StateJobInterviewRest/findById/'+ id);
   }
 
+  getAllStateJobInterview(){
+    return this.hC.get<StateJobInterview[]>('http://localhost:8080/StateJobInterviewRest/findAllStateJobInterviews');
+  }
+
   updateStateJobInterview(sji:StateJobInterview){
     return this.hC.put<String>('http://localhost:8080/StateJobInterviewRest/updateStateJobInterview', sji, {
       responseType: 'text' as 'json'

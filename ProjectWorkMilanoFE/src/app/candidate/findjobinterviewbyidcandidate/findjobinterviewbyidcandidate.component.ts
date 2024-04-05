@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { JobInterview } from '../../model/JobInterview';
 import { Candidate } from '../../model/Candidate';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JobinterviewService } from '../../services/jobinterview.service';
 
 @Component({
   selector: 'app-findjobinterviewbyidcandidate',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, FormsModule],
   templateUrl: './findjobinterviewbyidcandidate.component.html',
   styleUrl: './findjobinterviewbyidcandidate.component.css'
 })
@@ -20,7 +21,7 @@ export class FindjobinterviewbyidcandidateComponent {
   jobInterviews: JobInterview[] = [];
   candidateDataToSend: any; // Dichiarazione della proprietà che mi serve per inviare i dati correttamente al DB
 
-  constructor(private route: ActivatedRoute, private jobInterviewSer: JobinterviewService) {
+  constructor(private route: ActivatedRoute, private router:Router, private jobInterviewSer: JobinterviewService) {
         this.candidate.idCandidate = this.route.snapshot.params['id'];
    }
 
@@ -44,4 +45,19 @@ export class FindjobinterviewbyidcandidateComponent {
       }
     );
 }
+
+  goToUpdateJobInterview(idJobInterview:number){
+    console.log('sei in goToUpdateJobInterview');
+    console.log(idJobInterview);
+    this.router.navigate(['/updatejobinterviewform', idJobInterview]);
+  }
+
+  deleteJobInterview(idJobInterview:number){
+    console.log('sei in Delete JI');
+    console.log('ID ' + idJobInterview);
+    this.jobInterviewSer.deleteJobInterview(idJobInterview).subscribe(data => {
+      console.log('Delete ' + data);
+      this.router.navigate(['/deleted', idJobInterview]);
+    })
+  }
 } 
