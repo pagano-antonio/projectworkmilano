@@ -22,6 +22,10 @@ export class WorkexperienceService {
     return this.hC.get<WorkExperience>('http://localhost:8080/WorkExperienceRest/findById/'+ id);
   }
 
+  getWorkExperienceByIdCandidate(id:number){
+    return this.hC.get<WorkExperience[]>('http://localhost:8080/WorkExperienceRest/findWorkExperienceByIdCandidate/' + id);
+  }
+
   updateWorkExperience(workex:WorkExperience){
     return this.hC.put<String>('http://localhost:8080/WorkExperienceRest/updateWorkExperience', workex, {
       responseType: 'text' as 'json'

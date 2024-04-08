@@ -1,0 +1,46 @@
+<div class="container">
+
+    <h1>WORK EXPERIENCE</h1>
+    <h2>Candidate's work experience: RESULTS!</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id Work Experience</th>
+                <th>Id Candidate</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Company</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--<c:forEach var="workExperience" items="${workExperienceList}"> Questo viene sostituito dalla riga sotto -->
+                <tr *ngFor="let workexp of workexps">
+                    <!--<td>${workExperience.idWorkExperience}</td>-->
+                    <td>{{workexp.idWorkExperience}}</td>
+                    <td>{{workexp.candidate.idCandidate}}</td>
+                    <td>{{workexp.title}}</td>
+                    <td>{{workexp.description}}</td>
+                    <td>{{workexp.startDate}}</td>
+                    <td>{{workexp.endDate}}</td>
+                    <td>{{workexp.company}}</td>
+                    <td>{{workexp.city}}</td>
+                    <td>
+                        <form (ngSubmit)="goToUpdateWorkExperience(workexp.idWorkExperience)">
+                            <input type="hidden" [(ngModel)]="workexp.idWorkExperience" value="{{workexp.idWorkExperience}}">
+                            <button type="submit">UPDATE</button>
+                        </form>
+                        <form (ngSubmit)="deleteWorkExperience(workexp.idWorkExperience)">
+                            <input type="hidden" [(ngModel)]="workexp.idWorkExperience" value="{{workexp.idWorkExperience}}">
+                            <button type="submit">DELETE</button>
+                        </form>
+                    </td>
+                </tr>
+            <!--</c:forEach>-->
+        </tbody>
+    </table>
+</div>

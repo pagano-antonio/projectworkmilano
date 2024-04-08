@@ -1,0 +1,43 @@
+<div class="container">
+    
+    <h1>EDUCATION</h1>
+    <h2>This is EDUCATION</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID EDUCATION</th>
+                <th>ID EDUCATION DEGREE TYPE</th>
+                <th>SCHOOL NAME</th>
+                <th>PLACE</th>
+                <th>DATE</th>
+                <th>FINAL GRADE</th>
+                <th>ID CANDIDATE</th>               
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+    <tbody>
+        <!--<c:forEach var="education" items="${LISTA}"> Questo non mi serve più-->
+        <tr *ngFor="let education of educationList">
+            <td>{{education.idEducation}}</td>
+            <td>{{education.educationDegreeType.idEducationDegreeType}}</td>
+            <!--<td><c:out value="${education.schoolName}" /></td> In Angular non si fa così-->
+            <td>{{education.schoolName}}</td>
+            <td>{{education.place}}</td>
+            <td>{{education.date}}</td>
+            <td>{{education.finalGrade}}</td>
+            <td>{{education.candidate.idCandidate}}</td>
+            <td>
+                <form (ngSubmit)="deleteEducation(education.idEducation)">
+                    <input type="hidden" [(ngModel)]="education.idEducation" [ngModelOptions]="{standalone: true}" value="{{education.idEducation}}">
+                    <button type="submit">DELETE</button>
+                </form>                        
+                <form (ngSubmit)="goToUpdateEducation(education.idEducation)">
+                    <input type="hidden" [(ngModel)]="education.idEducation" [ngModelOptions]="{standalone: true}" value="{{education.idEducation}}">
+                    <button type="submit">UPDATE</button>
+                </form>
+            </td>                       
+        </tr>
+    </tbody>
+     
+    </table>
+</div>

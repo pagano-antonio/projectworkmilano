@@ -22,6 +22,10 @@ export class EducationService {
     return this.hC.get<Education>('http://localhost:8080/Education/findEducationById?idEducation='+ id);
   }
 
+  getEducationByIdCandidate(id:number){
+    return this.hC.get<Education[]>('http://localhost:8080/Education/findEducationByIdCandidate/'+ id);
+  }
+
   updateEducation(ed:Education){
     return this.hC.put<String>('http://localhost:8080/Education/updateEducation', ed, {
       responseType: 'text' as 'json'

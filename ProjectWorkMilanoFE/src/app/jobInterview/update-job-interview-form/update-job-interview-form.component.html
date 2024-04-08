@@ -5,7 +5,7 @@
         
     <h2>Update Job Interview form:</h2>
         
-    <form (ngSubmit) = "updateJobInterview()">
+    <form (ngSubmit)="updateJobInterview()">
 
         <label for="idJobInterview">Job Interview ID:</label>
         <br>
@@ -13,9 +13,9 @@
         <br>
         <label for="idCandidate">Candidate:</label>
         <br>
-        <select [(ngModel)] = "candidate.idCandidate" [ngModelOptions]="{standalone: true}" id="idCandidate">
+        <select [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone: true}" id="idCandidate">
             <!--<c:forEach var="candidate" items="${candidateList}"> Sostituisco il forEach con ngFor-->
-            <option *ngFor= "let candidate of candidates" value = "candidate.idCandidate">{{candidate.name}} {{candidate.surname}}</option>
+            <option *ngFor="let candidate of candidates" value="candidate.idCandidate">{{candidate.name}} {{candidate.surname}}</option>
             <!--</c:forEach>-->
         </select>		
         <br>					

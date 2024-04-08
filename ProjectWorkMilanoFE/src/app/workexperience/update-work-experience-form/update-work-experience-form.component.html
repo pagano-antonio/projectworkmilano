@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>WORK EXPERIENCE</h1>
+
+    <h1>Update Work Experience</h1>
+
+    <form (ngSubmit)="updateWorkExperience()">
+
+        <!--<c:set var="wk" value="${WorkExperience}" />-->
+
+        <label for="idWorkExperience">Id Work Experience:</label> 
+        <br> 
+        <input readonly type="number" id="idWorkExperience" [(ngModel)]="workexp.idWorkExperience" [ngModelOptions]="{standalone:true}" value="{{workexp.idWorkExperience}}"> 
+        <br> 
+        <label for="candidate">Seleziona un candidato:</label> 
+        <select id="candidate" [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone: true}">
+            <!--<c:forEach items="${candidates}" var="candidate">-->
+                <option *ngFor="let candidate of candidates" value="candidate.idCandidate">{{candidate.name}} {{candidate.surname}}</option>
+            <!--</c:forEach>-->
+        </select> 
+        <br> 
+        <label for="title">Title</label> 
+        <br> 
+        <input type="text" id="title" [(ngModel)]="workexp.title" [ngModelOptions]="{standalone:true}" value="{{workexp.title}}"> 
+        <br>
+        <label for="description">Description</label> 
+        <br> 
+        <input type="text" id="description" [(ngModel)]="workexp.description" [ngModelOptions]="{standalone:true}" value="{{workexp.description}}"> 
+        <br> 
+        <label for="startDate">Start Date</label> 
+        <br> 
+        <input type="date" id="startDate" [(ngModel)]="workexp.startDate" [ngModelOptions]="{standalone:true}" value="{{workexp.startDate}}"> 
+        <br> 
+        <label for="endDate">End Date</label> 
+        <br> 
+        <input type="date" id="endDate" [(ngModel)]="workexp.endDate" [ngModelOptions]="{standalone:true}" value="{{workexp.endDate}}"> 
+        <br> 
+        <label for="company">Company</label>
+        <br> 
+        <input type="text" id="company" [(ngModel)]="workexp.company" [ngModelOptions]="{standalone:true}" value="{{workexp.company}}"> 
+        <br> 
+        <label for="city">City</label>
+        <br> 
+        <input type="text" id="city" [(ngModel)]="workexp.city" [ngModelOptions]="{standalone:true}" value="{{workexp.city}}">
+        <br> 
+        <input type="submit" value="Update">
+    </form>
+</div>

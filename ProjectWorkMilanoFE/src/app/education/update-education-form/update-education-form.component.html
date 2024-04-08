@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>EDUCATION</h1> 
+    <h2>Update Education Data:</h2>
+    
+    <form (ngSubmit)="updateEducation()">
+        <label for="idEducation">Education ID:</label>
+        <br>
+        <input readonly type="number" id="idEducation" [(ngModel)]="education.idEducation" [ngModelOptions]="{standalone: true}" value="{{education.idEducation}}">
+        <br>
+        <label for="idEducationDegreeType">Education Degree Type:</label>
+        <br>
+        <select [(ngModel)]="edt.idEducationDegreeType" [ngModelOptions]="{standalone: true}" id="educationDegreeType">
+            <!--<c:forEach var="edt" items="${EDTlist}"> Al posto di questo mettiamo ngFor-->
+            <option *ngFor="let edt of edtList" value="edt.idEducationDegreeType">{{edt.description}}</option>
+            <!--</c:forEach>-->
+        </select>
+        <br>
+        <label for="idCandidate">Candidate:</label>
+        <br>
+        <select [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone: true}" id="idCandidate">
+            <!--<c:forEach var="candidate" items="${candidateList}">-->
+            <option *ngFor="let candidate of candidates" value="candidate.idCandidate">{{candidate.name}} {{candidate.surname}}</option>
+            <!--</c:forEach>-->
+        </select>		
+        <br>
+        <label for="schoolName">School Name:</label>
+        <br>
+        <input type="text" id="schoolName" [(ngModel)]="education.schoolName" [ngModelOptions]="{standalone: true}" value="{{education.schoolName}}">
+        <br>
+        <label for="place">School Place:</label>
+        <br>
+        <input type="text" id="place" [(ngModel)]="education.place" [ngModelOptions]="{standalone: true}" value="{{education.place}}">
+        <br>
+        <label for="date">Graduation Date:</label>
+        <br>
+        <input type="date" id="date" [(ngModel)]="education.date" [ngModelOptions]="{standalone: true}" value="{{education.date}}">
+        <br>
+        <label for="finalGrade">Final Grade:</label>
+        <br>
+        <input type="text" id="finalGrade" [(ngModel)]="education.finalGrade" [ngModelOptions]="{standalone: true}" value="{{education.finalGrade}}">
+        <br>
+        <input type="submit" value="Update Education">
+    </form>
+</div>

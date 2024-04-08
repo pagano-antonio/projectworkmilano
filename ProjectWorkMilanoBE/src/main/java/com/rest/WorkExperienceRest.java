@@ -1,5 +1,6 @@
 package com.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,8 @@ public class WorkExperienceRest {
 	@DeleteMapping("deleteWorkExperience/{idWorkExperience}")
 	public ResponseEntity<String> delete(@PathVariable("idWorkExperience") int idWorkExperience) {
 
-		WorkExperience res = workExperienceRepository.findById(idWorkExperience).get();;
+		WorkExperience res = workExperienceRepository.findById(idWorkExperience).get();
+		;
 
 		if (res != null) {
 
@@ -45,7 +47,7 @@ public class WorkExperienceRest {
 			ResponseEntity.ok("Delete Success");
 
 		} else {
-				
+
 		}
 		return ResponseEntity.ok("Delete NOT Success");
 	}
@@ -71,5 +73,15 @@ public class WorkExperienceRest {
 		workExperienceRepository.save(sji);
 
 		return ResponseEntity.ok("OK");
+	}
+	
+///////////////////////////////////////////////// METODO CERCA PER ID CANDIDATE ////////////////////////////////////////////////
+	
+	@GetMapping("findWorkExperienceByIdCandidate/{idCandidate}")
+	public List<WorkExperience> findWorkExperienceByIdCandidate(@PathVariable("idCandidate") int idCandidate){
+		
+		return workExperienceRepository.findByCandidateIdCandidate(idCandidate);
+		
+		//localhost:8080/WorkExperienceRest/findWorkExperienceByIdCandidate/1
 	}
 }

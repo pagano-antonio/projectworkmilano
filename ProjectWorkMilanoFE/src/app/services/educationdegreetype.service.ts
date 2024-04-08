@@ -40,4 +40,8 @@ export class EducationdegreetypeService {
     return this.hC.get<EducationDegreeType>('http://localhost:8080/EducationDegreeType/findeducationDegreeTypeById?ideducationDegreeType='+ id);
   }
 
+  getAllEducationDegreeTypes(){
+    return this.hC.get<EducationDegreeType[]>('http://localhost:8080/EducationDegreeType/findAllEducationDegreeTypes');
+  }
+
 }

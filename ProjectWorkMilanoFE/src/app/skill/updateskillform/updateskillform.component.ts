@@ -15,7 +15,9 @@ export class UpdateskillformComponent {
   
   skill:Skill = new Skill;
 
-  constructor(private route:ActivatedRoute, private skillService:SkillServiceService, private router:Router){
+  constructor(private route:ActivatedRoute, 
+              private skillService:SkillServiceService, 
+              private router:Router){
     /*Stiamo recuperando dall'URL della richiesta il parametro 'id' che ci serve per
     richiamare i dati a esso associati.*/
     this.skill.idSkill = this.route.snapshot.params['id'];

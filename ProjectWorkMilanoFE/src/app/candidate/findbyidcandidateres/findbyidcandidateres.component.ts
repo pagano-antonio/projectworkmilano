@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 import { Candidate } from '../../model/Candidate';
+import { Education } from '../../model/Education';
 import { JobInterview } from '../../model/JobInterview';
 import { Skill } from '../../model/Skill';
 import { CandidateService } from '../../services/candidate-service.service';
-import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
 import { SkillServiceService } from '../../services/skill-service.service';
 import { JobinterviewService } from '../../services/jobinterview.service';
+import { EducationService } from '../../services/education.service';
+import { WorkexperienceService } from '../../services/workexperience.service';
+import { WorkExperience } from '../../model/WorkExperience';
 
 @Component({
   selector: 'app-findbyidcandidateres',
@@ -19,7 +23,13 @@ import { JobinterviewService } from '../../services/jobinterview.service';
 export class FindbyidcandidateresComponent {
   candidate:Candidate = new Candidate;
   
-  constructor(private router: Router, private route:ActivatedRoute, private candidateService: CandidateService, private skillService: SkillServiceService, private jiService: JobinterviewService) {
+  constructor(private router: Router, 
+              private route:ActivatedRoute, 
+              private candidateService: CandidateService, 
+              private skillService: SkillServiceService, 
+              private jiService: JobinterviewService,
+              private educationSer:EducationService,
+              private workExService:WorkexperienceService) {
     this.candidate.idCandidate = this.route.snapshot.params['id'];
     }
 
@@ -106,5 +116,36 @@ showCandidateJobInterviews(){
   console.error('ID del candidato non definito');
   // Gestisci il caso in cui l'ID del candidato non sia definito
 }
+}
+
+showCandidateEducation(){
+  console.log('Sei in Show Candidate Education'); //Messaggio di controllo
+  const id = this.candidate.idCandidate; //creo una costante che contenga idCandidate
+  if(id){ //se id != 0
+    this.educationSer.getEducationByIdCandidate(id).subscribe( //cerco l'istruzione per ID candidate
+      (data: Education[]) =>{ //assegno i dati a una lista di Education
+        console.log(data); //stampo i dati recuperati in console come controllo
+        this.router.navigate(['findeducationbyidcandidate', id]); //mi faccio restituire la pagina dei risultati
+      }
+    )
+  } else {
+    console.error('Undefined Candidate ID');
+    // Gestisci il caso in cui l'ID del candidato non sia definito
+  }
+}
+
+showCandidateWorkExperience(){
+  console.log('Sei in Show Candidate Work Experience!'); //controllo di essere nel metodo
+  const id = this.candidate.idCandidate; //creo una costante che contenga ID Candidate
+  if(id){ //se id è diverso da 0, ovvero non è null
+    this.workExService.getWorkExperienceByIdCandidate(id).subscribe( //richiamo il metodo che mi serve per ottenere l'esperienza lavorativa del candidato. 'subscribe' richiama i dati
+      (data: WorkExperience[]) =>{ //assegnamo i dati richiamati a una lista di Work Experience
+        console.log(data); //controlliamo che i dati siano effettivamente presenti
+        this.router.navigate(['findworkexperiencebyidcandidate', id]); //diciamo al router di spostarsi nella pagina nelle []
+      }
+    )
+  } else {
+    console.error('Undefined Candidate ID'); //se id è 0, allora otterremo questo messaggio di errore
+  }
 }
 }

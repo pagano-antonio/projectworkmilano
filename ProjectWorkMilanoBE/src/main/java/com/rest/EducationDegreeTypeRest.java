@@ -1,5 +1,7 @@
 package com.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dao.EducationDegreeTypeRepository;
+import com.model.Candidate;
 import com.model.EducationDegreeType;
 
 @CrossOrigin
@@ -66,4 +69,10 @@ public class EducationDegreeTypeRest {
 		
 		//localhost:8080/EducationDegreeType/findeducationDegreeTypeById?ideducationDegreeType=1
 	}
+	
+	//FIND ALL
+	@GetMapping("findAllEducationDegreeTypes")
+	    public List<EducationDegreeType> findAllEducationDegreeTypes() {
+	        return educationDegreeTypeRep.findAll();
+	    }
 }

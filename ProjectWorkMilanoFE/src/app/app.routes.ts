@@ -11,8 +11,12 @@ import { AddCandidateComponent } from './candidate/add-candidate/add-candidate.c
 import { AllCandidatesComponent } from './candidate/candidates-list/candidates-list.component';
 import { UpdateskillformComponent } from './skill/updateskillform/updateskillform.component';
 import { UpdatecomponentComponent } from './updatecomponent/updatecomponent.component';
-import { FindjobinterviewbyidcandidateComponent } from './candidate/findjobinterviewbyidcandidate/findjobinterviewbyidcandidate.component';
+import { FindjobinterviewbyidcandidateComponent } from './jobInterview/findjobinterviewbyidcandidate/findjobinterviewbyidcandidate.component';
 import { UpdateJobInterviewFormComponent } from './jobInterview/update-job-interview-form/update-job-interview-form.component';
+import { FindEducationByIdCandidateComponent } from './education/find-education-by-id-candidate/find-education-by-id-candidate.component';
+import { UpdateEducationFormComponent } from './education/update-education-form/update-education-form.component';
+import { FindWorkExperienceByIdCandidateComponent } from './workexperience/find-work-experience-by-id-candidate/find-work-experience-by-id-candidate.component';
+import { UpdateWorkExperienceFormComponent } from './workexperience/update-work-experience-form/update-work-experience-form.component';
 
 export const routes: Routes = [
 
@@ -33,12 +37,20 @@ export const routes: Routes = [
 {path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //UPDATE -> Update Candidate Form
 {path: 'findbycandidateskillres/:id', component: FindbycandidateskillresComponent}, //SKILLS -> Candidate Skills
 {path: 'findjobinterviewbyidcandidate/:id', component: FindjobinterviewbyidcandidateComponent}, //JOB INTERVIEWS -> Candidate JIs
+{path: 'findeducationbyidcandidate/:id', component: FindEducationByIdCandidateComponent}, //EDUCATION -> Candidate Education
+{path: 'findworkexperiencebyidcandidate/:id', component: FindWorkExperienceByIdCandidateComponent}, //WORK EXPERIENCE -> Candidate WE
 
 /*Find by ID Candidate Res -> SKILLS*/
 {path: 'updateskillform/:id', component: UpdateskillformComponent}, //UPDATE -> Update Skill Form
 
 /*Find by ID Candidate Res -> JOB INTERVIEWS */
 {path: 'updatejobinterviewform/:id', component: UpdateJobInterviewFormComponent}, //UPDATE -> Update JOB INTERVIEW Form
+
+/*Find by ID Candidate Res -> EDUCATION*/
+{path: 'updateeducationform/:id', component: UpdateEducationFormComponent}, //UPDATE -> Update EDUCATION Form
+
+/*Find by ID Candidate Res -> WORK EXPERIENCE*/
+{path: 'updateworkexperience/:id', component: UpdateWorkExperienceFormComponent}, //UPDATE -> Update WORK EXPERIENCE Form
 
 /*Link 'globali'*/
 {path: 'updatesuccess', component: UpdatecomponentComponent}, //Update Success

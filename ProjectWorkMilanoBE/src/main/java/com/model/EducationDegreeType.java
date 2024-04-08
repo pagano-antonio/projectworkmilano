@@ -3,6 +3,8 @@ package com.model;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +30,7 @@ public class EducationDegreeType implements Serializable {
 	private String description;
 
 	// bi-directional many-to-one association to Education
+	@JsonIgnore
 	@OneToMany(mappedBy = "educationDegreeType")
 	private List<Education> educations;
 
