@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './homecomponent/home/home.component';
-import { FindComponent } from './findcomponent/find/find.component';
+import { FindComponent } from './findcomponent/findcandidatehub/find.component';
 import { FindbyidcandidateformComponent } from './candidate/findbyidcandidateform/findbyidcandidateform.component';
 import { ErrorComponent } from './errorcomponent/error/error.component';
 import { FindbyidcandidateresComponent } from './candidate/findbyidcandidateres/findbyidcandidateres.component';
@@ -17,6 +17,8 @@ import { FindEducationByIdCandidateComponent } from './education/find-education-
 import { UpdateEducationFormComponent } from './education/update-education-form/update-education-form.component';
 import { FindWorkExperienceByIdCandidateComponent } from './workexperience/find-work-experience-by-id-candidate/find-work-experience-by-id-candidate.component';
 import { UpdateWorkExperienceFormComponent } from './workexperience/update-work-experience-form/update-work-experience-form.component';
+import { FindbycityformComponent } from './candidate/findbycityform/findbycityform.component';
+import { FindcandidatebycityresComponent } from './candidate/findcandidatebycityres/findcandidatebycityres.component';
 
 export const routes: Routes = [
 
@@ -25,13 +27,13 @@ export const routes: Routes = [
 {path: 'findcandidate', component: FindComponent}, //Candidate -> Find
 {path: 'addcandidate', component: AddCandidateComponent}, //Candidate -> Add
 
-{path: 'allcandidates', component: AllCandidatesComponent}, //Restituisce la lista di TUTTI i candidati + il nuovo aggiunto
-
 /*Candidate -> Find*/
 {path: 'findbyidcandidateform', component: FindbyidcandidateformComponent}, //Find by ID Candidate Form
+{path: 'findcandidatebycityform', component: FindbycityformComponent}, //Find by CITY
 
 /*Candidate -> Find -> Res Pages*/
 {path: 'findbyidcandidateres/:id', component: FindbyidcandidateresComponent}, //Find by ID Candidate Res
+{path: 'findcandidatebycityres/:city', component: FindcandidatebycityresComponent}, //Find by CITY Res
 
 /*Find by ID Candidate Res*/
 {path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //UPDATE -> Update Candidate Form
@@ -51,6 +53,9 @@ export const routes: Routes = [
 
 /*Find by ID Candidate Res -> WORK EXPERIENCE*/
 {path: 'updateworkexperience/:id', component: UpdateWorkExperienceFormComponent}, //UPDATE -> Update WORK EXPERIENCE Form
+
+/*Candidate -> Add -> lista di TUTTI i candidati che esce dopo aver aggiunto quello nuovo */
+{path: 'allcandidates', component: AllCandidatesComponent},
 
 /*Link 'globali'*/
 {path: 'updatesuccess', component: UpdatecomponentComponent}, //Update Success

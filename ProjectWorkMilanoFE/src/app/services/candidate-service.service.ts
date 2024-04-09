@@ -48,7 +48,7 @@ export class CandidateService {
   }
 
   getCandidateByCity(city:String){
-    return this.hC.get<Candidate>('http://localhost:8080/Candidate/ricercaByCity/'+ city);
+    return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/ricercaByCity/'+ city);
   }
 
   getCandidateBySurname(surname:String){

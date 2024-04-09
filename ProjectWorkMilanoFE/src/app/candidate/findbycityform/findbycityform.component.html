@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>SEARCH CANDIDATE BY CITY</h1>
+    <form (ngSubmit)="findCandidateByCity()">
+
+        <label for="city"><strong>City:</strong></label> 
+        <input type="text"id="city" [(ngModel)]="city" [ngModelOptions]="{standalone:true}" placeholder="Insert the city"> 
+        <input type="submit" value="Find">
+    </form>
+</div>

@@ -12,7 +12,7 @@ body {
 
 .container {
   position: relative;
-  top: 70%;
+  top: 100%;
   font-family: Century Gothic;
   justify-content: center;      
   align-items: center;
