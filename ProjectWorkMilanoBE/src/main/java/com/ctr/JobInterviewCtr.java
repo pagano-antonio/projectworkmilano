@@ -46,6 +46,7 @@ public class JobInterviewCtr {
     public String addJobInterview(Model model, HttpServletRequest request, JobInterview jobInterview) {
             System.out.println("CI ENMTRIAMIO");
     	jobInterviewRep.save(jobInterview);
+    	System.out.println(jobInterview);
     	List<JobInterview> interviewList = jobInterviewRep.findAll();						
 			model.addAttribute("interviewList", interviewList);
         return "seeallJobInterview";

@@ -19,6 +19,8 @@ import { FindWorkExperienceByIdCandidateComponent } from './workexperience/find-
 import { UpdateWorkExperienceFormComponent } from './workexperience/update-work-experience-form/update-work-experience-form.component';
 import { FindbycityformComponent } from './candidate/findbycityform/findbycityform.component';
 import { FindcandidatebycityresComponent } from './candidate/findcandidatebycityres/findcandidatebycityres.component';
+import { AddJobInterviewComponent } from './jobInterview/add-job-interview/add-job-interview.component';
+import { AllJobInterviewsComponent } from './jobInterview/all-job-interviews/all-job-interviews.component';
 
 export const routes: Routes = [
 
@@ -47,6 +49,10 @@ export const routes: Routes = [
 
 /*Find by ID Candidate Res -> JOB INTERVIEWS */
 {path: 'updatejobinterviewform/:id', component: UpdateJobInterviewFormComponent}, //UPDATE -> Update JOB INTERVIEW Form
+{path: 'addjobinterview', component: AddJobInterviewComponent}, //ADD NEW JOB INTERVIEW -> Add JOB INTERVIEW Form
+
+/*Add New Job Interview -> lista di TUTTI i JOB INTERVIEW + quello nuovo*/
+{path: 'alljobinterviews', component: AllJobInterviewsComponent},
 
 /*Find by ID Candidate Res -> EDUCATION*/
 {path: 'updateeducationform/:id', component: UpdateEducationFormComponent}, //UPDATE -> Update EDUCATION Form

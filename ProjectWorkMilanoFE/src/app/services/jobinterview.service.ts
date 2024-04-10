@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JobInterview } from '../model/JobInterview';
-import { Candidate } from '../model/Candidate';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +24,10 @@ export class JobinterviewService {
 
   getJobInterviewByIdCandidate(idC:number){
     return this.hC.get<JobInterview[]>('http://localhost:8080/JobInterview/findJobInterviewByIdCandidate/' + idC);
+  }
+
+  getAllJobInterviews(){
+    return this.hC.get<JobInterview[]>('http://localhost:8080/JobInterview/findAllJobInterviews');
   }
 
   updateJobInterview(ji:JobInterview){

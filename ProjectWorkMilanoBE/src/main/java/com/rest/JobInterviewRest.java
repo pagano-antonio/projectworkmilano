@@ -80,4 +80,10 @@ public class JobInterviewRest {
 		List<JobInterview> jobInterviews = jobInterviewRep.findByCandidate(candidate);
 		return jobInterviews;
 	}
+	
+	//FIND ALL
+	@GetMapping("/findAllJobInterviews")
+	    public List<JobInterview> findAllJobInterviews() {
+	        return jobInterviewRep.findAll();
+	    }
 }

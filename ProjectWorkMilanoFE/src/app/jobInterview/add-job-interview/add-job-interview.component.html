@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>JOB INTERVIEW</h1>
+
+    <h2>Add Job Interview:</h2>
+
+
+    <form (ngSubmit)="addJobInterview()">
+
+        <br> 
+        <label for="idCandidate">Candidate:</label> 
+        <br> 
+        <select [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone: true}" id="idCandidate">
+            <!--<c:forEach var="candidate" items="${candidateList}"> Sostituisco il forEach con ngFor-->
+            <option *ngFor="let candidate of candidates" value="candidate.idCandidate">{{candidate.name}} {{candidate.surname}}</option>
+            <!--</c:forEach>-->
+        </select>
+        <br> 
+        <label for="date">Date:</label> 
+        <br> 
+        <input type="date" id="date" [(ngModel)]="jobinterview.date" [ngModelOptions]="{standalone: true}" required> 
+        <br> 
+        <label for="idStateJobInterview">Id State Job Interview:</label> 
+        <br>
+        <select [(ngModel)]="stateji.idStateJobInterview" [ngModelOptions]="{standalone: true}" id="stateJobInterview">
+            <!--<c:forEach var="ji" items="${Jilist}">-->
+            <option *ngFor="let stateji of statejis" [value] = "stateji.idStateJobInterview">{{stateji.title}}</option>
+            <!--</c:forEach>-->
+        </select> 
+        <br> 
+        <label for="outcome">Outcome:</label> 
+        <br> 
+        <input type="text" id="outcome" [(ngModel)]="jobinterview.outcome" [ngModelOptions]="{standalone: true}" required> 
+        <br>
+        <label for="notes">Notes:</label> 
+        <br> 
+        <input type="text" id="notes" [(ngModel)]="jobinterview.notes" [ngModelOptions]="{standalone: true}" required> 
+        <br> 
+        <label for="idEmployee">Id Employee:</label> 
+        <br> 
+        <select [(ngModel)]="employee.idEmployee" [ngModelOptions]="{standalone: true}" id="idEmployee">
+            <!--<c:forEach var="employee" items="${employeeList}">-->
+            <option *ngFor="let employee of employees" [value] ="employee.idEmployee">{{employee.name}} {{employee.surname}}</option>
+            <!--</c:forEach>-->
+        </select>
+        <br> 
+        <input type="submit" value="Add Job Interview">
+    </form>
+    <br>
+</div>

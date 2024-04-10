@@ -1,0 +1,56 @@
+<div class="container">
+
+    <h1>JOB INTERVIEW</h1>
+    <h2>This is all job interviews</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>JOB INTERVIEW ID</th>
+                <th>CANDIDATE</th>
+                <th>DATE</th>
+                <th>STATE JOB INTERVIEW</th>
+                <th>OUTCOME</th>
+                <th>NOTES</th>
+                <th>EMPLOYEE</th>
+                <th>DELETE</th>
+                <th>UPDATE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--<c:forEach var="jobInterview" items="${interviewList}">-->
+                <tr *ngFor="let jobInterview of jobinterviews">
+                    <!--<td><c:out value="${jobInterview.idJobInterview}" /></td>-->
+                    <td>{{jobInterview.idJobInterview}}</td>
+                    <td>{{jobInterview.candidate?.name}} {{jobInterview.candidate?.surname}}</td>
+                    <td>{{jobInterview.date}}</td>
+                    <td>{{jobInterview.stateJobInterview?.title}}</td>
+                    <td>{{jobInterview.outcome}}</td>
+                    <td>{{jobInterview.notes}}</td>
+                    <td>{{jobInterview.employee?.name}} {{jobInterview.employee?.surname}}</td>
+
+                    <td><form (ngSubmit)="deleteJobInterview(jobInterview.idJobInterview)">
+                            <input type="hidden" [(ngModel)]="jobInterview.idJobInterview" [ngModelOptions]="{standalone:true}"
+                                value="{{jobInterview.idJobInterview}}">
+                            <button type="submit">DELETE</button>
+                        </form>
+                    </td>
+
+                    <td><form (ngSubmit)="updateJobInterview(jobInterview.idJobInterview)">
+                            <input type="hidden" [(ngModel)]="jobInterview.idJobInterview" [ngModelOptions]="{standalone:true}"
+                                value="{{jobInterview.idJobInterview}}">
+                            <button type="submit">UPDATE</button>
+                        </form></td>
+                </tr>
+            <!--</c:forEach>-->
+        </tbody>
+
+    </table>
+
+    <div>
+        <h3>
+            <a
+                href="./addjobinterview">Add New Job Interview</a>
+        </h3>
+    </div>
+
+</div>
