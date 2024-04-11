@@ -9,41 +9,42 @@
 
         <label for="idJobInterview">Job Interview ID:</label>
         <br>
-        <input readonly type="number" id="idJobInterview" [(ngModel)] = "jobinterview.idJobInterview" [ngModelOptions]="{standalone: true}" value="{{jobinterview.idJobInterview}}">
+        <input readonly type="number" id="idJobInterview" [(ngModel)]="jobinterview.idJobInterview" [ngModelOptions]="{standalone: true}" value="{{jobinterview.idJobInterview}}">
         <br>
         <label for="idCandidate">Candidate:</label>
         <br>
-        <select [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone: true}" id="idCandidate">
+        <select [(ngModel)]="jobinterview.candidate.idCandidate" [ngModelOptions]="{standalone: true}" id="idCandidate">
             <!--<c:forEach var="candidate" items="${candidateList}"> Sostituisco il forEach con ngFor-->
-            <option *ngFor="let candidate of candidates" value="candidate.idCandidate">{{candidate.name}} {{candidate.surname}}</option>
+            <option value="" selected disabled>Seleziona</option>
+            <option *ngFor="let candidate of candidates" [value]="candidate.idCandidate">{{candidate.name}} {{candidate.surname}}</option>
             <!--</c:forEach>-->
         </select>		
         <br>					
         <label for="date">Date:</label>
         <br>
-        <input type="date" id="date" [(ngModel)]= "jobinterview.date" [ngModelOptions]="{standalone: true}" value="{{jobinterview.date}}">
+        <input type="date" id="date" [(ngModel)]="jobinterview.date" [ngModelOptions]="{standalone: true}" value="{{jobinterview.date}}">
         <br>
         <label for="idStateJobInterview">State Job Interview ID:</label>
         <br>
-        <select [(ngModel)]= "stateji.idStateJobInterview" [ngModelOptions]="{standalone: true}" id="stateJobInterview">
+        <select [(ngModel)]="jobinterview.stateJobInterview.idStateJobInterview" [ngModelOptions]="{standalone: true}" id="stateJobInterview">
             <!--<c:forEach var="ji" items="${Jilist}">-->
-            <option *ngFor= "let stateji of statejis" [value] = "stateji.idStateJobInterview">{{stateji.title}}</option>
+            <option *ngFor="let stateji of statejis" [value]="stateji.idStateJobInterview">{{stateji.title}}</option>
             <!--</c:forEach>-->
         </select>
         <br>			
         <label for="outcome">Outcome:</label>
         <br>
-        <input type="text" id="outcome" [(ngModel)] = "jobinterview.outcome" [ngModelOptions]="{standalone: true}" value = "{{jobinterview.outcome}}">
+        <input type="text" id="outcome" [(ngModel)]="jobinterview.outcome" [ngModelOptions]="{standalone: true}" value = "{{jobinterview.outcome}}">
         <br>	
         <label for="notes">Notes:</label>
         <br>
-        <input type="text" id="notes" [(ngModel)] = "jobinterview.notes" [ngModelOptions]="{standalone: true}" value = "{{jobinterview.notes}}">
+        <input type="text" id="notes" [(ngModel)]="jobinterview.notes" [ngModelOptions]="{standalone: true}" value = "{{jobinterview.notes}}">
         <br>
         <label for="idEmployee">Employee ID:</label>
         <br>
-        <select [(ngModel)] = "employee.idEmployee" [ngModelOptions]="{standalone: true}" id="idEmployee">
+        <select [(ngModel)]="jobinterview.employee.idEmployee" [ngModelOptions]="{standalone: true}" id="idEmployee">
             <!--<c:forEach var="employee" items="${employeeList}">-->
-            <option *ngFor = "let employee of employees" [value] ="employee.idEmployee">{{employee.name}} {{employee.surname}}</option>
+            <option *ngFor="let employee of employees" [value]="employee.idEmployee">{{employee.name}} {{employee.surname}}</option>
             <!--</c:forEach>-->
         </select>
         <br>		

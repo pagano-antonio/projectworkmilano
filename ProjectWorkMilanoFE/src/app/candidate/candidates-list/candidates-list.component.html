@@ -1,27 +1,6 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <h1>THIS IS THE UPDATE CANDIDATE LIST</h1> 
     <br>
     <h2>The candidate has been added!</h2> 
@@ -56,9 +35,9 @@
                     <button (click)="updateCandidate(candidate.idCandidate)">UPDATE</button>
                     <button (click)="deleteCandidate()">DELETE</button>
                     <button (click)="showCandidateSkills(candidate.idCandidate)">SKILLS</button>
-                    <button>JOB INTERVIEW</button>
-                    <button>EDUCATION</button>
-                    <button>WORK EXPERIENCE</button>
+                    <button (click)="showJobInterviews(candidate.idCandidate)">JOB INTERVIEW</button>
+                    <button (click)="showEducation(candidate.idCandidate)">EDUCATION</button>
+                    <button (click)="showWorkExperience(candidate.idCandidate)">WORK EXPERIENCE</button>
                 </td>
             </tr>
         </tbody>

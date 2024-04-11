@@ -1,3 +1,4 @@
+@media screen{
 body {
         font-family: Century Gothic;
         display: flex;
@@ -11,6 +12,8 @@ body {
     }
 
     .container {
+        position: relative;
+        top: 20%;
         font-family: Century Gothic;
         justify-content: center;      
         align-items: center;
@@ -23,7 +26,7 @@ body {
     
   H1 {
     position: absolute;
-    top: 15%;
+    top: -15%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: Century Gothic;
@@ -31,9 +34,10 @@ body {
     border-radius: 10px;
     z-index: 9999; 
 }
+
  H2 {
   position: absolute; 
-  top: 23%;
+  top: -10%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: Century Gothic;
@@ -53,4 +57,5 @@ th, td {
 
 th {
 	background-color: #f2f2f2;
+}
 }

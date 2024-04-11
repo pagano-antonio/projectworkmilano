@@ -11,6 +11,7 @@ import { Candidate } from '../../model/Candidate';
   styleUrls: ['./candidates-list.component.css']
 })
 export class AllCandidatesComponent implements OnInit {
+
   candidates: any[] = []; // Array di candidati
   candidate:Candidate = new Candidate;
 
@@ -43,14 +44,14 @@ export class AllCandidatesComponent implements OnInit {
   }
 
   showJobInterviews(id: number): void {
-    // Implementa la logica per mostrare gli incontri di lavoro del candidato con l'ID specificato
+    this.router.navigate(['/findjobinterviewbyidcandidate', id]);
   }
 
   showEducation(id: number): void {
-    // Implementa la logica per mostrare l'istruzione del candidato con l'ID specificato
+    this.router.navigate(['findeducationbyidcandidate', id]);
   }
 
   showWorkExperience(id: number): void {
-    // Implementa la logica per mostrare l'esperienza lavorativa del candidato con l'ID specificato
+    this.router.navigate(['findworkexperiencebyidcandidate', id]);
   }
 }

@@ -23,13 +23,13 @@ export class UpdateJobInterviewFormComponent {
   jobinterview:JobInterview = new JobInterview;
   jobinterviews:JobInterview[] = [];
 
-  candidate:Candidate = new Candidate;
+  candidate:Candidate = new Candidate();
   candidates:Candidate[] = [];
 
-  stateji:StateJobInterview = new StateJobInterview;
+  stateji:StateJobInterview = new StateJobInterview();
   statejis:StateJobInterview[] = [];
 
-  employee:Employee = new Employee;
+  employee:Employee = new Employee();
   employees:Employee[] = [];
 
   constructor(private route:ActivatedRoute, 
@@ -63,16 +63,22 @@ export class UpdateJobInterviewFormComponent {
         this.candidateSer.getAllCandidates().subscribe(
           (data: Candidate[]) => {
             this.candidates = data;
+            console.log(this.candidates);
+            this.jobinterview.candidate = this.candidates[0];
           }
         )
         this.sji.getAllStateJobInterview().subscribe(
           (data: StateJobInterview[]) => {
             this.statejis = data;
+            console.log(this.statejis);
+            this.jobinterview.stateJobInterview = this.statejis[0];
           }
         )
         this.employeeSer.getAllEmployees().subscribe(
           (data: Employee[]) => {
             this.employees = data;
+            console.log(this.employees);
+            this.jobinterview.employee = this.employees[0];
           }
         )
       } else {

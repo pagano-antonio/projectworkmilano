@@ -16,77 +16,88 @@ import { EmployeeService } from '../../services/employee.service';
   standalone: true,
   imports: [FormsModule, NgFor],
   templateUrl: './add-job-interview.component.html',
-  styleUrl: './add-job-interview.component.css'
+  styleUrls: ['./add-job-interview.component.css']
 })
 export class AddJobInterviewComponent {
 
-  //creo un oggetto di tipo JobInterview
-  jobinterview:JobInterview = new JobInterview;
+  //creo un oggetto di tipo JobInterview con annessa Lista
+  jobinterview: JobInterview = new JobInterview();
+  jobinterviews: JobInterview[] = [];
 
   //creo un oggetto che possa contenere gli attributi di JobInterview da inviare
-  jobInterviewDataToSend:any;
+  jobInterviewDataToSend: any;
 
   //creo un oggetto Candidate per il <select> e anche una lista
-  candidate:Candidate = new Candidate;
-  candidates:Candidate[] = [];
+  candidate: Candidate = new Candidate();
+  candidates: Candidate[] = [];
 
   //creo un oggetto StateJobInterview per lo stesso motivo di sopra
-  stateji:StateJobInterview = new StateJobInterview;
-  statejis:StateJobInterview[] = [];
+  stateji: StateJobInterview = new StateJobInterview();
+  statejis: StateJobInterview[] = [];
 
   //faccio lo stesso con Employee
-  employee:Employee = new Employee;
-  employees:Employee[] = [];
+  employee: Employee = new Employee();
+  employees: Employee[] = [];
 
   //definisco anche un costruttore per poter usare il Router e i Service
-  constructor(private router:Router, 
-    private jiSer:JobinterviewService, 
-    private candidateSer:CandidateService,
-    private stateJiSer:StatejobinterviewService,
-    private empService:EmployeeService){}
+  constructor(private router: Router, 
+    private jiSer: JobinterviewService, 
+    private candidateSer: CandidateService,
+    private stateJiSer: StatejobinterviewService,
+    private empService: EmployeeService) { }
 
-  //Devo dettare le condizioni d'esistenza del componente, perché devo richiamare i CANDIDATI
-  //lo STATE JOB INTERVIEW e gli EMPLOYEES
+  /*Devo dettare le condizioni d'esistenza del componente, perché devo richiamare i CANDIDATI
+  lo STATE JOB INTERVIEW e gli EMPLOYEES*/
   ngOnInit(){
-    this.candidateSer.getAllCandidates().subscribe( //richiamiamo anche la ricerca che restituisce TUTTI i candidati (per il menù a tendina)
+    /*<select> di Candidate: devo richiamare TUTTI i Candidate */
+    this.candidateSer.getAllCandidates().subscribe(
           (data:Candidate[]) => {
-            this.candidates = data;
+            this.candidates = data; //assegno i dati trovati alla lista (come con add.ModelAttribute)
+            this.jobinterview.candidate = this.candidates[0]; //specifico che la lista è = a jobinterview.candidate e imposto [0], il primo elemento, come punto di partenza. Questo mi serve per attivare il collegamento con le foreign keys!
           }
         )
-    
+
+    /*<select> di StateJobInterview. Il procedimento è lo stesso spiegato sopra */
     this.stateJiSer.getAllStateJobInterview().subscribe(
       (data:StateJobInterview[]) => {
         this.statejis = data;
+        this.jobinterview.stateJobInterview = this.statejis[0];
       }
     )
 
+    /*<select> di Employee. Stesso procedimento di sopra */
     this.empService.getAllEmployees().subscribe(
       (data:Employee[]) => {
         this.employees = data;
+        this.jobinterview.employee = this.employees[0];
       }
     )
   }
 
-  //definisco il metodo
-  addJobInterview(){
-
-    const idCandidate = this.jobinterview.candidate?.idCandidate ?? this.candidate.idCandidate;
-    const idStateJobInterview = this.jobinterview.stateJobInterview?.idStateJobInterview ?? this.stateji.idStateJobInterview;
-    const idEmployee = this.jobinterview.employee?.idEmployee ?? this.employee.idEmployee;
-    
+  //definisco il metodo:
+  addJobInterview() {
+    /*creo una "capsula" per definire chiaramente i nomi degli attributi che vanno inviati, 
+    altrimenti l'invio non funziona, perché qui in Angular gli attributi nelle classi hanno
+    "_" davanti. Questo è obbligatorio, ma in Java non è presente e rende i nomi degli
+    attributi differenti. Creare la capsula sotto mi aiuta a ovviare questo problema.*/
     this.jobInterviewDataToSend = {
-      idCandidate: this.candidate.idCandidate,
+      candidate: this.jobinterview.candidate,
       date: this.jobinterview.date,
-      idStateJobInterview: this.stateji.idStateJobInterview,
+      stateJobInterview: this.jobinterview.stateJobInterview,
       outcome: this.jobinterview.outcome,
       notes: this.jobinterview.notes,
-      idEmployee: this.employee.idEmployee
+      employee: this.jobinterview.employee
     };
-    console.log("Stai per aggiungere un nuovo JOB INTERVIEW");
-    this.jiSer.addJobInterview(this.jobInterviewDataToSend).subscribe(data => {
-      console.log("Hai aggiunto il JOB INTERVIEW di " + data);
-      this.router.navigate(['/alljobinterviews']);
-    })
-  }
 
-}
+    console.log(this.jobInterviewDataToSend); //controllo che jobInterviewDataToSend sia pieno
+
+    this.jiSer.addJobInterview(this.jobInterviewDataToSend).subscribe( //chiamo il metodo
+      (response) => {
+        console.log('Job Interview added successfully');
+        this.router.navigate(['alljobinterviews']);
+      },
+      (error) => {
+        console.log('Error adding Job Interview:', error);
+      }
+    )}
+  }

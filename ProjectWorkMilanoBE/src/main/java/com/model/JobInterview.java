@@ -1,7 +1,11 @@
 package com.model;
 
 import java.io.Serializable;
+
 import java.sql.Date;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -40,6 +44,7 @@ public class JobInterview implements Serializable {
 	// bi-directional many-to-one association to Candidate
 	@ManyToOne
 	@JoinColumn(name = "idCandidate")
+	//@Cascade({CascadeType.PERSIST, CascadeType.MERGE})
 	private Candidate candidate;
 
 	// bi-directional many-to-one association to Employee

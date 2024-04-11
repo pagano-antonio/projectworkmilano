@@ -33,6 +33,7 @@ public class JobInterviewRest {
 	public ResponseEntity<String> addJobInterview(@RequestBody JobInterview jobInterview) {
 
 		jobInterviewRep.save(jobInterview);
+		System.out.println("Hai aggiunto un JOB INTERVIEW per il candidato " + jobInterview.getCandidate().getName() + " " + jobInterview.getCandidate().getSurname());		
 		return ResponseEntity.ok("Save Success");
 
 	}

@@ -35,7 +35,7 @@ export class AllJobInterviewsComponent implements OnInit {
   }
 
   updateJobInterview(id:number) {
-    this.router.navigate(['/updatejobinterview', id]); // Reindirizza alla pagina di aggiornamento del candidato
+    this.router.navigate(['/updatejobinterviewform', id]); // Reindirizza alla pagina di aggiornamento del candidato
   }
 
   deleteJobInterview(id:number) {
@@ -44,21 +44,5 @@ export class AllJobInterviewsComponent implements OnInit {
     console.log("Hai elminato il seguente job interview:" + data);
     this.router.navigate(['/deleted', id]);
   })
-  }
-
-  showCandidateSkills(id: number): void {
-    this.router.navigate(['/findbycandidateskillres', id]); // Reindirizza alla pagina delle competenze del candidato
-  }
-
-  showJobInterviews(id: number): void {
-    // Implementa la logica per mostrare gli incontri di lavoro del candidato con l'ID specificato
-  }
-
-  showEducation(id: number): void {
-    // Implementa la logica per mostrare l'istruzione del candidato con l'ID specificato
-  }
-
-  showWorkExperience(id: number): void {
-    // Implementa la logica per mostrare l'esperienza lavorativa del candidato con l'ID specificato
   }
 }
