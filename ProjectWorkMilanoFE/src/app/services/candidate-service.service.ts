@@ -43,12 +43,17 @@ export class CandidateService {
   getAllCandidates(){
     return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findAllCandidates');
   }
+
   getCandidateById(id:number){
     return this.hC.get<Candidate>('http://localhost:8080/Candidate/findByIdCandidate/'+ id);
   }
 
   getCandidateByCity(city:String){
     return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/ricercaByCity/'+ city);
+  }
+
+  getCandidateByCompany(company:String){
+    return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findCandidateByCompany/' + company);
   }
 
   getCandidateBySurname(surname:String){

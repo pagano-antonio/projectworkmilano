@@ -21,6 +21,8 @@ import { FindbycityformComponent } from './candidate/findbycityform/findbycityfo
 import { FindcandidatebycityresComponent } from './candidate/findcandidatebycityres/findcandidatebycityres.component';
 import { AddJobInterviewComponent } from './jobInterview/add-job-interview/add-job-interview.component';
 import { AllJobInterviewsComponent } from './jobInterview/all-job-interviews/all-job-interviews.component';
+import { FindbycompanyformComponent } from './candidate/findbycompanyform/findbycompanyform.component';
+import { FindcandidatebycompanyresComponent } from './candidate/findcandidatebycompanyres/findcandidatebycompanyres.component';
 
 export const routes: Routes = [
 
@@ -32,10 +34,12 @@ export const routes: Routes = [
 /*Candidate -> Find*/
 {path: 'findbyidcandidateform', component: FindbyidcandidateformComponent}, //Find by ID Candidate Form
 {path: 'findcandidatebycityform', component: FindbycityformComponent}, //Find by CITY
+{path: 'findcandidatebycompanyform', component: FindbycompanyformComponent}, //Find by COMPANY
 
 /*Candidate -> Find -> Res Pages*/
 {path: 'findbyidcandidateres/:id', component: FindbyidcandidateresComponent}, //Find by ID Candidate Res
 {path: 'findcandidatebycityres/:city', component: FindcandidatebycityresComponent}, //Find by CITY Res
+{path: 'findcandidatebycompanyres/:company', component: FindcandidatebycompanyresComponent}, //Find by COMPANY Res
 
 /*Find by ID Candidate Res*/
 {path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //UPDATE -> Update Candidate Form

@@ -135,4 +135,12 @@ public class CandidateRest {
     public List<Candidate> findAllCandidates() {
         return candidateRep.findAll();
     }
+	
+	//READ BY COMPANY
+	@GetMapping("findCandidateByCompany/{company}")
+	public List<Candidate> findCandidateByCompany(@PathVariable(value="company") String company){
+		
+		return candidateRep.findByWorkExperiences_Company(company);
+		//localhost:8080/Candidate/findCandidateByCompany/Accenture
+	}
 }

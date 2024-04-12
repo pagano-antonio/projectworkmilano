@@ -1,0 +1,72 @@
+<div class="container">
+
+    <h1>CANDIDATE</h1>
+    <h2>Candidates' COMPANY: results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id Candidate</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Birthday</th>
+                <th>BirthPlace</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--<c:forEach var="candidate" items="${candidateLista}">-->
+                <tr *ngFor="let candidate of candidates">
+                    <td>{{candidate.idCandidate}}</td>
+                    <td>{{candidate.name}}</td>
+                    <td>{{candidate.surname}}</td>
+                    <td>{{candidate.birthday}}</td>
+                    <td>{{candidate.birthPlace}}</td>
+                    <td>{{candidate.address}}</td>
+                    <td>{{candidate.city}}</td>
+                    <td>{{candidate.email}}</td>
+                    <td>{{candidate.phone}}</td>
+                    <td>
+                        <form (ngSubmit)="goToUpdateCandidate(candidate.idCandidate)">
+                            <input type="hidden" [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone:true}"
+                                value="{{candidate.idCandidate}}">
+                            <button type="submit">UPDATE</button>
+                        </form>
+
+                        <form (ngSubmit)="deleteCandidate(candidate.idCandidate)">
+                            <input type="hidden" [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone:true}"
+                                value="{{candidate.idCandidate}}">
+                            <button type="submit">DELETE</button>
+                        </form>
+
+                        <form (ngSubmit)="showCandidateSkills(candidate.idCandidate)">
+                            <input type="hidden" [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone:true}"
+                                value="{{candidate.idCandidate}}">
+                            <button type="submit">SKILLS</button>
+                        </form>
+
+                        <form (ngSubmit)="showCandidateJobInterviews(candidate.idCandidate)">
+                            <input type="hidden" [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone:true}"
+                                value="{{candidate.idCandidate}}">
+                            <button type="submit">JOB INTERVIEW</button>
+                        </form>
+
+                        <form (ngSubmit)="showCandidateEducation(candidate.idCandidate)">
+                            <input type="hidden" [(ngModel)]="candidate.idCandidate" [ngModelOptions]="{standalone:true}"
+                                value="{{candidate.idCandidate}}">
+                            <button type="submit">EDUCATION</button>
+                        </form>
+
+                        <form (ngSubmit)="showCandidateWorkExperience(candidate.idCandidate)">
+                            <input type="hidden" [(ngModel)]="candidate.idCandidate"
+                                value="{{candidate.idCandidate}}">
+                            <button type="submit">WORK EXPERIENCE</button>
+                        </form>
+                    </td>
+                </tr>
+            <!--</c:forEach>-->
+        </tbody>
+    </table>
+</div>
