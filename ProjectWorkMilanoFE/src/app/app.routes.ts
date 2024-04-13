@@ -23,6 +23,10 @@ import { AddJobInterviewComponent } from './jobInterview/add-job-interview/add-j
 import { AllJobInterviewsComponent } from './jobInterview/all-job-interviews/all-job-interviews.component';
 import { FindbycompanyformComponent } from './candidate/findbycompanyform/findbycompanyform.component';
 import { FindcandidatebycompanyresComponent } from './candidate/findcandidatebycompanyres/findcandidatebycompanyres.component';
+import { FindCandidateByStateJobInterviewFormComponent } from './candidate/find-candidate-by-state-job-interview-form/find-candidate-by-state-job-interview-form.component';
+import { FindCandidateByStateJobInterviewResComponent } from './candidate/find-candidate-by-state-job-interview-res/find-candidate-by-state-job-interview-res.component';
+import { FindCandidateByOutcomeComponent } from './candidate/find-candidate-by-outcome/find-candidate-by-outcome.component';
+import { FindCandidateByOutcomeResComponent } from './candidate/find-candidate-by-outcome-res/find-candidate-by-outcome-res.component';
 
 export const routes: Routes = [
 
@@ -35,11 +39,15 @@ export const routes: Routes = [
 {path: 'findbyidcandidateform', component: FindbyidcandidateformComponent}, //Find by ID Candidate Form
 {path: 'findcandidatebycityform', component: FindbycityformComponent}, //Find by CITY
 {path: 'findcandidatebycompanyform', component: FindbycompanyformComponent}, //Find by COMPANY
+{path: 'findcandidatebystatejobinterviewform', component: FindCandidateByStateJobInterviewFormComponent}, //Find by STATE JOB INTERVIEW
+{path: 'findcandidatebyoutcomeform', component: FindCandidateByOutcomeComponent}, //Find by OUTCOME
 
 /*Candidate -> Find -> Res Pages*/
 {path: 'findbyidcandidateres/:id', component: FindbyidcandidateresComponent}, //Find by ID Candidate Res
 {path: 'findcandidatebycityres/:city', component: FindcandidatebycityresComponent}, //Find by CITY Res
 {path: 'findcandidatebycompanyres/:company', component: FindcandidatebycompanyresComponent}, //Find by COMPANY Res
+{path: 'findcandidatebystatejobinterviewres/:id', component: FindCandidateByStateJobInterviewResComponent}, //Find by STATE JOB INTERVIEW Res
+{path: 'findcandidatebyoutcomeres/:outcome', component: FindCandidateByOutcomeResComponent}, //Find by OUTCOME Res
 
 /*Find by ID Candidate Res*/
 {path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //UPDATE -> Update Candidate Form

@@ -56,6 +56,14 @@ export class CandidateService {
     return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findCandidateByCompany/' + company);
   }
 
+  getCandidateByStateJobInterview(id:number){
+    return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findCandidateByStateJobInterview/' + id);
+  }
+
+  getCandidateByOutcome(outcome:number){
+    return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findCandidateByOutcome/' + outcome);
+  }
+
   getCandidateBySurname(surname:String){
     return this.hC.get<Candidate>('http://localhost:8080/Candidate/findCandidateBySurname/' + surname);
   }

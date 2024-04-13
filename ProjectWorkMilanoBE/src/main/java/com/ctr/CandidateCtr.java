@@ -229,7 +229,7 @@ public class CandidateCtr {
     }
     	
     	
-    	/////////// RICERCA CANDIDATE PER JOB INTERVIEW //////////////
+    	/////////// RICERCA CANDIDATE PER STATE JOB INTERVIEW //////////////
     	
     	@GetMapping ("/preRicercaCandidatoPerStateJobInterview")
     	public String preRicercaCandidatoPerStateJobInterview(Model model) {

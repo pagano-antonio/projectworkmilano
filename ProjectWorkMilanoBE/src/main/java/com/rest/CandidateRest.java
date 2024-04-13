@@ -143,4 +143,20 @@ public class CandidateRest {
 		return candidateRep.findByWorkExperiences_Company(company);
 		//localhost:8080/Candidate/findCandidateByCompany/Accenture
 	}
+	
+	//READ BY STATE JOB INTERVIEW
+	@GetMapping("findCandidateByStateJobInterview/{idStateJobInterview}")
+	public List<Candidate> findCandidateByStateJobInterview(@PathVariable(value="idStateJobInterview") int idStateJobInterview){
+		
+		return candidateRep.findByJobInterview_StateJobInterview_idStateJobInterview(idStateJobInterview);
+		//localhost:8080/Candidate/findCandidateByStateJobInterview/1
+	}
+	
+	//READ BY OUTCOME
+	@GetMapping("findCandidateByOutcome/{outcome}")
+	public List<Candidate> findCandidateByOutcome(@PathVariable(value="outcome") int outcome){
+		
+		return candidateRep.findByJobInterview_outcome(outcome);
+		//localhost:8080/Candidate/findCandidateByOutcome/28
+	}
 }
