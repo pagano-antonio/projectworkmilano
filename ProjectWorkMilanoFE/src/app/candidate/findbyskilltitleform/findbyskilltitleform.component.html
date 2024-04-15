@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>FIND CANDIDATE by SKILL</h1>
+    <h2>Insert data here</h2>
+
+    <form (ngSubmit)="searchCandidateBySkill()">
+
+        <label for="title"><strong>Title:</strong></label> 
+        <input type="text" id="title" [(ngModel)]="title" [ngModelOptions]="{standalone:true}"> 
+        <br> 
+        <input type="submit" value="Search">
+    </form>
+</div>

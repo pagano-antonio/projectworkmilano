@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>CANDIDATE</h1>
+    <h2>Find Candidate by Phone:</h2>
+
+    <form (ngSubmit)="searchCandidateByPhone()">
+        <label for="phone">Insert Phone Number:</label> 
+        <br> 
+        <input type="number" id="phone" [(ngModel)]="phone" [ngModelOptions]="{standalone:true}"> 
+        <br> 
+        <input type="submit" value="Search Candidate">
+    </form>
+</div>

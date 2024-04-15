@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Find Candidate By Education Degree Type:</h1>
+    <h2>Insert data here</h2>
+
+    <form (ngSubmit)="searchCandidateByEDT()">
+        <label for="idEducationDegreeType">Choose an Education Degree Type:</label> 
+        <br> 
+        <select [(ngModel)]="edty" [ngModelOptions]="{standalone:true}" id="idEducationDegreeType">
+            <option *ngFor="let edt of edts" [ngValue]="edt.idEducationDegreeType">{{edt.description}}</option>
+        </select> 
+        <br> 
+        <input type="submit" value="Search Candidate">
+    </form>
+
+</div>

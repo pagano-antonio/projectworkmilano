@@ -113,7 +113,7 @@
  </div> 
  <div class="container">
  <h3>SEARCH CANDIDATE BY SKILL</h3>
- <a class="custom-link" href="${pageContext.request.contextPath}/candidate/preFindCandidateByPhoneForm"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
+ <a class="custom-link" href="${pageContext.request.contextPath}/candidate/findCandidateBySkillForm"style="text-decoration: none; color: inherit"><button>GO TO FORM</button></a>
    <hr style="border-color: #000000">         
  </div> 
   <div class="container">

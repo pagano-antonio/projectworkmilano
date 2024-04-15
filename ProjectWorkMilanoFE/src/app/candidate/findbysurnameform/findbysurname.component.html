@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>CANDIDATE</h1>
+    <h2>Find Candidate by Surname:</h2>
+
+    <form (ngSubmit)="searchCandidateBySurname()">
+        <label for="surname"><strong>Insert Surname:</strong></label> 
+        <br>
+        <input type="text" id="surname" [(ngModel)]="surname" [ngModelOptions]="{standalone:true}"> 
+        <br> 
+        <input type="submit" value="Search Candidate">
+    </form>
+
+</div>

@@ -65,18 +65,18 @@ export class CandidateService {
   }
 
   getCandidateBySurname(surname:String){
-    return this.hC.get<Candidate>('http://localhost:8080/Candidate/findCandidateBySurname/' + surname);
+    return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findCandidateBySurname/' + surname);
   }
 
   getCandidateByPhone(phone:BigInt){
-    return this.hC.get<Candidate>('http://localhost:8080/Candidate/findCandidateByPhone/'+ phone);
+    return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findCandidateByPhone/'+ phone);
   }
 
   getCandidateByIdEdType(idedtype:number){
-    return this.hC.get<Candidate>('http://localhost:8080/Candidate/findCandidateByIdEducationDegreeType/' + idedtype);
+    return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findCandidateByIdEducationDegreeType/' + idedtype);
   }
 
   getCandidateBySkills(title:String){
-    return this.hC.get<Candidate>('http://localhost:8080/Candidate/findCandidateBySkill/'+ title);
-  } //metodo completamente inutile :)
+    return this.hC.get<Candidate[]>('http://localhost:8080/Candidate/findCandidateBySkill/'+ title);
+  }
 }

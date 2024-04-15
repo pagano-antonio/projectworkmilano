@@ -27,6 +27,14 @@ import { FindCandidateByStateJobInterviewFormComponent } from './candidate/find-
 import { FindCandidateByStateJobInterviewResComponent } from './candidate/find-candidate-by-state-job-interview-res/find-candidate-by-state-job-interview-res.component';
 import { FindCandidateByOutcomeComponent } from './candidate/find-candidate-by-outcome/find-candidate-by-outcome.component';
 import { FindCandidateByOutcomeResComponent } from './candidate/find-candidate-by-outcome-res/find-candidate-by-outcome-res.component';
+import { FindbysurnameComponent } from './candidate/findbysurnameform/findbysurname.component';
+import { FindbysurnameresComponent } from './candidate/findbysurnameres/findbysurnameres.component';
+import { FindbyphoneformComponent } from './candidate/findbyphoneform/findbyphoneform.component';
+import { FindbyphoneresComponent } from './candidate/findbyphoneres/findbyphoneres.component';
+import { FindbyskilltitleformComponent } from './candidate/findbyskilltitleform/findbyskilltitleform.component';
+import { FindbyskilltitleresComponent } from './candidate/findbyskilltitleres/findbyskilltitleres.component';
+import { FindbyedtformComponent } from './candidate/findbyedtform/findbyedtform.component';
+import { FindbyedtresComponent } from './candidate/findbyedtres/findbyedtres.component';
 
 export const routes: Routes = [
 
@@ -41,6 +49,10 @@ export const routes: Routes = [
 {path: 'findcandidatebycompanyform', component: FindbycompanyformComponent}, //Find by COMPANY
 {path: 'findcandidatebystatejobinterviewform', component: FindCandidateByStateJobInterviewFormComponent}, //Find by STATE JOB INTERVIEW
 {path: 'findcandidatebyoutcomeform', component: FindCandidateByOutcomeComponent}, //Find by OUTCOME
+{path: 'findcandidatebysurnameform', component: FindbysurnameComponent}, //Find by SURNAME
+{path: 'findcandidatebyphoneform', component: FindbyphoneformComponent}, //Find by PHONE
+{path: 'findcandidatebyskillform', component: FindbyskilltitleformComponent}, //Find by SKILL
+{path: 'findcandidatebyedtform', component: FindbyedtformComponent}, //Find by EDT form
 
 /*Candidate -> Find -> Res Pages*/
 {path: 'findbyidcandidateres/:id', component: FindbyidcandidateresComponent}, //Find by ID Candidate Res
@@ -48,6 +60,10 @@ export const routes: Routes = [
 {path: 'findcandidatebycompanyres/:company', component: FindcandidatebycompanyresComponent}, //Find by COMPANY Res
 {path: 'findcandidatebystatejobinterviewres/:id', component: FindCandidateByStateJobInterviewResComponent}, //Find by STATE JOB INTERVIEW Res
 {path: 'findcandidatebyoutcomeres/:outcome', component: FindCandidateByOutcomeResComponent}, //Find by OUTCOME Res
+{path: 'findcandidatebysurnameres/:surname', component: FindbysurnameresComponent}, //Find by SURNAME Res
+{path: 'findcandidatebyphoneres/:phone', component: FindbyphoneresComponent}, //Find by PHONE Res
+{path: 'findcandidatebyskillres/:title', component: FindbyskilltitleresComponent}, //Find by SKILL Res
+{path: 'findcandidatebyedtres/:idedtype', component: FindbyedtresComponent}, //Find by EDT Res
 
 /*Find by ID Candidate Res*/
 {path: 'updatecandidate/:id', component: UpdatecandidateformComponent}, //UPDATE -> Update Candidate Form

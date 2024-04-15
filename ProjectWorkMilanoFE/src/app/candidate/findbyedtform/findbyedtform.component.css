@@ -1,12 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Find Candidate by Surname</title>
-<%@ include file="header.jsp"%>
-<style>
 body {
 	font-family: Century Gothic;
 	display: flex;
@@ -20,6 +11,8 @@ body {
 }
 
 .container {
+    position: relative;
+    top: 300%;
 	font-family: Century Gothic;
 	justify-content: center;
 	align-items: center;
@@ -32,7 +25,7 @@ body {
 
 H1 {
 	position: absolute;
-	top: 15%;
+	top: -190%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	font-family: Century Gothic;
@@ -43,7 +36,7 @@ H1 {
 
 H2 {
 	position: absolute;
-	top: 20%;
+	top: 120%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	font-family: Century Gothic;
@@ -75,20 +68,3 @@ input[type="number"] {
 br {
 	margin-bottom: 10px; /* Spazio sotto il break */
 }
-</style>
-</head>
-<body>
-	<div class="container">
-		<h1>CANDIDATE</h1>
-		<h2>Find Candidate by Surname:</h2>
-
-		<form
-			action="${pageContext.request.contextPath}/candidate/findCandidateBySurname">
-			<label for="surname"><strong>Insert Surname:</strong></label> <br>
-			<input type="text" id="surname" name="surname"> <br> <input
-				type="submit" value="Find Candidate">
-		</form>
-
-	</div>
-</body>
-</html>
